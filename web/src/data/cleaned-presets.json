@@ -1,0 +1,1658 @@
+{
+  "series": [
+    {
+      "name": "Adventure Time",
+      "slug": "adventure-time"
+    },
+    {
+      "name": "Animal Crossing",
+      "slug": "animal-crossing"
+    },
+    {
+      "name": "Attack on Titan",
+      "slug": "attack-on-titan"
+    },
+    {
+      "name": "Ben 10",
+      "slug": "ben-10"
+    },
+    {
+      "name": "Bleach",
+      "slug": "bleach"
+    },
+    {
+      "name": "Chainsaw Man",
+      "slug": "chainsaw-man"
+    },
+    {
+      "name": "Cyberpunk: Edgerunners",
+      "slug": "cyberpunk-edgerunners"
+    },
+    {
+      "name": "Danny Phantom",
+      "slug": "danny-phantom"
+    },
+    {
+      "name": "DC Comics",
+      "slug": "dc-comics"
+    },
+    {
+      "name": "Deltarune",
+      "slug": "deltarune"
+    },
+    {
+      "name": "Demon Slayer",
+      "slug": "demon-slayer"
+    },
+    {
+      "name": "Dexter's Laboratory",
+      "slug": "dexters-laboratory"
+    },
+    {
+      "name": "Dino Crisis",
+      "slug": "dino-crisis"
+    },
+    {
+      "name": "Disney",
+      "slug": "disney"
+    },
+    {
+      "name": "Dragon Ball",
+      "slug": "dragon-ball"
+    },
+    {
+      "name": "Dragon Maid",
+      "slug": "dragon-maid"
+    },
+    {
+      "name": "Elden Ring",
+      "slug": "elden-ring"
+    },
+    {
+      "name": "Evangelion",
+      "slug": "evangelion"
+    },
+    {
+      "name": "Fairy Tail",
+      "slug": "fairy-tail"
+    },
+    {
+      "name": "Final Fantasy",
+      "slug": "final-fantasy"
+    },
+    {
+      "name": "Fire Force",
+      "slug": "fire-force"
+    },
+    {
+      "name": "Five Nights at Freddy's",
+      "slug": "five-nights-at-freddys"
+    },
+    {
+      "name": "Foster's Home for Imaginary Friends",
+      "slug": "fosters-home"
+    },
+    {
+      "name": "Friday Night Funkin'",
+      "slug": "friday-night-funkin"
+    },
+    {
+      "name": "Frieren",
+      "slug": "frieren"
+    },
+    {
+      "name": "Genshin Impact",
+      "slug": "genshin-impact"
+    },
+    {
+      "name": "Gravity Falls",
+      "slug": "gravity-falls"
+    },
+    {
+      "name": "Guilty Gear",
+      "slug": "guilty-gear"
+    },
+    {
+      "name": "Highschool DxD",
+      "slug": "highschool-dxd"
+    },
+    {
+      "name": "Jujutsu Kaisen",
+      "slug": "jujutsu-kaisen"
+    },
+    {
+      "name": "Kill la Kill",
+      "slug": "kill-la-kill"
+    },
+    {
+      "name": "Konosuba",
+      "slug": "konosuba"
+    },
+    {
+      "name": "Mario",
+      "slug": "mario"
+    },
+    {
+      "name": "Marvel",
+      "slug": "marvel"
+    },
+    {
+      "name": "Marvel Rivals",
+      "slug": "marvel-rivals"
+    },
+    {
+      "name": "Monster Hunter",
+      "slug": "monster-hunter"
+    },
+    {
+      "name": "Monster Musume",
+      "slug": "monster-musume"
+    },
+    {
+      "name": "Mouthwashing",
+      "slug": "mouthwashing"
+    },
+    {
+      "name": "My Hero Academia",
+      "slug": "my-hero-academia"
+    },
+    {
+      "name": "My Life as a Teenage Robot",
+      "slug": "my-life-as-a-teenage-robot"
+    },
+    {
+      "name": "My Little Pony",
+      "slug": "my-little-pony"
+    },
+    {
+      "name": "Nagatoro",
+      "slug": "nagatoro"
+    },
+    {
+      "name": "Naruto",
+      "slug": "naruto"
+    },
+    {
+      "name": "NieR: Automata",
+      "slug": "nier-automata"
+    },
+    {
+      "name": "Nikke",
+      "slug": "nikke"
+    },
+    {
+      "name": "One Piece",
+      "slug": "one-piece"
+    },
+    {
+      "name": "One Punch Man",
+      "slug": "one-punch-man"
+    },
+    {
+      "name": "Overwatch",
+      "slug": "overwatch"
+    },
+    {
+      "name": "Parasite Eve",
+      "slug": "parasite-eve"
+    },
+    {
+      "name": "Persona",
+      "slug": "persona"
+    },
+    {
+      "name": "Pokémon",
+      "slug": "pokemon"
+    },
+    {
+      "name": "Powerpuff Girls",
+      "slug": "powerpuff-girls"
+    },
+    {
+      "name": "Re:Zero",
+      "slug": "rezero"
+    },
+    {
+      "name": "Resident Evil",
+      "slug": "resident-evil"
+    },
+    {
+      "name": "Sailor Moon",
+      "slug": "sailor-moon"
+    },
+    {
+      "name": "SCP Foundation",
+      "slug": "scp-foundation"
+    },
+    {
+      "name": "Scott Pilgrim",
+      "slug": "scott-pilgrim"
+    },
+    {
+      "name": "Scooby-Doo",
+      "slug": "scooby-doo"
+    },
+    {
+      "name": "Sekirei",
+      "slug": "sekirei"
+    },
+    {
+      "name": "Silent Hill",
+      "slug": "silent-hill"
+    },
+    {
+      "name": "Skyrim",
+      "slug": "skyrim"
+    },
+    {
+      "name": "Sonic the Hedgehog",
+      "slug": "sonic"
+    },
+    {
+      "name": "Space Jam",
+      "slug": "space-jam"
+    },
+    {
+      "name": "Steven Universe",
+      "slug": "steven-universe"
+    },
+    {
+      "name": "Street Fighter",
+      "slug": "street-fighter"
+    },
+    {
+      "name": "Teen Titans",
+      "slug": "teen-titans"
+    },
+    {
+      "name": "That Time I Got Reincarnated as a Slime",
+      "slug": "slime"
+    },
+    {
+      "name": "The Addams Family",
+      "slug": "addams-family"
+    },
+    {
+      "name": "The Hunchback of Notre Dame",
+      "slug": "hunchback-of-notre-dame"
+    },
+    {
+      "name": "The Legend of Zelda",
+      "slug": "zelda"
+    },
+    {
+      "name": "The Ring",
+      "slug": "the-ring"
+    },
+    {
+      "name": "The Road to El Dorado",
+      "slug": "road-to-el-dorado"
+    },
+    {
+      "name": "Tomb Raider",
+      "slug": "tomb-raider"
+    },
+    {
+      "name": "Total Drama",
+      "slug": "total-drama"
+    },
+    {
+      "name": "Totally Spies",
+      "slug": "totally-spies"
+    },
+    {
+      "name": "Undertale",
+      "slug": "undertale"
+    },
+    {
+      "name": "Vocaloid",
+      "slug": "vocaloid"
+    },
+    {
+      "name": "World of Warcraft",
+      "slug": "world-of-warcraft"
+    },
+    {
+      "name": "Zenless Zone Zero",
+      "slug": "zenless-zone-zero"
+    },
+    {
+      "name": "Zootopia",
+      "slug": "zootopia"
+    }
+  ],
+  "characters": [
+    {
+      "name": "2B",
+      "series": "NieR: Automata"
+    },
+    {
+      "name": "Ada Wong",
+      "series": "Resident Evil"
+    },
+    {
+      "name": "Aerith Gainsborough",
+      "series": "Final Fantasy"
+    },
+    {
+      "name": "Aigis",
+      "series": "Persona"
+    },
+    {
+      "name": "Alcina Dimitrescu",
+      "series": "Resident Evil"
+    },
+    {
+      "name": "Alex",
+      "series": "Totally Spies"
+    },
+    {
+      "name": "Alexstrasza",
+      "series": "World of Warcraft"
+    },
+    {
+      "name": "Alice",
+      "series": "Nikke"
+    },
+    {
+      "name": "Alma",
+      "series": "Monster Hunter"
+    },
+    {
+      "name": "Alphys",
+      "series": "Undertale"
+    },
+    {
+      "name": "Amethyst",
+      "series": "Steven Universe"
+    },
+    {
+      "name": "Amy Rose",
+      "series": "Sonic the Hedgehog"
+    },
+    {
+      "name": "Android 18",
+      "series": "Dragon Ball"
+    },
+    {
+      "name": "Anis",
+      "series": "Nikke"
+    },
+    {
+      "name": "Ankha",
+      "series": "Animal Crossing"
+    },
+    {
+      "name": "Annie Leonhart",
+      "series": "Attack on Titan"
+    },
+    {
+      "name": "Anya",
+      "series": "Mouthwashing"
+    },
+    {
+      "name": "Applejack",
+      "series": "My Little Pony"
+    },
+    {
+      "name": "Aqua",
+      "series": "Konosuba"
+    },
+    {
+      "name": "Argonian",
+      "series": "Skyrim"
+    },
+    {
+      "name": "Asama Miya",
+      "series": "Sekirei"
+    },
+    {
+      "name": "Ashe",
+      "series": "Overwatch"
+    },
+    {
+      "name": "Ashley Graham",
+      "series": "Resident Evil"
+    },
+    {
+      "name": "Astra Yao",
+      "series": "Zenless Zone Zero"
+    },
+    {
+      "name": "Asui Tsuyu",
+      "series": "My Hero Academia"
+    },
+    {
+      "name": "Aya Brea",
+      "series": "Parasite Eve"
+    },
+    {
+      "name": "Ayanami Rei",
+      "series": "Evangelion"
+    },
+    {
+      "name": "Ayase Momo",
+      "series": "Dandadan"
+    },
+    {
+      "name": "Baiken",
+      "series": "Guilty Gear"
+    },
+    {
+      "name": "Bakugou Mitsuki",
+      "series": "My Hero Academia"
+    },
+    {
+      "name": "Beatrice",
+      "series": "Re:Zero"
+    },
+    {
+      "name": "Black Widow",
+      "series": "Marvel Rivals"
+    },
+    {
+      "name": "Blaze the Cat",
+      "series": "Sonic the Hedgehog"
+    },
+    {
+      "name": "Blossom",
+      "series": "Powerpuff Girls"
+    },
+    {
+      "name": "Blue Diamond",
+      "series": "Steven Universe"
+    },
+    {
+      "name": "Boa Hancock",
+      "series": "One Piece"
+    },
+    {
+      "name": "Bonnie",
+      "series": "Five Nights at Freddy's"
+    },
+    {
+      "name": "Boosette",
+      "series": "Mario"
+    },
+    {
+      "name": "Bowsette",
+      "series": "Mario"
+    },
+    {
+      "name": "Bra",
+      "series": "Dragon Ball"
+    },
+    {
+      "name": "Bridget",
+      "series": "Guilty Gear"
+    },
+    {
+      "name": "Brigitte",
+      "series": "Overwatch"
+    },
+    {
+      "name": "Bubbles",
+      "series": "Powerpuff Girls"
+    },
+    {
+      "name": "Bulma",
+      "series": "Dragon Ball"
+    },
+    {
+      "name": "Burnice White",
+      "series": "Zenless Zone Zero"
+    },
+    {
+      "name": "Buttercup",
+      "series": "Powerpuff Girls"
+    },
+    {
+      "name": "Cammy White",
+      "series": "Street Fighter"
+    },
+    {
+      "name": "Catty",
+      "series": "Undertale"
+    },
+    {
+      "name": "Caulifla",
+      "series": "Dragon Ball"
+    },
+    {
+      "name": "Centi",
+      "series": "Nikke"
+    },
+    {
+      "name": "Centorea Shianus",
+      "series": "Monster Musume"
+    },
+    {
+      "name": "Chara",
+      "series": "Undertale"
+    },
+    {
+      "name": "Chel",
+      "series": "The Road to El Dorado"
+    },
+    {
+      "name": "Chichi",
+      "series": "Dragon Ball"
+    },
+    {
+      "name": "Chun-Li",
+      "series": "Street Fighter"
+    },
+    {
+      "name": "Claire Redfield",
+      "series": "Resident Evil"
+    },
+    {
+      "name": "Clover",
+      "series": "Totally Spies"
+    },
+    {
+      "name": "Cream the Rabbit",
+      "series": "Sonic the Hedgehog"
+    },
+    {
+      "name": "Crusch Karsten",
+      "series": "Re:Zero"
+    },
+    {
+      "name": "Cynthia",
+      "series": "Pokémon"
+    },
+    {
+      "name": "D.Va",
+      "series": "Overwatch"
+    },
+    {
+      "name": "Dagger",
+      "series": "Marvel Rivals"
+    },
+    {
+      "name": "Daki",
+      "series": "Demon Slayer"
+    },
+    {
+      "name": "Daphne Blake",
+      "series": "Scooby-Doo"
+    },
+    {
+      "name": "Darkness",
+      "series": "Konosuba"
+    },
+    {
+      "name": "Dawn",
+      "series": "Pokémon"
+    },
+    {
+      "name": "Delia Ketchum",
+      "series": "Pokémon"
+    },
+    {
+      "name": "Dexter's Mom",
+      "series": "Dexter's Laboratory"
+    },
+    {
+      "name": "Diesel",
+      "series": "Nikke"
+    },
+    {
+      "name": "Dizzy",
+      "series": "Guilty Gear"
+    },
+    {
+      "name": "Echidna",
+      "series": "Re:Zero"
+    },
+    {
+      "name": "Ellen Joe",
+      "series": "Zenless Zone Zero"
+    },
+    {
+      "name": "Elsa Granhilte",
+      "series": "Re:Zero"
+    },
+    {
+      "name": "Emilia",
+      "series": "Re:Zero"
+    },
+    {
+      "name": "Emma Frost",
+      "series": "Marvel Rivals"
+    },
+    {
+      "name": "Erza Scarlet",
+      "series": "Fairy Tail"
+    },
+    {
+      "name": "Esmeralda",
+      "series": "The Hunchback of Notre Dame"
+    },
+    {
+      "name": "Eula",
+      "series": "Genshin Impact"
+    },
+    {
+      "name": "Evelynn Chevalier",
+      "series": "Zenless Zone Zero"
+    },
+    {
+      "name": "Exia",
+      "series": "Nikke"
+    },
+    {
+      "name": "Fern",
+      "series": "Frieren"
+    },
+    {
+      "name": "Fionna",
+      "series": "Adventure Time"
+    },
+    {
+      "name": "Fluttershy",
+      "series": "My Little Pony"
+    },
+    {
+      "name": "Foxy",
+      "series": "Five Nights at Freddy's"
+    },
+    {
+      "name": "Frankie Foster",
+      "series": "Foster's Home for Imaginary Friends"
+    },
+    {
+      "name": "Freddy",
+      "series": "Five Nights at Freddy's"
+    },
+    {
+      "name": "Frieren",
+      "series": "Frieren"
+    },
+    {
+      "name": "Frima",
+      "series": "Nikke"
+    },
+    {
+      "name": "Galacta",
+      "series": "Marvel Rivals"
+    },
+    {
+      "name": "Gamou Maki",
+      "series": "Jujutsu Kaisen"
+    },
+    {
+      "name": "Ganyu",
+      "series": "Genshin Impact"
+    },
+    {
+      "name": "Gardevoir",
+      "series": "Pokémon"
+    },
+    {
+      "name": "Garnet",
+      "series": "Steven Universe"
+    },
+    {
+      "name": "Gazelle",
+      "series": "Zootopia"
+    },
+    {
+      "name": "Gemma",
+      "series": "Monster Hunter"
+    },
+    {
+      "name": "Girlfriend",
+      "series": "Friday Night Funkin'"
+    },
+    {
+      "name": "Grace Howard",
+      "series": "Zenless Zone Zero"
+    },
+    {
+      "name": "Gwen (Total Drama)",
+      "series": "Total Drama"
+    },
+    {
+      "name": "Gwen Stacy",
+      "series": "Marvel"
+    },
+    {
+      "name": "Gwen Tennyson",
+      "series": "Ben 10"
+    },
+    {
+      "name": "Han Juri",
+      "series": "Street Fighter"
+    },
+    {
+      "name": "Harley Quinn",
+      "series": "DC Comics"
+    },
+    {
+      "name": "Haruno Sakura",
+      "series": "Naruto"
+    },
+    {
+      "name": "Hatsune Miku",
+      "series": "Vocaloid"
+    },
+    {
+      "name": "Haumea",
+      "series": "Fire Force"
+    },
+    {
+      "name": "Heather Mason",
+      "series": "Silent Hill"
+    },
+    {
+      "name": "Helm",
+      "series": "Nikke"
+    },
+    {
+      "name": "Hex Maniac",
+      "series": "Pokémon"
+    },
+    {
+      "name": "Hibana",
+      "series": "Fire Force"
+    },
+    {
+      "name": "Higashiyama Kobeni",
+      "series": "Chainsaw Man"
+    },
+    {
+      "name": "Himejima Akeno",
+      "series": "Highschool DxD"
+    },
+    {
+      "name": "Himeno",
+      "series": "Chainsaw Man"
+    },
+    {
+      "name": "Hinoa",
+      "series": "Monster Hunter"
+    },
+    {
+      "name": "Historia Reiss",
+      "series": "Attack on Titan"
+    },
+    {
+      "name": "Hu Tao",
+      "series": "Genshin Impact"
+    },
+    {
+      "name": "Hyuuga Hinata",
+      "series": "Naruto"
+    },
+    {
+      "name": "Ibuki",
+      "series": "Street Fighter"
+    },
+    {
+      "name": "Ice Queen",
+      "series": "Adventure Time"
+    },
+    {
+      "name": "Ilulu",
+      "series": "Dragon Maid"
+    },
+    {
+      "name": "Inoue Orihime",
+      "series": "Bleach"
+    },
+    {
+      "name": "Iori Utahime",
+      "series": "Jujutsu Kaisen"
+    },
+    {
+      "name": "Iris",
+      "series": "Fire Force"
+    },
+    {
+      "name": "Isabelle",
+      "series": "Animal Crossing"
+    },
+    {
+      "name": "Jane Doe",
+      "series": "Zenless Zone Zero"
+    },
+    {
+      "name": "Jenny Wakeman",
+      "series": "My Life as a Teenage Robot"
+    },
+    {
+      "name": "Jessie",
+      "series": "Pokémon"
+    },
+    {
+      "name": "Jewelry Bonney",
+      "series": "One Piece"
+    },
+    {
+      "name": "Jill Valentine",
+      "series": "Resident Evil"
+    },
+    {
+      "name": "Jinx",
+      "series": "Teen Titans"
+    },
+    {
+      "name": "Judy Hopps",
+      "series": "Zootopia"
+    },
+    {
+      "name": "Julie Powers",
+      "series": "Scott Pilgrim"
+    },
+    {
+      "name": "Juvia Lockser",
+      "series": "Fairy Tail"
+    },
+    {
+      "name": "Kale",
+      "series": "Dragon Ball"
+    },
+    {
+      "name": "Kamado Nezuko",
+      "series": "Demon Slayer"
+    },
+    {
+      "name": "Kanna Kamui",
+      "series": "Dragon Maid"
+    },
+    {
+      "name": "Kanroji Mitsuri",
+      "series": "Demon Slayer"
+    },
+    {
+      "name": "Katsuragi Misato",
+      "series": "Evangelion"
+    },
+    {
+      "name": "Kazehana",
+      "series": "Sekirei"
+    },
+    {
+      "name": "Kim Pine",
+      "series": "Scott Pilgrim"
+    },
+    {
+      "name": "Kiriko",
+      "series": "Overwatch"
+    },
+    {
+      "name": "Kiryuuin Satsuki",
+      "series": "Kill la Kill"
+    },
+    {
+      "name": "Kitagawa Marin",
+      "series": "My Dress-Up Darling"
+    },
+    {
+      "name": "Klee",
+      "series": "Genshin Impact"
+    },
+    {
+      "name": "Kochou Kanae",
+      "series": "Demon Slayer"
+    },
+    {
+      "name": "Kochou Shinobu",
+      "series": "Demon Slayer"
+    },
+    {
+      "name": "Komi Shouko",
+      "series": "Komi Can't Communicate"
+    },
+    {
+      "name": "Komi Shuuko",
+      "series": "Komi Can't Communicate"
+    },
+    {
+      "name": "Kuchiki Rukia",
+      "series": "Bleach"
+    },
+    {
+      "name": "Kugisaki Nobara",
+      "series": "Jujutsu Kaisen"
+    },
+    {
+      "name": "Kujikawa Rise",
+      "series": "Persona"
+    },
+    {
+      "name": "Lala",
+      "series": "Monster Musume"
+    },
+    {
+      "name": "Lana",
+      "series": "Pokémon"
+    },
+    {
+      "name": "Lana's Mother",
+      "series": "Pokémon"
+    },
+    {
+      "name": "Lapis Lazuli",
+      "series": "Steven Universe"
+    },
+    {
+      "name": "Lara Croft",
+      "series": "Tomb Raider"
+    },
+    {
+      "name": "Liara T'soni",
+      "series": "Mass Effect"
+    },
+    {
+      "name": "Lola Bunny",
+      "series": "Space Jam"
+    },
+    {
+      "name": "Lopunny",
+      "series": "Pokémon"
+    },
+    {
+      "name": "Lucoa",
+      "series": "Dragon Maid"
+    },
+    {
+      "name": "Lucy",
+      "series": "Cyberpunk: Edgerunners"
+    },
+    {
+      "name": "Lucy Heartfilia",
+      "series": "Fairy Tail"
+    },
+    {
+      "name": "Luna Snow",
+      "series": "Marvel Rivals"
+    },
+    {
+      "name": "Lusamine",
+      "series": "Pokémon"
+    },
+    {
+      "name": "Mabel Pines",
+      "series": "Gravity Falls"
+    },
+    {
+      "name": "Magik",
+      "series": "Marvel Rivals"
+    },
+    {
+      "name": "Maki Oze",
+      "series": "Fire Force"
+    },
+    {
+      "name": "Makima",
+      "series": "Chainsaw Man"
+    },
+    {
+      "name": "Mal0",
+      "series": "SCP Foundation"
+    },
+    {
+      "name": "Malenia",
+      "series": "Elden Ring"
+    },
+    {
+      "name": "Mallow",
+      "series": "Pokémon"
+    },
+    {
+      "name": "Mangle",
+      "series": "Five Nights at Freddy's"
+    },
+    {
+      "name": "Mantis",
+      "series": "Marvel Rivals"
+    },
+    {
+      "name": "Marceline",
+      "series": "Adventure Time"
+    },
+    {
+      "name": "Marian",
+      "series": "Nikke"
+    },
+    {
+      "name": "Matoi Ryuuko",
+      "series": "Kill la Kill"
+    },
+    {
+      "name": "Matsu",
+      "series": "Sekirei"
+    },
+    {
+      "name": "Matsumoto Rangiku",
+      "series": "Bleach"
+    },
+    {
+      "name": "Maxwell",
+      "series": "Nikke"
+    },
+    {
+      "name": "May",
+      "series": "Guilty Gear"
+    },
+    {
+      "name": "May",
+      "series": "Pokémon"
+    },
+    {
+      "name": "Megumin",
+      "series": "Konosuba"
+    },
+    {
+      "name": "Mei",
+      "series": "Overwatch"
+    },
+    {
+      "name": "Mei Mei",
+      "series": "Jujutsu Kaisen"
+    },
+    {
+      "name": "Melina",
+      "series": "Elden Ring"
+    },
+    {
+      "name": "Melony",
+      "series": "Pokémon"
+    },
+    {
+      "name": "Mercy",
+      "series": "Overwatch"
+    },
+    {
+      "name": "Mewtwo",
+      "series": "Pokémon"
+    },
+    {
+      "name": "Midnight",
+      "series": "My Hero Academia"
+    },
+    {
+      "name": "Midna",
+      "series": "The Legend of Zelda"
+    },
+    {
+      "name": "Midoriya Inko",
+      "series": "My Hero Academia"
+    },
+    {
+      "name": "Miia",
+      "series": "Monster Musume"
+    },
+    {
+      "name": "Mikasa Ackerman",
+      "series": "Attack on Titan"
+    },
+    {
+      "name": "Milk",
+      "series": "Nikke"
+    },
+    {
+      "name": "Minoto",
+      "series": "Monster Hunter"
+    },
+    {
+      "name": "Mirajan Strauss",
+      "series": "Fairy Tail"
+    },
+    {
+      "name": "Misty",
+      "series": "Pokémon"
+    },
+    {
+      "name": "Miwa Kasumi",
+      "series": "Jujutsu Kaisen"
+    },
+    {
+      "name": "Mona",
+      "series": "Genshin Impact"
+    },
+    {
+      "name": "Monster Kid",
+      "series": "Undertale"
+    },
+    {
+      "name": "Morrigan Aensland",
+      "series": "Darkstalkers"
+    },
+    {
+      "name": "Morticia Addams",
+      "series": "The Addams Family"
+    },
+    {
+      "name": "Mount Lady",
+      "series": "My Hero Academia"
+    },
+    {
+      "name": "Muffet",
+      "series": "Undertale"
+    },
+    {
+      "name": "Musubi",
+      "series": "Sekirei"
+    },
+    {
+      "name": "Nagatoro Hayase",
+      "series": "Nagatoro"
+    },
+    {
+      "name": "Nahida",
+      "series": "Genshin Impact"
+    },
+    {
+      "name": "Nakime",
+      "series": "Demon Slayer"
+    },
+    {
+      "name": "Nami",
+      "series": "One Piece"
+    },
+    {
+      "name": "Nefertari Vivi",
+      "series": "One Piece"
+    },
+    {
+      "name": "Nemona",
+      "series": "Pokémon"
+    },
+    {
+      "name": "Nessa",
+      "series": "Pokémon"
+    },
+    {
+      "name": "Nico Robin",
+      "series": "One Piece"
+    },
+    {
+      "name": "Nicole Watterson",
+      "series": "The Amazing World of Gumball"
+    },
+    {
+      "name": "Nijima Makoto",
+      "series": "Persona"
+    },
+    {
+      "name": "Nishimiya Momo",
+      "series": "Jujutsu Kaisen"
+    },
+    {
+      "name": "Nojiko",
+      "series": "One Piece"
+    },
+    {
+      "name": "Oosuki Mamako",
+      "series": "Do You Love Your Mom"
+    },
+    {
+      "name": "Pacifica Northwest",
+      "series": "Gravity Falls"
+    },
+    {
+      "name": "Paimon",
+      "series": "Genshin Impact"
+    },
+    {
+      "name": "Pan",
+      "series": "Dragon Ball"
+    },
+    {
+      "name": "Papi",
+      "series": "Monster Musume"
+    },
+    {
+      "name": "Pearl",
+      "series": "Steven Universe"
+    },
+    {
+      "name": "Peridot",
+      "series": "Steven Universe"
+    },
+    {
+      "name": "Perona",
+      "series": "One Piece"
+    },
+    {
+      "name": "Pharah",
+      "series": "Overwatch"
+    },
+    {
+      "name": "Pieck Finger",
+      "series": "Attack on Titan"
+    },
+    {
+      "name": "Pinkie Pie",
+      "series": "My Little Pony"
+    },
+    {
+      "name": "Power",
+      "series": "Chainsaw Man"
+    },
+    {
+      "name": "Princess Bonnibel Bubblegum",
+      "series": "Adventure Time"
+    },
+    {
+      "name": "Princess Daisy",
+      "series": "Mario"
+    },
+    {
+      "name": "Princess Peach",
+      "series": "Mario"
+    },
+    {
+      "name": "Princess Rebecca",
+      "series": "One Piece"
+    },
+    {
+      "name": "Princess Rosalina",
+      "series": "Mario"
+    },
+    {
+      "name": "Princess Zelda",
+      "series": "The Legend of Zelda"
+    },
+    {
+      "name": "Privaty",
+      "series": "Nikke"
+    },
+    {
+      "name": "Psylocke",
+      "series": "Marvel Rivals"
+    },
+    {
+      "name": "Queen Marika",
+      "series": "Elden Ring"
+    },
+    {
+      "name": "Rachnera Arachnera",
+      "series": "Monster Musume"
+    },
+    {
+      "name": "Raiden Shogun",
+      "series": "Genshin Impact"
+    },
+    {
+      "name": "Rainbow Dash",
+      "series": "My Little Pony"
+    },
+    {
+      "name": "Ralsei",
+      "series": "Deltarune"
+    },
+    {
+      "name": "Ram",
+      "series": "Re:Zero"
+    },
+    {
+      "name": "Ramona Flowers",
+      "series": "Scott Pilgrim"
+    },
+    {
+      "name": "Ranni the Witch",
+      "series": "Elden Ring"
+    },
+    {
+      "name": "Rapi",
+      "series": "Nikke"
+    },
+    {
+      "name": "Rarity",
+      "series": "My Little Pony"
+    },
+    {
+      "name": "Raven",
+      "series": "Teen Titans"
+    },
+    {
+      "name": "Rebecca",
+      "series": "Cyberpunk: Edgerunners"
+    },
+    {
+      "name": "Regina",
+      "series": "Dino Crisis"
+    },
+    {
+      "name": "Rem",
+      "series": "Re:Zero"
+    },
+    {
+      "name": "Renamon",
+      "series": "Digimon"
+    },
+    {
+      "name": "Rennala",
+      "series": "Elden Ring"
+    },
+    {
+      "name": "Reze",
+      "series": "Chainsaw Man"
+    },
+    {
+      "name": "Rias Gremory",
+      "series": "Highschool DxD"
+    },
+    {
+      "name": "Rimuru Tempest",
+      "series": "That Time I Got Reincarnated as a Slime"
+    },
+    {
+      "name": "Rouge the Bat",
+      "series": "Sonic the Hedgehog"
+    },
+    {
+      "name": "Roxanne Wolf",
+      "series": "Five Nights at Freddy's"
+    },
+    {
+      "name": "Sailor Jupiter",
+      "series": "Sailor Moon"
+    },
+    {
+      "name": "Sailor Mars",
+      "series": "Sailor Moon"
+    },
+    {
+      "name": "Sailor Moon",
+      "series": "Sailor Moon"
+    },
+    {
+      "name": "Sailor Neptune",
+      "series": "Sailor Moon"
+    },
+    {
+      "name": "Sailor Pluto",
+      "series": "Sailor Moon"
+    },
+    {
+      "name": "Sailor Saturn",
+      "series": "Sailor Moon"
+    },
+    {
+      "name": "Sailor Uranus",
+      "series": "Sailor Moon"
+    },
+    {
+      "name": "Sailor Venus",
+      "series": "Sailor Moon"
+    },
+    {
+      "name": "Sally Whitemane",
+      "series": "World of Warcraft"
+    },
+    {
+      "name": "Sam",
+      "series": "Totally Spies"
+    },
+    {
+      "name": "Samus Aran",
+      "series": "Metroid"
+    },
+    {
+      "name": "Sasha Braus",
+      "series": "Attack on Titan"
+    },
+    {
+      "name": "Satonaka Chie",
+      "series": "Persona"
+    },
+    {
+      "name": "Scarlet Witch",
+      "series": "Marvel Rivals"
+    },
+    {
+      "name": "Shenhe",
+      "series": "Genshin Impact"
+    },
+    {
+      "name": "Shihouin Yoruichi",
+      "series": "Bleach"
+    },
+    {
+      "name": "Shion",
+      "series": "That Time I Got Reincarnated as a Slime"
+    },
+    {
+      "name": "Shirogane Naoto",
+      "series": "Persona"
+    },
+    {
+      "name": "Shuna",
+      "series": "That Time I Got Reincarnated as a Slime"
+    },
+    {
+      "name": "Shy Gal",
+      "series": "Mario"
+    },
+    {
+      "name": "Soldier 11",
+      "series": "Zenless Zone Zero"
+    },
+    {
+      "name": "Sombra",
+      "series": "Overwatch"
+    },
+    {
+      "name": "Souryuu Asuka Langley",
+      "series": "Evangelion"
+    },
+    {
+      "name": "Spider-Gwen",
+      "series": "Marvel"
+    },
+    {
+      "name": "Springtrap",
+      "series": "Five Nights at Freddy's"
+    },
+    {
+      "name": "Squirrel Girl",
+      "series": "Marvel Rivals"
+    },
+    {
+      "name": "Starfire",
+      "series": "Teen Titans"
+    },
+    {
+      "name": "Storm",
+      "series": "Marvel Rivals"
+    },
+    {
+      "name": "Sue Storm",
+      "series": "Marvel Rivals"
+    },
+    {
+      "name": "Sunomiya Sana",
+      "series": "Nagatoro"
+    },
+    {
+      "name": "Takagi",
+      "series": "Teasing Master Takagi-san"
+    },
+    {
+      "name": "Tamaki Kotatsu",
+      "series": "Fire Force"
+    },
+    {
+      "name": "Tasque Manager",
+      "series": "Deltarune"
+    },
+    {
+      "name": "Tatsumaki",
+      "series": "One Punch Man"
+    },
+    {
+      "name": "Temari",
+      "series": "Naruto"
+    },
+    {
+      "name": "Temmie",
+      "series": "Undertale"
+    },
+    {
+      "name": "Tenten",
+      "series": "Naruto"
+    },
+    {
+      "name": "Tifa Lockhart",
+      "series": "Final Fantasy"
+    },
+    {
+      "name": "Tionishia",
+      "series": "Monster Musume"
+    },
+    {
+      "name": "Toga Himiko",
+      "series": "My Hero Academia"
+    },
+    {
+      "name": "Tohru",
+      "series": "Dragon Maid"
+    },
+    {
+      "name": "Toriel",
+      "series": "Undertale"
+    },
+    {
+      "name": "Toy Chica",
+      "series": "Five Nights at Freddy's"
+    },
+    {
+      "name": "Tracer",
+      "series": "Overwatch"
+    },
+    {
+      "name": "Tsunade",
+      "series": "Naruto"
+    },
+    {
+      "name": "Tsukiumi",
+      "series": "Sekirei"
+    },
+    {
+      "name": "Tsukumo Yuki",
+      "series": "Jujutsu Kaisen"
+    },
+    {
+      "name": "Tsuyuri Kanao",
+      "series": "Demon Slayer"
+    },
+    {
+      "name": "Twilight Sparkle",
+      "series": "My Little Pony"
+    },
+    {
+      "name": "Undyne",
+      "series": "Undertale"
+    },
+    {
+      "name": "Uraraka Ochako",
+      "series": "My Hero Academia"
+    },
+    {
+      "name": "Uta",
+      "series": "One Piece"
+    },
+    {
+      "name": "Utsushimi Kemii",
+      "series": "My Hero Academia"
+    },
+    {
+      "name": "Uzume",
+      "series": "Sekirei"
+    },
+    {
+      "name": "Vados",
+      "series": "Dragon Ball"
+    },
+    {
+      "name": "Vanilla the Rabbit",
+      "series": "Sonic the Hedgehog"
+    },
+    {
+      "name": "Vaporeon",
+      "series": "Pokémon"
+    },
+    {
+      "name": "Velma Dinkley",
+      "series": "Scooby-Doo"
+    },
+    {
+      "name": "Videl",
+      "series": "Dragon Ball"
+    },
+    {
+      "name": "Wednesday Addams",
+      "series": "The Addams Family"
+    },
+    {
+      "name": "Wendy Corduroy",
+      "series": "Gravity Falls"
+    },
+    {
+      "name": "Wendy Marvell",
+      "series": "Fairy Tail"
+    },
+    {
+      "name": "Widowmaker",
+      "series": "Overwatch"
+    },
+    {
+      "name": "Yae Miko",
+      "series": "Genshin Impact"
+    },
+    {
+      "name": "Yamamura Sadako",
+      "series": "The Ring"
+    },
+    {
+      "name": "Yamanaka Ino",
+      "series": "Naruto"
+    },
+    {
+      "name": "Yamato",
+      "series": "One Piece"
+    },
+    {
+      "name": "Yaoyorozu Momo",
+      "series": "My Hero Academia"
+    },
+    {
+      "name": "Ymir",
+      "series": "Attack on Titan"
+    },
+    {
+      "name": "Yoru",
+      "series": "Chainsaw Man"
+    },
+    {
+      "name": "Yoshizawa Kasumi",
+      "series": "Persona"
+    },
+    {
+      "name": "Yuhi Kurenai",
+      "series": "Naruto"
+    },
+    {
+      "name": "Yulha",
+      "series": "Nikke"
+    },
+    {
+      "name": "Zen'in Mai",
+      "series": "Jujutsu Kaisen"
+    },
+    {
+      "name": "Zen'in Maki",
+      "series": "Jujutsu Kaisen"
+    },
+    {
+      "name": "Zen'in Naoya",
+      "series": "Jujutsu Kaisen"
+    }
+  ]
+}

@@ -1,0 +1,1086 @@
+/* File: src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CRITICAL: Prevent horizontal scroll globally */
+html {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+  position: relative !important;
+  background-color: #000000;
+  color: #ffffff;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Box model fix */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Prevent specific overflow issues without breaking layouts */
+main,
+section,
+article {
+  overflow-x: hidden !important;
+}
+
+/* Fix common overflow culprits */
+img, 
+video, 
+iframe, 
+embed, 
+object,
+svg {
+  max-width: 100% !important;
+  height: auto;
+}
+
+/* Prevent text overflow */
+p, h1, h2, h3, h4, h5, h6 {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+/* Fix flex and grid overflow */
+.flex > *,
+.grid > * {
+  min-width: 0 !important;
+}
+
+/* iOS-specific fixes - less aggressive */
+@supports (-webkit-touch-callout: none) {
+  html, body {
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  #__next,
+  main {
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
+
+/* Force pure black theme throughout */
+html,
+body,
+#__next {
+  background-color: #000000 !important;
+}
+
+/* Element hierarchy colors */
+:root {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-tertiary: #141414;
+  --bg-hover: #1a1a1a;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(255, 255, 255, 0.2);
+  
+  /* Mobile scale variables */
+  --scale-factor: 1;
+  --spacing-scale: 1;
+  --text-scale: 1;
+}
+
+/* Mobile scale adjustments */
+@media (max-width: 768px) {
+  :root {
+    --scale-factor: 0.85;
+    --spacing-scale: 0.75;
+    --text-scale: 0.9;
+  }
+  
+  /* Aggressive overflow prevention on mobile */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    position: relative !important;
+  }
+  
+  /* Prevent any element from exceeding viewport */
+  * {
+    max-width: 100vw !important;
+  }
+  
+  /* Fix absolute positioned elements */
+  [class*="absolute"],
+  [class*="fixed"] {
+    max-width: 100vw !important;
+  }
+  
+  /* Better touch targets for mobile */
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --scale-factor: 0.75;
+    --spacing-scale: 0.65;
+    --text-scale: 0.85;
+  }
+}
+
+/* Override any backgrounds that might not be black */
+[class*="bg-blue"],
+[class*="bg-slate"],
+[class*="bg-indigo"],
+[class*="bg-gray-9"],
+[class*="bg-zinc-9"],
+[class*="bg-neutral-9"] {
+  background-color: var(--bg-secondary) !important;
+}
+
+/* Main background stays pure black */
+[class*="min-h-screen"] {
+  background-color: var(--bg-primary) !important;
+}
+
+/* Cards and panels get very dark grey */
+.rounded-lg,
+[class*="rounded-lg"][class*="border"],
+[class*="border"][class*="rounded"] {
+  background-color: var(--bg-secondary) !important;
+}
+
+/* Remove gradient backgrounds that add color */
+.bg-gradient-to-br {
+  background-image: none !important;
+  background-color: var(--bg-primary) !important;
+}
+
+/* Global scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3f3f46 #18181b;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #18181b;
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 5px;
+  border: 2px solid #18181b;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background: #ef4444;
+}
+
+*::-webkit-scrollbar-corner {
+  background: #18181b;
+}
+
+/* Mobile scrollbar - thinner */
+@media (max-width: 768px) {
+  *::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    border: none;
+  }
+  
+  /* Hide horizontal scrollbar on mobile */
+  body::-webkit-scrollbar:horizontal {
+    display: none !important;
+  }
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(39, 39, 42, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(to right, #ef4444, #dc2626);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Scrollbar variants */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #3f3f46 #18181b;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #18181b;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+/* Mobile scrollbar handling */
+@media (max-width: 768px) {
+  .overflow-x-auto::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .overflow-x-auto {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  /* Adjust container widths */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 100% !important;
+  }
+  
+  /* Hide decorative elements on mobile */
+  .hide-mobile {
+    display: none !important;
+  }
+  
+  /* Adjust grid layouts */
+  .grid {
+    gap: calc(1rem * var(--spacing-scale));
+  }
+  
+  /* Make images responsive */
+  img, video {
+    max-width: 100% !important;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  /* Adjust backdrop effects for performance */
+  .backdrop-blur-xl {
+    backdrop-filter: blur(12px);
+  }
+  
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+  }
+  
+  /* Mobile safe viewport height */
+  .h-screen {
+    height: 100vh;
+    height: 100dvh;
+  }
+  
+  /* Fix width utility classes */
+  [class*="w-screen"] {
+    width: 100vw !important;
+    max-width: 100vw !important;
+  }
+  
+  /* Prevent absolute elements from overflow */
+  .absolute,
+  .fixed {
+    max-width: 100vw !important;
+  }
+}
+
+/* Tablet-specific adjustments */
+@media (min-width: 768px) and (max-width: 1024px) {
+  :root {
+    --scale-factor: 0.9;
+    --spacing-scale: 0.85;
+    --text-scale: 0.95;
+  }
+}
+
+/* Gallery Protection Styles */
+.gallery-protected {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+.gallery-protected img {
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Print protection */
+@media print {
+  .gallery-protected {
+    display: none !important;
+  }
+  
+  body::before {
+    content: "This content is protected and cannot be printed.";
+    display: block;
+    text-align: center;
+    font-size: 24px;
+    padding: 50px;
+  }
+}
+
+/* Anti-screenshot noise pattern */
+.screenshot-noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.015;
+  pointer-events: none;
+  background-image: repeating-conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    rgba(255, 255, 255, 0.03) 1deg,
+    transparent 2deg
+  );
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+/* Watermark text protection */
+.watermark-text {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 1.5s infinite;
+}
+
+/* Sidebar specific styles */
+.sidebar-nav {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.sidebar-nav::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Red accent animations */
+@keyframes pulse-red {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-red {
+  animation: pulse-red 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Custom utilities */
+.bg-black-lighter {
+  background-color: #0a0a0a;
+}
+
+.bg-black-darker {
+  background-color: #000000;
+}
+
+/* Border utilities */
+.border-white-5 {
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.border-white-10 {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.border-white-20 {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Text utilities */
+.text-white-40 {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.text-white-60 {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.text-white-80 {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Mobile-safe areas */
+@supports (padding: max(0px)) {
+  .safe-top {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+  
+  .safe-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+  
+  .safe-left {
+    padding-left: max(1rem, env(safe-area-inset-left));
+  }
+  
+  .safe-right {
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
+
+/* ADDITIONAL OVERFLOW FIXES */
+/* Prevent calc() from causing overflow */
+[style*="calc"] {
+  max-width: 100vw !important;
+}
+
+/* Fix translate transforms */
+@media (max-width: 768px) {
+  [style*="translateX"] {
+    max-width: 100vw !important;
+  }
+}
+
+/* Ensure no negative margins cause overflow */
+[class*="-mx-"] {
+  overflow-x: hidden !important;
+}
+
+/* NOTIFICATION SYSTEM STYLES */
+/* Pulse animation for notification badge */
+@keyframes notification-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Slide in animation for new notifications */
+@keyframes notification-slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Glow effect for notification button when there are unread items */
+@keyframes notification-glow {
+  0% {
+    box-shadow: 0 0 5px rgba(239, 68, 68, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.8), 0 0 30px rgba(239, 68, 68, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(239, 68, 68, 0.5);
+  }
+}
+
+/* Apply animations */
+.notification-badge-pulse {
+  animation: notification-pulse 2s ease-in-out infinite;
+}
+
+.notification-new-item {
+  animation: notification-slide-in 0.3s ease-out;
+}
+
+.notification-button-glow {
+  animation: notification-glow 3s ease-in-out infinite;
+}
+
+/* Custom scrollbar for notification panel */
+.notification-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.notification-panel::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+.notification-panel::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.notification-panel::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Notification type indicators with gradients */
+.notification-type-like {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.notification-type-comment {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+.notification-type-member {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.notification-type-commission {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+}
+
+.notification-type-dm {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+}
+
+/* Mobile-specific notification adjustments */
+@media (max-width: 768px) {
+  /* Ensure notification panel doesn't overflow */
+  .notification-panel {
+    max-width: calc(100vw - 2rem) !important;
+  }
+  
+  /* Adjust notification text for mobile */
+  .notification-text {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  /* Ensure notification button is accessible */
+  .notification-button {
+    min-width: 48px;
+    min-height: 48px;
+  }
+}
+
+/* Add these utilities to your globals.css file */
+
+/* Safe area insets for mobile devices (iPhone notch, etc.) */
+.safe-area-inset-x {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+.safe-area-inset-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-inset-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* For bottom sheets and modals */
+.safe-area-inset-bottom::after {
+  content: '';
+  display: block;
+  height: env(safe-area-inset-bottom);
+}
+
+/* Touch target minimum sizes for better mobile UX */
+.touch-target {
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Smooth scrolling with momentum on iOS */
+.smooth-scroll {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+
+/* Prevent text selection on interactive elements */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Better tap highlight for mobile */
+.tap-highlight-transparent {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent zoom on input focus (iOS) */
+@media (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+/* Hide scrollbars on mobile for cleaner look */
+@media (max-width: 768px) {
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Responsive touch-friendly spacing */
+@media (max-width: 768px) {
+  .mobile-spacing > * + * {
+    margin-top: 1rem;
+  }
+  
+  .mobile-card-spacing > * + * {
+    margin-top: 0.75rem;
+  }
+}
+
+/* Landscape mode adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+  .landscape-compact {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .landscape-hide {
+    display: none;
+  }
+}
+
+/* Animation performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Elastic scroll for iOS */
+.elastic-scroll {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+}
+
+/* Full height mobile viewport fix */
+.mobile-full-height {
+  height: 100vh;
+  height: -webkit-fill-available;
+  height: fill-available;
+}
+
+/* Prevent body scroll when modal is open */
+.body-scroll-lock {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================= */
+/* COMMISSION WEIGHT SLIDER STYLES              */
+/* ============================================= */
+
+/* Base commission slider styles */
+.commission-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 0.5rem;
+  background: rgb(39 39 42);
+  border-radius: 0.5rem;
+  outline: none;
+  opacity: 1;
+  -webkit-transition: .2s;
+  transition: background .2s;
+}
+
+.commission-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  background: rgb(147 51 234);
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.commission-slider::-moz-range-thumb {
+  width: 1rem;
+  height: 1rem;
+  background: rgb(147 51 234);
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+/* Remove default focus outline on sliders */
+.commission-slider:focus {
+  outline: none;
+}
+
+/* Hover effect on slider thumb */
+.commission-slider::-webkit-slider-thumb:hover {
+  background: rgb(168 85 247);
+  transform: scale(1.1);
+}
+
+.commission-slider::-moz-range-thumb:hover {
+  background: rgb(168 85 247);
+  transform: scale(1.1);
+}
+
+/* Enhanced Custom Weight Slider Styles */
+.slider-custom {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 0.5rem;
+  border-radius: 0.5rem;
+  outline: none;
+  opacity: 1;
+  -webkit-transition: .2s;
+  transition: background .2s;
+}
+
+.slider-custom::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: linear-gradient(135deg, rgb(147 51 234), rgb(168 85 247));
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid rgb(24 24 27);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s;
+}
+
+.slider-custom::-moz-range-thumb {
+  width: 1.25rem;
+  height: 1.25rem;
+  background: linear-gradient(135deg, rgb(147 51 234), rgb(168 85 247));
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid rgb(24 24 27);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s;
+}
+
+/* Hover effects */
+.slider-custom::-webkit-slider-thumb:hover {
+  background: linear-gradient(135deg, rgb(168 85 247), rgb(196 181 253));
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.4);
+}
+
+.slider-custom::-moz-range-thumb:hover {
+  background: linear-gradient(135deg, rgb(168 85 247), rgb(196 181 253));
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.4);
+}
+
+/* Active/dragging state */
+.slider-custom::-webkit-slider-thumb:active {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(147, 51, 234, 0.6);
+}
+
+.slider-custom::-moz-range-thumb:active {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(147, 51, 234, 0.6);
+}
+
+/* Focus state */
+.slider-custom:focus {
+  outline: none;
+}
+
+.slider-custom:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.2);
+}
+
+.slider-custom:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.2);
+}
+
+/* Color variations based on weight value */
+/* Red - Excluded (0%) */
+.slider-custom[data-color="red"]::-webkit-slider-thumb {
+  background: linear-gradient(135deg, rgb(239 68 68), rgb(248 113 113));
+}
+
+.slider-custom[data-color="red"]::-moz-range-thumb {
+  background: linear-gradient(135deg, rgb(239 68 68), rgb(248 113 113));
+}
+
+.slider-custom[data-color="red"]::-webkit-slider-thumb:hover {
+  background: linear-gradient(135deg, rgb(248 113 113), rgb(252 165 165));
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.slider-custom[data-color="red"]::-moz-range-thumb:hover {
+  background: linear-gradient(135deg, rgb(248 113 113), rgb(252 165 165));
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+/* Orange - Reduced (1-99%) */
+.slider-custom[data-color="orange"]::-webkit-slider-thumb {
+  background: linear-gradient(135deg, rgb(249 115 22), rgb(251 146 60));
+}
+
+.slider-custom[data-color="orange"]::-moz-range-thumb {
+  background: linear-gradient(135deg, rgb(249 115 22), rgb(251 146 60));
+}
+
+.slider-custom[data-color="orange"]::-webkit-slider-thumb:hover {
+  background: linear-gradient(135deg, rgb(251 146 60), rgb(254 215 170));
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+}
+
+.slider-custom[data-color="orange"]::-moz-range-thumb:hover {
+  background: linear-gradient(135deg, rgb(251 146 60), rgb(254 215 170));
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+}
+
+/* Gray - Default (100%) */
+.slider-custom[data-color="gray"]::-webkit-slider-thumb {
+  background: linear-gradient(135deg, rgb(156 163 175), rgb(209 213 219));
+}
+
+.slider-custom[data-color="gray"]::-moz-range-thumb {
+  background: linear-gradient(135deg, rgb(156 163 175), rgb(209 213 219));
+}
+
+.slider-custom[data-color="gray"]::-webkit-slider-thumb:hover {
+  background: linear-gradient(135deg, rgb(209 213 219), rgb(229 231 235));
+  box-shadow: 0 4px 12px rgba(156, 163, 175, 0.4);
+}
+
+.slider-custom[data-color="gray"]::-moz-range-thumb:hover {
+  background: linear-gradient(135deg, rgb(209 213 219), rgb(229 231 235));
+  box-shadow: 0 4px 12px rgba(156, 163, 175, 0.4);
+}
+
+/* Green - Boosted (101-200%) */
+.slider-custom[data-color="green"]::-webkit-slider-thumb {
+  background: linear-gradient(135deg, rgb(34 197 94), rgb(74 222 128));
+}
+
+.slider-custom[data-color="green"]::-moz-range-thumb {
+  background: linear-gradient(135deg, rgb(34 197 94), rgb(74 222 128));
+}
+
+.slider-custom[data-color="green"]::-webkit-slider-thumb:hover {
+  background: linear-gradient(135deg, rgb(74 222 128), rgb(134 239 172));
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
+}
+
+.slider-custom[data-color="green"]::-moz-range-thumb:hover {
+  background: linear-gradient(135deg, rgb(74 222 128), rgb(134 239 172));
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
+}
+
+/* Cyan - Highly Boosted (201%+) */
+.slider-custom[data-color="cyan"]::-webkit-slider-thumb {
+  background: linear-gradient(135deg, rgb(6 182 212), rgb(34 211 238));
+}
+
+.slider-custom[data-color="cyan"]::-moz-range-thumb {
+  background: linear-gradient(135deg, rgb(6 182 212), rgb(34 211 238));
+}
+
+.slider-custom[data-color="cyan"]::-webkit-slider-thumb:hover {
+  background: linear-gradient(135deg, rgb(34 211 238), rgb(103 232 249));
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+}
+
+.slider-custom[data-color="cyan"]::-moz-range-thumb:hover {
+  background: linear-gradient(135deg, rgb(34 211 238), rgb(103 232 249));
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+}
+
+/* Mobile adjustments for weight sliders */
+@media (max-width: 768px) {
+  .slider-custom::-webkit-slider-thumb,
+  .commission-slider::-webkit-slider-thumb {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .slider-custom::-moz-range-thumb,
+  .commission-slider::-moz-range-thumb {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  /* Larger touch targets on mobile */
+  .slider-custom,
+  .commission-slider {
+    padding: 0.5rem 0;
+    margin: -0.5rem 0;
+  }
+}
+
+/* Animation for value changes */
+@keyframes pulse-value {
+  0% {
+    box-shadow: 0 0 0 0 rgba(147, 51, 234, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(147, 51, 234, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(147, 51, 234, 0);
+  }
+}
+
+.slider-custom:active::-webkit-slider-thumb {
+  animation: pulse-value 0.3s ease-out;
+}
+
+.slider-custom:active::-moz-range-thumb {
+  animation: pulse-value 0.3s ease-out;
+}
+
+/* Disabled state */
+.slider-custom:disabled,
+.commission-slider:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.slider-custom:disabled::-webkit-slider-thumb,
+.commission-slider:disabled::-webkit-slider-thumb {
+  cursor: not-allowed;
+  background: rgb(107 114 128);
+}
+
+.slider-custom:disabled::-moz-range-thumb,
+.commission-slider:disabled::-moz-range-thumb {
+  cursor: not-allowed;
+  background: rgb(107 114 128);
+}
+
+/* src/app/globals.css - Add these styles */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.slider:disabled::-webkit-slider-thumb {
+  background: #666;
+  cursor: not-allowed;
+}
+
+.slider:disabled::-moz-range-thumb {
+  background: #666;
+  cursor: not-allowed;
+}

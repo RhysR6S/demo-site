@@ -1,0 +1,17 @@
+{
+  "crons": [
+    {
+      "path": "/api/cleanup-commissions",
+      "schedule": "0 2 * * *"
+    },
+    {
+      "path": "/api/admin/publish-scheduled",
+      "schedule": "*/5 * * * *"
+    }
+  ],
+  "functions": {
+    "src/app/api/**/route.ts": {
+      "includeFiles": "src/fonts/**"
+    }
+  }
+}

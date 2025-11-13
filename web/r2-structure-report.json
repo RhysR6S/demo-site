@@ -1,0 +1,48 @@
+{
+  "totalObjects": 15191,
+  "totalSize": 3368713641,
+  "structure": {
+    "original_content_images": {
+      "count": 6830,
+      "size": 1182798195,
+      "examples": [
+        "2025/07/-124-images-my-little-pony-1752153783346/001.jpg",
+        "2025/07/-124-images-my-little-pony-1752153783346/002.jpg",
+        "2025/07/-124-images-my-little-pony-1752153783346/003.jpg"
+      ]
+    },
+    "migrated_watermarked_images": {
+      "count": 6775,
+      "size": 1777949448,
+      "examples": [
+        "2025/07/-124-images-my-little-pony-1752153783346/watermarked/001.jpg",
+        "2025/07/-124-images-my-little-pony-1752153783346/watermarked/002.jpg",
+        "2025/07/-124-images-my-little-pony-1752153783346/watermarked/003.jpg"
+      ]
+    },
+    "other": {
+      "count": 1583,
+      "size": 407896098,
+      "examples": [
+        "2025/07/-132-images-boa-hancock-one-piece--1752153366939/bronze/001.jpg",
+        "2025/07/-132-images-boa-hancock-one-piece--1752153366939/bronze/002.jpg",
+        "2025/07/-132-images-boa-hancock-one-piece--1752153366939/bronze/003.jpg"
+      ]
+    },
+    "brand_watermarks": {
+      "count": 3,
+      "size": 69900,
+      "examples": [
+        "watermarks/109483064-1752676227624.png",
+        "watermarks/109483064-1752680035103.png",
+        "watermarks/109483064-1753730885285.png"
+      ]
+    }
+  },
+  "userCacheAnalysis": {
+    "totalCachedImages": 3,
+    "totalCacheSize": 69900,
+    "uniqueUsers": {},
+    "uniqueImageIds": {}
+  }
+}

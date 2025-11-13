@@ -1,0 +1,72 @@
+/* src/components/commission/ImageDistribution.module.css */
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 0.5rem;
+  border-radius: 0.5rem;
+  outline: none;
+  opacity: 1;
+  -webkit-transition: .2s;
+  transition: background .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: white;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid rgb(147 51 234);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.slider::-moz-range-thumb {
+  width: 1.25rem;
+  height: 1.25rem;
+  background: white;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid rgb(147 51 234);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.slider:hover::-webkit-slider-thumb {
+  transform: scale(1.1);
+}
+
+.slider:hover::-moz-range-thumb {
+  transform: scale(1.1);
+}
+
+.slider:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+  border-color: rgb(168 85 247);
+}
+
+.slider:active::-moz-range-thumb {
+  transform: scale(1.2);
+  border-color: rgb(168 85 247);
+}
+
+.slider:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.slider:disabled::-webkit-slider-thumb {
+  cursor: not-allowed;
+  border-color: rgb(113 113 122);
+  background: rgb(161 161 170);
+}
+
+.slider:disabled::-moz-range-thumb {
+  cursor: not-allowed;
+  border-color: rgb(113 113 122);
+  background: rgb(161 161 170);
+}

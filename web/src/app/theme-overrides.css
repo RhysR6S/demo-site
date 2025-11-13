@@ -1,0 +1,133 @@
+/* Add these to your theme-overrides.css file */
+
+/* Force dark red theme throughout the app */
+
+/* Override any purple/pink gradient backgrounds */
+[class*="from-purple"],
+[class*="to-purple"],
+[class*="via-purple"],
+[class*="from-pink"],
+[class*="to-pink"],
+[class*="via-pink"] {
+  background-image: linear-gradient(
+    var(--tw-gradient-angle),
+    rgb(153 27 27 / var(--tw-gradient-from-position, 0.2)),
+    rgb(127 29 29 / var(--tw-gradient-via-position, 0.15)),
+    rgb(153 27 27 / var(--tw-gradient-to-position, 0.2))
+  ) !important;
+}
+
+/* Replace purple/pink solid backgrounds */
+.bg-purple-100, .bg-purple-200, .bg-purple-300, .bg-purple-400,
+.bg-purple-500, .bg-purple-600, .bg-purple-700, .bg-purple-800,
+.bg-purple-900, .bg-purple-950 {
+  background-color: #991b1b !important; /* red-800 */
+}
+
+.bg-pink-100, .bg-pink-200, .bg-pink-300, .bg-pink-400,
+.bg-pink-500, .bg-pink-600, .bg-pink-700, .bg-pink-800,
+.bg-pink-900, .bg-pink-950 {
+  background-color: #7f1d1d !important; /* red-900 */
+}
+
+/* Replace rainbow gradient patterns */
+[class*="from-red"][class*="to-purple"],
+[class*="from-red"][class*="to-pink"],
+[class*="from-purple"][class*="to-pink"],
+[class*="from-purple"][class*="to-red"],
+[class*="from-pink"][class*="to-red"],
+[class*="from-pink"][class*="to-purple"] {
+  background-image: linear-gradient(
+    to right,
+    rgba(153, 27, 27, var(--tw-gradient-from-opacity, 0.2)),
+    rgba(127, 29, 29, var(--tw-gradient-to-opacity, 0.2))
+  ) !important;
+}
+
+/* Three-color rainbow gradients */
+[class*="from-red"][class*="via-purple"][class*="to-"],
+[class*="from-red"][class*="via-pink"][class*="to-"],
+[class*="from-"][class*="via-purple"][class*="to-pink"],
+[class*="from-"][class*="via-purple"][class*="to-red"] {
+  background-image: linear-gradient(
+    to right,
+    rgba(153, 27, 27, 0.2),
+    rgba(127, 29, 29, 0.15),
+    rgba(153, 27, 27, 0.2)
+  ) !important;
+}
+
+/* Hover state overrides */
+[class*="hover:from-purple"]:hover,
+[class*="hover:to-purple"]:hover,
+[class*="hover:from-pink"]:hover,
+[class*="hover:to-pink"]:hover {
+  background-image: linear-gradient(
+    to right,
+    rgb(127 29 29),
+    rgb(69 10 10)
+  ) !important;
+}
+
+/* Text color overrides */
+.text-purple-100, .text-purple-200, .text-purple-300 { color: #fca5a5 !important; }
+.text-purple-400, .text-purple-500 { color: #ef4444 !important; }
+.text-purple-600, .text-purple-700 { color: #dc2626 !important; }
+.text-purple-800, .text-purple-900 { color: #991b1b !important; }
+
+.text-pink-100, .text-pink-200, .text-pink-300 { color: #fca5a5 !important; }
+.text-pink-400, .text-pink-500 { color: #ef4444 !important; }
+.text-pink-600, .text-pink-700 { color: #dc2626 !important; }
+.text-pink-800, .text-pink-900 { color: #991b1b !important; }
+
+/* Border color overrides */
+.border-purple-100, .border-purple-200, .border-purple-300,
+.border-purple-400, .border-purple-500, .border-purple-600,
+.border-purple-700, .border-purple-800, .border-purple-900 {
+  border-color: rgba(153, 27, 27, var(--tw-border-opacity, 0.2)) !important;
+}
+
+.border-pink-100, .border-pink-200, .border-pink-300,
+.border-pink-400, .border-pink-500, .border-pink-600,
+.border-pink-700, .border-pink-800, .border-pink-900 {
+  border-color: rgba(127, 29, 29, var(--tw-border-opacity, 0.2)) !important;
+}
+
+/* Ring color overrides */
+.ring-purple-100, .ring-purple-200, .ring-purple-300,
+.ring-purple-400, .ring-purple-500, .ring-purple-600,
+.ring-purple-700, .ring-purple-800, .ring-purple-900 {
+  --tw-ring-color: rgba(153, 27, 27, var(--tw-ring-opacity, 0.5)) !important;
+}
+
+/* Shadow color overrides */
+.shadow-purple-100, .shadow-purple-200, .shadow-purple-300,
+.shadow-purple-400, .shadow-purple-500, .shadow-purple-600,
+.shadow-purple-700, .shadow-purple-800, .shadow-purple-900 {
+  --tw-shadow-color: rgba(153, 27, 27, 0.25) !important;
+}
+
+/* Specific component overrides */
+/* Loading spinners */
+.border-t-purple-600 {
+  border-top-color: #991b1b !important;
+}
+
+/* Focus states */
+.focus\:border-purple-500:focus,
+.focus\:ring-purple-500:focus,
+.focus\:ring-purple-600:focus {
+  border-color: #991b1b !important;
+  --tw-ring-color: rgba(153, 27, 27, 0.5) !important;
+}
+
+/* Opacity variants */
+[class*="bg-purple-"][class*="/10"],
+[class*="bg-pink-"][class*="/10"] {
+  background-color: rgba(153, 27, 27, 0.1) !important;
+}
+
+[class*="bg-purple-"][class*="/20"],
+[class*="bg-pink-"][class*="/20"] {
+  background-color: rgba(153, 27, 27, 0.2) !important;
+}
