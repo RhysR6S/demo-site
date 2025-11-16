@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: "KamiContent - Premium Content Platform",
   description: "Access exclusive, high-quality content with advanced protection",
   keywords: "exclusive content, premium platform, digital content",
-  authors: [{ name: "DemoCreator" }],
+  authors: [{ name: "KamiXXX" }],
   metadataBase: new URL('http://localhost:3000'),
   openGraph: {
     title: "KamiContent - Premium Content Platform",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "KamiContent",
     description: "Premium content platform with exclusive access",
     images: ['/twitter-image.png'],
-    creator: '@DemoCreator',
+    creator: '@KamiXXX',
   },
   robots: {
     index: true,

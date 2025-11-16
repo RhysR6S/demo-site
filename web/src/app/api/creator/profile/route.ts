@@ -30,7 +30,7 @@ export async function GET(request: NextRequest) {
     // Return profile or default values
     return NextResponse.json({
       profile: profile || {
-        display_name: 'DemoCreator', // Default creator name
+        display_name: 'KamiXXX', // Default creator name
         profile_picture_url: null,
         bio: null
       }

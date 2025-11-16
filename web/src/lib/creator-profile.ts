@@ -15,7 +15,7 @@ export interface CreatorProfile {
 export async function getCreatorProfile(userId?: string): Promise<CreatorProfile> {
   // Default profile
   const defaultProfile: CreatorProfile = {
-    display_name: 'DemoCreator',
+    display_name: 'KamiXXX',
     profile_picture_url: null,
     bio: null
   }
