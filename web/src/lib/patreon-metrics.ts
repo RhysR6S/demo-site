@@ -35,7 +35,7 @@ export class PatreonMetricsService {
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
-            'User-Agent': 'KamiContent/1.0',
+            'User-Agent': 'PhotoVault/1.0',
           },
         }
       )
@@ -56,9 +56,9 @@ export class PatreonMetricsService {
       const campaign = campaignData.data[0]
       const attributes = campaign.attributes || {}
       
-      // Use environment variable or default to GBP for KamiContent
+      // Use environment variable or default to USD for PhotoVault
       // Since Patreon API doesn't expose currency in the campaign fields we can access
-      const campaignCurrency = process.env.PATREON_CAMPAIGN_CURRENCY || 'GBP'
+      const campaignCurrency = process.env.PATREON_CAMPAIGN_CURRENCY || 'USD'
       console.log('Using currency:', campaignCurrency)
       
       // Process tier data from included

@@ -180,7 +180,7 @@ export function AppLayout({ children }: AppLayoutProps) {
             </button>
             
             <div className="text-lg font-semibold text-white">
-              KamiContent
+              PhotoVault
             </div>
 
             <div className="w-10" /> {/* Spacer for balance */}
@@ -194,7 +194,7 @@ export function AppLayout({ children }: AppLayoutProps) {
           {/* Logo */}
           <div className="p-6 border-b border-white/10">
             <h1 className="text-2xl font-bold bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">
-              KamiContent
+              PhotoVault
             </h1>
           </div>
 
@@ -272,7 +272,7 @@ export function AppLayout({ children }: AppLayoutProps) {
               {/* Header */}
               <div className="p-6 border-b border-white/10 flex items-center justify-between">
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">
-                  KamiContent
+                  PhotoVault
                 </h1>
                 <button
                   onClick={() => setSidebarOpen(false)}

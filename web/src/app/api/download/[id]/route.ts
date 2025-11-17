@@ -94,8 +94,8 @@ export async function GET(
             exif: {
               IFD0: {
                 Copyright: `Protected Content - Tracking ID: ${trackingId}`,
-                Artist: 'KamiContent',
-                Software: 'KamiContent Protection System',
+                Artist: 'PhotoVault',
+                Software: 'PhotoVault Protection System',
                 UserTier: userTier
               }
             }
@@ -108,8 +108,8 @@ export async function GET(
             exif: {
               IFD0: {
                 Copyright: `Protected Content - Tracking ID: ${trackingId}`,
-                Artist: 'KamiContent',
-                Software: 'KamiContent Protection System',
+                Artist: 'PhotoVault',
+                Software: 'PhotoVault Protection System',
                 UserTier: userTier
               }
             }
@@ -125,8 +125,8 @@ export async function GET(
             exif: {
               IFD0: {
                 Copyright: `Protected Content - Tracking ID: ${trackingId}`,
-                Artist: 'KamiContent',
-                Software: 'KamiContent Protection System',
+                Artist: 'PhotoVault',
+                Software: 'PhotoVault Protection System',
                 UserTier: userTier
               }
             }
@@ -139,8 +139,8 @@ export async function GET(
             exif: {
               IFD0: {
                 Copyright: `Protected Content - Tracking ID: ${trackingId}`,
-                Artist: 'KamiContent',
-                Software: 'KamiContent Protection System',
+                Artist: 'PhotoVault',
+                Software: 'PhotoVault Protection System',
                 UserTier: userTier
               }
             }

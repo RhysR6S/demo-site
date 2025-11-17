@@ -96,8 +96,8 @@ export async function addMetadataWatermark(
         exif: {
           IFD0: {
             Copyright: `Protected Content - Tracking ID: ${trackingId}`,
-            Artist: 'KamiContent',
-            Software: 'KamiContent Protection System'
+            Artist: 'PhotoVault',
+            Software: 'PhotoVault Protection System'
           }
         }
       })

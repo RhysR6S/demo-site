@@ -278,7 +278,7 @@ export const authOptions: AuthOptions = {
               profilePictureUrl: creatorProfile.profile_picture_url,
               bio: creatorProfile.bio
             } : {
-              displayName: 'KamiXXX',
+              displayName: 'DemoCreator',
               profilePictureUrl: null,
               bio: null
             }

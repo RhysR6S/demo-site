@@ -159,7 +159,7 @@ async function applyBrandWatermark(imageBuffer: Buffer, settings: any): Promise<
         return imageBuffer
       }
       
-      const watermarkText = '© KamiContent'
+      const watermarkText = '© PhotoVault'
       const fontSize = Math.max(
         14,
         Math.floor(Math.min(metadata.width, metadata.height) / 40 * settings.scale)

@@ -1,11 +1,11 @@
-# KamiContent Development Plan v2.0
+# PhotoVault Development Plan v2.0
 
 ## Project Overview
-KamiContent is a secure content delivery platform for Patreon members with automated watermarking, advanced piracy protection, and studio management tools for high-volume content creators. It will replace the current MEGA-based workflow with a more integrated and secure solution.
+PhotoVault is a secure content delivery platform for Patreon members with automated watermarking, advanced piracy protection, and studio management tools for high-volume content creators. It will replace the current MEGA-based workflow with a more integrated and secure solution.
 
 ---
 
-## Current App Workflow (Pre-KamiContent)
+## Current App Workflow (Pre-PhotoVault)
 
 ### The AI Generation App
 The existing desktop application is a sophisticated automation tool that handles:
@@ -52,12 +52,12 @@ The existing desktop application is a sophisticated automation tool that handles
 
 ---
 
-## KamiContent Solution
+## PhotoVault Solution
 
 ### How It Improves the Workflow
 
 **Direct Integration**
-- AI app uploads directly to KamiContent API
+- AI app uploads directly to PhotoVault API
 - No MEGA middleman = no password leaks
 - Instant availability to paying members
 - Automated scheduling without browser automation
@@ -104,24 +104,24 @@ The existing desktop application is a sophisticated automation tool that handles
 
 ## Refined Workflow System
 
-### Creator Daily Workflow with KamiContent
+### Creator Daily Workflow with PhotoVault
 
 **Morning (10:00 AM - 10:15 AM)**
 1. Run AI generation app as usual
-2. App automatically uploads to KamiContent via API
+2. App automatically uploads to PhotoVault via API
 3. 6 sets scheduled with 2-hour intervals
 4. View schedule in Studio Dashboard
 5. Copy pre-generated Patreon text
 
 **Throughout Day (12:00 PM - 10:00 PM)**
-- Sets go live automatically on KamiContent
+- Sets go live automatically on PhotoVault
 - Creator posts to Patreon (1-click with copied text)
 - Clicks "Mark as Posted" in Studio Dashboard
-- Members access content instantly via KamiContent
+- Members access content instantly via PhotoVault
 
 ### Workflow Comparison
 
-| Task | Current (MEGA) | With KamiContent |
+| Task | Current (MEGA) | With PhotoVault |
 |------|----------------|------------------|
 | Image Generation | AI App (unchanged) | AI App (unchanged) |
 | Upload Process | Navigate MEGA folders | Direct API upload |
@@ -136,7 +136,7 @@ The existing desktop application is a sophisticated automation tool that handles
 
 ### Required API Endpoints for Existing App
 
-The AI generation app will need minimal modifications to work with KamiContent:
+The AI generation app will need minimal modifications to work with PhotoVault:
 
 **1. Authentication Endpoint**
 ```
@@ -176,9 +176,9 @@ POST /api/automation/batch-upload
 Headers: { Authorization: "Bearer {token}" }
 Request: {
   sets: [{
-    title: "Raven (Teen Titans)",
-    characterName: "Raven",
-    seriesName: "Teen Titans",
+    title: "Mountain Landscapes (Nature Collection)",
+    characterName: "Mountain Landscapes",
+    seriesName: "Nature Collection",
     imageCount: 156,
     scheduledTime: "2024-11-15T12:00:00Z",
     images: [base64...] // or multipart
@@ -188,7 +188,7 @@ Response: {
   uploadId: "batch-123",
   sets: [{
     setId: "uuid",
-    title: "Raven (Teen Titans)",
+    title: "Mountain Landscapes (Nature Collection)",
     scheduledTime: "2024-11-15T12:00:00Z",
     thumbnailUrl: "https://...",
     patreonText: "Pre-formatted post text"
@@ -215,8 +215,8 @@ Instead of MEGA browser automation, the app just needs:
 mega_upload(images, folder_name)
 link = mega_get_link(folder_name)
 
-# New KamiContent code
-response = kamicontent_upload(images, metadata)
+# New PhotoVault code
+response = photovault_upload(images, metadata)
 patreon_text = response['patreonText']
 ```
 
@@ -375,15 +375,15 @@ POST /api/automation/generate-text - Get Patreon post text
 
 ### Patreon Posting Automation
 
-Since the AI app already handles browser automation, KamiContent provides:
+Since the AI app already handles browser automation, PhotoVault provides:
 
 **Pre-formatted Post Generator**
 ```javascript
 GET /api/automation/patreon-text/{setId}
 Response: {
-  title: "[12:00 PM] Raven (Teen Titans) - 156 Images",
-  body: "🎨 New AI Art Set Available!\n\n✨ View now on KamiContent\n🔒 Exclusive for members only\n📱 Mobile-friendly gallery\n\nCharacter: Raven\nSeries: Teen Titans\nImages: 156 HD renders\n\n#AIArt #Raven #TeenTitans",
-  tags: ["AI Art", "Raven", "Teen Titans"]
+  title: "[12:00 PM] Mountain Landscapes (Nature Collection) - 156 Images",
+  body: "🎨 New AI Art Set Available!\n\n✨ View now on PhotoVault\n🔒 Exclusive for members only\n📱 Mobile-friendly gallery\n\nCharacter: Mountain Landscapes\nSeries: Nature Collection\nImages: 156 HD renders\n\n#AIArt #Mountain Landscapes #TeenTitans",
+  tags: ["AI Art", "Mountain Landscapes", "Nature Collection"]
 }
 ```
 
@@ -412,7 +412,7 @@ Response: {
 - Link storage/management
 
 **Add:**
-- KamiContent API client
+- PhotoVault API client
 - JWT token handling
 - Batch upload function
 - Status checking loop
@@ -492,7 +492,7 @@ Response: {
       "time": "12:00",
       "status": "posted",
       "setId": "uuid",
-      "title": "Raven (Teen Titans)"
+      "title": "Mountain Landscapes (Nature Collection)"
     }
   ]
 }
@@ -507,7 +507,7 @@ Response: {
 - **DMCA Risk**: MEGA account can be terminated
 - **No Control**: Can't revoke access after sharing
 
-### KamiContent Security
+### PhotoVault Security
 - **No Passwords**: OAuth-only access
 - **Dynamic Watermarking**: Each user sees personalized images
 - **Access Logs**: Track every view/download with IP
@@ -603,9 +603,9 @@ Response: {
 
 ## Contact & Support
 
-**Project Lead**: KamiXXX  
-**Platform**: kamicontent.com  
-**Repository**: [Private]  
+**Project Lead**: DemoCreator
+**Platform**: photovault-demo.com
+**Repository**: [Private]
 **Last Updated**: November 2024
 
 ---

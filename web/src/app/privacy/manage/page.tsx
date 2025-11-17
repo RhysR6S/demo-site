@@ -76,7 +76,7 @@ export default function PrivacyManagePage() {
         const url = window.URL.createObjectURL(blob)
         const a = document.createElement('a')
         a.href = url
-        a.download = `kamicontent-data-export-${new Date().toISOString().split('T')[0]}.json`
+        a.download = `photovault-data-export-${new Date().toISOString().split('T')[0]}.json`
         a.click()
         window.URL.revokeObjectURL(url)
       } else {
@@ -247,8 +247,8 @@ export default function PrivacyManagePage() {
             <div className="bg-blue-900/20 border border-blue-600/30 rounded-xl p-6">
               <p className="text-blue-400 text-sm">
                 For additional privacy requests or questions, contact us at{' '}
-                <a href="mailto:privacy@kamicontent.com" className="underline">
-                  privacy@kamicontent.com
+                <a href="mailto:privacy@photovault-demo.com" className="underline">
+                  privacy@photovault-demo.com
                 </a>
               </p>
             </div>

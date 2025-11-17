@@ -319,7 +319,7 @@ async function applyTextWatermark(
       throw new Error('Unable to read image dimensions')
     }
     
-    const watermarkText = '© KamiContent'
+    const watermarkText = '© PhotoVault'
     
     // Calculate font size based on image dimensions and scale
     const fontSize = Math.max(

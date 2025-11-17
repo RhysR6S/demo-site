@@ -68,7 +68,7 @@ export class PatreonTierService {
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
-            'User-Agent': 'KamiContent/1.0',
+            'User-Agent': 'PhotoVault/1.0',
           },
         }
       )

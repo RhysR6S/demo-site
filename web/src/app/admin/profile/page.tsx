@@ -20,7 +20,7 @@ export default function CreatorProfilePage() {
   const [saving, setSaving] = useState(false)
   const [activeTab, setActiveTab] = useState<'profile' | 'watermark'>('profile')
   const [profile, setProfile] = useState<CreatorProfile>({
-    display_name: 'KamiXXX',
+    display_name: 'DemoCreator',
     profile_picture_url: null,
     bio: null
   })

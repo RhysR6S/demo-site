@@ -17,32 +17,32 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "KamiContent - Premium Content Platform",
-  description: "Access exclusive, high-quality content with advanced protection",
-  keywords: "exclusive content, premium platform, digital content",
-  authors: [{ name: "KamiXXX" }],
+  title: "PhotoVault - Premium Stock Photo Platform",
+  description: "Access exclusive, high-quality stock photography with advanced protection",
+  keywords: "stock photos, premium photography, digital content",
+  authors: [{ name: "DemoCreator" }],
   metadataBase: new URL('http://localhost:3000'),
   openGraph: {
-    title: "KamiContent - Premium Content Platform",
-    description: "Access exclusive, high-quality content with advanced protection",
+    title: "PhotoVault - Premium Stock Photo Platform",
+    description: "Access exclusive, high-quality stock photography with advanced protection",
     type: "website",
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'KamiContent - Premium Content Platform',
+        alt: 'PhotoVault - Premium Stock Photo Platform',
       }
     ],
     locale: 'en_US',
-    siteName: 'KamiContent',
+    siteName: 'PhotoVault',
   },
   twitter: {
     card: "summary_large_image",
-    title: "KamiContent",
-    description: "Premium content platform with exclusive access",
+    title: "PhotoVault",
+    description: "Premium stock photo platform with exclusive access",
     images: ['/twitter-image.png'],
-    creator: '@KamiXXX',
+    creator: '@DemoCreator',
   },
   robots: {
     index: true,

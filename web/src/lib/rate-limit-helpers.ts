@@ -88,7 +88,7 @@ async function getUserEmail(userId: string): Promise<string | undefined> {
     
     // First check if it's a debug user
     if (userId.startsWith('debug-')) {
-      return `${userId}@kamicontent.test`
+      return `${userId}@photovault.test`
     }
     
     // In a real implementation, you'd query your users table

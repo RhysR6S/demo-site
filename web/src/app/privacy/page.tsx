@@ -25,7 +25,7 @@ export default function PrivacyPolicyPage() {
             <section>
               <h2 className="text-xl font-semibold text-white mb-3">Last Updated: {new Date().toLocaleDateString()}</h2>
               <p className="text-gray-300">
-                This Privacy Policy explains how KamiContent ("we", "us", or "our") collects, uses, and protects your personal data when you use our service.
+                This Privacy Policy explains how PhotoVault ("we", "us", or "our") collects, uses, and protects your personal data when you use our service.
               </p>
             </section>
 
@@ -109,7 +109,7 @@ export default function PrivacyPolicyPage() {
               <h3 className="text-lg font-semibold text-white mb-2">9. Contact Information</h3>
               <p className="text-gray-300">
                 For privacy-related requests or questions:<br />
-                Email: privacy@kamicontent.com<br />
+                Email: privacy@photovault-demo.com<br />
                 Response time: Within 30 days
               </p>
             </section>

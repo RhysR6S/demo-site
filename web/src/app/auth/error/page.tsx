@@ -99,7 +99,7 @@ ${authError.stackTrace || 'N/A'}
                 <li>Return here and try logging in again</li>
               </ol>
               <a
-                href={`https://www.patreon.com/${process.env.NEXT_PUBLIC_PATREON_CREATOR_USERNAME || 'KamiXXX'}`}
+                href={`https://www.patreon.com/${process.env.NEXT_PUBLIC_PATREON_CREATOR_USERNAME || 'DemoCreator'}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-[#FF424D] hover:bg-[#FF424D]/90 text-white rounded-lg transition-colors"
@@ -215,7 +215,7 @@ ${authError.stackTrace || 'N/A'}
         <p className="text-center text-sm text-gray-500 mt-6">
           Need help?{' '}
           <a
-            href="mailto:support@kamicontent.com"
+            href="mailto:support@photovault-demo.com"
             className="text-blue-400 hover:text-blue-300 underline"
           >
             Contact Support

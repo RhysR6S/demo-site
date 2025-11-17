@@ -212,16 +212,16 @@ export default function AdminSidebar() {
               className="flex items-center gap-3"
             >
               <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-red-600 rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-lg">K</span>
+                <span className="text-white font-bold text-lg">P</span>
               </div>
               <div>
-                <h3 className="text-white font-semibold">KamiContent</h3>
+                <h3 className="text-white font-semibold">PhotoVault</h3>
                 <p className="text-xs text-gray-500">Admin Panel</p>
               </div>
             </motion.div>
           ) : (
             <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-red-600 rounded-xl flex items-center justify-center mx-auto">
-              <span className="text-white font-bold text-lg">K</span>
+              <span className="text-white font-bold text-lg">P</span>
             </div>
           )}
         </div>
