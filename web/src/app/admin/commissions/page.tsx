@@ -324,8 +324,8 @@ export default function AdminCommissionsPage() {
 
       <div className="relative">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">Commission Requests</h1>
-          <p className="text-gray-400">Manage and track all commission requests from your members and public submissions.</p>
+          <h1 className="text-3xl font-bold text-white mb-2">Photo Requests</h1>
+          <p className="text-gray-400">Manage and track all photo requests from your members and public submissions.</p>
           
           {fetchError && (
             <div className="mt-4 p-4 bg-red-900/20 border border-red-900/50 rounded-lg">
