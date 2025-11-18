@@ -88,11 +88,15 @@ function getRateLimitType(pathname: string): RateLimitType | null {
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
   const requestId = crypto.randomUUID()
-  
+
   // Skip middleware for static files
   if (ROUTES.STATIC.some(route => pathname.startsWith(route))) {
     return NextResponse.next()
   }
+
+  // DEVELOPMENT MODE BYPASS
+  // When DEV_BYPASS_AUTH is enabled, create a mock admin session
+  const devBypassEnabled = process.env.DEV_BYPASS_AUTH === 'true'
 
   try {
     const clientIp = getClientIp(request)
@@ -104,18 +108,18 @@ export async function middleware(request: NextRequest) {
     
     // Check if route is public
     const isPublicRoute = ROUTES.PUBLIC.some(route => pathname.startsWith(route))
-    
-    if (!isPublicRoute) {
+
+    if (!isPublicRoute && !devBypassEnabled) {
       // Get JWT token
-      const token = await getToken({ 
+      const token = await getToken({
         req: request,
-        secret: process.env.NEXTAUTH_SECRET 
+        secret: process.env.NEXTAUTH_SECRET
       })
-      
+
       // Check for authentication error in token
       if (token?.authError) {
         console.warn('🚫 Auth error detected in token:', token.authError)
-        
+
         // Redirect to error page with error details
         const errorUrl = new URL('/auth/error', request.url)
         errorUrl.searchParams.set('error', JSON.stringify(token.authError))
@@ -125,9 +129,9 @@ export async function middleware(request: NextRequest) {
       // Check admin routes
       if (pathname.startsWith(ROUTES.ADMIN)) {
         if (!token?.isCreator) {
-          console.warn('🚫 Non-creator tried to access admin:', { 
+          console.warn('🚫 Non-creator tried to access admin:', {
             userId: token?.sub,
-            pathname 
+            pathname
           })
           return NextResponse.redirect(new URL('/login', request.url))
         }
@@ -148,9 +152,9 @@ export async function middleware(request: NextRequest) {
       else if (pathname === ROUTES.API_CHARACTERS) {
         const referer = request.headers.get('referer')
         const isFromPublicCommissionPage = referer && referer.includes('/commissions/public')
-        
+
         if (!isFromPublicCommissionPage && !token?.email) {
-          return new NextResponse(JSON.stringify({ error: 'Unauthorized' }), { 
+          return new NextResponse(JSON.stringify({ error: 'Unauthorized' }), {
             status: 401,
             headers: { ...securityHeaders, 'Content-Type': 'application/json' }
           })
@@ -164,14 +168,14 @@ export async function middleware(request: NextRequest) {
           isActivePatron: token?.isActivePatron,
           isCreator: token?.isCreator
         })
-        
+
         if (pathname.startsWith(ROUTES.API)) {
-          return new NextResponse(JSON.stringify({ error: 'Unauthorized' }), { 
+          return new NextResponse(JSON.stringify({ error: 'Unauthorized' }), {
             status: 401,
             headers: { ...securityHeaders, 'Content-Type': 'application/json' }
           })
         }
-        
+
         // Redirect to error page
         const errorUrl = new URL('/auth/error', request.url)
         errorUrl.searchParams.set('error', JSON.stringify({
@@ -183,6 +187,9 @@ export async function middleware(request: NextRequest) {
         }))
         return NextResponse.redirect(errorUrl)
       }
+    } else if (devBypassEnabled && !isPublicRoute) {
+      // In dev bypass mode, log that we're allowing access
+      console.log('🔓 DEV MODE: Bypassing authentication for:', pathname)
     }
     
     // Apply rate limiting ONLY for auth routes (brute force protection)
