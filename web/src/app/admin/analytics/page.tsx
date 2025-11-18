@@ -272,7 +272,9 @@ export default function AnalyticsPage() {
     : projectedAnnualRevenue * 2 // Estimate if not available
 
   return (
+    <div className="space-y-8">
       {/* Gradient background overlay */}
+      <div className="fixed inset-0 pointer-events-none opacity-40">
         <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-green-600/15 rounded-full blur-3xl" />
         <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl" />
       </div>
