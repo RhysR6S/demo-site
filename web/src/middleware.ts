@@ -98,6 +98,11 @@ export async function middleware(request: NextRequest) {
   // When DEV_BYPASS_AUTH is enabled, create a mock admin session
   const devBypassEnabled = process.env.DEV_BYPASS_AUTH === 'true'
 
+  // Debug: Log the bypass status on homepage access
+  if (pathname === '/' && process.env.DEV_BYPASS_AUTH) {
+    console.log('🔍 DEV_BYPASS_AUTH:', process.env.DEV_BYPASS_AUTH, '| Enabled:', devBypassEnabled)
+  }
+
   try {
     const clientIp = getClientIp(request)
     
