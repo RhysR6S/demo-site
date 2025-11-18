@@ -9,7 +9,7 @@ import { ModeToggle } from '@/components/commission/ModeToggle'
 import { SimplePreferences } from '@/components/commission/SimplePreferences'
 import { AdvancedPreferences } from '@/components/commission/AdvancedPreferences'
 import { ImageDistribution } from '@/components/commission/ImageDistribution'
-import { SMART_TAG_CATEGORIES, simpleToPoseWeights } from './constants'
+import { PHOTO_REQUEST_CATEGORIES, simpleToPoseWeights } from './constants'
 
 // Interfaces
 interface Character {
@@ -21,15 +21,11 @@ interface Character {
 }
 
 interface SetBias {
-  vaginal: number
-  anal: number
-  oral: number
-  handjobTitjob: number
-  masturbation: number
-  rimming: number
-  worshippingSmothering: number
-  povSex: number
-  nonPovSex: number
+  portrait: number
+  landscape: number
+  product: number
+  lifestyle: number
+  creative: number
 }
 
 interface CommissionSlot {
@@ -71,11 +67,11 @@ interface CommissionFormState {
   
   // Simple mode preferences
   simplePreferences: {
-    vaginal: number
-    anal: number
-    oral: number
-    handjobTitjob: number
-    masturbation: number
+    portrait: number
+    landscape: number
+    product: number
+    lifestyle: number
+    creative: number
   }
   
   // Advanced mode weights
@@ -104,14 +100,14 @@ const initialFormState: CommissionFormState = {
     gangbang: 0
   },
   simplePreferences: {
-    vaginal: 100,
-    anal: 100,
-    oral: 100,
-    handjobTitjob: 100,
-    masturbation: 100
+    portrait: 100,
+    landscape: 100,
+    product: 100,
+    lifestyle: 100,
+    creative: 100
   },
   poseWeights: Object.fromEntries(
-    SMART_TAG_CATEGORIES.flatMap(cat => 
+    PHOTO_REQUEST_CATEGORIES.flatMap(cat =>
       cat.tags.map(tag => [tag.key, tag.defaultWeight])
     )
   ),
@@ -698,11 +694,11 @@ export default function CommissionsPage() {
     <div className="min-h-screen bg-black">
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">Commissions</h1>
+          <h1 className="text-3xl font-bold text-white mb-2">Custom Photo Requests</h1>
           <p className="text-gray-400">
-            {activeTab === 'submit' 
-              ? 'Submit your commission request and the creator will work on it as soon as possible.'
-              : 'View and track your commission requests.'
+            {activeTab === 'submit'
+              ? 'Request custom stock photos tailored to your specific needs. Our photographers will create professional imagery based on your requirements.'
+              : 'View and track your custom photo requests.'
             }
           </p>
           
@@ -716,29 +712,29 @@ export default function CommissionsPage() {
                   : 'text-gray-400 hover:text-white'
               }`}
             >
-              Submit New Commission
+              Submit New Request
             </button>
             <button
               onClick={() => setActiveTab('view')}
               className={`flex-1 py-2 px-4 rounded-md font-medium transition-all ${
-                activeTab === 'view' 
-                  ? 'bg-purple-600 text-white' 
+                activeTab === 'view'
+                  ? 'bg-purple-600 text-white'
                   : 'text-gray-400 hover:text-white'
               }`}
             >
-              View My Commissions
+              View My Requests
             </button>
           </div>
         </div>
 
         {activeTab === 'submit' ? (
           <>
-            {/* Commission Slots Visual */}
+            {/* Photo Request Slots Visual */}
             {freeCommissionsCount > 0 && (
               <div className="mb-6 p-4 bg-slate-900 border border-zinc-800 rounded-lg">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-sm font-medium text-gray-300">
-                    Monthly Free Commissions (
+                    Monthly Free Photo Requests (
                     <span className={`font-semibold ${
                       session?.user?.membershipTier?.toLowerCase() === 'gold' ? 'text-orange-400' :
                       session?.user?.membershipTier?.toLowerCase() === 'diamond' ? 'text-cyan-400' :
@@ -803,24 +799,24 @@ export default function CommissionsPage() {
 
             {/* Pricing Display */}
             <div className="mb-6 p-4 bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-cyan-600/30 rounded-lg">
-              <h3 className="text-lg font-semibold text-white mb-3">Commission Pricing</h3>
+              <h3 className="text-lg font-semibold text-white mb-3">Photo Request Pricing</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="text-sm font-medium text-cyan-400 mb-2">Character Set</h4>
+                  <h4 className="text-sm font-medium text-cyan-400 mb-2">Photo Collection</h4>
                   <ul className="space-y-1 text-sm text-gray-300">
                     <li>• $15 USD base price</li>
-                    <li>• +$0.50 per additional character</li>
-                    <li>• 70-140 images (varies)</li>
-                    <li>• Poses selected by artist</li>
+                    <li>• +$0.50 per additional subject</li>
+                    <li>• 20-50 photos (varies by style)</li>
+                    <li>• Styles selected by photographer</li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="text-sm font-medium text-blue-400 mb-2">Custom Image</h4>
+                  <h4 className="text-sm font-medium text-blue-400 mb-2">Custom Single Photo</h4>
                   <ul className="space-y-1 text-sm text-gray-300">
                     <li>• $20 USD base price</li>
-                    <li>• +$4 per additional character</li>
-                    <li>• 1 image to your specifications</li>
-                    <li>• Max 3 characters per image</li>
+                    <li>• +$4 per additional subject</li>
+                    <li>• 1 photo to your specifications</li>
+                    <li>• Professional editing included</li>
                   </ul>
                 </div>
               </div>
@@ -828,7 +824,7 @@ export default function CommissionsPage() {
               {(formState.type === 'set' ? pricing.characterCount > 0 : true) && (
                 <div className="mt-4 pt-4 border-t border-white/10">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium text-gray-300">Current Commission Cost:</span>
+                    <span className="text-sm font-medium text-gray-300">Current Request Cost:</span>
                     <div className="text-right">
                       {isFreeTier ? (
                         <div>
@@ -849,7 +845,7 @@ export default function CommissionsPage() {
                       </div>
                       {pricing.additionalCharacters > 0 && (
                         <div className="flex justify-between">
-                          <span>Additional characters ({pricing.characterCount - 1}):</span>
+                          <span>Additional subjects ({pricing.characterCount - 1}):</span>
                           <span>+${pricing.additionalCharacters.toFixed(2)}</span>
                         </div>
                       )}
@@ -868,23 +864,23 @@ export default function CommissionsPage() {
                 <div>
                   <p className="text-sm font-semibold text-yellow-400 mb-1">Important Notice</p>
                   <p className="text-sm text-gray-300">
-                    Submitting a commission request does NOT confirm your commission. The creator will review your request and get in touch with you as soon as possible to discuss details and confirm the commission.
+                    Submitting a photo request does NOT confirm your order. Our photography team will review your request and contact you to discuss details, timelines, and confirm the assignment.
                   </p>
                   <p className="text-sm text-sky-400 font-semibold mt-2">
-                    DO NOT SEND MONEY UNTIL THE CREATOR HAS CONFIRMED THEY WILL DO IT!
+                    DO NOT SEND PAYMENT UNTIL YOUR REQUEST HAS BEEN CONFIRMED!
                   </p>
                   {availableSlots === 0 && freeCommissionsCount > 0 && (
                     <p className="text-sm text-gray-300 mt-2">
-                      <span className="text-yellow-400 font-semibold">Note:</span> You have used all your free commission slots for this month. This commission will be a paid commission.
+                      <span className="text-yellow-400 font-semibold">Note:</span> You have used all your free photo request slots for this month. This will be a paid request.
                     </p>
                   )}
                 </div>
               </div>
             </div>
 
-            {/* Commission Type Selector */}
+            {/* Request Type Selector */}
             <div className="mb-8">
-              <label className="block text-sm font-medium text-gray-300 mb-3">Commission Type</label>
+              <label className="block text-sm font-medium text-gray-300 mb-3">Request Type</label>
               <div className="grid grid-cols-2 gap-4">
                 <button
                   type="button"
@@ -896,11 +892,11 @@ export default function CommissionsPage() {
                   }`}
                 >
                   <div className="text-left">
-                    <h3 className="font-semibold text-white mb-1">Character Set</h3>
-                    <p className="text-sm text-gray-400">Full set with specific characters and preferences</p>
+                    <h3 className="font-semibold text-white mb-1">Photo Collection</h3>
+                    <p className="text-sm text-gray-400">Multiple photos with specific subjects and preferences</p>
                   </div>
                 </button>
-                
+
                 <button
                   type="button"
                   onClick={() => dispatch({ type: 'SET_TYPE', payload: 'custom' })}
@@ -911,8 +907,8 @@ export default function CommissionsPage() {
                   }`}
                 >
                   <div className="text-left">
-                    <h3 className="font-semibold text-white mb-1">Custom Image</h3>
-                    <p className="text-sm text-gray-400">Single custom image with your specifications</p>
+                    <h3 className="font-semibold text-white mb-1">Custom Single Photo</h3>
+                    <p className="text-sm text-gray-400">One custom photo with your exact specifications</p>
                   </div>
                 </button>
               </div>
@@ -931,19 +927,19 @@ export default function CommissionsPage() {
                       <div className="bg-slate-900/50 border border-zinc-800 rounded-lg p-4">
                         <h4 className="text-sm font-medium text-white mb-3 flex items-center gap-2">
                           <span className="w-6 h-6 bg-purple-600 text-white rounded-full text-xs flex items-center justify-center">1</span>
-                          Select from character list
+                          Select from subject list
                         </h4>
-                        
+
                         {characters.length > 0 && (
                           <input
                             type="text"
                             value={characterSearch}
                             onChange={(e) => setCharacterSearch(e.target.value)}
-                            placeholder="Type to search characters..."
+                            placeholder="Type to search subjects..."
                             className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none mb-3"
                           />
                         )}
-                        
+
                         <div className="space-y-2">
                           {formState.femaleCharacters.map((char, index) => (
                             <div key={index} className="flex gap-2">
@@ -952,7 +948,7 @@ export default function CommissionsPage() {
                                 onChange={(e) => updateFemaleCharacter(index, e.target.value)}
                                 className="flex-1 bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2.5 text-white focus:border-purple-500 focus:outline-none"
                               >
-                                <option value="">Choose a character...</option>
+                                <option value="">Choose a subject...</option>
                                 {filteredCharacters.map(character => (
                                   <option key={character.id} value={character.name}>
                                     {character.name} {character.series ? `(${character.series.name})` : ''}
@@ -964,7 +960,7 @@ export default function CommissionsPage() {
                                   type="button"
                                   onClick={() => removeFemaleCharacter(index)}
                                   className="p-2.5 bg-zinc-800 border border-zinc-700 rounded-lg text-sky-400 hover:bg-zinc-700"
-                                  title="Remove character"
+                                  title="Remove subject"
                                 >
                                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -973,7 +969,7 @@ export default function CommissionsPage() {
                               )}
                             </div>
                           ))}
-                          
+
                           {formState.femaleCharacters[0] && (
                             <button
                               type="button"
@@ -983,22 +979,22 @@ export default function CommissionsPage() {
                               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                               </svg>
-                              Add another character (+$0.50)
+                              Add another subject (+$0.50)
                             </button>
                           )}
                         </div>
                       </div>
-                      
+
                       <div className="flex items-center gap-3">
                         <div className="flex-1 h-px bg-zinc-800"></div>
                         <span className="text-xs text-gray-500 uppercase">or</span>
                         <div className="flex-1 h-px bg-zinc-800"></div>
                       </div>
-                      
+
                       <div className="bg-slate-900/50 border border-zinc-800 rounded-lg p-4">
                         <h4 className="text-sm font-medium text-white mb-3 flex items-center gap-2">
                           <span className="w-6 h-6 bg-purple-600 text-white rounded-full text-xs flex items-center justify-center">2</span>
-                          Request a custom character
+                          Request a custom subject
                         </h4>
                         
                         {formState.customCharactersList.length > 0 && (
@@ -1010,7 +1006,7 @@ export default function CommissionsPage() {
                                   type="button"
                                   onClick={() => removeCustomCharacter(index)}
                                   className="text-sky-400 hover:text-red-300"
-                                  title="Remove character"
+                                  title="Remove subject"
                                 >
                                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -1020,14 +1016,14 @@ export default function CommissionsPage() {
                             ))}
                           </div>
                         )}
-                        
+
                         <div className="flex gap-2">
                           <input
                             type="text"
                             value={customFemaleCharacter}
                             onChange={(e) => setCustomFemaleCharacter(e.target.value)}
                             onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addCustomCharacter())}
-                            placeholder="Enter character name not in the list..."
+                            placeholder="Enter subject description not in the list..."
                             className="flex-1 bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
                           />
                           <button
@@ -1035,7 +1031,7 @@ export default function CommissionsPage() {
                             onClick={addCustomCharacter}
                             disabled={!customFemaleCharacter.trim()}
                             className="p-2.5 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:bg-zinc-700 disabled:text-gray-500 transition-colors"
-                            title="Add character"
+                            title="Add subject"
                           >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -1043,14 +1039,14 @@ export default function CommissionsPage() {
                           </button>
                         </div>
                         <p className="text-xs text-gray-500 mt-2">
-                          Can't find your character? Type their name and press + to add multiple custom characters (+$0.50 each after the first).
+                          Can't find your subject? Type a description and press + to add multiple custom subjects (+$0.50 each after the first).
                         </p>
                       </div>
-                      
+
                       {(formState.femaleCharacters.some(c => c) || formState.customCharactersList.length > 0) && (
                         <div className="bg-green-900/10 border border-green-900/30 rounded-lg p-3">
                           <p className="text-xs text-green-400">
-                            <strong>Selected characters:</strong> {[
+                            <strong>Selected subjects:</strong> {[
                               ...formState.femaleCharacters.filter(c => c),
                               ...formState.customCharactersList
                             ].filter(Boolean).join(', ')}
@@ -1060,7 +1056,7 @@ export default function CommissionsPage() {
                     </div>
                   </div>
 
-                  {/* Content Preferences Mode Toggle */}
+                  {/* Photography Style Preferences Mode Toggle */}
                   <ModeToggle
                     mode={formState.mode}
                     onChange={(mode) => dispatch({ type: 'SET_MODE', payload: mode })}
@@ -1082,9 +1078,9 @@ export default function CommissionsPage() {
                   {/* Image Distribution Section */}
                   <div className="space-y-4">
                     <div className="border-t border-zinc-800 pt-6">
-                      <h3 className="text-lg font-semibold text-white mb-2">Image Type Distribution</h3>
+                      <h3 className="text-lg font-semibold text-white mb-2">Photo Composition Distribution</h3>
                       <p className="text-sm text-gray-400 mb-4">
-                        Control the mix of solo, duo (2Girls), and 1Boy1Girl images in your set.
+                        Control the mix of different photo compositions and subject arrangements in your collection.
                       </p>
                       <ImageDistribution
                         distribution={formState.imageDistribution}
@@ -1111,14 +1107,14 @@ export default function CommissionsPage() {
                             <span className="font-semibold text-white">All fields below are completely OPTIONAL.</span> We highly recommend leaving most or all of them blank!
                           </p>
                           <p>
-                            <span className="text-blue-300">✨ Why leave them blank?</span> You'll get much more variety and creativity in your commission. The artist will have freedom to explore different:
+                            <span className="text-blue-300">✨ Why leave them blank?</span> You'll get much more variety and creativity in your photo collection. Our photographers will have freedom to explore different:
                           </p>
                           <ul className="ml-4 space-y-1 text-gray-400">
                             <li>• Locations and settings</li>
-                            <li>• Clothing and outfits</li>
-                            <li>• Expressions and moods</li>
-                            <li>• Scene types and compositions</li>
-                            <li>• Body types and poses</li>
+                            <li>• Lighting and atmosphere</li>
+                            <li>• Angles and perspectives</li>
+                            <li>• Color palettes and moods</li>
+                            <li>• Composition styles</li>
                           </ul>
                           <p className="pt-2 font-medium text-yellow-400">
                             💡 Only fill in fields if you have very specific preferences. Otherwise, embrace the surprise and variety!
@@ -1128,20 +1124,20 @@ export default function CommissionsPage() {
                     </div>
                   </div>
 
-                  {/* Male Character */}
+                  {/* Additional Subject Details */}
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-3">
-                      Male Character Override <span className="text-gray-500 text-xs">(Optional - for customizing male in 1Boy1Girl scenes)</span>
+                      Additional Subject Details <span className="text-gray-500 text-xs">(Optional)</span>
                     </label>
                     <input
                       type="text"
                       value={formState.maleCharacter}
                       onChange={(e) => dispatch({ type: 'UPDATE_FIELD', field: 'maleCharacter', value: e.target.value })}
-                      placeholder="Leave blank for default male, or specify character name/appearance..."
+                      placeholder="Leave blank or specify additional details about subjects..."
                       className="w-full bg-slate-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
                     />
                     <p className="text-xs text-gray-500 mt-1">
-                      1Boy1Girl scenes will generate with a default male if left blank. Enter a character name or describe their appearance to override.
+                      Add any specific details about the subjects you'd like in your photos.
                     </p>
                   </div>
 
@@ -1181,37 +1177,37 @@ export default function CommissionsPage() {
                     </button>
                   </div>
 
-                  {/* Body Type */}
+                  {/* Style Notes */}
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-3">
-                      Body Type <span className="text-gray-500 text-xs">(Optional)</span>
+                      Style Notes <span className="text-gray-500 text-xs">(Optional)</span>
                     </label>
                     <input
                       type="text"
                       value={formState.bodyType}
                       onChange={(e) => dispatch({ type: 'UPDATE_FIELD', field: 'bodyType', value: e.target.value })}
-                      placeholder="e.g., Curvy, Gigantic breasts, Skinny, Athletic..."
+                      placeholder="e.g., Bright and airy, Moody lighting, Vintage aesthetic..."
                       className="w-full bg-slate-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
                     />
                   </div>
                 </>
               ) : (
                 <>
-                  {/* Custom Image Description */}
+                  {/* Custom Photo Description */}
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-3">
-                      Describe Your Custom Image <span className="text-sky-500">*</span>
+                      Describe Your Custom Photo <span className="text-sky-500">*</span>
                     </label>
                     <textarea
                       value={formState.customDescription}
                       onChange={(e) => dispatch({ type: 'UPDATE_FIELD', field: 'customDescription', value: e.target.value })}
                       rows={6}
                       required
-                      placeholder="Describe in detail what you'd like to see in your custom image..."
+                      placeholder="Describe in detail what you'd like to see in your custom photo (subject, setting, mood, style, etc.)..."
                       className="w-full bg-slate-900 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none resize-none"
                     />
                     <p className="text-xs text-gray-500 mt-1">
-                      Maximum of 3 characters per image. Additional characters are +$4 each.
+                      Maximum of 3 subjects per photo. Additional subjects are +$4 each.
                     </p>
                   </div>
 
@@ -1278,7 +1274,7 @@ export default function CommissionsPage() {
                     </>
                   ) : (
                     <>
-                      Submit Commission Request
+                      Submit Photo Request
                       {isFreeTier ? (
                         <span className="text-xs bg-green-600/20 text-green-300 px-2 py-0.5 rounded">FREE</span>
                       ) : (
@@ -1291,7 +1287,7 @@ export default function CommissionsPage() {
             </form>
           </>
         ) : (
-          /* View Commissions Tab */
+          /* View Photo Requests Tab */
           <div>
             {loadingCommissions ? (
               <div className="flex items-center justify-center py-12">
@@ -1302,12 +1298,12 @@ export default function CommissionsPage() {
                 <svg className="w-12 h-12 text-gray-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                <p className="text-gray-400">You haven't submitted any commission requests yet.</p>
+                <p className="text-gray-400">You haven't submitted any photo requests yet.</p>
                 <button
                   onClick={() => setActiveTab('submit')}
                   className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
                 >
-                  Submit Your First Commission
+                  Submit Your First Photo Request
                 </button>
               </div>
             ) : (
@@ -1317,7 +1313,7 @@ export default function CommissionsPage() {
                     <div className="flex items-start justify-between mb-4">
                       <div>
                         <h3 className="text-lg font-semibold text-white mb-1">
-                          {commission.type === 'set' ? 'Character Set' : 'Custom Image'} Commission
+                          {commission.type === 'set' ? 'Photo Collection' : 'Custom Single Photo'} Request
                         </h3>
                         <p className="text-sm text-gray-400">
                           Submitted {new Date(commission.created_at).toLocaleDateString('en-US', {
@@ -1350,7 +1346,7 @@ export default function CommissionsPage() {
                     {commission.request_data.price !== undefined && (
                       <div className="mb-4 p-3 bg-purple-900/10 border border-purple-900/30 rounded-lg">
                         <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-400">Commission Cost:</span>
+                          <span className="text-sm text-gray-400">Request Cost:</span>
                           <span className="text-lg font-semibold text-white">
                             {commission.is_free_tier ? (
                               <span className="text-green-400">FREE</span>
@@ -1367,13 +1363,13 @@ export default function CommissionsPage() {
                       <div className="space-y-2 text-sm">
                         {commission.request_data.femaleCharacters?.length > 0 && (
                           <div>
-                            <span className="text-gray-400">Characters:</span>
+                            <span className="text-gray-400">Subjects:</span>
                             <span className="text-white ml-2">{commission.request_data.femaleCharacters.join(', ')}</span>
                           </div>
                         )}
                         {commission.request_data.maleCharacter && (
                           <div>
-                            <span className="text-gray-400">Male Character:</span>
+                            <span className="text-gray-400">Additional Details:</span>
                             <span className="text-white ml-2">{commission.request_data.maleCharacter}</span>
                           </div>
                         )}
@@ -1385,7 +1381,7 @@ export default function CommissionsPage() {
                         )}
                         {commission.request_data.bodyType && (
                           <div>
-                            <span className="text-gray-400">Body Type:</span>
+                            <span className="text-gray-400">Style Notes:</span>
                             <span className="text-white ml-2">{commission.request_data.bodyType}</span>
                           </div>
                         )}
@@ -1407,21 +1403,21 @@ export default function CommissionsPage() {
                     {commission.status === 'pending' && (
                       <div className="mt-4 p-3 bg-yellow-900/20 border border-yellow-900/50 rounded-lg">
                         <p className="text-sm text-yellow-400">
-                          Your commission is pending review. You can edit or cancel it while it's pending.
+                          Your photo request is pending review. You can edit or cancel it while it's pending.
                         </p>
                       </div>
                     )}
                     {commission.status === 'in_progress' && (
                       <div className="mt-4 p-3 bg-purple-900/20 border border-purple-900/50 rounded-lg">
                         <p className="text-sm text-cyan-400">
-                          The creator is currently working on your commission.
+                          Our photographers are currently working on your request.
                         </p>
                       </div>
                     )}
                     {commission.status === 'completed' && (
                       <div className="mt-4 p-3 bg-green-900/20 border border-green-900/50 rounded-lg">
                         <p className="text-sm text-green-400">
-                          Your commission has been completed! Check your DMs for details.
+                          Your photo request has been completed! Check your DMs for details.
                         </p>
                       </div>
                     )}
@@ -1435,10 +1431,10 @@ export default function CommissionsPage() {
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        Message Creator
+                        Message Team
                       </Link>
-                      
-                      {/* Edit button - only for pending commissions */}
+
+                      {/* Edit button - only for pending requests */}
                       {commission.status === 'pending' && (
                         <>
                           <button
@@ -1476,7 +1472,7 @@ export default function CommissionsPage() {
           <div className="bg-slate-900 border border-zinc-800 rounded-lg max-w-4xl w-full my-8">
             {/* Modal Header */}
             <div className="flex items-center justify-between p-6 border-b border-zinc-800 sticky top-0 bg-slate-900 z-10">
-              <h2 className="text-2xl font-bold text-white">Edit Commission</h2>
+              <h2 className="text-2xl font-bold text-white">Edit Photo Request</h2>
               <button
                 onClick={() => {
                   setShowEditModal(false)
@@ -1495,10 +1491,10 @@ export default function CommissionsPage() {
             <div className="p-6 space-y-6">
               {editFormState.type === 'set' ? (
                 <>
-                  {/* Female Characters */}
+                  {/* Photo Subjects */}
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-3">
-                      Female Character(s) <span className="text-sky-500">*</span>
+                      Photo Subject(s) <span className="text-sky-500">*</span>
                     </label>
                     <div className="space-y-2">
                       {editFormState.femaleCharacters.map((char, index) => (
@@ -1512,7 +1508,7 @@ export default function CommissionsPage() {
                             }}
                             className="flex-1 bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2.5 text-white focus:border-purple-500 focus:outline-none"
                           >
-                            <option value="">Choose a character...</option>
+                            <option value="">Choose a subject...</option>
                             {characters.map(character => (
                               <option key={character.id} value={character.name}>
                                 {character.name} {character.series ? `(${character.series.name})` : ''}
@@ -1552,7 +1548,7 @@ export default function CommissionsPage() {
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                         </svg>
-                        Add another character
+                        Add another subject
                       </button>
                     </div>
                   </div>
@@ -1576,9 +1572,9 @@ export default function CommissionsPage() {
                     />
                   )}
 
-                  {/* Image Distribution */}
+                  {/* Photo Composition Distribution */}
                   <div>
-                    <h3 className="text-lg font-semibold text-white mb-2">Image Type Distribution</h3>
+                    <h3 className="text-lg font-semibold text-white mb-2">Photo Composition Distribution</h3>
                     <ImageDistribution
                       distribution={editFormState.imageDistribution}
                       onChange={(dist) => editDispatch({ type: 'UPDATE_DISTRIBUTION', payload: dist })}
@@ -1587,16 +1583,16 @@ export default function CommissionsPage() {
                     />
                   </div>
 
-                  {/* Male Character */}
+                  {/* Additional Subject Details */}
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-3">
-                      Male Character Override <span className="text-gray-500 text-xs">(Optional)</span>
+                      Additional Subject Details <span className="text-gray-500 text-xs">(Optional)</span>
                     </label>
                     <input
                       type="text"
                       value={editFormState.maleCharacter}
                       onChange={(e) => editDispatch({ type: 'UPDATE_FIELD', field: 'maleCharacter', value: e.target.value })}
-                      placeholder="Leave blank for default..."
+                      placeholder="Leave blank or specify additional details..."
                       className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
                     />
                   </div>
@@ -1653,26 +1649,26 @@ export default function CommissionsPage() {
                     </button>
                   </div>
 
-                  {/* Body Type */}
+                  {/* Style Notes */}
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-3">
-                      Body Type <span className="text-gray-500 text-xs">(Optional)</span>
+                      Style Notes <span className="text-gray-500 text-xs">(Optional)</span>
                     </label>
                     <input
                       type="text"
                       value={editFormState.bodyType}
                       onChange={(e) => editDispatch({ type: 'UPDATE_FIELD', field: 'bodyType', value: e.target.value })}
-                      placeholder="e.g., Curvy, Athletic..."
+                      placeholder="e.g., Bright and airy, Moody lighting..."
                       className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
                     />
                   </div>
                 </>
               ) : (
                 <>
-                  {/* Custom Image Description */}
+                  {/* Custom Photo Description */}
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-3">
-                      Description <span className="text-sky-500">*</span>
+                      Photo Description <span className="text-sky-500">*</span>
                     </label>
                     <textarea
                       value={editFormState.customDescription}

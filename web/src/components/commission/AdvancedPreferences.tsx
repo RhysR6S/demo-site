@@ -3,7 +3,7 @@
 
 import { useState } from 'react'
 import { WeightSlider } from './WeightSlider'
-import { SMART_TAG_CATEGORIES, PRESET_CONFIGS, getWeightColor } from '@/app/commissions/constants'
+import { PHOTO_REQUEST_CATEGORIES, PRESET_CONFIGS, getWeightColor } from '@/app/commissions/constants'
 
 interface AdvancedPreferencesProps {
   poseWeights: Record<string, number>
@@ -43,7 +43,7 @@ export function AdvancedPreferences({ poseWeights, onChange }: AdvancedPreferenc
   }
 
   const setCategoryWeights = (categoryName: string, value: number) => {
-    const category = SMART_TAG_CATEGORIES.find(c => c.name === categoryName)
+    const category = PHOTO_REQUEST_CATEGORIES.find(c => c.name === categoryName)
     if (category) {
       const newWeights = { ...poseWeights }
       category.tags.forEach(tag => {
@@ -98,7 +98,7 @@ export function AdvancedPreferences({ poseWeights, onChange }: AdvancedPreferenc
                 type="button"
                 onClick={() => {
                   const defaultWeights: Record<string, number> = {}
-                  SMART_TAG_CATEGORIES.forEach(cat => {
+                  PHOTO_REQUEST_CATEGORIES.forEach(cat => {
                     cat.tags.forEach(tag => {
                       defaultWeights[tag.key] = 100
                     })
@@ -116,7 +116,7 @@ export function AdvancedPreferences({ poseWeights, onChange }: AdvancedPreferenc
       </div>
 
       {/* Category Sections */}
-      {SMART_TAG_CATEGORIES.map((category) => (
+      {PHOTO_REQUEST_CATEGORIES.map((category) => (
         <div key={category.name} className="bg-slate-900/50 border border-zinc-800 rounded-lg overflow-hidden">
           {/* Category Header */}
           <button
@@ -229,7 +229,7 @@ export function AdvancedPreferences({ poseWeights, onChange }: AdvancedPreferenc
           </div>
         </div>
         <p className="text-xs text-gray-500 mt-3">
-          Weights determine how frequently each type of content appears in your set. Higher weights mean more of that content type.
+          Weights determine how frequently each photography style appears in your collection. Higher weights mean more photos of that style.
         </p>
       </div>
     </div>

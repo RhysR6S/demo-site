@@ -342,7 +342,7 @@ export default function Home() {
                     </svg>
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">Join Community</h3>
-                  <p className="text-gray-400 leading-relaxed">Connect with other patrons</p>
+                  <p className="text-gray-400 leading-relaxed">Connect with other members</p>
                   <div className="mt-6 flex items-center text-blue-400 font-medium">
                     <span>Enter Community</span>
                     <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

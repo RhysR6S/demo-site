@@ -1,6 +1,6 @@
 // src/app/commissions/constants.ts
 
-export interface PoseWeightCategory {
+export interface PhotoRequestCategory {
   name: string
   description: string
   tags: {
@@ -11,274 +11,424 @@ export interface PoseWeightCategory {
   }[]
 }
 
-// REMOVED "Participants & Scene Type" category to avoid confusion with Image Distribution
-export const SMART_TAG_CATEGORIES: PoseWeightCategory[] = [
+export const PHOTO_REQUEST_CATEGORIES: PhotoRequestCategory[] = [
   {
-    name: "Sexual Acts",
-    description: "Types of sexual activities in scenes",
+    name: "Photography Styles",
+    description: "Types of photography styles and techniques",
     tags: [
       {
-        key: "[VAGINAL_SEX]",
-        label: "Vaginal Sex",
-        description: "Vaginal penetration scenes",
+        key: "[PORTRAIT]",
+        label: "Portrait",
+        description: "Focus on people and faces",
         defaultWeight: 100
       },
       {
-        key: "[ANAL_SEX]",
-        label: "Anal Sex",
-        description: "Anal penetration scenes",
+        key: "[LANDSCAPE]",
+        label: "Landscape",
+        description: "Wide scenic views and natural vistas",
         defaultWeight: 100
       },
       {
-        key: "[ORAL_GIVE]",
-        label: "Oral (Giving)",
-        description: "Performing oral sex",
+        key: "[PRODUCT]",
+        label: "Product",
+        description: "Product photography and showcase",
         defaultWeight: 100
       },
       {
-        key: "[ORAL_RECEIVE]",
-        label: "Oral (Receiving)",
-        description: "Receiving oral sex",
+        key: "[ARCHITECTURAL]",
+        label: "Architectural",
+        description: "Buildings and structures",
         defaultWeight: 100
       },
       {
-        key: "[HANDJOB]",
-        label: "Handjob",
-        description: "Manual stimulation scenes",
+        key: "[FOOD]",
+        label: "Food",
+        description: "Culinary and food photography",
         defaultWeight: 100
       },
       {
-        key: "[TITJOB]",
-        label: "Titjob",
-        description: "Breast stimulation scenes",
+        key: "[ABSTRACT]",
+        label: "Abstract",
+        description: "Creative and conceptual imagery",
         defaultWeight: 100
       },
       {
-        key: "[FOOTJOB]",
-        label: "Footjob",
-        description: "Foot stimulation scenes",
+        key: "[DOCUMENTARY]",
+        label: "Documentary",
+        description: "Candid and storytelling photography",
         defaultWeight: 100
       },
       {
-        key: "[ASSJOB]",
-        label: "Assjob",
-        description: "Buttocks stimulation scenes",
+        key: "[FASHION]",
+        label: "Fashion",
+        description: "Fashion and style photography",
         defaultWeight: 100
       },
       {
-        key: "[MASTURBATION]",
-        label: "Masturbation",
-        description: "Self-pleasure scenes",
+        key: "[WILDLIFE]",
+        label: "Wildlife",
+        description: "Animals in natural habitats",
         defaultWeight: 100
       },
       {
-        key: "[FINGERING]",
-        label: "Fingering",
-        description: "Digital penetration scenes",
-        defaultWeight: 100
-      },
-      {
-        key: "[RIMMING]",
-        label: "Rimming",
-        description: "Analingus scenes",
-        defaultWeight: 100
-      },
-      {
-        key: "[TRIBADISM]",
-        label: "Tribadism",
-        description: "Female/female grinding scenes",
-        defaultWeight: 100
-      },
-      {
-        key: "[NIPPLE_PENETRATION]",
-        label: "Nipple Penetration",
-        description: "Nipple insertion content",
-        defaultWeight: 100
-      },
-      {
-        key: "[BREASTFEEDING]",
-        label: "Breastfeeding",
-        description: "Nursing/suckling scenes",
+        key: "[SPORTS]",
+        label: "Sports",
+        description: "Action and athletic photography",
         defaultWeight: 100
       }
     ]
   },
   {
-    name: "Body Part Display",
-    description: "Control visibility of specific body parts",
+    name: "Subjects",
+    description: "Main subjects and themes for photos",
     tags: [
       {
-        key: "[SHOW_ANUS]",
-        label: "Show Anus",
-        description: "Visible anus in scenes",
+        key: "[PEOPLE]",
+        label: "People",
+        description: "Individuals or groups of people",
         defaultWeight: 100
       },
       {
-        key: "[SHOW_PUSSY]",
-        label: "Show Pussy",
-        description: "Visible vagina in scenes",
+        key: "[NATURE]",
+        label: "Nature",
+        description: "Natural environments and elements",
         defaultWeight: 100
       },
       {
-        key: "[SHOW_BREASTS]",
-        label: "Show Breasts",
-        description: "Visible breasts in scenes",
+        key: "[URBAN]",
+        label: "Urban/Cityscape",
+        description: "City scenes and urban environments",
         defaultWeight: 100
       },
       {
-        key: "[SHOW_FEET]",
-        label: "Show Feet",
-        description: "Focus on feet in scenes",
+        key: "[FOOD_DRINK]",
+        label: "Food & Drink",
+        description: "Culinary subjects and beverages",
         defaultWeight: 100
       },
       {
-        key: "[SHOW_ASS]",
-        label: "Show Ass",
-        description: "Focus on buttocks in scenes",
+        key: "[TECHNOLOGY]",
+        label: "Technology",
+        description: "Tech devices and digital themes",
+        defaultWeight: 100
+      },
+      {
+        key: "[BUSINESS]",
+        label: "Business",
+        description: "Corporate and professional themes",
+        defaultWeight: 100
+      },
+      {
+        key: "[TRAVEL]",
+        label: "Travel",
+        description: "Destinations and tourism",
+        defaultWeight: 100
+      },
+      {
+        key: "[ANIMALS]",
+        label: "Animals",
+        description: "Domestic and wild animals",
+        defaultWeight: 100
+      },
+      {
+        key: "[INTERIOR]",
+        label: "Interior",
+        description: "Indoor spaces and design",
+        defaultWeight: 100
+      },
+      {
+        key: "[PRODUCTS]",
+        label: "Products",
+        description: "Commercial products and items",
         defaultWeight: 100
       }
     ]
   },
   {
-    name: "Special Content",
-    description: "Additional content preferences",
+    name: "Mood & Tone",
+    description: "Emotional atmosphere and visual tone",
     tags: [
       {
-        key: "[GAPING]",
-        label: "Gaping",
-        description: "Gaping/stretched openings",
+        key: "[BRIGHT_CHEERFUL]",
+        label: "Bright & Cheerful",
+        description: "Uplifting and positive atmosphere",
         defaultWeight: 100
       },
       {
-        key: "[LACTATION]",
-        label: "Lactation",
-        description: "Milk/lactation content",
+        key: "[MOODY_DRAMATIC]",
+        label: "Moody & Dramatic",
+        description: "Dark and intense atmosphere",
         defaultWeight: 100
       },
       {
-        key: "[SQUIRTING]",
-        label: "Squirting",
-        description: "Female ejaculation scenes",
+        key: "[MINIMALIST]",
+        label: "Minimalist & Clean",
+        description: "Simple and uncluttered aesthetic",
         defaultWeight: 100
       },
       {
-        key: "[TOY_USE]",
-        label: "Toy Use",
-        description: "Sex toy usage in scenes",
+        key: "[VINTAGE]",
+        label: "Vintage & Retro",
+        description: "Classic and nostalgic feel",
         defaultWeight: 100
       },
       {
-        key: "[OBJECT_INSERT]",
-        label: "Object Insertion",
-        description: "Non-toy object insertion",
+        key: "[PROFESSIONAL]",
+        label: "Professional & Corporate",
+        description: "Business-appropriate and polished",
         defaultWeight: 100
       },
       {
-        key: "[FOOD_PLAY]",
-        label: "Food Play",
-        description: "Food-related sexual content",
+        key: "[WARM_COZY]",
+        label: "Warm & Cozy",
+        description: "Comfortable and inviting atmosphere",
         defaultWeight: 100
       },
       {
-        key: "[ASS_SMOTHER]",
-        label: "Ass Smothering",
-        description: "Face sitting/ass worship",
+        key: "[COOL_MODERN]",
+        label: "Cool & Modern",
+        description: "Contemporary and sleek aesthetic",
+        defaultWeight: 100
+      }
+    ]
+  },
+  {
+    name: "Settings & Environments",
+    description: "Location and environment preferences",
+    tags: [
+      {
+        key: "[INDOOR_STUDIO]",
+        label: "Indoor Studio",
+        description: "Controlled studio environment",
         defaultWeight: 100
       },
       {
-        key: "[BREAST_SMOTHER]",
-        label: "Breast Smothering",
-        description: "Face in breasts scenes",
+        key: "[OUTDOOR_NATURAL]",
+        label: "Outdoor Natural",
+        description: "Natural outdoor settings",
         defaultWeight: 100
       },
       {
-        key: "[PUSSY_SMOTHER]",
-        label: "Pussy Smothering",
-        description: "Face sitting/pussy worship",
+        key: "[URBAN_SETTING]",
+        label: "Urban Setting",
+        description: "City and street environments",
         defaultWeight: 100
       },
       {
-        key: "[AFTER_SEX]",
-        label: "After Sex",
-        description: "Post-coital scenes",
+        key: "[HOME_INTERIOR]",
+        label: "Home Interior",
+        description: "Residential indoor spaces",
         defaultWeight: 100
       },
       {
-        key: "[CUM_FOCUS]",
-        label: "Cum Focus",
-        description: "Focus on ejaculation/cum",
+        key: "[OFFICE_WORKPLACE]",
+        label: "Office/Workplace",
+        description: "Professional work environments",
+        defaultWeight: 100
+      },
+      {
+        key: "[NATURE_WILDERNESS]",
+        label: "Nature/Wilderness",
+        description: "Remote natural environments",
+        defaultWeight: 100
+      }
+    ]
+  },
+  {
+    name: "Image Specifications",
+    description: "Technical and visual specifications",
+    tags: [
+      {
+        key: "[ORIENTATION_LANDSCAPE]",
+        label: "Landscape Orientation",
+        description: "Horizontal/wide format",
+        defaultWeight: 100
+      },
+      {
+        key: "[ORIENTATION_PORTRAIT]",
+        label: "Portrait Orientation",
+        description: "Vertical/tall format",
+        defaultWeight: 100
+      },
+      {
+        key: "[ORIENTATION_SQUARE]",
+        label: "Square Orientation",
+        description: "1:1 aspect ratio",
+        defaultWeight: 100
+      },
+      {
+        key: "[COLOR_VIBRANT]",
+        label: "Vibrant Colors",
+        description: "Bold and saturated colors",
+        defaultWeight: 100
+      },
+      {
+        key: "[COLOR_MUTED]",
+        label: "Muted Colors",
+        description: "Soft and subdued palette",
+        defaultWeight: 100
+      },
+      {
+        key: "[COLOR_MONOCHROME]",
+        label: "Monochrome",
+        description: "Black and white or single color",
+        defaultWeight: 100
+      },
+      {
+        key: "[COLOR_WARM]",
+        label: "Warm Tones",
+        description: "Warm color temperature",
+        defaultWeight: 100
+      },
+      {
+        key: "[COLOR_COOL]",
+        label: "Cool Tones",
+        description: "Cool color temperature",
+        defaultWeight: 100
+      },
+      {
+        key: "[COLOR_NATURAL]",
+        label: "Natural Colors",
+        description: "Realistic color representation",
+        defaultWeight: 100
+      },
+      {
+        key: "[RESOLUTION_WEB]",
+        label: "Web Resolution",
+        description: "Optimized for digital display",
+        defaultWeight: 100
+      },
+      {
+        key: "[RESOLUTION_PRINT]",
+        label: "Print Resolution",
+        description: "High resolution for printing",
+        defaultWeight: 100
+      },
+      {
+        key: "[RESOLUTION_LARGE]",
+        label: "Large Format",
+        description: "Extra high resolution for large prints",
+        defaultWeight: 100
+      }
+    ]
+  },
+  {
+    name: "Usage Type",
+    description: "Intended use and licensing needs",
+    tags: [
+      {
+        key: "[PERSONAL_USE]",
+        label: "Personal Use",
+        description: "Non-commercial personal projects",
+        defaultWeight: 100
+      },
+      {
+        key: "[COMMERCIAL_USE]",
+        label: "Commercial Use",
+        description: "Business and advertising purposes",
+        defaultWeight: 100
+      },
+      {
+        key: "[EDITORIAL_USE]",
+        label: "Editorial Use",
+        description: "News and editorial content",
+        defaultWeight: 100
+      },
+      {
+        key: "[SOCIAL_MEDIA]",
+        label: "Social Media",
+        description: "Social media platforms",
+        defaultWeight: 100
+      },
+      {
+        key: "[MARKETING]",
+        label: "Marketing Materials",
+        description: "Marketing and promotional content",
         defaultWeight: 100
       }
     ]
   }
 ]
 
-// Preset configurations - Updated to remove participant tags
+// Preset configurations for quick setup
 export const PRESET_CONFIGS = {
-  vanilla: {
-    name: "Vanilla",
-    description: "Basic content only",
-    weights: {
-      "[LACTATION]": 0,
-      "[BREASTFEEDING]": 0,
-      "[NIPPLE_PENETRATION]": 0,
-      "[SQUIRTING]": 0,
-      "[TOY_USE]": 0,
-      "[OBJECT_INSERT]": 0,
-      "[FOOD_PLAY]": 0,
-      "[FOOTJOB]": 0,
-      "[RIMMING]": 0,
-      "[GAPING]": 0,
-      "[ASS_SMOTHER]": 0,
-      "[BREAST_SMOTHER]": 0,
-      "[PUSSY_SMOTHER]": 0
-    }
-  },
-  everything: {
-    name: "Everything",
-    description: "All content enabled equally",
+  general: {
+    name: "General Purpose",
+    description: "Balanced mix for versatile use",
     weights: Object.fromEntries(
-      SMART_TAG_CATEGORIES.flatMap(cat => 
+      PHOTO_REQUEST_CATEGORIES.flatMap(cat =>
         cat.tags.map(tag => [tag.key, 100])
       )
     )
   },
-  focused: {
-    name: "Focused",
-    description: "Prioritize main acts",
+  corporate: {
+    name: "Corporate & Business",
+    description: "Professional business-focused imagery",
     weights: {
-      "[VAGINAL_SEX]": 200,
-      "[ORAL_GIVE]": 150,
-      "[ORAL_RECEIVE]": 150,
-      "[HANDJOB]": 150,
-      "[TITJOB]": 150,
-      "[MASTURBATION]": 200,
-      "[FINGERING]": 150
+      "[BUSINESS]": 200,
+      "[PEOPLE]": 150,
+      "[OFFICE_WORKPLACE]": 200,
+      "[PROFESSIONAL]": 200,
+      "[PORTRAIT]": 150,
+      "[INDOOR_STUDIO]": 150,
+      "[COLOR_NATURAL]": 150,
+      "[COMMERCIAL_USE]": 200
     }
   },
-  noSpecialContent: {
-    name: "No Special Content",
-    description: "Disable all special/fetish content",
+  lifestyle: {
+    name: "Lifestyle & People",
+    description: "Focus on people and everyday life",
     weights: {
-      "[GAPING]": 0,
-      "[LACTATION]": 0,
-      "[SQUIRTING]": 0,
-      "[TOY_USE]": 0,
-      "[OBJECT_INSERT]": 0,
-      "[FOOD_PLAY]": 0,
-      "[ASS_SMOTHER]": 0,
-      "[BREAST_SMOTHER]": 0,
-      "[PUSSY_SMOTHER]": 0,
-      "[NIPPLE_PENETRATION]": 0,
-      "[BREASTFEEDING]": 0,
-      "[CUM_FOCUS]": 50,
-      "[AFTER_SEX]": 50
+      "[PEOPLE]": 200,
+      "[PORTRAIT]": 200,
+      "[DOCUMENTARY]": 150,
+      "[WARM_COZY]": 150,
+      "[HOME_INTERIOR]": 150,
+      "[OUTDOOR_NATURAL]": 150,
+      "[BRIGHT_CHEERFUL]": 150
+    }
+  },
+  nature: {
+    name: "Nature & Landscape",
+    description: "Natural environments and scenery",
+    weights: {
+      "[NATURE]": 200,
+      "[LANDSCAPE]": 200,
+      "[WILDLIFE]": 150,
+      "[OUTDOOR_NATURAL]": 200,
+      "[NATURE_WILDERNESS]": 200,
+      "[COLOR_NATURAL]": 150,
+      "[ORIENTATION_LANDSCAPE]": 150
+    }
+  },
+  creative: {
+    name: "Creative & Artistic",
+    description: "Artistic and experimental imagery",
+    weights: {
+      "[ABSTRACT]": 200,
+      "[FASHION]": 150,
+      "[MOODY_DRAMATIC]": 150,
+      "[VINTAGE]": 150,
+      "[COLOR_VIBRANT]": 150,
+      "[COOL_MODERN]": 150
+    }
+  },
+  socialMedia: {
+    name: "Social Media Optimized",
+    description: "Perfect for social platforms",
+    weights: {
+      "[SOCIAL_MEDIA]": 200,
+      "[BRIGHT_CHEERFUL]": 150,
+      "[COLOR_VIBRANT]": 150,
+      "[ORIENTATION_SQUARE]": 200,
+      "[ORIENTATION_PORTRAIT]": 150,
+      "[RESOLUTION_WEB]": 200
     }
   }
 }
 
 export function getWeightColor(weight: number): string {
-  if (weight === 0) return 'text-sky-500'
+  if (weight === 0) return 'text-cyan-500'
   if (weight < 100) return 'text-orange-500'
   if (weight === 100) return 'text-gray-400'
   if (weight <= 200) return 'text-green-500'
@@ -286,7 +436,7 @@ export function getWeightColor(weight: number): string {
 }
 
 export function getWeightBgColor(weight: number): string {
-  if (weight === 0) return 'bg-sky-500/10'
+  if (weight === 0) return 'bg-cyan-500/10'
   if (weight < 100) return 'bg-orange-500/10'
   if (weight === 100) return 'bg-gray-500/10'
   if (weight <= 200) return 'bg-green-500/10'
@@ -295,48 +445,42 @@ export function getWeightBgColor(weight: number): string {
 
 export function simpleToPoseWeights(simplePrefs: any): Record<string, number> {
   const weights: Record<string, number> = {}
-  
+
   // Initialize all weights to 100
-  SMART_TAG_CATEGORIES.forEach(cat => {
+  PHOTO_REQUEST_CATEGORIES.forEach(cat => {
     cat.tags.forEach(tag => {
       weights[tag.key] = 100
     })
   })
-  
-  // Map simple preferences to pose weights
-  if (simplePrefs.vaginal !== undefined) {
-    weights["[VAGINAL_SEX]"] = simplePrefs.vaginal * 2
+
+  // Map simple preferences to photo weights
+  if (simplePrefs.portrait !== undefined) {
+    weights["[PORTRAIT]"] = simplePrefs.portrait * 2
+    weights["[PEOPLE]"] = simplePrefs.portrait * 2
   }
-  if (simplePrefs.anal !== undefined) {
-    weights["[ANAL_SEX]"] = simplePrefs.anal * 2
+  if (simplePrefs.landscape !== undefined) {
+    weights["[LANDSCAPE]"] = simplePrefs.landscape * 2
+    weights["[NATURE]"] = simplePrefs.landscape * 2
   }
-  if (simplePrefs.oral !== undefined) {
-    weights["[ORAL_GIVE]"] = simplePrefs.oral * 2
-    weights["[ORAL_RECEIVE]"] = simplePrefs.oral * 2
+  if (simplePrefs.product !== undefined) {
+    weights["[PRODUCT]"] = simplePrefs.product * 2
+    weights["[PRODUCTS]"] = simplePrefs.product * 2
   }
-  if (simplePrefs.handjobTitjob !== undefined) {
-    weights["[HANDJOB]"] = simplePrefs.handjobTitjob * 2
-    weights["[TITJOB]"] = simplePrefs.handjobTitjob * 2
+  if (simplePrefs.lifestyle !== undefined) {
+    weights["[DOCUMENTARY]"] = simplePrefs.lifestyle * 2
+    weights["[PEOPLE]"] = simplePrefs.lifestyle * 2
   }
-  if (simplePrefs.masturbation !== undefined) {
-    weights["[MASTURBATION]"] = simplePrefs.masturbation * 2
-    weights["[FINGERING]"] = simplePrefs.masturbation * 2
+  if (simplePrefs.creative !== undefined) {
+    weights["[ABSTRACT]"] = simplePrefs.creative * 2
+    weights["[FASHION]"] = simplePrefs.creative * 2
   }
-  if (simplePrefs.rimming !== undefined) {
-    weights["[RIMMING]"] = simplePrefs.rimming * 2
-  }
-  if (simplePrefs.worshippingSmothering !== undefined) {
-    weights["[ASS_SMOTHER]"] = simplePrefs.worshippingSmothering * 2
-    weights["[BREAST_SMOTHER]"] = simplePrefs.worshippingSmothering * 2
-    weights["[PUSSY_SMOTHER]"] = simplePrefs.worshippingSmothering * 2
-  }
-  
+
   return weights
 }
 
 // Helper function to get tag category
 export function getTagCategory(tagKey: string): string | null {
-  for (const category of SMART_TAG_CATEGORIES) {
+  for (const category of PHOTO_REQUEST_CATEGORIES) {
     if (category.tags.some(tag => tag.key === tagKey)) {
       return category.name
     }
@@ -346,7 +490,7 @@ export function getTagCategory(tagKey: string): string | null {
 
 // Helper function to check if a tag exists
 export function isValidTag(tagKey: string): boolean {
-  return SMART_TAG_CATEGORIES.some(cat => 
+  return PHOTO_REQUEST_CATEGORIES.some(cat =>
     cat.tags.some(tag => tag.key === tagKey)
   )
 }
