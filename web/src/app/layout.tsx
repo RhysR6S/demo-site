@@ -63,7 +63,7 @@ export const viewport = {
   maximumScale: 1,
   userScalable: false,
   viewportFit: 'cover',
-  themeColor: '#000000',
+  themeColor: '#0f172a',
 }
 
 export default function RootLayout({
@@ -80,22 +80,22 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
-      <body className="font-sans antialiased min-h-screen bg-black overflow-x-hidden max-w-full">
+      <body className="font-sans antialiased min-h-screen bg-slate-950 overflow-x-hidden max-w-full">
         <AuthProvider>
           <MobileProvider>
             <PageTransitionProvider>
               <DebugProvider>
                 <DownloadProvider>
                   {/* Main app wrapper */}
-                  <div className="relative min-h-screen bg-black max-w-screen overflow-x-hidden">
+                  <div className="relative min-h-screen bg-slate-950 max-w-screen overflow-x-hidden">
                     {/* Global background effects */}
                     <div className="fixed inset-0 -z-50 overflow-hidden">
                       {/* Gradient background */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black" />
-                      
+                      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
+
                       {/* Animated gradient orbs */}
-                      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-red-600/5 rounded-full blur-3xl animate-pulse" />
-                      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-red-600/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+                      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-sky-500/5 rounded-full blur-3xl animate-pulse" />
+                      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-cyan-500/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
                       
                       {/* Subtle grid pattern */}
                       <div 

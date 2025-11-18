@@ -6,13 +6,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        black: '#000000',
-        'pure-black': '#000000',
-        background: '#000000',
+        'slate-950': '#0f172a',
+        'slate-900': '#1e293b',
+        background: '#0f172a',
+        primary: '#0ea5e9',
+        secondary: '#0284c7',
       },
       backgroundColor: {
-        'black': '#000000',
-        'pure-black': '#000000',
+        'slate-950': '#0f172a',
+        'slate-900': '#1e293b',
       }
     },
   },
