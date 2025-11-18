@@ -157,12 +157,17 @@ export async function middleware(request: NextRequest) {
         }
       }
       // Check all other protected routes
-      else if (!token?.isActivePatron) {
+      else if (!token) {
+        // No token at all - user not logged in, redirect to login
+        return NextResponse.redirect(new URL('/login', request.url))
+      }
+      else if (!token.isActivePatron) {
+        // Has token but not active patron - show error
         console.warn('🚫 Unauthorized access attempt:', {
-          userId: token?.sub,
+          userId: token.sub,
           pathname,
-          isActivePatron: token?.isActivePatron,
-          isCreator: token?.isCreator
+          isActivePatron: token.isActivePatron,
+          isCreator: token.isCreator
         })
 
         if (pathname.startsWith(ROUTES.API)) {
@@ -178,8 +183,8 @@ export async function middleware(request: NextRequest) {
           code: 'not_patron',
           message: 'You need an active Patreon membership to access this content',
           timestamp: new Date().toISOString(),
-          userId: token?.sub,
-          attemptedEmail: token?.email
+          userId: token.sub,
+          attemptedEmail: token.email
         }))
         return NextResponse.redirect(errorUrl)
       }
