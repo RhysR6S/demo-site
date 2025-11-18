@@ -198,8 +198,8 @@ export default function AdminCommissionsPage() {
         const url = URL.createObjectURL(blob)
         const a = document.createElement('a')
         a.href = url
-        const characterName = selectedCommission.request_data.femaleCharacters?.[0]?.replace(/[^a-zA-Z0-9]/g, '_') || 'commission'
-        a.download = `pose_weights_${characterName}.json`
+        const subjectName = selectedCommission.request_data.femaleCharacters?.[0]?.replace(/[^a-zA-Z0-9]/g, '_') || 'commission'
+        a.download = `pose_weights_${subjectName}.json`
         document.body.appendChild(a)
         a.click()
         document.body.removeChild(a)
@@ -378,7 +378,7 @@ export default function AdminCommissionsPage() {
             className="bg-slate-900 border border-zinc-800 rounded-lg px-4 py-2 text-white focus:border-purple-500 focus:outline-none"
           >
             <option value="all">All Types</option>
-            <option value="set">Character Sets</option>
+            <option value="set">Photo Sets</option>
             <option value="custom">Custom Images</option>
           </select>
 
@@ -485,7 +485,7 @@ export default function AdminCommissionsPage() {
                     <span className={`px-2 py-0.5 rounded text-xs ${
                       commission.type === 'set' ? 'bg-blue-500/10 text-blue-400' : 'bg-purple-500/10 text-cyan-400'
                     }`}>
-                      {commission.type === 'set' ? 'Character Set' : 'Custom Image'}
+                      {commission.type === 'set' ? 'Photo Set' : 'Custom Image'}
                     </span>
                     {commission.request_data.mode && (
                       <span className={`px-2 py-0.5 rounded text-xs ${
@@ -677,10 +677,10 @@ export default function AdminCommissionsPage() {
                         </div>
                       )}
 
-                      {/* Female Characters */}
+                      {/* Photo Subjects */}
                       {selectedCommission.request_data.femaleCharacters?.length > 0 && (
                         <div>
-                          <span className="text-gray-400">Female Characters:</span>
+                          <span className="text-gray-400">Photo Subjects:</span>
                           <ul className="list-disc list-inside text-white mt-1">
                             {selectedCommission.request_data.femaleCharacters.map((char: string, index: number) => (
                               <li key={index}>{char || <span className="text-gray-500 italic">Not specified</span>}</li>
@@ -688,11 +688,11 @@ export default function AdminCommissionsPage() {
                           </ul>
                         </div>
                       )}
-                      
-                      {/* Male Character */}
+
+                      {/* Additional Subject Details */}
                       {selectedCommission.request_data.maleCharacter && (
                         <div>
-                          <span className="text-gray-400">Male Character:</span>
+                          <span className="text-gray-400">Additional Subject Details:</span>
                           <p className="text-white">{selectedCommission.request_data.maleCharacter}</p>
                         </div>
                       )}
@@ -709,10 +709,10 @@ export default function AdminCommissionsPage() {
                         </div>
                       )}
 
-                      {/* Body Type */}
+                      {/* Style Notes */}
                       {selectedCommission.request_data.bodyType && (
                         <div>
-                          <span className="text-gray-400">Body Type:</span>
+                          <span className="text-gray-400">Style Notes:</span>
                           <p className="text-white">{selectedCommission.request_data.bodyType}</p>
                         </div>
                       )}
