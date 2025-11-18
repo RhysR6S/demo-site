@@ -30,7 +30,7 @@ export function StyledContentTitle({
       {/* Image count in red glass box - without brackets */}
       <span className={`
         px-3 py-1.5 
-        bg-red-600/90 backdrop-blur-sm 
+        bg-sky-600/90 backdrop-blur-sm 
         text-white font-semibold 
         rounded-lg shadow-lg
         text-sm

@@ -16,7 +16,7 @@ export default function DemoLogin() {
     { email: 'gold@demo.com', tier: 'Gold', color: 'bg-yellow-500' },
     { email: 'diamond@demo.com', tier: 'Diamond', color: 'bg-blue-500' },
     { email: 'platinum@demo.com', tier: 'Platinum', color: 'bg-purple-500' },
-    { email: 'admin@demo.com', tier: 'Admin', color: 'bg-red-500' },
+    { email: 'admin@demo.com', tier: 'Admin', color: 'bg-sky-500' },
   ]
 
   const handleQuickLogin = async (demoEmail: string) => {
@@ -67,7 +67,7 @@ export default function DemoLogin() {
         </div>
 
         {error && (
-          <div className="bg-red-500/20 border border-red-500/30 rounded-lg p-3">
+          <div className="bg-sky-500/20 border border-sky-500/30 rounded-lg p-3">
             <p className="text-red-200 text-sm">{error}</p>
           </div>
         )}

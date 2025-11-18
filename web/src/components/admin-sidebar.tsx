@@ -181,7 +181,7 @@ export default function AdminSidebar() {
       {(isMobile || isTablet) && (
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="fixed top-4 left-4 z-50 p-2 bg-purple-900/90 backdrop-blur-sm rounded-lg border border-purple-500/20 lg:hidden"
+          className="fixed top-4 left-4 z-50 p-2 bg-purple-900/90 backdrop-blur-sm rounded-lg border border-cyan-500/20 lg:hidden"
         >
           {sidebarOpen ? <CloseIcon /> : <MenuIcon />}
         </button>
@@ -211,7 +211,7 @@ export default function AdminSidebar() {
               animate={{ opacity: 1 }}
               className="flex items-center gap-3"
             >
-              <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-red-600 rounded-xl flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-sky-600 rounded-xl flex items-center justify-center">
                 <span className="text-white font-bold text-lg">P</span>
               </div>
               <div>
@@ -220,7 +220,7 @@ export default function AdminSidebar() {
               </div>
             </motion.div>
           ) : (
-            <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-red-600 rounded-xl flex items-center justify-center mx-auto">
+            <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-sky-600 rounded-xl flex items-center justify-center mx-auto">
               <span className="text-white font-bold text-lg">P</span>
             </div>
           )}
@@ -241,14 +241,14 @@ export default function AdminSidebar() {
                   className={`
                     flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200
                     ${isActive 
-                      ? 'bg-purple-600/20 text-purple-400 shadow-lg shadow-purple-600/20' 
-                      : 'text-gray-400 hover:text-white hover:bg-zinc-900/50'
+                      ? 'bg-purple-600/20 text-cyan-400 shadow-lg shadow-purple-600/20' 
+                      : 'text-gray-400 hover:text-white hover:bg-slate-900/50'
                     }
                     ${effectiveCollapsed ? 'justify-center' : ''}
                   `}
                   title={effectiveCollapsed ? item.label : undefined}
                 >
-                  <span className={`${isActive ? 'text-purple-400' : ''}`}>{item.icon}</span>
+                  <span className={`${isActive ? 'text-cyan-400' : ''}`}>{item.icon}</span>
                   {!effectiveCollapsed && (
                     <span className="flex-1 font-medium">{item.label}</span>
                   )}
@@ -289,7 +289,7 @@ export default function AdminSidebar() {
           {!effectiveCollapsed && (
             <Link 
               href="/"
-              className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-400 hover:text-white hover:bg-zinc-900/50 transition-all duration-200"
+              className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-400 hover:text-white hover:bg-slate-900/50 transition-all duration-200"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 17l-5-5m0 0l5-5m-5 5h12" />
@@ -302,7 +302,7 @@ export default function AdminSidebar() {
             <div className="flex items-center justify-center mt-4">
               <button
                 onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-                className="p-2 hover:bg-zinc-900/50 rounded-lg transition-colors"
+                className="p-2 hover:bg-slate-900/50 rounded-lg transition-colors"
               >
                 <svg className={`w-5 h-5 text-gray-400 transition-transform ${sidebarCollapsed ? '' : 'rotate-180'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />

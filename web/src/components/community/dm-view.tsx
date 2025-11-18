@@ -291,7 +291,7 @@ export function DMView({
     <div className="flex flex-col h-full w-full">
       {/* Header with Glassmorphism Effect */}
       <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-red-600/10 to-purple-600/10 backdrop-blur-2xl" />
+        <div className="absolute inset-0 bg-gradient-to-r from-sky-600/10 to-purple-600/10 backdrop-blur-2xl" />
         <div className="relative border-b border-white/5">
           <div className="p-6">
             <div className="flex items-center justify-between">
@@ -299,10 +299,10 @@ export function DMView({
               <div className="flex items-center gap-4">
                 <div className="relative">
                   <div className={`absolute -inset-1 bg-gradient-to-r ${
-                    isCreator ? getTierGradient(conversation?.member_tier || 'bronze') : 'from-red-600 to-purple-600'
+                    isCreator ? getTierGradient(conversation?.member_tier || 'bronze') : 'from-sky-600 to-purple-600'
                   } rounded-full opacity-75 blur`}></div>
                   <div className={`relative w-14 h-14 rounded-full bg-gradient-to-br ${
-                    isCreator ? getTierGradient(conversation?.member_tier || 'bronze') : 'from-red-500 to-purple-600'
+                    isCreator ? getTierGradient(conversation?.member_tier || 'bronze') : 'from-sky-500 to-purple-600'
                   } flex items-center justify-center shadow-xl`}>
                     <span className="text-white font-bold text-xl">
                       {isCreator ? (conversation?.member_name?.[0]?.toUpperCase() || '?') : (creatorDisplayName[0]?.toUpperCase() || 'C')}
@@ -355,14 +355,14 @@ export function DMView({
         {initialLoading && messages.length === 0 ? (
           <div className="flex items-center justify-center h-full">
             <div className="relative">
-              <div className="w-12 h-12 border-4 border-white/10 rounded-full animate-spin border-t-red-600"></div>
+              <div className="w-12 h-12 border-4 border-white/10 rounded-full animate-spin border-t-sky-500"></div>
               <div className="absolute inset-0 w-12 h-12 border-4 border-transparent rounded-full animate-spin border-t-purple-600 animation-delay-150"></div>
             </div>
           </div>
         ) : messages.length === 0 ? (
           <div className="flex items-center justify-center h-full">
             <div className="text-center p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-red-600/20 to-purple-600/20 flex items-center justify-center">
+              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-sky-600/20 to-purple-600/20 flex items-center justify-center">
                 <svg className="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
@@ -396,7 +396,7 @@ export function DMView({
                         <div className="relative group">
                           <div className={`absolute -inset-0.5 bg-gradient-to-r ${
                             message.sender_role === 'creator' 
-                              ? 'from-red-600 to-purple-600' 
+                              ? 'from-sky-600 to-purple-600' 
                               : getTierGradient(senderTier || 'bronze')
                           } rounded-full opacity-0 group-hover:opacity-75 blur transition duration-200`}></div>
                           <div className="relative w-10 h-10 rounded-full bg-gradient-to-br p-0.5">
@@ -413,7 +413,7 @@ export function DMView({
                             ) : null}
                             <div className={`w-full h-full rounded-full bg-gradient-to-br ${
                               message.sender_role === 'creator' 
-                                ? 'from-red-500 to-purple-600' 
+                                ? 'from-sky-500 to-purple-600' 
                                 : getTierGradient(senderTier || 'bronze')
                             } flex items-center justify-center text-white font-semibold text-sm ${
                               message.sender_role === 'creator' && creatorProfile?.profile_picture_url ? 'hidden' : ''
@@ -447,7 +447,7 @@ export function DMView({
                           <>
                             <div className={`relative px-5 py-3 rounded-2xl transition-all ${
                               isOwnMessage 
-                                ? 'bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg shadow-red-600/20' 
+                                ? 'bg-gradient-to-r from-sky-600 to-sky-700 text-white shadow-lg shadow-sky-600/20' 
                                 : 'bg-white/10 backdrop-blur-sm text-gray-100 border border-white/10'
                             } ${message.id.startsWith('temp-') ? 'opacity-70' : ''}`}>
                               <p className="text-sm leading-relaxed break-words">{message.content}</p>
@@ -470,13 +470,13 @@ export function DMView({
                             
                             {/* Delete Confirmation */}
                             {showDeleteConfirm === message.id && (
-                              <div className={`absolute top-full mt-2 ${isOwnMessage ? 'right-0' : 'left-0'} bg-zinc-900 border border-white/10 rounded-lg p-3 shadow-xl z-10`}>
+                              <div className={`absolute top-full mt-2 ${isOwnMessage ? 'right-0' : 'left-0'} bg-slate-900 border border-white/10 rounded-lg p-3 shadow-xl z-10`}>
                                 <p className="text-sm text-white mb-2">Delete this message?</p>
                                 <div className="flex gap-2">
                                   <button
                                     onClick={() => handleDeleteMessage(message.id)}
                                     disabled={deletingMessageId === message.id}
-                                    className="px-3 py-1 bg-red-600 hover:bg-red-700 disabled:bg-red-800 text-white text-sm rounded transition-colors"
+                                    className="px-3 py-1 bg-sky-600 hover:bg-red-700 disabled:bg-red-800 text-white text-sm rounded transition-colors"
                                   >
                                     {deletingMessageId === message.id ? 'Deleting...' : 'Delete'}
                                   </button>
@@ -504,7 +504,7 @@ export function DMView({
 
       {/* Message Input with Glassmorphism */}
       <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-red-600/5 to-purple-600/5 backdrop-blur-xl" />
+        <div className="absolute inset-0 bg-gradient-to-r from-sky-600/5 to-purple-600/5 backdrop-blur-xl" />
         <div className="relative border-t border-white/5">
           <div className="p-4">
             <form onSubmit={handleSendMessage} className="flex gap-3">
@@ -513,13 +513,13 @@ export function DMView({
                 value={newMessage}
                 onChange={(e) => setNewMessage(e.target.value)}
                 placeholder="Type a message..."
-                className="flex-1 px-4 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-red-600/50 focus:bg-white/10 transition-all"
+                className="flex-1 px-4 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-sky-600/50 focus:bg-white/10 transition-all"
                 disabled={sending}
               />
               <button
                 type="submit"
                 disabled={!newMessage.trim() || sending}
-                className="px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 disabled:from-red-900 disabled:to-red-900 text-white font-medium rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-red-600/20 hover:shadow-red-600/30 disabled:shadow-none flex items-center justify-center min-w-[100px]"
+                className="px-6 py-3 bg-gradient-to-r from-sky-600 to-sky-700 hover:from-sky-700 hover:to-sky-800 disabled:from-red-900 disabled:to-red-900 text-white font-medium rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-sky-600/20 hover:shadow-sky-600/30 disabled:shadow-none flex items-center justify-center min-w-[100px]"
               >
                 {sending ? (
                   <div className="w-5 h-5 border-2 border-white/20 rounded-full animate-spin border-t-white"></div>

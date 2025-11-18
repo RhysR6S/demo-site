@@ -99,13 +99,13 @@ export function FavoriteButton({
       className={`
         ${sizeClasses[size]}
         relative flex items-center justify-center
-        bg-zinc-900/90 backdrop-blur-sm
+        bg-slate-900/90 backdrop-blur-sm
         border border-white/10
         rounded-lg
         transition-all duration-200
-        hover:border-red-500/50
+        hover:border-sky-500/50
         disabled:opacity-50 disabled:cursor-not-allowed
-        ${isFavorited ? 'text-red-500 border-red-500/30' : 'text-gray-400 hover:text-red-400'}
+        ${isFavorited ? 'text-sky-500 border-sky-500/30' : 'text-gray-400 hover:text-sky-400'}
         ${className}
       `}
       title={isFavorited ? "Remove from favorites" : "Add to favorites"}
@@ -124,7 +124,7 @@ export function FavoriteButton({
       )}
       
       {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-zinc-900/90 rounded-lg">
+        <div className="absolute inset-0 flex items-center justify-center bg-slate-900/90 rounded-lg">
           <div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />
         </div>
       )}

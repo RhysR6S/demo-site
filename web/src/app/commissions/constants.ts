@@ -278,7 +278,7 @@ export const PRESET_CONFIGS = {
 }
 
 export function getWeightColor(weight: number): string {
-  if (weight === 0) return 'text-red-500'
+  if (weight === 0) return 'text-sky-500'
   if (weight < 100) return 'text-orange-500'
   if (weight === 100) return 'text-gray-400'
   if (weight <= 200) return 'text-green-500'
@@ -286,7 +286,7 @@ export function getWeightColor(weight: number): string {
 }
 
 export function getWeightBgColor(weight: number): string {
-  if (weight === 0) return 'bg-red-500/10'
+  if (weight === 0) return 'bg-sky-500/10'
   if (weight < 100) return 'bg-orange-500/10'
   if (weight === 100) return 'bg-gray-500/10'
   if (weight <= 200) return 'bg-green-500/10'

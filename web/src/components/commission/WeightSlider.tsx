@@ -120,7 +120,7 @@ export function WeightSlider({
             onClick={() => onChange(0)}
             className={`px-2 py-1 text-xs rounded transition-colors ${
               value === 0 
-                ? 'bg-red-500/20 text-red-400 border border-red-500/50' 
+                ? 'bg-sky-500/20 text-sky-400 border border-sky-500/50' 
                 : 'bg-zinc-800 text-gray-400 hover:bg-zinc-700'
             }`}
           >

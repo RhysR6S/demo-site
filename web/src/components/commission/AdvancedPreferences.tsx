@@ -65,7 +65,7 @@ export function AdvancedPreferences({ poseWeights, onChange }: AdvancedPreferenc
   return (
     <div className="space-y-6">
       {/* Preset Manager */}
-      <div className="bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-600/30 rounded-lg p-6">
+      <div className="bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-cyan-600/30 rounded-lg p-6">
         <h4 className="text-sm font-semibold text-white mb-3">Quick Presets</h4>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {Object.entries(PRESET_CONFIGS).map(([key, preset]) => (
@@ -92,7 +92,7 @@ export function AdvancedPreferences({ poseWeights, onChange }: AdvancedPreferenc
           <div className="mt-4 p-3 bg-zinc-800/50 rounded-lg">
             <div className="flex items-center justify-between">
               <span className="text-sm text-gray-400">
-                <span className="text-purple-400 font-medium">{getModifiedCount()}</span> tags modified from default
+                <span className="text-cyan-400 font-medium">{getModifiedCount()}</span> tags modified from default
               </span>
               <button
                 type="button"
@@ -106,7 +106,7 @@ export function AdvancedPreferences({ poseWeights, onChange }: AdvancedPreferenc
                   onChange(defaultWeights)
                   setSelectedPreset('custom')
                 }}
-                className="text-xs text-purple-400 hover:text-purple-300"
+                className="text-xs text-cyan-400 hover:text-purple-300"
               >
                 Reset All to Default
               </button>
@@ -117,7 +117,7 @@ export function AdvancedPreferences({ poseWeights, onChange }: AdvancedPreferenc
 
       {/* Category Sections */}
       {SMART_TAG_CATEGORIES.map((category) => (
-        <div key={category.name} className="bg-zinc-900/50 border border-zinc-800 rounded-lg overflow-hidden">
+        <div key={category.name} className="bg-slate-900/50 border border-zinc-800 rounded-lg overflow-hidden">
           {/* Category Header */}
           <button
             type="button"
@@ -147,7 +147,7 @@ export function AdvancedPreferences({ poseWeights, onChange }: AdvancedPreferenc
               {Object.entries(poseWeights)
                 .filter(([key]) => category.tags.some(tag => tag.key === key))
                 .filter(([_, value]) => value !== 100).length > 0 && (
-                <span className="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full">
+                <span className="px-2 py-1 bg-purple-500/20 text-cyan-400 text-xs rounded-full">
                   {Object.entries(poseWeights)
                     .filter(([key]) => category.tags.some(tag => tag.key === key))
                     .filter(([_, value]) => value !== 100).length} modified
@@ -159,7 +159,7 @@ export function AdvancedPreferences({ poseWeights, onChange }: AdvancedPreferenc
                 <button
                   type="button"
                   onClick={() => setCategoryWeights(category.name, 0)}
-                  className="px-2 py-1 text-xs bg-red-500/20 text-red-400 rounded hover:bg-red-500/30"
+                  className="px-2 py-1 text-xs bg-sky-500/20 text-sky-400 rounded hover:bg-sky-500/30"
                   title="Disable all in category"
                 >
                   Disable
@@ -204,11 +204,11 @@ export function AdvancedPreferences({ poseWeights, onChange }: AdvancedPreferenc
       ))}
 
       {/* Weight Guide */}
-      <div className="bg-zinc-900/50 border border-zinc-800 rounded-lg p-4">
+      <div className="bg-slate-900/50 border border-zinc-800 rounded-lg p-4">
         <h4 className="text-sm font-semibold text-white mb-3">Weight Guide</h4>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-3 text-xs">
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-red-500 rounded"></div>
+            <div className="w-3 h-3 bg-sky-500 rounded"></div>
             <span className="text-gray-400">0% = Excluded</span>
           </div>
           <div className="flex items-center gap-2">

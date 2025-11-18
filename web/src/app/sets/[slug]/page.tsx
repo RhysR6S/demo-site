@@ -131,7 +131,7 @@ function SetContent() {
       <MainLayout>
         <div className="min-h-screen flex items-center justify-center px-4">
           <div className="text-center">
-            <p className="text-red-400 mb-4">{error || 'Content not found'}</p>
+            <p className="text-sky-400 mb-4">{error || 'Content not found'}</p>
             <Link 
               href="/gallery" 
               className="text-blue-400 hover:text-blue-300 transition-colors"
@@ -235,7 +235,7 @@ function SetContent() {
                 animate={{ y: 0 }}
                 exit={{ y: '100%' }}
                 transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                className="fixed bottom-0 left-0 right-0 bg-zinc-900 border-t border-white/10 z-50 safe-area-inset-bottom rounded-t-2xl"
+                className="fixed bottom-0 left-0 right-0 bg-slate-900 border-t border-white/10 z-50 safe-area-inset-bottom rounded-t-2xl"
               >
                 <div className="p-4 space-y-3">
                   <div className="w-12 h-1 bg-white/20 rounded-full mx-auto mb-4" />
@@ -267,7 +267,7 @@ function SetContent() {
               {/* Enhanced Mobile Metadata Grid */}
               {isSmallScreen ? (
                 <div className="grid grid-cols-2 gap-3">
-                  <div className="bg-zinc-900/50 rounded-xl p-3 flex items-center gap-2.5">
+                  <div className="bg-slate-900/50 rounded-xl p-3 flex items-center gap-2.5">
                     <Calendar className="w-4 h-4 text-gray-500 flex-shrink-0" />
                     <div>
                       <p className="text-xs text-gray-500">Published</p>
@@ -280,7 +280,7 @@ function SetContent() {
                     </div>
                   </div>
                   
-                  <div className="bg-zinc-900/50 rounded-xl p-3 flex items-center gap-2.5">
+                  <div className="bg-slate-900/50 rounded-xl p-3 flex items-center gap-2.5">
                     <Eye className="w-4 h-4 text-gray-500 flex-shrink-0" />
                     <div>
                       <p className="text-xs text-gray-500">Views</p>
@@ -290,7 +290,7 @@ function SetContent() {
                     </div>
                   </div>
                   
-                  <div className="bg-zinc-900/50 rounded-xl p-3 flex items-center gap-2.5">
+                  <div className="bg-slate-900/50 rounded-xl p-3 flex items-center gap-2.5">
                     <Heart className="w-4 h-4 text-gray-500 flex-shrink-0" />
                     <div>
                       <p className="text-xs text-gray-500">Likes</p>
@@ -300,7 +300,7 @@ function SetContent() {
                     </div>
                   </div>
                   
-                  <div className="bg-zinc-900/50 rounded-xl p-3 flex items-center gap-2.5">
+                  <div className="bg-slate-900/50 rounded-xl p-3 flex items-center gap-2.5">
                     <Download className="w-4 h-4 text-gray-500 flex-shrink-0" />
                     <div>
                       <p className="text-xs text-gray-500">Downloads</p>

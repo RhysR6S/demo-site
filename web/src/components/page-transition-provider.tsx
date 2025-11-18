@@ -134,13 +134,13 @@ function PageTransitionContent({ children }: { children: React.ReactNode }) {
           <div className="text-center space-y-4">
             {/* Animated Logo */}
             <div className="relative">
-              <div className="w-20 h-20 bg-gradient-to-br from-red-600 to-red-700 rounded-2xl flex items-center justify-center shadow-2xl shadow-red-600/25 animate-pulse">
+              <div className="w-20 h-20 bg-gradient-to-br from-sky-600 to-sky-700 rounded-2xl flex items-center justify-center shadow-2xl shadow-sky-600/25 animate-pulse">
                 <span className="text-white font-bold text-3xl">K</span>
               </div>
               
               {/* Spinning ring */}
               <div className="absolute inset-0 -m-2">
-                <div className="w-24 h-24 border-2 border-red-600/20 rounded-full animate-spin" />
+                <div className="w-24 h-24 border-2 border-sky-600/20 rounded-full animate-spin" />
               </div>
             </div>
             
@@ -154,9 +154,9 @@ function PageTransitionContent({ children }: { children: React.ReactNode }) {
             
             {/* Loading dots */}
             <div className="flex justify-center gap-1">
-              <div className="w-2 h-2 bg-red-600 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-              <div className="w-2 h-2 bg-red-600 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-              <div className="w-2 h-2 bg-red-600 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+              <div className="w-2 h-2 bg-sky-600 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+              <div className="w-2 h-2 bg-sky-600 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+              <div className="w-2 h-2 bg-sky-600 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
             </div>
           </div>
         </div>

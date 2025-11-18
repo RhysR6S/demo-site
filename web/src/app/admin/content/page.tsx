@@ -146,7 +146,7 @@ export default function ContentPage() {
               <button
                 onClick={checkScheduledPosts}
                 disabled={isCheckingScheduled}
-                className={`px-4 py-2 bg-zinc-900/50 hover:bg-zinc-900 text-gray-400 hover:text-white rounded-xl transition-all duration-200 border border-white/5 hover:border-white/10 ${
+                className={`px-4 py-2 bg-slate-900/50 hover:bg-slate-900 text-gray-400 hover:text-white rounded-xl transition-all duration-200 border border-white/5 hover:border-white/10 ${
                   isCheckingScheduled ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
               >

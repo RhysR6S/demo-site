@@ -103,7 +103,7 @@ function SearchableTagInput<T extends { id: string; name: string }>({
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              className="inline-flex items-center gap-1 px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-sm border border-purple-600/30"
+              className="inline-flex items-center gap-1 px-3 py-1 bg-purple-600/20 text-cyan-400 rounded-full text-sm border border-cyan-600/30"
             >
               {item.name}
               <button
@@ -130,7 +130,7 @@ function SearchableTagInput<T extends { id: string; name: string }>({
           onChange={(e) => setSearch(e.target.value)}
           onFocus={() => setIsOpen(true)}
           placeholder={placeholder}
-          className="w-full px-4 py-3 bg-zinc-900/50 border border-white/5 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-600/50 focus:bg-zinc-900 transition-all duration-200 pr-10"
+          className="w-full px-4 py-3 bg-slate-900/50 border border-white/5 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-600/50 focus:bg-slate-900 transition-all duration-200 pr-10"
         />
         <svg className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
@@ -144,7 +144,7 @@ function SearchableTagInput<T extends { id: string; name: string }>({
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute z-50 w-full mt-2 bg-zinc-900 border border-white/10 rounded-xl shadow-xl overflow-hidden"
+            className="absolute z-50 w-full mt-2 bg-slate-900 border border-white/10 rounded-xl shadow-xl overflow-hidden"
           >
             <div className={`overflow-y-auto`} style={{ maxHeight }}>
               {filteredItems.map(item => {
@@ -155,7 +155,7 @@ function SearchableTagInput<T extends { id: string; name: string }>({
                     onClick={() => toggleItem(item.id)}
                     className={`w-full px-4 py-2.5 text-left transition-colors ${
                       isSelected 
-                        ? 'bg-purple-600/20 text-purple-400' 
+                        ? 'bg-purple-600/20 text-cyan-400' 
                         : 'text-gray-300 hover:bg-white/5 hover:text-white'
                     }`}
                   >
@@ -1035,7 +1035,7 @@ export function ContentUpload({ onUploadComplete }: { onUploadComplete?: () => v
       {/* Today's Schedule Section */}
       <div className="bg-zinc-950/50 backdrop-blur-xl rounded-2xl border border-white/5 p-8">
         <h3 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
-          <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
           Today's Schedule
@@ -1080,7 +1080,7 @@ export function ContentUpload({ onUploadComplete }: { onUploadComplete?: () => v
       {/* Upload Section */}
       <div className="bg-zinc-950/50 backdrop-blur-xl rounded-2xl border border-white/5 p-8">
         <h3 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
-          <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
           Upload Images
@@ -1092,7 +1092,7 @@ export function ContentUpload({ onUploadComplete }: { onUploadComplete?: () => v
           className={`relative border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all duration-300 ${
             isDragActive 
               ? 'border-purple-600 bg-purple-600/10' 
-              : 'border-zinc-700 hover:border-zinc-600 bg-zinc-900/30 hover:bg-zinc-900/50'
+              : 'border-zinc-700 hover:border-zinc-600 bg-slate-900/30 hover:bg-slate-900/50'
           }`}
         >
           <input {...getInputProps()} />
@@ -1101,7 +1101,7 @@ export function ContentUpload({ onUploadComplete }: { onUploadComplete?: () => v
             animate={{ scale: isDragActive ? 1.1 : 1 }}
             className="w-16 h-16 bg-purple-600/20 rounded-2xl flex items-center justify-center mx-auto mb-4"
           >
-            <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
             </svg>
           </motion.div>
@@ -1124,7 +1124,7 @@ export function ContentUpload({ onUploadComplete }: { onUploadComplete?: () => v
                   setImagePreviews([])
                   setDetectionResults(null)
                 }}
-                className="text-xs text-red-400 hover:text-red-300 transition-colors"
+                className="text-xs text-sky-400 hover:text-red-300 transition-colors"
               >
                 Clear all
               </button>
@@ -1139,7 +1139,7 @@ export function ContentUpload({ onUploadComplete }: { onUploadComplete?: () => v
                   exit={{ opacity: 0, scale: 0.8 }}
                   className="relative group"
                 >
-                  <div className="aspect-square rounded-lg overflow-hidden bg-zinc-900">
+                  <div className="aspect-square rounded-lg overflow-hidden bg-slate-900">
                     {imagePreviews[index] ? (
                       <img
                         src={imagePreviews[index]}
@@ -1166,7 +1166,7 @@ export function ContentUpload({ onUploadComplete }: { onUploadComplete?: () => v
                   {/* Remove button */}
                   <button
                     onClick={() => removeFile(index)}
-                    className="absolute top-2 right-2 w-8 h-8 bg-red-600/90 hover:bg-red-600 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 transform hover:scale-110"
+                    className="absolute top-2 right-2 w-8 h-8 bg-sky-600/90 hover:bg-sky-600 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 transform hover:scale-110"
                   >
                     <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -1188,7 +1188,7 @@ export function ContentUpload({ onUploadComplete }: { onUploadComplete?: () => v
       <div className="bg-zinc-950/50 backdrop-blur-xl rounded-2xl border border-white/5 p-8">
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-            <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
             Content Details
@@ -1214,7 +1214,7 @@ export function ContentUpload({ onUploadComplete }: { onUploadComplete?: () => v
 
         {/* Detection Results */}
         {detectionResults && (
-          <div className="mb-6 p-4 bg-zinc-900/50 rounded-xl border border-white/10">
+          <div className="mb-6 p-4 bg-slate-900/50 rounded-xl border border-white/10">
             <h4 className="text-sm font-medium text-white mb-3">Detection Results</h4>
             
             {detectionResults.matched.length > 0 && (
@@ -1259,14 +1259,14 @@ export function ContentUpload({ onUploadComplete }: { onUploadComplete?: () => v
         <div className="space-y-6">
           <div>
             <label className="block text-sm font-medium text-gray-300 mb-2">
-              Title <span className="text-red-500">*</span>
+              Title <span className="text-sky-500">*</span>
             </label>
             <input
               type="text"
               value={formData.title}
               onChange={(e) => setFormData(prev => ({ ...prev, title: e.target.value }))}
               placeholder="Enter a descriptive title..."
-              className="w-full px-4 py-3 bg-zinc-900/50 border border-white/5 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-600/50 focus:bg-zinc-900 transition-all duration-200"
+              className="w-full px-4 py-3 bg-slate-900/50 border border-white/5 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-600/50 focus:bg-slate-900 transition-all duration-200"
               required
             />
           </div>
@@ -1279,7 +1279,7 @@ export function ContentUpload({ onUploadComplete }: { onUploadComplete?: () => v
               value={formData.description}
               onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
               placeholder="Add a description (optional)..."
-              className="w-full px-4 py-3 bg-zinc-900/50 border border-white/5 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-600/50 focus:bg-zinc-900 transition-all duration-200 resize-none"
+              className="w-full px-4 py-3 bg-slate-900/50 border border-white/5 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-600/50 focus:bg-slate-900 transition-all duration-200 resize-none"
               rows={4}
             />
           </div>
@@ -1358,7 +1358,7 @@ export function ContentUpload({ onUploadComplete }: { onUploadComplete?: () => v
                 setFormData(prev => ({ ...prev, tags }))
               }}
               placeholder="Enter tags separated by commas..."
-              className="w-full px-4 py-3 bg-zinc-900/50 border border-white/5 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-600/50 focus:bg-zinc-900 transition-all duration-200"
+              className="w-full px-4 py-3 bg-slate-900/50 border border-white/5 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-600/50 focus:bg-slate-900 transition-all duration-200"
             />
             <p className="text-xs text-gray-500 mt-1">e.g., "NEW, featured, exclusive"</p>
           </div>
@@ -1368,7 +1368,7 @@ export function ContentUpload({ onUploadComplete }: { onUploadComplete?: () => v
               type="checkbox"
               checked={formData.isCommission}
               onChange={(e) => setFormData(prev => ({ ...prev, isCommission: e.target.checked }))}
-              className="w-5 h-5 bg-zinc-900/50 border border-white/10 rounded text-purple-600 focus:ring-purple-600 focus:ring-offset-0 focus:ring-2"
+              className="w-5 h-5 bg-slate-900/50 border border-white/10 rounded text-purple-600 focus:ring-purple-600 focus:ring-offset-0 focus:ring-2"
             />
             <span className="text-sm text-gray-300">This is a commission</span>
           </label>
@@ -1378,14 +1378,14 @@ export function ContentUpload({ onUploadComplete }: { onUploadComplete?: () => v
       {/* Publishing Options */}
       <div className="bg-zinc-950/50 backdrop-blur-xl rounded-2xl border border-white/5 p-8">
         <h3 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
-          <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
           Publishing Options
         </h3>
 
         <div className="space-y-4">
-          <label className="flex items-center gap-3 cursor-pointer p-4 bg-zinc-900/30 rounded-xl border border-white/5 hover:border-purple-600/30 transition-all">
+          <label className="flex items-center gap-3 cursor-pointer p-4 bg-slate-900/30 rounded-xl border border-white/5 hover:border-cyan-600/30 transition-all">
             <input
               type="radio"
               name="publishOption"
@@ -1402,7 +1402,7 @@ export function ContentUpload({ onUploadComplete }: { onUploadComplete?: () => v
             </div>
           </label>
 
-          <label className="flex items-center gap-3 cursor-pointer p-4 bg-zinc-900/30 rounded-xl border border-white/5 hover:border-purple-600/30 transition-all">
+          <label className="flex items-center gap-3 cursor-pointer p-4 bg-slate-900/30 rounded-xl border border-white/5 hover:border-cyan-600/30 transition-all">
             <input
               type="radio"
               name="publishOption"
@@ -1492,10 +1492,10 @@ export function ContentUpload({ onUploadComplete }: { onUploadComplete?: () => v
                     disabled={isDisabled}
                     className={`relative p-4 rounded-xl border-2 font-medium transition-all ${
                       isSelected
-                        ? 'bg-purple-600/20 border-purple-600 text-purple-400'
+                        ? 'bg-purple-600/20 border-purple-600 text-cyan-400'
                         : isDisabled
                         ? `bg-transparent ${getSlotBorderColor(slot.status)} text-gray-500 cursor-not-allowed opacity-50`
-                        : 'bg-transparent border-zinc-700 text-gray-300 hover:border-zinc-600 hover:bg-zinc-900/30'
+                        : 'bg-transparent border-zinc-700 text-gray-300 hover:border-zinc-600 hover:bg-slate-900/30'
                     }`}
                     title={slot.status === 'scheduled' ? `Taken by: ${slot.setTitle}` : ''}
                   >
@@ -1580,7 +1580,7 @@ export function ContentUpload({ onUploadComplete }: { onUploadComplete?: () => v
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className="bg-zinc-900 rounded-2xl p-8 max-w-md w-full"
+            className="bg-slate-900 rounded-2xl p-8 max-w-md w-full"
           >
             <h3 className="text-xl font-semibold text-white mb-6 text-center">
               Uploading Content...

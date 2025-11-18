@@ -210,7 +210,7 @@ function DebugPanel({ session, debugInfo }: any) {
       <div className="fixed bottom-4 left-4 z-50">
         <button
           onClick={toggleMinimize}
-          className="bg-zinc-900/95 backdrop-blur-sm border border-zinc-700 rounded-full p-2 shadow-lg hover:shadow-xl transition-shadow group"
+          className="bg-slate-900/95 backdrop-blur-sm border border-zinc-700 rounded-full p-2 shadow-lg hover:shadow-xl transition-shadow group"
           title="Expand Debug Panel (⌘⇧D)"
         >
           <div className="flex items-center gap-1">
@@ -231,7 +231,7 @@ function DebugPanel({ session, debugInfo }: any) {
   return (
     <div className="fixed bottom-4 left-4 z-50 max-w-xs">
       {/* Main Debug Panel */}
-      <div className="bg-zinc-900/95 backdrop-blur-sm border border-zinc-700 rounded-lg shadow-2xl overflow-hidden">
+      <div className="bg-slate-900/95 backdrop-blur-sm border border-zinc-700 rounded-lg shadow-2xl overflow-hidden">
         {/* Header */}
         <div className="bg-yellow-400 text-black px-3 py-1.5 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -278,7 +278,7 @@ function DebugPanel({ session, debugInfo }: any) {
                   Patron
                 </span>
                 {session.user?.membershipTier && (
-                  <span className="px-1.5 py-0.5 rounded bg-purple-900/50 text-purple-400">
+                  <span className="px-1.5 py-0.5 rounded bg-purple-900/50 text-cyan-400">
                     {session.user.membershipTier}
                   </span>
                 )}
@@ -337,7 +337,7 @@ function DebugPanel({ session, debugInfo }: any) {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-400">Tier:</span>
-                    <span className="text-purple-400">
+                    <span className="text-cyan-400">
                       {authOverrides.membershipTier || 'None'}
                     </span>
                   </div>
@@ -349,7 +349,7 @@ function DebugPanel({ session, debugInfo }: any) {
             {authOverrides && (
               <button
                 onClick={clearOverrides}
-                className="w-full px-2 py-1 text-xs bg-red-900/20 text-red-400 hover:bg-red-900/30 rounded transition-colors border border-red-900/50"
+                className="w-full px-2 py-1 text-xs bg-red-900/20 text-sky-400 hover:bg-red-900/30 rounded transition-colors border border-red-900/50"
               >
                 Clear Overrides & Reload
               </button>

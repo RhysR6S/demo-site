@@ -662,7 +662,7 @@ export default function CommissionsPage() {
         )
       case 'in_progress':
         return (
-          <svg className="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-6 h-6 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         )
@@ -689,7 +689,7 @@ export default function CommissionsPage() {
   if (status === 'loading') {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="w-12 h-12 border-3 border-red-600/20 rounded-full animate-spin border-t-red-600"></div>
+        <div className="w-12 h-12 border-3 border-sky-600/20 rounded-full animate-spin border-t-sky-500"></div>
       </div>
     )
   }
@@ -707,7 +707,7 @@ export default function CommissionsPage() {
           </p>
           
           {/* Tab Navigation */}
-          <div className="mt-6 flex gap-2 bg-zinc-900 p-1 rounded-lg">
+          <div className="mt-6 flex gap-2 bg-slate-900 p-1 rounded-lg">
             <button
               onClick={() => setActiveTab('submit')}
               className={`flex-1 py-2 px-4 rounded-md font-medium transition-all ${
@@ -735,7 +735,7 @@ export default function CommissionsPage() {
           <>
             {/* Commission Slots Visual */}
             {freeCommissionsCount > 0 && (
-              <div className="mb-6 p-4 bg-zinc-900 border border-zinc-800 rounded-lg">
+              <div className="mb-6 p-4 bg-slate-900 border border-zinc-800 rounded-lg">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-sm font-medium text-gray-300">
                     Monthly Free Commissions (
@@ -763,7 +763,7 @@ export default function CommissionsPage() {
                         key={index}
                         className={`
                           aspect-square rounded-lg border-2 flex items-center justify-center transition-all
-                          ${isActive ? getSlotColor(slot) : 'border-zinc-800 bg-zinc-900/50 opacity-50'}
+                          ${isActive ? getSlotColor(slot) : 'border-zinc-800 bg-slate-900/50 opacity-50'}
                         `}
                       >
                         {isActive ? getSlotIcon(slot) : (
@@ -802,11 +802,11 @@ export default function CommissionsPage() {
             )}
 
             {/* Pricing Display */}
-            <div className="mb-6 p-4 bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-600/30 rounded-lg">
+            <div className="mb-6 p-4 bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-cyan-600/30 rounded-lg">
               <h3 className="text-lg font-semibold text-white mb-3">Commission Pricing</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="text-sm font-medium text-purple-400 mb-2">Character Set</h4>
+                  <h4 className="text-sm font-medium text-cyan-400 mb-2">Character Set</h4>
                   <ul className="space-y-1 text-sm text-gray-300">
                     <li>• $15 USD base price</li>
                     <li>• +$0.50 per additional character</li>
@@ -870,7 +870,7 @@ export default function CommissionsPage() {
                   <p className="text-sm text-gray-300">
                     Submitting a commission request does NOT confirm your commission. The creator will review your request and get in touch with you as soon as possible to discuss details and confirm the commission.
                   </p>
-                  <p className="text-sm text-red-400 font-semibold mt-2">
+                  <p className="text-sm text-sky-400 font-semibold mt-2">
                     DO NOT SEND MONEY UNTIL THE CREATOR HAS CONFIRMED THEY WILL DO IT!
                   </p>
                   {availableSlots === 0 && freeCommissionsCount > 0 && (
@@ -924,11 +924,11 @@ export default function CommissionsPage() {
                   {/* Female Characters */}
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-3">
-                      Female Character(s) <span className="text-red-500">*</span>
+                      Female Character(s) <span className="text-sky-500">*</span>
                     </label>
                     
                     <div className="space-y-4">
-                      <div className="bg-zinc-900/50 border border-zinc-800 rounded-lg p-4">
+                      <div className="bg-slate-900/50 border border-zinc-800 rounded-lg p-4">
                         <h4 className="text-sm font-medium text-white mb-3 flex items-center gap-2">
                           <span className="w-6 h-6 bg-purple-600 text-white rounded-full text-xs flex items-center justify-center">1</span>
                           Select from character list
@@ -963,7 +963,7 @@ export default function CommissionsPage() {
                                 <button
                                   type="button"
                                   onClick={() => removeFemaleCharacter(index)}
-                                  className="p-2.5 bg-zinc-800 border border-zinc-700 rounded-lg text-red-400 hover:bg-zinc-700"
+                                  className="p-2.5 bg-zinc-800 border border-zinc-700 rounded-lg text-sky-400 hover:bg-zinc-700"
                                   title="Remove character"
                                 >
                                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -978,7 +978,7 @@ export default function CommissionsPage() {
                             <button
                               type="button"
                               onClick={addFemaleCharacter}
-                              className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1 mt-2"
+                              className="text-sm text-cyan-400 hover:text-purple-300 flex items-center gap-1 mt-2"
                             >
                               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -995,7 +995,7 @@ export default function CommissionsPage() {
                         <div className="flex-1 h-px bg-zinc-800"></div>
                       </div>
                       
-                      <div className="bg-zinc-900/50 border border-zinc-800 rounded-lg p-4">
+                      <div className="bg-slate-900/50 border border-zinc-800 rounded-lg p-4">
                         <h4 className="text-sm font-medium text-white mb-3 flex items-center gap-2">
                           <span className="w-6 h-6 bg-purple-600 text-white rounded-full text-xs flex items-center justify-center">2</span>
                           Request a custom character
@@ -1009,7 +1009,7 @@ export default function CommissionsPage() {
                                 <button
                                   type="button"
                                   onClick={() => removeCustomCharacter(index)}
-                                  className="text-red-400 hover:text-red-300"
+                                  className="text-sky-400 hover:text-red-300"
                                   title="Remove character"
                                 >
                                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1138,7 +1138,7 @@ export default function CommissionsPage() {
                       value={formState.maleCharacter}
                       onChange={(e) => dispatch({ type: 'UPDATE_FIELD', field: 'maleCharacter', value: e.target.value })}
                       placeholder="Leave blank for default male, or specify character name/appearance..."
-                      className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
+                      className="w-full bg-slate-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
                     />
                     <p className="text-xs text-gray-500 mt-1">
                       1Boy1Girl scenes will generate with a default male if left blank. Enter a character name or describe their appearance to override.
@@ -1157,13 +1157,13 @@ export default function CommissionsPage() {
                           value={loc}
                           onChange={(e) => updateLocation(index, e.target.value)}
                           placeholder="e.g., Beach, Bedroom, School..."
-                          className="flex-1 bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
+                          className="flex-1 bg-slate-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
                         />
                         {formState.locations.length > 1 && (
                           <button
                             type="button"
                             onClick={() => removeLocation(index)}
-                            className="p-2.5 bg-zinc-900 border border-zinc-800 rounded-lg text-red-400 hover:bg-zinc-800"
+                            className="p-2.5 bg-slate-900 border border-zinc-800 rounded-lg text-sky-400 hover:bg-zinc-800"
                           >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -1175,7 +1175,7 @@ export default function CommissionsPage() {
                     <button
                       type="button"
                       onClick={addLocation}
-                      className="text-sm text-purple-400 hover:text-purple-300"
+                      className="text-sm text-cyan-400 hover:text-purple-300"
                     >
                       + Add another location
                     </button>
@@ -1191,7 +1191,7 @@ export default function CommissionsPage() {
                       value={formState.bodyType}
                       onChange={(e) => dispatch({ type: 'UPDATE_FIELD', field: 'bodyType', value: e.target.value })}
                       placeholder="e.g., Curvy, Gigantic breasts, Skinny, Athletic..."
-                      className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
+                      className="w-full bg-slate-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
                     />
                   </div>
                 </>
@@ -1200,7 +1200,7 @@ export default function CommissionsPage() {
                   {/* Custom Image Description */}
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-3">
-                      Describe Your Custom Image <span className="text-red-500">*</span>
+                      Describe Your Custom Image <span className="text-sky-500">*</span>
                     </label>
                     <textarea
                       value={formState.customDescription}
@@ -1208,7 +1208,7 @@ export default function CommissionsPage() {
                       rows={6}
                       required
                       placeholder="Describe in detail what you'd like to see in your custom image..."
-                      className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none resize-none"
+                      className="w-full bg-slate-900 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none resize-none"
                     />
                     <p className="text-xs text-gray-500 mt-1">
                       Maximum of 3 characters per image. Additional characters are +$4 each.
@@ -1222,7 +1222,7 @@ export default function CommissionsPage() {
                     </label>
                     <div
                       onPaste={handleImagePaste}
-                      className="w-full min-h-[100px] bg-zinc-900 border-2 border-dashed border-zinc-800 rounded-lg p-4 text-center cursor-pointer hover:border-zinc-700 focus:border-purple-500 focus:outline-none"
+                      className="w-full min-h-[100px] bg-slate-900 border-2 border-dashed border-zinc-800 rounded-lg p-4 text-center cursor-pointer hover:border-zinc-700 focus:border-purple-500 focus:outline-none"
                       tabIndex={0}
                     >
                       {formState.referenceImages.length === 0 ? (
@@ -1235,7 +1235,7 @@ export default function CommissionsPage() {
                               <button
                                 type="button"
                                 onClick={() => removeReferenceImage(index)}
-                                className="absolute top-1 right-1 p-1 bg-red-500 text-white rounded opacity-0 group-hover:opacity-100 transition-opacity"
+                                className="absolute top-1 right-1 p-1 bg-sky-500 text-white rounded opacity-0 group-hover:opacity-100 transition-opacity"
                               >
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -1252,14 +1252,14 @@ export default function CommissionsPage() {
 
               {error && (
                 <div className="p-4 bg-red-950/20 border border-red-900/50 rounded-lg">
-                  <p className="text-sm text-red-400">{error}</p>
+                  <p className="text-sm text-sky-400">{error}</p>
                 </div>
               )}
 
               <div className="flex gap-4 pt-4">
                 <Link
                   href="/"
-                  className="flex-1 py-3 px-6 bg-zinc-900 text-gray-300 rounded-lg hover:bg-zinc-800 transition-colors text-center"
+                  className="flex-1 py-3 px-6 bg-slate-900 text-gray-300 rounded-lg hover:bg-zinc-800 transition-colors text-center"
                 >
                   Cancel
                 </Link>
@@ -1298,7 +1298,7 @@ export default function CommissionsPage() {
                 <div className="w-8 h-8 border-3 border-purple-600/20 rounded-full animate-spin border-t-purple-600"></div>
               </div>
             ) : userCommissions.length === 0 ? (
-              <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-8 text-center">
+              <div className="bg-slate-900 border border-zinc-800 rounded-lg p-8 text-center">
                 <svg className="w-12 h-12 text-gray-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
@@ -1313,7 +1313,7 @@ export default function CommissionsPage() {
             ) : (
               <div className="space-y-4">
                 {userCommissions.map((commission) => (
-                  <div key={commission.id} className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
+                  <div key={commission.id} className="bg-slate-900 border border-zinc-800 rounded-lg p-6">
                     <div className="flex items-start justify-between mb-4">
                       <div>
                         <h3 className="text-lg font-semibold text-white mb-1">
@@ -1337,9 +1337,9 @@ export default function CommissionsPage() {
                         )}
                         <span className={`text-sm px-3 py-1 rounded-full ${
                           commission.status === 'pending' ? 'bg-yellow-500/20 text-yellow-400' :
-                          commission.status === 'in_progress' ? 'bg-purple-500/20 text-purple-400' :
+                          commission.status === 'in_progress' ? 'bg-purple-500/20 text-cyan-400' :
                           commission.status === 'completed' ? 'bg-green-500/20 text-green-400' :
-                          'bg-red-500/20 text-red-400'
+                          'bg-sky-500/20 text-sky-400'
                         }`}>
                           {commission.status.replace('_', ' ').charAt(0).toUpperCase() + commission.status.slice(1).replace('_', ' ')}
                         </span>
@@ -1413,7 +1413,7 @@ export default function CommissionsPage() {
                     )}
                     {commission.status === 'in_progress' && (
                       <div className="mt-4 p-3 bg-purple-900/20 border border-purple-900/50 rounded-lg">
-                        <p className="text-sm text-purple-400">
+                        <p className="text-sm text-cyan-400">
                           The creator is currently working on your commission.
                         </p>
                       </div>
@@ -1452,7 +1452,7 @@ export default function CommissionsPage() {
                           </button>
                           <button
                             onClick={() => handleDeleteCommission(commission.id)}
-                            className="inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-sky-600 text-white rounded-lg hover:bg-red-700 transition-colors"
                           >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -1473,9 +1473,9 @@ export default function CommissionsPage() {
       {/* Edit Modal */}
       {showEditModal && editingCommission && (
         <div className="fixed inset-0 bg-black/80 z-50 flex items-start justify-center p-4 overflow-y-auto">
-          <div className="bg-zinc-900 border border-zinc-800 rounded-lg max-w-4xl w-full my-8">
+          <div className="bg-slate-900 border border-zinc-800 rounded-lg max-w-4xl w-full my-8">
             {/* Modal Header */}
-            <div className="flex items-center justify-between p-6 border-b border-zinc-800 sticky top-0 bg-zinc-900 z-10">
+            <div className="flex items-center justify-between p-6 border-b border-zinc-800 sticky top-0 bg-slate-900 z-10">
               <h2 className="text-2xl font-bold text-white">Edit Commission</h2>
               <button
                 onClick={() => {
@@ -1498,7 +1498,7 @@ export default function CommissionsPage() {
                   {/* Female Characters */}
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-3">
-                      Female Character(s) <span className="text-red-500">*</span>
+                      Female Character(s) <span className="text-sky-500">*</span>
                     </label>
                     <div className="space-y-2">
                       {editFormState.femaleCharacters.map((char, index) => (
@@ -1529,7 +1529,7 @@ export default function CommissionsPage() {
                                   value: editFormState.femaleCharacters.filter((_, i) => i !== index) 
                                 })
                               }}
-                              className="p-2.5 bg-zinc-800 border border-zinc-700 rounded-lg text-red-400 hover:bg-zinc-700"
+                              className="p-2.5 bg-zinc-800 border border-zinc-700 rounded-lg text-sky-400 hover:bg-zinc-700"
                             >
                               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -1547,7 +1547,7 @@ export default function CommissionsPage() {
                             value: [...editFormState.femaleCharacters, ''] 
                           })
                         }}
-                        className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1 mt-2"
+                        className="text-sm text-cyan-400 hover:text-purple-300 flex items-center gap-1 mt-2"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -1629,7 +1629,7 @@ export default function CommissionsPage() {
                                 value: editFormState.locations.filter((_, i) => i !== index) 
                               })
                             }}
-                            className="p-2.5 bg-zinc-800 border border-zinc-700 rounded-lg text-red-400 hover:bg-zinc-700"
+                            className="p-2.5 bg-zinc-800 border border-zinc-700 rounded-lg text-sky-400 hover:bg-zinc-700"
                           >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -1647,7 +1647,7 @@ export default function CommissionsPage() {
                           value: [...editFormState.locations, ''] 
                         })
                       }}
-                      className="text-sm text-purple-400 hover:text-purple-300"
+                      className="text-sm text-cyan-400 hover:text-purple-300"
                     >
                       + Add another location
                     </button>
@@ -1672,7 +1672,7 @@ export default function CommissionsPage() {
                   {/* Custom Image Description */}
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-3">
-                      Description <span className="text-red-500">*</span>
+                      Description <span className="text-sky-500">*</span>
                     </label>
                     <textarea
                       value={editFormState.customDescription}
@@ -1686,13 +1686,13 @@ export default function CommissionsPage() {
 
               {editError && (
                 <div className="p-4 bg-red-950/20 border border-red-900/50 rounded-lg">
-                  <p className="text-sm text-red-400">{editError}</p>
+                  <p className="text-sm text-sky-400">{editError}</p>
                 </div>
               )}
             </div>
 
             {/* Modal Footer */}
-            <div className="flex gap-4 p-6 border-t border-zinc-800 sticky bottom-0 bg-zinc-900">
+            <div className="flex gap-4 p-6 border-t border-zinc-800 sticky bottom-0 bg-slate-900">
               <button
                 type="button"
                 onClick={() => {

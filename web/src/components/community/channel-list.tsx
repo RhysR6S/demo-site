@@ -58,7 +58,7 @@ export function ChannelList({
         {isCreator && (
           <button
             onClick={() => setShowCreateModal(true)}
-            className="w-full mb-6 py-3.5 px-4 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-red-600/20 hover:shadow-red-600/30 hover:scale-[1.02] group"
+            className="w-full mb-6 py-3.5 px-4 bg-gradient-to-r from-sky-600 to-sky-700 hover:from-sky-700 hover:to-sky-800 text-white rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-sky-600/20 hover:shadow-sky-600/30 hover:scale-[1.02] group"
           >
             <svg className="w-5 h-5 transition-transform group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -75,7 +75,7 @@ export function ChannelList({
                 onClick={() => onSelectChannel(channel.id)}
                 className={`w-full text-left px-4 py-3.5 rounded-xl transition-all duration-300 transform hover:scale-[1.02] cursor-pointer ${
                   selectedChannelId === channel.id
-                    ? 'bg-gradient-to-r from-red-600/20 to-red-700/20 border border-red-600/30 shadow-lg shadow-red-600/10'
+                    ? 'bg-gradient-to-r from-sky-600/20 to-sky-700/20 border border-sky-600/30 shadow-lg shadow-sky-600/10'
                     : 'bg-zinc-800/30 hover:bg-zinc-800/50 border border-white/5 hover:border-white/10'
                 }`}
               >
@@ -96,8 +96,8 @@ export function ChannelList({
                       </span>
                       {channel.has_unread && (
                         <span className="relative">
-                          <span className="w-2.5 h-2.5 bg-red-500 rounded-full flex-shrink-0 animate-pulse"></span>
-                          <span className="absolute inset-0 w-2.5 h-2.5 bg-red-500 rounded-full animate-ping"></span>
+                          <span className="w-2.5 h-2.5 bg-sky-500 rounded-full flex-shrink-0 animate-pulse"></span>
+                          <span className="absolute inset-0 w-2.5 h-2.5 bg-sky-500 rounded-full animate-ping"></span>
                         </span>
                       )}
                     </div>
@@ -152,9 +152,9 @@ export function ChannelList({
                       e.stopPropagation()
                       handleDeleteChannel(channel.id)
                     }}
-                    className="p-1.5 bg-zinc-700/50 hover:bg-red-600/20 rounded-lg transition-all hover:scale-110"
+                    className="p-1.5 bg-zinc-700/50 hover:bg-sky-600/20 rounded-lg transition-all hover:scale-110"
                   >
-                    <svg className="w-3.5 h-3.5 text-gray-400 hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3.5 h-3.5 text-gray-400 hover:text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                     </svg>
                   </button>
@@ -266,7 +266,7 @@ function ChannelModal({
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
       <div className="bg-gradient-to-b from-zinc-900 to-black border border-white/10 rounded-2xl p-8 max-w-md w-full shadow-2xl">
-        <h2 className="text-2xl font-bold text-white mb-6 bg-gradient-to-r from-red-500 to-purple-500 bg-clip-text text-transparent">
+        <h2 className="text-2xl font-bold text-white mb-6 bg-gradient-to-r from-sky-500 to-purple-500 bg-clip-text text-transparent">
           {channel ? 'Edit Channel' : 'Create New Channel'}
         </h2>
         
@@ -279,7 +279,7 @@ function ChannelModal({
                 type="text"
                 value={formData.emoji}
                 onChange={(e) => setFormData({ ...formData, emoji: e.target.value })}
-                className="w-24 px-4 py-3 bg-zinc-800/50 border border-white/10 rounded-xl text-center text-2xl focus:border-red-600/50 focus:ring-2 focus:ring-red-600/20 transition-all"
+                className="w-24 px-4 py-3 bg-zinc-800/50 border border-white/10 rounded-xl text-center text-2xl focus:border-sky-600/50 focus:ring-2 focus:ring-red-600/20 transition-all"
                 maxLength={2}
               />
             </div>
@@ -291,7 +291,7 @@ function ChannelModal({
                 type="text"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-3 bg-zinc-800/50 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:border-red-600/50 focus:ring-2 focus:ring-red-600/20 transition-all"
+                className="w-full px-4 py-3 bg-zinc-800/50 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:border-sky-600/50 focus:ring-2 focus:ring-red-600/20 transition-all"
                 placeholder="general-chat"
                 required
                 disabled={channel?.is_default}
@@ -304,7 +304,7 @@ function ChannelModal({
               <textarea
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                className="w-full px-4 py-3 bg-zinc-800/50 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:border-red-600/50 focus:ring-2 focus:ring-red-600/20 transition-all resize-none"
+                className="w-full px-4 py-3 bg-zinc-800/50 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:border-sky-600/50 focus:ring-2 focus:ring-red-600/20 transition-all resize-none"
                 placeholder="What's this channel about?"
                 rows={3}
               />
@@ -316,7 +316,7 @@ function ChannelModal({
               <select
                 value={formData.min_tier}
                 onChange={(e) => setFormData({ ...formData, min_tier: e.target.value })}
-                className="w-full px-4 py-3 bg-zinc-800/50 border border-white/10 rounded-xl text-white focus:border-red-600/50 focus:ring-2 focus:ring-red-600/20 transition-all"
+                className="w-full px-4 py-3 bg-zinc-800/50 border border-white/10 rounded-xl text-white focus:border-sky-600/50 focus:ring-2 focus:ring-red-600/20 transition-all"
                 disabled={channel?.is_default}
               >
                 {availableTiers.length > 0 ? (
@@ -343,7 +343,7 @@ function ChannelModal({
                 type="button"
                 onClick={() => setFormData({ ...formData, allow_member_posts: !formData.allow_member_posts })}
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                  formData.allow_member_posts ? 'bg-gradient-to-r from-red-600 to-red-700' : 'bg-zinc-700'
+                  formData.allow_member_posts ? 'bg-gradient-to-r from-sky-600 to-sky-700' : 'bg-zinc-700'
                 }`}
                 disabled={channel?.is_default}
               >
@@ -365,7 +365,7 @@ function ChannelModal({
             </button>
             <button
               type="submit"
-              className="flex-1 py-3 px-4 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-xl transition-all duration-200 shadow-lg shadow-red-600/20 hover:shadow-red-600/30"
+              className="flex-1 py-3 px-4 bg-gradient-to-r from-sky-600 to-sky-700 hover:from-sky-700 hover:to-sky-800 text-white rounded-xl transition-all duration-200 shadow-lg shadow-sky-600/20 hover:shadow-sky-600/30"
             >
               {channel ? 'Save Changes' : 'Create Channel'}
             </button>

@@ -84,7 +84,7 @@ export default function CreatorProfilePage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="w-8 h-8 border-3 border-red-600/20 rounded-full animate-spin border-t-red-600"></div>
+        <div className="w-8 h-8 border-3 border-sky-600/20 rounded-full animate-spin border-t-sky-500"></div>
       </div>
     )
   }
@@ -95,7 +95,7 @@ export default function CreatorProfilePage() {
         <h1 className="text-3xl font-bold text-white mb-8">Creator Settings</h1>
 
         {/* Tab Navigation */}
-        <div className="flex gap-1 mb-8 bg-zinc-900/50 p-1 rounded-lg">
+        <div className="flex gap-1 mb-8 bg-slate-900/50 p-1 rounded-lg">
           <button
             onClick={() => setActiveTab('profile')}
             className={`flex-1 px-4 py-2 rounded-md font-medium transition-all ${
@@ -120,7 +120,7 @@ export default function CreatorProfilePage() {
 
         {/* Profile Tab */}
         {activeTab === 'profile' && (
-          <div className="bg-zinc-900/50 backdrop-blur-sm rounded-xl border border-white/10 p-8">
+          <div className="bg-slate-900/50 backdrop-blur-sm rounded-xl border border-white/10 p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Display Name */}
               <div>
@@ -211,7 +211,7 @@ export default function CreatorProfilePage() {
                 <div className={`p-4 rounded-lg ${
                   message.type === 'success' 
                     ? 'bg-green-600/10 border border-green-600/20 text-green-400'
-                    : 'bg-red-600/10 border border-red-600/20 text-red-400'
+                    : 'bg-sky-600/10 border border-sky-600/20 text-sky-400'
                 }`}>
                   {message.text}
                 </div>
@@ -229,7 +229,7 @@ export default function CreatorProfilePage() {
                 <button
                   type="submit"
                   disabled={saving}
-                  className="px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-semibold rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-6 py-3 bg-gradient-to-r from-sky-600 to-sky-700 hover:from-sky-700 hover:to-sky-800 text-white font-semibold rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {saving ? 'Saving...' : 'Save Profile'}
                 </button>
@@ -253,7 +253,7 @@ export default function CreatorProfilePage() {
         {/* Tier Information */}
         {activeTab === 'watermark' && (
           <div className="mt-4 p-4 bg-purple-600/10 border border-purple-600/20 rounded-lg">
-            <p className="text-sm text-purple-400">
+            <p className="text-sm text-cyan-400">
               <strong>Tier System:</strong> Bronze members will see watermarks on all images. Silver, Gold, and Platinum members get clean, unwatermarked images for both viewing and downloading.
             </p>
           </div>

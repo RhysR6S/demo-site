@@ -51,7 +51,7 @@ export function DMList({
       bronze: 'bg-orange-900/50 text-orange-400 border-orange-500/30',
       silver: 'bg-gray-800/50 text-gray-300 border-gray-500/30',
       gold: 'bg-yellow-900/50 text-yellow-400 border-yellow-500/30',
-      platinum: 'bg-purple-900/50 text-purple-400 border-purple-500/30'
+      platinum: 'bg-purple-900/50 text-cyan-400 border-purple-500/30'
     }
     return colors[tierName.toLowerCase() as keyof typeof colors] || colors.bronze
   }
@@ -170,7 +170,7 @@ export function DMList({
               placeholder="Search members..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-4 py-2 bg-zinc-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-red-600/50 pr-10"
+              className="w-full px-4 py-2 bg-zinc-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-sky-600/50 pr-10"
             />
             <button
               type="submit"
@@ -189,7 +189,7 @@ export function DMList({
         )}
 
         {searchError && (
-          <p className="mt-2 text-sm text-red-400">{searchError}</p>
+          <p className="mt-2 text-sm text-sky-400">{searchError}</p>
         )}
       </div>
 
@@ -206,7 +206,7 @@ export function DMList({
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-medium text-white group-hover:text-red-400 transition-colors">
+                    <p className="font-medium text-white group-hover:text-sky-400 transition-colors">
                       {member.name}
                     </p>
                     <p className="text-sm text-gray-500">{member.email}</p>
@@ -240,7 +240,7 @@ export function DMList({
               onClick={() => onSelectConversation(conversation.id)}
               className={`w-full p-4 rounded-xl transition-all transform hover:scale-[1.01] cursor-pointer ${
                 selectedConversationId === conversation.id
-                  ? 'bg-gradient-to-r from-red-600/20 to-red-700/20 border border-red-600/30 shadow-lg shadow-red-600/10'
+                  ? 'bg-gradient-to-r from-sky-600/20 to-sky-700/20 border border-sky-600/30 shadow-lg shadow-sky-600/10'
                   : 'bg-zinc-800/30 hover:bg-zinc-800/50 border border-white/5 hover:border-white/10'
               }`}
             >
@@ -256,7 +256,7 @@ export function DMList({
                   </div>
                   {/* Unread indicator */}
                   {conversation.has_unread && (
-                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-600 rounded-full ring-2 ring-black animate-pulse"></div>
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-sky-600 rounded-full ring-2 ring-black animate-pulse"></div>
                   )}
                   {/* Pin indicator */}
                   {conversation.is_pinned && (

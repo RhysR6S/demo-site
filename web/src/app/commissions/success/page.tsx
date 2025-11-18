@@ -102,7 +102,7 @@ function SuccessContent() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="bg-zinc-900/50 backdrop-blur-xl rounded-2xl p-8 border border-white/10 mb-8"
+              className="bg-slate-900/50 backdrop-blur-xl rounded-2xl p-8 border border-white/10 mb-8"
             >
               <div className="space-y-4 text-left">
                 <div>

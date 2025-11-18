@@ -127,13 +127,13 @@ export default function PrivacyManagePage() {
             className="space-y-6"
           >
             {/* Header */}
-            <div className="bg-zinc-900/50 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
+            <div className="bg-slate-900/50 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
               <h1 className="text-3xl font-bold text-white mb-2">Privacy Settings</h1>
               <p className="text-gray-400">Control how we collect and use your data</p>
             </div>
 
             {/* Consent Settings */}
-            <div className="bg-zinc-900/50 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
+            <div className="bg-slate-900/50 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
               <h2 className="text-xl font-bold text-white mb-6">Data Collection Consent</h2>
               
               {loading ? (
@@ -145,7 +145,7 @@ export default function PrivacyManagePage() {
               ) : (
                 <div className="space-y-6">
                   {/* Activity Tracking */}
-                  <div className="flex items-start justify-between p-4 bg-zinc-900/50 rounded-lg border border-white/5">
+                  <div className="flex items-start justify-between p-4 bg-slate-900/50 rounded-lg border border-white/5">
                     <div className="flex-1 pr-4">
                       <h3 className="font-semibold text-white mb-1">Activity Tracking</h3>
                       <p className="text-sm text-gray-400">
@@ -159,12 +159,12 @@ export default function PrivacyManagePage() {
                         onChange={(e) => setSettings({ ...settings, trackingConsent: e.target.checked })}
                         className="sr-only peer"
                       />
-                      <div className="w-11 h-6 bg-zinc-700 peer-focus:ring-2 peer-focus:ring-red-600 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-600"></div>
+                      <div className="w-11 h-6 bg-zinc-700 peer-focus:ring-2 peer-focus:ring-red-600 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sky-600"></div>
                     </label>
                   </div>
 
                   {/* Communication */}
-                  <div className="flex items-start justify-between p-4 bg-zinc-900/50 rounded-lg border border-white/5">
+                  <div className="flex items-start justify-between p-4 bg-slate-900/50 rounded-lg border border-white/5">
                     <div className="flex-1 pr-4">
                       <h3 className="font-semibold text-white mb-1">Service Communications</h3>
                       <p className="text-sm text-gray-400">
@@ -178,7 +178,7 @@ export default function PrivacyManagePage() {
                         onChange={(e) => setSettings({ ...settings, communicationConsent: e.target.checked })}
                         className="sr-only peer"
                       />
-                      <div className="w-11 h-6 bg-zinc-700 peer-focus:ring-2 peer-focus:ring-red-600 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-600"></div>
+                      <div className="w-11 h-6 bg-zinc-700 peer-focus:ring-2 peer-focus:ring-red-600 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sky-600"></div>
                     </label>
                   </div>
 
@@ -193,19 +193,19 @@ export default function PrivacyManagePage() {
               <button
                 onClick={updateSettings}
                 disabled={saving || loading}
-                className="mt-6 px-6 py-3 bg-red-600 hover:bg-red-700 disabled:bg-gray-700 text-white font-semibold rounded-lg transition-colors disabled:cursor-not-allowed"
+                className="mt-6 px-6 py-3 bg-sky-600 hover:bg-red-700 disabled:bg-gray-700 text-white font-semibold rounded-lg transition-colors disabled:cursor-not-allowed"
               >
                 {saving ? 'Saving...' : 'Save Settings'}
               </button>
             </div>
 
             {/* Data Rights */}
-            <div className="bg-zinc-900/50 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
+            <div className="bg-slate-900/50 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
               <h2 className="text-xl font-bold text-white mb-6">Your Data Rights</h2>
               
               <div className="space-y-4">
                 {/* Export Data */}
-                <div className="p-4 bg-zinc-900/50 rounded-lg border border-white/5">
+                <div className="p-4 bg-slate-900/50 rounded-lg border border-white/5">
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="font-semibold text-white mb-1">Export Your Data</h3>
@@ -224,7 +224,7 @@ export default function PrivacyManagePage() {
                 </div>
 
                 {/* Delete Account */}
-                <div className="p-4 bg-zinc-900/50 rounded-lg border border-red-900/20">
+                <div className="p-4 bg-slate-900/50 rounded-lg border border-red-900/20">
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="font-semibold text-white mb-1">Delete Account</h3>
@@ -234,7 +234,7 @@ export default function PrivacyManagePage() {
                     </div>
                     <button
                       onClick={() => setShowDeleteConfirm(true)}
-                      className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
+                      className="px-4 py-2 bg-sky-600 hover:bg-red-700 text-white rounded-lg transition-colors"
                     >
                       Delete
                     </button>
@@ -261,7 +261,7 @@ export default function PrivacyManagePage() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-zinc-900 rounded-2xl p-8 max-w-md w-full border border-red-600/20"
+              className="bg-slate-900 rounded-2xl p-8 max-w-md w-full border border-sky-600/20"
             >
               <h3 className="text-xl font-bold text-white mb-4">Delete Account?</h3>
               <p className="text-gray-300 mb-6">
@@ -283,7 +283,7 @@ export default function PrivacyManagePage() {
                 <button
                   onClick={deleteAccount}
                   disabled={deletingAccount}
-                  className="flex-1 px-4 py-2 bg-red-600 hover:bg-red-700 disabled:bg-gray-700 text-white rounded-lg transition-colors disabled:cursor-not-allowed"
+                  className="flex-1 px-4 py-2 bg-sky-600 hover:bg-red-700 disabled:bg-gray-700 text-white rounded-lg transition-colors disabled:cursor-not-allowed"
                 >
                   {deletingAccount ? 'Deleting...' : 'Delete Forever'}
                 </button>

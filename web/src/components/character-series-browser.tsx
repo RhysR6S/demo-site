@@ -241,7 +241,7 @@ export function CharacterSeriesBrowser({
       </div>
 
       {/* Content */}
-      <div className="bg-zinc-900/30 rounded-xl border border-zinc-800 p-4 max-h-[600px] overflow-y-auto scrollbar-thin">
+      <div className="bg-slate-900/30 rounded-xl border border-zinc-800 p-4 max-h-[600px] overflow-y-auto scrollbar-thin">
         {activeTab === 'series' ? (
           // Series View
           <div className="space-y-3">
@@ -250,14 +250,14 @@ export function CharacterSeriesBrowser({
               onClick={() => selectSeries('mixed')}
               className={`w-full p-4 rounded-xl border transition-all ${
                 selectedSeriesInternal === 'mixed'
-                  ? 'bg-purple-600/20 border-purple-600 text-purple-400'
+                  ? 'bg-purple-600/20 border-purple-600 text-cyan-400'
                   : 'bg-zinc-800/30 border-zinc-700 hover:border-purple-600/50 text-gray-300 hover:text-white'
               }`}
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-purple-600/20 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" />
                     </svg>
                   </div>
@@ -267,7 +267,7 @@ export function CharacterSeriesBrowser({
                   </div>
                 </div>
                 {selectedSeriesInternal === 'mixed' && (
-                  <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 )}
@@ -287,7 +287,7 @@ export function CharacterSeriesBrowser({
                     selectedSeriesInternal === s.id
                       ? 'bg-purple-600/20 border-purple-600'
                       : selectedCount > 0
-                      ? 'bg-purple-600/10 border-purple-600/30'
+                      ? 'bg-purple-600/10 border-cyan-600/30'
                       : 'bg-zinc-800/30 border-zinc-700 hover:border-purple-600/50'
                   }`}
                 >
@@ -312,17 +312,17 @@ export function CharacterSeriesBrowser({
           <div className="space-y-6">
             {/* Selected Series Header */}
             {selectedSeriesInternal && selectedSeriesInternal !== 'mixed' && (
-              <div className="bg-purple-600/10 border border-purple-600/30 rounded-xl p-4">
+              <div className="bg-purple-600/10 border border-cyan-600/30 rounded-xl p-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-purple-400 mb-1">Viewing characters from</p>
+                    <p className="text-sm text-cyan-400 mb-1">Viewing characters from</p>
                     <h3 className="text-lg font-semibold text-white">
                       {series.find(s => s.id === selectedSeriesInternal)?.name}
                     </h3>
                   </div>
                   <button
                     onClick={() => selectSeries(null)}
-                    className="text-purple-400 hover:text-purple-300 transition-colors"
+                    className="text-cyan-400 hover:text-purple-300 transition-colors"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -359,7 +359,7 @@ export function CharacterSeriesBrowser({
                         {seriesData?.name || 'No Series'} 
                         <span className="text-sm text-gray-500 ml-2">
                           ({chars.length})
-                          {selectedCount > 0 && <span className="text-purple-400"> • {selectedCount} selected</span>}
+                          {selectedCount > 0 && <span className="text-cyan-400"> • {selectedCount} selected</span>}
                         </span>
                       </h3>
                     </button>
@@ -367,7 +367,7 @@ export function CharacterSeriesBrowser({
                     {isExpanded && chars.length > 1 && (
                       <button
                         onClick={() => allSelected ? deselectAllFromSeries(seriesId) : selectAllFromSeries(seriesId)}
-                        className="text-sm text-purple-400 hover:text-purple-300 transition-colors"
+                        className="text-sm text-cyan-400 hover:text-purple-300 transition-colors"
                       >
                         {allSelected ? 'Deselect All' : 'Select All'}
                       </button>
@@ -386,7 +386,7 @@ export function CharacterSeriesBrowser({
                             onClick={() => toggleCharacter(char.id)}
                             className={`p-3 rounded-lg border transition-all ${
                               isSelected
-                                ? 'bg-purple-600/20 border-purple-600 text-purple-400'
+                                ? 'bg-purple-600/20 border-purple-600 text-cyan-400'
                                 : 'bg-zinc-800/30 border-zinc-700 hover:border-purple-600/50 text-gray-300 hover:text-white'
                             }`}
                           >
@@ -412,14 +412,14 @@ export function CharacterSeriesBrowser({
 
       {/* Selected Characters Summary */}
       {selectedCharacters.length > 0 && (
-        <div className="bg-purple-600/10 border border-purple-600/30 rounded-xl p-4">
+        <div className="bg-purple-600/10 border border-cyan-600/30 rounded-xl p-4">
           <div className="flex items-center justify-between mb-3">
-            <h4 className="font-medium text-purple-400">
+            <h4 className="font-medium text-cyan-400">
               Selected Characters ({selectedCharacters.length})
             </h4>
             <button
               onClick={() => onSelectionChange([])}
-              className="text-sm text-purple-400 hover:text-purple-300 transition-colors"
+              className="text-sm text-cyan-400 hover:text-purple-300 transition-colors"
             >
               Clear All
             </button>
@@ -436,11 +436,11 @@ export function CharacterSeriesBrowser({
                 >
                   <span className="text-purple-300">{char.name}</span>
                   {char.series && (
-                    <span className="text-purple-500">({char.series.name})</span>
+                    <span className="text-cyan-500">({char.series.name})</span>
                   )}
                   <button
                     onClick={() => toggleCharacter(charId)}
-                    className="text-purple-400 hover:text-purple-300 transition-colors"
+                    className="text-cyan-400 hover:text-purple-300 transition-colors"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

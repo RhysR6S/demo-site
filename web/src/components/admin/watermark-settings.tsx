@@ -202,7 +202,7 @@ export function WatermarkSettings({ userId }: { userId: string }) {
 
   if (loading) {
     return (
-      <div className="bg-zinc-900/50 backdrop-blur-sm rounded-xl border border-white/10 p-8">
+      <div className="bg-slate-900/50 backdrop-blur-sm rounded-xl border border-white/10 p-8">
         <div className="flex items-center justify-center">
           <div className="w-8 h-8 border-3 border-purple-600/20 rounded-full animate-spin border-t-purple-600"></div>
         </div>
@@ -211,9 +211,9 @@ export function WatermarkSettings({ userId }: { userId: string }) {
   }
 
   return (
-    <div className="bg-zinc-900/50 backdrop-blur-sm rounded-xl border border-white/10 p-8">
+    <div className="bg-slate-900/50 backdrop-blur-sm rounded-xl border border-white/10 p-8">
       <div className="flex items-center gap-3 mb-6">
-        <Settings className="w-6 h-6 text-purple-400" />
+        <Settings className="w-6 h-6 text-cyan-400" />
         <h2 className="text-2xl font-bold text-white">Watermark Settings</h2>
       </div>
 
@@ -298,7 +298,7 @@ export function WatermarkSettings({ userId }: { userId: string }) {
                 />
                 <button
                   onClick={removeWatermarkImage}
-                  className="absolute -top-2 -right-2 w-6 h-6 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors"
+                  className="absolute -top-2 -right-2 w-6 h-6 bg-sky-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -319,7 +319,7 @@ export function WatermarkSettings({ userId }: { userId: string }) {
                 onClick={() => setSettings(prev => ({ ...prev, position: pos }))}
                 className={`px-4 py-2 rounded-lg border transition-all ${
                   settings.position === pos
-                    ? 'border-purple-500 bg-purple-500/10 text-purple-400'
+                    ? 'border-purple-500 bg-purple-500/10 text-cyan-400'
                     : 'border-zinc-700 hover:border-zinc-600 text-gray-300'
                 }`}
               >
@@ -494,7 +494,7 @@ export function WatermarkSettings({ userId }: { userId: string }) {
           <div className={`p-4 rounded-lg ${
             message.type === 'success' 
               ? 'bg-green-600/10 border border-green-600/20 text-green-400'
-              : 'bg-red-600/10 border border-red-600/20 text-red-400'
+              : 'bg-sky-600/10 border border-sky-600/20 text-sky-400'
           }`}>
             {message.text}
           </div>

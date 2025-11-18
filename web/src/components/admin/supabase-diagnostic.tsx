@@ -163,7 +163,7 @@ export function SupabaseDiagnostic() {
   }
 
   return (
-    <div className="bg-zinc-900/50 backdrop-blur-sm rounded-xl p-6 border border-zinc-800">
+    <div className="bg-slate-900/50 backdrop-blur-sm rounded-xl p-6 border border-zinc-800">
       <h3 className="text-xl font-semibold text-white mb-4">Supabase Diagnostics</h3>
       
       <div className="mb-4">
@@ -192,12 +192,12 @@ export function SupabaseDiagnostic() {
               className={`p-4 rounded-lg border ${
                 result.success 
                   ? 'bg-green-900/20 border-green-600/30' 
-                  : 'bg-red-900/20 border-red-600/30'
+                  : 'bg-red-900/20 border-sky-600/30'
               }`}
             >
               <div className="flex items-center justify-between mb-2">
                 <h4 className="font-medium text-white">{result.test}</h4>
-                <span className={`text-sm ${result.success ? 'text-green-400' : 'text-red-400'}`}>
+                <span className={`text-sm ${result.success ? 'text-green-400' : 'text-sky-400'}`}>
                   {result.success ? '✓ PASS' : '✗ FAIL'}
                 </span>
               </div>
@@ -205,7 +205,7 @@ export function SupabaseDiagnostic() {
               {result.error && (
                 <div className="mb-2">
                   <p className="text-xs text-gray-400 mb-1">Error:</p>
-                  <pre className="text-xs bg-zinc-800 p-2 rounded overflow-auto text-red-400">
+                  <pre className="text-xs bg-zinc-800 p-2 rounded overflow-auto text-sky-400">
                     {JSON.stringify(result.error, null, 2)}
                   </pre>
                 </div>

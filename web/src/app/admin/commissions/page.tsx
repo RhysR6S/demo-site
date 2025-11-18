@@ -227,7 +227,7 @@ export default function AdminCommissionsPage() {
       case 'pending': return 'text-yellow-500 bg-yellow-500/10'
       case 'in_progress': return 'text-blue-500 bg-blue-500/10'
       case 'completed': return 'text-green-500 bg-green-500/10'
-      case 'cancelled': return 'text-red-500 bg-red-500/10'
+      case 'cancelled': return 'text-sky-500 bg-sky-500/10'
       case 'archived': return 'text-gray-500 bg-gray-500/10'
       default: return 'text-gray-500 bg-gray-500/10'
     }
@@ -240,7 +240,7 @@ export default function AdminCommissionsPage() {
       case 'silver': return 'text-gray-400'
       case 'gold': return 'text-yellow-400'
       case 'diamond': return 'text-cyan-400'
-      case 'platinum': return 'text-purple-400'
+      case 'platinum': return 'text-cyan-400'
       case 'creator': return 'text-pink-400'
       case 'public': return 'text-blue-400'
       default: return 'text-gray-400'
@@ -309,7 +309,7 @@ export default function AdminCommissionsPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="w-12 h-12 border-3 border-red-600/20 rounded-full animate-spin border-t-red-600"></div>
+        <div className="w-12 h-12 border-3 border-sky-600/20 rounded-full animate-spin border-t-sky-500"></div>
       </div>
     )
   }
@@ -323,10 +323,10 @@ export default function AdminCommissionsPage() {
           
           {fetchError && (
             <div className="mt-4 p-4 bg-red-900/20 border border-red-900/50 rounded-lg">
-              <p className="text-red-400">{fetchError}</p>
+              <p className="text-sky-400">{fetchError}</p>
               <button
                 onClick={fetchCommissions}
-                className="mt-2 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+                className="mt-2 px-4 py-2 bg-sky-600 text-white rounded hover:bg-red-700"
               >
                 Retry
               </button>
@@ -335,23 +335,23 @@ export default function AdminCommissionsPage() {
           
           {/* Stats Summary */}
           <div className="mt-4 grid grid-cols-5 gap-4">
-            <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-4">
+            <div className="bg-slate-900 border border-zinc-800 rounded-lg p-4">
               <p className="text-sm text-gray-400">Total Pending</p>
               <p className="text-2xl font-bold text-white">{stats.pending}</p>
             </div>
-            <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-4">
+            <div className="bg-slate-900 border border-zinc-800 rounded-lg p-4">
               <p className="text-sm text-gray-400">In Progress</p>
               <p className="text-2xl font-bold text-white">{stats.inProgress}</p>
             </div>
-            <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-4">
+            <div className="bg-slate-900 border border-zinc-800 rounded-lg p-4">
               <p className="text-sm text-gray-400">Free Tier</p>
               <p className="text-2xl font-bold text-green-400">{stats.freeTier}</p>
             </div>
-            <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-4">
+            <div className="bg-slate-900 border border-zinc-800 rounded-lg p-4">
               <p className="text-sm text-gray-400">Paid (Supporters)</p>
-              <p className="text-2xl font-bold text-purple-400">{stats.paid}</p>
+              <p className="text-2xl font-bold text-cyan-400">{stats.paid}</p>
             </div>
-            <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-4">
+            <div className="bg-slate-900 border border-zinc-800 rounded-lg p-4">
               <p className="text-sm text-gray-400">Public</p>
               <p className="text-2xl font-bold text-blue-400">{stats.public}</p>
             </div>
@@ -363,7 +363,7 @@ export default function AdminCommissionsPage() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2 text-white focus:border-purple-500 focus:outline-none"
+            className="bg-slate-900 border border-zinc-800 rounded-lg px-4 py-2 text-white focus:border-purple-500 focus:outline-none"
           >
             <option value="all">All Status</option>
             <option value="pending">Pending</option>
@@ -375,7 +375,7 @@ export default function AdminCommissionsPage() {
           <select
             value={typeFilter}
             onChange={(e) => setTypeFilter(e.target.value)}
-            className="bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2 text-white focus:border-purple-500 focus:outline-none"
+            className="bg-slate-900 border border-zinc-800 rounded-lg px-4 py-2 text-white focus:border-purple-500 focus:outline-none"
           >
             <option value="all">All Types</option>
             <option value="set">Character Sets</option>
@@ -385,7 +385,7 @@ export default function AdminCommissionsPage() {
           <select
             value={tierFilter}
             onChange={(e) => setTierFilter(e.target.value)}
-            className="bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2 text-white focus:border-purple-500 focus:outline-none"
+            className="bg-slate-900 border border-zinc-800 rounded-lg px-4 py-2 text-white focus:border-purple-500 focus:outline-none"
           >
             <option value="all">All Sources</option>
             <option value="supporters">Supporters Only</option>
@@ -401,7 +401,7 @@ export default function AdminCommissionsPage() {
             <h2 className="text-xl font-semibold text-white mb-4">Active Requests</h2>
             
             {filteredCommissions.length === 0 ? (
-              <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-8 text-center">
+              <div className="bg-slate-900 border border-zinc-800 rounded-lg p-8 text-center">
                 <p className="text-gray-400">No commission requests found.</p>
               </div>
             ) : (
@@ -409,7 +409,7 @@ export default function AdminCommissionsPage() {
                 <div
                   key={commission.id}
                   onClick={() => setSelectedCommission(commission)}
-                  className={`bg-zinc-900 border-2 rounded-lg p-4 cursor-pointer transition-all ${getCommissionBorderColor(commission)}`}
+                  className={`bg-slate-900 border-2 rounded-lg p-4 cursor-pointer transition-all ${getCommissionBorderColor(commission)}`}
                 >
                   <div className="flex items-start justify-between mb-2">
                     <div>
@@ -465,7 +465,7 @@ export default function AdminCommissionsPage() {
                           FREE TIER
                         </span>
                       ) : (
-                        <span className="bg-purple-600/20 text-purple-400 text-xs px-2 py-1 rounded-full font-semibold">
+                        <span className="bg-purple-600/20 text-cyan-400 text-xs px-2 py-1 rounded-full font-semibold">
                           PAID
                         </span>
                       )}
@@ -483,7 +483,7 @@ export default function AdminCommissionsPage() {
                       {formatDate(commission.created_at)}
                     </span>
                     <span className={`px-2 py-0.5 rounded text-xs ${
-                      commission.type === 'set' ? 'bg-blue-500/10 text-blue-400' : 'bg-purple-500/10 text-purple-400'
+                      commission.type === 'set' ? 'bg-blue-500/10 text-blue-400' : 'bg-purple-500/10 text-cyan-400'
                     }`}>
                       {commission.type === 'set' ? 'Character Set' : 'Custom Image'}
                     </span>
@@ -514,7 +514,7 @@ export default function AdminCommissionsPage() {
             <h2 className="text-xl font-semibold text-white mb-4">Commission Details</h2>
             
             {selectedCommission ? (
-              <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
+              <div className="bg-slate-900 border border-zinc-800 rounded-lg p-6">
                 {/* Commission Type Badge */}
                 <div className="mb-4 flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -533,7 +533,7 @@ export default function AdminCommissionsPage() {
                         FREE TIER COMMISSION
                       </div>
                     ) : (
-                      <div className="bg-purple-600/20 text-purple-400 px-3 py-1.5 rounded-lg font-semibold text-sm flex items-center gap-2">
+                      <div className="bg-purple-600/20 text-cyan-400 px-3 py-1.5 rounded-lg font-semibold text-sm flex items-center gap-2">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
@@ -936,7 +936,7 @@ export default function AdminCommissionsPage() {
 
                 {!selectedCommission.is_free_tier && selectedCommission.user_tier !== 'public' && selectedCommission.status === 'pending' && (
                   <div className="mb-4 p-3 bg-purple-900/20 border border-purple-900/50 rounded-lg">
-                    <p className="text-sm text-purple-400 flex items-center gap-2">
+                    <p className="text-sm text-cyan-400 flex items-center gap-2">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
@@ -989,7 +989,7 @@ export default function AdminCommissionsPage() {
                       <button
                         onClick={() => updateCommissionStatus(selectedCommission.id, 'cancelled')}
                         disabled={operatingCommissions.has(selectedCommission.id)}
-                        className="w-full py-2 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50"
+                        className="w-full py-2 px-4 bg-sky-600 text-white rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50"
                       >
                         {operatingCommissions.has(selectedCommission.id) ? 'Processing...' : 'Cancel Request'}
                       </button>
@@ -1046,7 +1046,7 @@ export default function AdminCommissionsPage() {
                         <button
                           onClick={deleteCommission}
                           disabled={isDeleting || operatingCommissions.has(selectedCommission.id)}
-                          className="w-full py-2 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="w-full py-2 px-4 bg-sky-600 text-white rounded-lg hover:bg-red-700 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           {isDeleting || operatingCommissions.has(selectedCommission.id) ? (
                             <>
@@ -1078,7 +1078,7 @@ export default function AdminCommissionsPage() {
                 </div>
               </div>
             ) : (
-              <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-8 text-center">
+              <div className="bg-slate-900 border border-zinc-800 rounded-lg p-8 text-center">
                 <p className="text-gray-400">Select a commission to view details</p>
               </div>
             )}

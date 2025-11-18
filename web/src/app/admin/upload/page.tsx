@@ -183,7 +183,7 @@ export default function UploadPage() {
             {/* Recent uploads */}
             <div className="bg-zinc-950/50 backdrop-blur-sm rounded-2xl p-6 border border-white/5">
               <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Recent Uploads
@@ -205,7 +205,7 @@ export default function UploadPage() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 }}
-                      className="flex items-center justify-between p-3 bg-zinc-900/50 rounded-xl hover:bg-zinc-900 transition-colors group"
+                      className="flex items-center justify-between p-3 bg-slate-900/50 rounded-xl hover:bg-slate-900 transition-colors group"
                     >
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-white truncate">
@@ -218,7 +218,7 @@ export default function UploadPage() {
                       <div className={`w-2 h-2 rounded-full flex-shrink-0 ml-3 ${
                         upload.status === 'complete' ? 'bg-green-500' :
                         upload.status === 'processing' ? 'bg-yellow-500 animate-pulse' :
-                        'bg-red-500'
+                        'bg-sky-500'
                       }`} />
                     </motion.div>
                   ))}
@@ -233,7 +233,7 @@ export default function UploadPage() {
             {/* Upload tips */}
             <div className="bg-zinc-950/50 backdrop-blur-sm rounded-2xl p-6 border border-white/5">
               <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Pro Tips
@@ -249,7 +249,7 @@ export default function UploadPage() {
                     className="flex gap-3"
                   >
                     <div className="w-10 h-10 bg-purple-600/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <span className="text-purple-400">{tip.icon}</span>
+                      <span className="text-cyan-400">{tip.icon}</span>
                     </div>
                     <div>
                       <h4 className="text-sm font-medium text-white mb-1">{tip.title}</h4>

@@ -59,7 +59,7 @@ export default function AdminLayout({
           className="relative"
         >
           <div className="w-20 h-20 border-4 border-purple-600/20 rounded-full animate-spin border-t-purple-600" />
-          <div className="absolute inset-0 w-20 h-20 border-4 border-red-600/20 rounded-full animate-spin border-t-red-600 animate-delay-150" />
+          <div className="absolute inset-0 w-20 h-20 border-4 border-sky-600/20 rounded-full animate-spin border-t-sky-500 animate-delay-150" />
         </motion.div>
       </div>
     )
@@ -71,7 +71,7 @@ export default function AdminLayout({
       <div className="fixed inset-0 overflow-hidden pointer-events-none hide-mobile">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-purple-600/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-3/4 left-3/4 w-[400px] h-[400px] bg-red-600/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
+        <div className="absolute top-3/4 left-3/4 w-[400px] h-[400px] bg-sky-600/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
       </div>
 
       {/* Admin Sidebar */}
@@ -103,7 +103,7 @@ export default function AdminLayout({
               {!(isMobile || isTablet) && (
                 <button
                   onClick={() => setShowSearch(true)}
-                  className="flex items-center gap-2 px-4 py-2 bg-zinc-900/50 hover:bg-zinc-900 rounded-xl transition-all duration-200 text-gray-400 hover:text-white border border-white/5"
+                  className="flex items-center gap-2 px-4 py-2 bg-slate-900/50 hover:bg-slate-900 rounded-xl transition-all duration-200 text-gray-400 hover:text-white border border-white/5"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -116,7 +116,7 @@ export default function AdminLayout({
               {/* Quick add */}
               <Link 
                 href="/admin/upload" 
-                className="p-2.5 hover:bg-zinc-900/50 rounded-xl transition-all duration-200 text-gray-400 hover:text-white"
+                className="p-2.5 hover:bg-slate-900/50 rounded-xl transition-all duration-200 text-gray-400 hover:text-white"
                 title="Quick Upload"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -127,7 +127,7 @@ export default function AdminLayout({
               {/* Profile dropdown - Hide on mobile */}
               {!(isMobile || isTablet) && (
                 <div className="relative">
-                  <button className="flex items-center gap-2 p-2 hover:bg-zinc-900/50 rounded-xl transition-all duration-200">
+                  <button className="flex items-center gap-2 p-2 hover:bg-slate-900/50 rounded-xl transition-all duration-200">
                     <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-purple-700 rounded-lg flex items-center justify-center">
                       <span className="text-white text-sm font-bold">
                         {session?.user?.creatorProfile?.displayName?.charAt(0)?.toUpperCase() || 
@@ -169,7 +169,7 @@ export default function AdminLayout({
               initial={{ opacity: 0, y: -20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
-              className={`w-full ${(isMobile || isTablet) ? 'mx-4' : 'max-w-2xl'} bg-zinc-900 rounded-2xl shadow-2xl border border-white/10 overflow-hidden`}
+              className={`w-full ${(isMobile || isTablet) ? 'mx-4' : 'max-w-2xl'} bg-slate-900 rounded-2xl shadow-2xl border border-white/10 overflow-hidden`}
               onClick={(e) => e.stopPropagation()}
             >
               <div className="p-6">

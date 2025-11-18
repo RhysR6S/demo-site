@@ -42,7 +42,7 @@ export function AuthWrapper({ children, requireCreator = false }: AuthWrapperPro
   if (status === "loading") {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="w-12 h-12 border-3 border-red-600/20 rounded-full animate-spin border-t-red-600"></div>
+        <div className="w-12 h-12 border-3 border-sky-600/20 rounded-full animate-spin border-t-sky-500"></div>
       </div>
     )
   }

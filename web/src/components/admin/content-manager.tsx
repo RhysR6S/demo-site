@@ -332,7 +332,7 @@ export const ContentManager = forwardRef<ContentManagerRef, ContentManagerProps>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-zinc-900/50 backdrop-blur-sm rounded-xl p-6 border border-white/5"
+        className="bg-slate-900/50 backdrop-blur-sm rounded-xl p-6 border border-white/5"
       >
         <div className="flex flex-col lg:flex-row gap-4">
           {/* Search */}
@@ -356,7 +356,7 @@ export const ContentManager = forwardRef<ContentManagerRef, ContentManagerProps>
               onClick={() => setShowFilters(!showFilters)}
               className={`px-4 py-2 rounded-lg transition-all flex items-center gap-2 ${
                 showFilters
-                  ? 'bg-purple-600/20 text-purple-400 border border-purple-600/20'
+                  ? 'bg-purple-600/20 text-cyan-400 border border-purple-600/20'
                   : 'bg-zinc-800/50 text-gray-400 hover:text-white border border-white/10'
               }`}
             >
@@ -408,7 +408,7 @@ export const ContentManager = forwardRef<ContentManagerRef, ContentManagerProps>
             {/* Refresh */}
             <button
               onClick={() => loadContent(true)}
-              className="px-4 py-2 bg-zinc-800/50 text-purple-400 hover:text-purple-300 border border-white/10 rounded-lg transition-colors"
+              className="px-4 py-2 bg-zinc-800/50 text-cyan-400 hover:text-purple-300 border border-white/10 rounded-lg transition-colors"
             >
               Refresh
             </button>
@@ -498,10 +498,10 @@ export const ContentManager = forwardRef<ContentManagerRef, ContentManagerProps>
           animate={{ opacity: 1, y: 0 }}
           className="bg-red-900/20 border border-red-900/50 rounded-lg p-4"
         >
-          <p className="text-red-400">{error}</p>
+          <p className="text-sky-400">{error}</p>
           <button
             onClick={() => loadContent(true)}
-            className="mt-2 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
+            className="mt-2 px-4 py-2 bg-sky-600 text-white rounded hover:bg-red-700 transition-colors"
           >
             Retry
           </button>
@@ -523,7 +523,7 @@ export const ContentManager = forwardRef<ContentManagerRef, ContentManagerProps>
               </span>
               <button
                 onClick={toggleSelectAll}
-                className="text-sm text-purple-400 hover:text-purple-300"
+                className="text-sm text-cyan-400 hover:text-purple-300"
               >
                 {selectedIds.size === filteredContent.length ? 'Deselect All' : 'Select All'}
               </button>
@@ -535,8 +535,8 @@ export const ContentManager = forwardRef<ContentManagerRef, ContentManagerProps>
                   onClick={() => action.action(Array.from(selectedIds))}
                   className={`px-4 py-2 rounded-lg text-sm flex items-center gap-2 transition-all ${
                     action.variant === 'danger'
-                      ? 'bg-red-600/20 text-red-400 hover:bg-red-600/30'
-                      : 'bg-purple-600/20 text-purple-400 hover:bg-purple-600/30'
+                      ? 'bg-sky-600/20 text-sky-400 hover:bg-sky-600/30'
+                      : 'bg-purple-600/20 text-cyan-400 hover:bg-purple-600/30'
                   }`}
                 >
                   {action.icon}
@@ -572,7 +572,7 @@ export const ContentManager = forwardRef<ContentManagerRef, ContentManagerProps>
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ delay: index * 0.02 }}
-                  className={`relative bg-zinc-900/50 backdrop-blur-sm rounded-xl border overflow-hidden group transition-all duration-300 ${
+                  className={`relative bg-slate-900/50 backdrop-blur-sm rounded-xl border overflow-hidden group transition-all duration-300 ${
                     isDeleting ? 'opacity-50 pointer-events-none' : ''
                   } ${
                     isSelected ? 'border-purple-500 ring-2 ring-purple-500/20' : 'border-white/5 hover:border-purple-500/50'
@@ -641,14 +641,14 @@ export const ContentManager = forwardRef<ContentManagerRef, ContentManagerProps>
                       <button
                         onClick={() => onEdit(set)}
                         disabled={isDeleting}
-                        className="flex-1 px-3 py-1.5 bg-purple-600/20 hover:bg-purple-600/30 text-purple-400 text-sm rounded-lg transition-colors"
+                        className="flex-1 px-3 py-1.5 bg-purple-600/20 hover:bg-purple-600/30 text-cyan-400 text-sm rounded-lg transition-colors"
                       >
                         Edit
                       </button>
                       <button
                         onClick={() => handleDelete(set.id)}
                         disabled={isDeleting}
-                        className="flex-1 px-3 py-1.5 bg-red-600/20 hover:bg-red-600/30 text-red-400 text-sm rounded-lg transition-colors"
+                        className="flex-1 px-3 py-1.5 bg-sky-600/20 hover:bg-sky-600/30 text-sky-400 text-sm rounded-lg transition-colors"
                       >
                         Delete
                       </button>
@@ -667,7 +667,7 @@ export const ContentManager = forwardRef<ContentManagerRef, ContentManagerProps>
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="bg-zinc-900/50 backdrop-blur-sm rounded-xl border border-white/5 overflow-hidden"
+            className="bg-slate-900/50 backdrop-blur-sm rounded-xl border border-white/5 overflow-hidden"
           >
             <div className="divide-y divide-white/5">
               {filteredContent.map((set, index) => {
@@ -681,7 +681,7 @@ export const ContentManager = forwardRef<ContentManagerRef, ContentManagerProps>
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.02 }}
-                    className={`p-6 hover:bg-zinc-900/70 transition-all flex items-center gap-4 ${
+                    className={`p-6 hover:bg-slate-900/70 transition-all flex items-center gap-4 ${
                       isDeleting ? 'opacity-50' : ''
                     } ${
                       isSelected ? 'bg-purple-600/5' : ''
@@ -738,14 +738,14 @@ export const ContentManager = forwardRef<ContentManagerRef, ContentManagerProps>
                       <button
                         onClick={() => onEdit(set)}
                         disabled={isDeleting}
-                        className="px-4 py-2 bg-purple-600/20 hover:bg-purple-600/30 text-purple-400 rounded-lg transition-colors"
+                        className="px-4 py-2 bg-purple-600/20 hover:bg-purple-600/30 text-cyan-400 rounded-lg transition-colors"
                       >
                         Edit
                       </button>
                       <button
                         onClick={() => handleDelete(set.id)}
                         disabled={isDeleting}
-                        className="px-3 py-2 bg-red-600/20 hover:bg-red-600/30 text-red-400 rounded-lg transition-colors"
+                        className="px-3 py-2 bg-sky-600/20 hover:bg-sky-600/30 text-sky-400 rounded-lg transition-colors"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -772,7 +772,7 @@ export const ContentManager = forwardRef<ContentManagerRef, ContentManagerProps>
               const columnSets = filteredContent.filter(set => getContentStatus(set) === column.status)
               
               return (
-                <div key={column.id} className="bg-zinc-900/30 rounded-xl border border-white/5">
+                <div key={column.id} className="bg-slate-900/30 rounded-xl border border-white/5">
                   <div className="p-4 border-b border-white/5 flex items-center justify-between">
                     <h3 className="font-semibold text-white">{column.title}</h3>
                     <span className="px-2 py-1 bg-zinc-800 text-gray-400 text-xs rounded-full">
@@ -820,7 +820,7 @@ export const ContentManager = forwardRef<ContentManagerRef, ContentManagerProps>
           <button
             onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
             disabled={currentPage === 1}
-            className="px-4 py-2 bg-zinc-900/50 hover:bg-zinc-900 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="px-4 py-2 bg-slate-900/50 hover:bg-slate-900 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             Previous
           </button>
@@ -833,7 +833,7 @@ export const ContentManager = forwardRef<ContentManagerRef, ContentManagerProps>
                 className={`w-10 h-10 rounded-lg transition-colors ${
                   currentPage === page
                     ? 'bg-purple-600 text-white'
-                    : 'bg-zinc-900/50 hover:bg-zinc-900 text-gray-400'
+                    : 'bg-slate-900/50 hover:bg-slate-900 text-gray-400'
                 }`}
               >
                 {page}
@@ -844,7 +844,7 @@ export const ContentManager = forwardRef<ContentManagerRef, ContentManagerProps>
           <button
             onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
             disabled={currentPage === totalPages}
-            className="px-4 py-2 bg-zinc-900/50 hover:bg-zinc-900 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="px-4 py-2 bg-slate-900/50 hover:bg-slate-900 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             Next
           </button>

@@ -10,14 +10,14 @@ export default function PrivacyPolicyPage() {
       {/* Background effects from existing design */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-red-600/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-sky-600/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-zinc-900/50 backdrop-blur-xl rounded-2xl p-8 border border-white/10"
+          className="bg-slate-900/50 backdrop-blur-xl rounded-2xl p-8 border border-white/10"
         >
           <h1 className="text-3xl font-bold text-white mb-8">Privacy Policy</h1>
           
@@ -117,7 +117,7 @@ export default function PrivacyPolicyPage() {
             <section className="pt-6 border-t border-white/10">
               <Link 
                 href="/privacy/manage"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-sky-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors"
               >
                 Manage Your Privacy Settings
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -32,9 +32,9 @@ export function SimplePreferences({ preferences, onChange }: SimplePreferencesPr
   return (
     <div className="space-y-6">
       {/* Sexual Acts Section */}
-      <div className="bg-zinc-900/50 border border-zinc-800 rounded-lg p-6">
+      <div className="bg-slate-900/50 border border-zinc-800 rounded-lg p-6">
         <h4 className="text-sm font-semibold text-white mb-4 flex items-center gap-2">
-          <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
           </svg>
           Sexual Acts
@@ -84,7 +84,7 @@ export function SimplePreferences({ preferences, onChange }: SimplePreferencesPr
       </div>
 
       {/* Visual Indicator Summary */}
-      <div className="bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-600/30 rounded-lg p-4">
+      <div className="bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-cyan-600/30 rounded-lg p-4">
         <h4 className="text-sm font-semibold text-white mb-3">Current Settings Summary</h4>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
           {Object.entries(preferences).map(([key, value]) => {
@@ -102,7 +102,7 @@ export function SimplePreferences({ preferences, onChange }: SimplePreferencesPr
             let color = 'text-gray-400'
             if (value === 0) {
               status = 'Excluded'
-              color = 'text-red-400'
+              color = 'text-sky-400'
             } else if (value < 100) {
               status = 'Reduced'
               color = 'text-orange-400'

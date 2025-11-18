@@ -203,7 +203,7 @@ function DownloadManager() {
   if (activeDownloads.length === 0) return null
 
   return (
-    <div className={`fixed bottom-4 right-4 bg-zinc-900 border border-zinc-800 rounded-lg shadow-xl transition-all ${
+    <div className={`fixed bottom-4 right-4 bg-slate-900 border border-zinc-800 rounded-lg shadow-xl transition-all ${
       isMinimized ? 'w-64' : 'w-96'
     } z-50`}>
       <div className="flex items-center justify-between p-4 border-b border-zinc-800">
@@ -298,7 +298,7 @@ function DownloadItem({
           <CheckCircle className="w-4 h-4 text-green-400" />
         )}
         {task.status === 'failed' && (
-          <AlertCircle className="w-4 h-4 text-red-400" />
+          <AlertCircle className="w-4 h-4 text-sky-400" />
         )}
         <span className="text-xs text-gray-400">
           {percentage > 0 && percentage < 100 && `${percentage}%`}

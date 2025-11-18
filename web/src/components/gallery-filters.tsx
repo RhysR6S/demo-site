@@ -108,7 +108,7 @@ export function GalleryFilters({
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
             placeholder="Search sets, characters, tags..."
-            className="w-full px-3 py-2 bg-zinc-900 border border-zinc-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-red-600 transition-colors"
+            className="w-full px-3 py-2 bg-slate-900 border border-zinc-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-sky-600 transition-colors"
           />
         )}
       </div>
@@ -146,7 +146,7 @@ export function GalleryFilters({
                   className={`
                     w-full flex items-center justify-between px-3 py-2 rounded-lg transition-all
                     ${isActive 
-                      ? 'bg-red-600/20 border border-red-600/30 text-red-500' 
+                      ? 'bg-sky-600/20 border border-sky-600/30 text-sky-500' 
                       : 'hover:bg-zinc-700 text-gray-400 hover:text-white'
                     }
                   `}
@@ -188,7 +188,7 @@ export function GalleryFilters({
           <select
             value={sortBy}
             onChange={(e) => onSortChange(e.target.value as any)}
-            className="w-full px-3 py-2 bg-zinc-900 border border-zinc-700 rounded-lg text-white focus:outline-none focus:border-red-600 transition-colors"
+            className="w-full px-3 py-2 bg-slate-900 border border-zinc-700 rounded-lg text-white focus:outline-none focus:border-sky-600 transition-colors"
           >
             {sortOptions.map(option => (
               <option key={option.value} value={option.value}>
@@ -212,7 +212,7 @@ export function GalleryFilters({
               </svg>
               Characters
               {selectedCharacters.length > 0 && (
-                <span className="text-xs px-2 py-0.5 bg-red-600 text-white rounded-full">
+                <span className="text-xs px-2 py-0.5 bg-sky-600 text-white rounded-full">
                   {selectedCharacters.length}
                 </span>
               )}
@@ -246,7 +246,7 @@ export function GalleryFilters({
                           onCharacterChange(selectedCharacters.filter(id => id !== character.id))
                         }
                       }}
-                      className="w-4 h-4 bg-zinc-800 border-zinc-600 rounded text-red-600 focus:ring-red-500 focus:ring-offset-0"
+                      className="w-4 h-4 bg-zinc-800 border-zinc-600 rounded text-sky-600 focus:ring-red-500 focus:ring-offset-0"
                     />
                     <span className="text-sm text-gray-300 flex-1">{character.name}</span>
                     <span className="text-xs text-gray-500">{character.count}</span>
@@ -276,7 +276,7 @@ export function GalleryFilters({
               </svg>
               Series
               {selectedSeries.length > 0 && (
-                <span className="text-xs px-2 py-0.5 bg-red-600 text-white rounded-full">
+                <span className="text-xs px-2 py-0.5 bg-sky-600 text-white rounded-full">
                   {selectedSeries.length}
                 </span>
               )}
@@ -310,7 +310,7 @@ export function GalleryFilters({
                           onSeriesChange(selectedSeries.filter(id => id !== series.id))
                         }
                       }}
-                      className="w-4 h-4 bg-zinc-800 border-zinc-600 rounded text-red-600 focus:ring-red-500 focus:ring-offset-0"
+                      className="w-4 h-4 bg-zinc-800 border-zinc-600 rounded text-sky-600 focus:ring-red-500 focus:ring-offset-0"
                     />
                     <span className="text-sm text-gray-300 flex-1">{series.name}</span>
                     <span className="text-xs text-gray-500">{series.count}</span>
@@ -335,7 +335,7 @@ export function GalleryFilters({
               </svg>
               Tags
               {selectedTags.length > 0 && (
-                <span className="text-xs px-2 py-0.5 bg-red-600 text-white rounded-full">
+                <span className="text-xs px-2 py-0.5 bg-sky-600 text-white rounded-full">
                   {selectedTags.length}
                 </span>
               )}
@@ -367,7 +367,7 @@ export function GalleryFilters({
                     className={`
                       px-3 py-1 text-xs rounded-full transition-all
                       ${isSelected 
-                        ? 'bg-red-600 text-white' 
+                        ? 'bg-sky-600 text-white' 
                         : 'bg-zinc-700 text-gray-300 hover:bg-zinc-600'
                       }
                     `}
@@ -396,7 +396,7 @@ export function GalleryFilters({
             onSearchChange('')
             onViewFilterChange('all')
           }}
-          className="w-full px-4 py-2 bg-red-600/20 text-red-500 border border-red-600/30 rounded-lg hover:bg-red-600/30 transition-colors font-medium"
+          className="w-full px-4 py-2 bg-sky-600/20 text-sky-500 border border-sky-600/30 rounded-lg hover:bg-sky-600/30 transition-colors font-medium"
         >
           Clear All Filters
         </button>

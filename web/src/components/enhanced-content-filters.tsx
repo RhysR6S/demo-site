@@ -87,7 +87,7 @@ export function EnhancedContentFilters({
           <div className="flex items-center gap-3">
             <h3 className="text-lg font-semibold text-white">Filters</h3>
             {activeFilterCount > 0 && (
-              <span className="px-2 py-1 bg-red-600/20 text-red-500 text-xs font-medium rounded-full">
+              <span className="px-2 py-1 bg-sky-600/20 text-sky-500 text-xs font-medium rounded-full">
                 {activeFilterCount} active
               </span>
             )}
@@ -115,7 +115,7 @@ export function EnhancedContentFilters({
               }}
               className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
                 dateRange === range
-                  ? 'bg-red-600 text-white'
+                  ? 'bg-sky-600 text-white'
                   : 'bg-zinc-800 text-gray-400 hover:text-white hover:bg-zinc-700'
               }`}
             >
@@ -137,7 +137,7 @@ export function EnhancedContentFilters({
               <div className="flex items-center gap-2">
                 <span className="text-white font-medium">Characters</span>
                 {selectedCharacters.length > 0 && (
-                  <span className="px-2 py-0.5 bg-red-600/20 text-red-500 text-xs rounded-full">
+                  <span className="px-2 py-0.5 bg-sky-600/20 text-sky-500 text-xs rounded-full">
                     {selectedCharacters.length}
                   </span>
                 )}
@@ -174,7 +174,7 @@ export function EnhancedContentFilters({
                             type="checkbox"
                             checked={selectedCharacters.includes(character.id)}
                             onChange={() => toggleCharacter(character.id)}
-                            className="w-4 h-4 rounded border-gray-600 bg-zinc-800 text-red-600 focus:ring-red-600 focus:ring-offset-0"
+                            className="w-4 h-4 rounded border-gray-600 bg-zinc-800 text-sky-600 focus:ring-red-600 focus:ring-offset-0"
                           />
                           <span className="text-gray-300 flex-1">{character.label}</span>
                           {character.count !== undefined && (
@@ -200,7 +200,7 @@ export function EnhancedContentFilters({
               <div className="flex items-center gap-2">
                 <span className="text-white font-medium">Series</span>
                 {selectedSeries.length > 0 && (
-                  <span className="px-2 py-0.5 bg-red-600/20 text-red-500 text-xs rounded-full">
+                  <span className="px-2 py-0.5 bg-sky-600/20 text-sky-500 text-xs rounded-full">
                     {selectedSeries.length}
                   </span>
                 )}
@@ -237,7 +237,7 @@ export function EnhancedContentFilters({
                             type="checkbox"
                             checked={selectedSeries.includes(s.id)}
                             onChange={() => toggleSeries(s.id)}
-                            className="w-4 h-4 rounded border-gray-600 bg-zinc-800 text-red-600 focus:ring-red-600 focus:ring-offset-0"
+                            className="w-4 h-4 rounded border-gray-600 bg-zinc-800 text-sky-600 focus:ring-red-600 focus:ring-offset-0"
                           />
                           <span className="text-gray-300 flex-1">{s.label}</span>
                           {s.count !== undefined && (
@@ -263,7 +263,7 @@ export function EnhancedContentFilters({
               <div className="flex items-center gap-2">
                 <span className="text-white font-medium">Tags</span>
                 {selectedTags.length > 0 && (
-                  <span className="px-2 py-0.5 bg-red-600/20 text-red-500 text-xs rounded-full">
+                  <span className="px-2 py-0.5 bg-sky-600/20 text-sky-500 text-xs rounded-full">
                     {selectedTags.length}
                   </span>
                 )}
@@ -297,7 +297,7 @@ export function EnhancedContentFilters({
                           onClick={() => toggleTag(tag.id)}
                           className={`px-3 py-1.5 rounded-full text-sm transition-all ${
                             selectedTags.includes(tag.id)
-                              ? 'bg-red-600 text-white'
+                              ? 'bg-sky-600 text-white'
                               : 'bg-zinc-800 text-gray-400 hover:bg-zinc-700 hover:text-white'
                           }`}
                         >

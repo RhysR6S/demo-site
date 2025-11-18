@@ -102,7 +102,7 @@ function DMsContent() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-full">
-        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-red-500"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-sky-500"></div>
       </div>
     )
   }
@@ -115,7 +115,7 @@ function DMsContent() {
           <p className="text-gray-400 mb-4">Setting up your conversation with the creator...</p>
           <button 
             onClick={loadConversations}
-            className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
+            className="px-4 py-2 bg-sky-600 hover:bg-red-700 text-white rounded-lg transition-colors"
           >
             Retry
           </button>
@@ -142,7 +142,7 @@ function DMsContent() {
                 </button>
                 <span className="text-sm text-gray-400">
                   {conversations.filter(c => c.has_unread).length > 0 && (
-                    <span className="inline-flex items-center justify-center w-5 h-5 bg-red-600 text-white text-xs rounded-full">
+                    <span className="inline-flex items-center justify-center w-5 h-5 bg-sky-600 text-white text-xs rounded-full">
                       {conversations.filter(c => c.has_unread).length}
                     </span>
                   )}
@@ -168,7 +168,7 @@ function DMsContent() {
                 animate={{ x: 0 }}
                 exit={{ x: '-100%' }}
                 transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                className="fixed left-0 top-0 bottom-0 w-full max-w-sm bg-zinc-900 border-r border-white/10 z-50 safe-area-inset-left"
+                className="fixed left-0 top-0 bottom-0 w-full max-w-sm bg-slate-900 border-r border-white/10 z-50 safe-area-inset-left"
               >
                 <DMList
                   conversations={conversations}
@@ -270,7 +270,7 @@ export default function DMsPage() {
     <Suspense 
       fallback={
         <div className="flex items-center justify-center h-full">
-          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-red-500"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-sky-500"></div>
         </div>
       }
     >

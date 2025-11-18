@@ -467,7 +467,7 @@ function GalleryContent() {
       <MainLayout>
         <div className="min-h-screen flex items-center justify-center">
           <div className="relative">
-            <div className="w-16 h-16 border-4 border-red-600/20 rounded-full animate-spin border-t-red-600"></div>
+            <div className="w-16 h-16 border-4 border-sky-600/20 rounded-full animate-spin border-t-sky-500"></div>
             <div className="absolute inset-0 w-16 h-16 border-4 border-transparent rounded-full animate-spin border-t-purple-600 animation-delay-150"></div>
           </div>
         </div>
@@ -481,17 +481,17 @@ function GalleryContent() {
         {/* Background Effects */}
         <div className="fixed inset-0 -z-50 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black" />
-          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-red-600/10 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-sky-600/10 rounded-full blur-3xl animate-pulse" />
           <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-purple-600/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
         </div>
 
         {/* Recent Posts Section */}
-        <section className="border-b border-white/5 bg-zinc-900/30 backdrop-blur-sm overflow-hidden">
+        <section className="border-b border-white/5 bg-slate-900/30 backdrop-blur-sm overflow-hidden">
           <div className="py-6 sm:py-8">
             <div className={`${isSmallScreen ? 'px-4' : 'max-w-[1600px] mx-auto px-6'} mb-4 sm:mb-6`}>
               <div className="flex items-center justify-between">
                 <h2 className={`${isSmallScreen ? 'text-xl' : 'text-2xl'} font-bold text-white flex items-center gap-2 sm:gap-3`}>
-                  <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+                  <span className="w-2 h-2 bg-sky-500 rounded-full animate-pulse"></span>
                   Recent Posts
                 </h2>
                 <span className="text-xs sm:text-sm text-gray-400">Latest uploads</span>
@@ -568,7 +568,7 @@ function GalleryContent() {
                   {isSmallScreen && (
                     <button
                       onClick={() => setShowMobileSearch(!showMobileSearch)}
-                      className="p-2 bg-zinc-900/50 border border-white/10 rounded-lg text-white"
+                      className="p-2 bg-slate-900/50 border border-white/10 rounded-lg text-white"
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -590,7 +590,7 @@ function GalleryContent() {
                       placeholder="Search posts..."
                       value={filters.searchQuery}
                       onChange={(e) => setFilters(prev => ({ ...prev, searchQuery: e.target.value }))}
-                      className="w-full px-4 py-2 bg-zinc-900/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-red-500/50"
+                      className="w-full px-4 py-2 bg-slate-900/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-sky-500/50"
                     />
                   </motion.div>
                 )}
@@ -600,7 +600,7 @@ function GalleryContent() {
                   <button
                     onClick={markAllAsSeen}
                     disabled={markingAllSeen}
-                    className="w-full text-sm text-red-500 bg-zinc-800/50 hover:bg-zinc-800/70 px-4 py-2 rounded-lg transition-all disabled:opacity-50"
+                    className="w-full text-sm text-sky-500 bg-zinc-800/50 hover:bg-zinc-800/70 px-4 py-2 rounded-lg transition-all disabled:opacity-50"
                   >
                     {markingAllSeen ? 'Marking...' : `Mark all ${filters.viewStatus === 'unseen' ? filteredAndSortedSets.length : unseenCount} as seen`}
                   </button>
@@ -613,24 +613,24 @@ function GalleryContent() {
                       {/* Mobile controls */}
                       <button
                         onClick={() => setMobileFiltersOpen(true)}
-                        className="flex items-center gap-2 px-3 py-2 bg-zinc-900/50 border border-white/10 rounded-lg text-white text-sm"
+                        className="flex items-center gap-2 px-3 py-2 bg-slate-900/50 border border-white/10 rounded-lg text-white text-sm"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                         </svg>
                         <span>Filters</span>
                         {hasActiveFilters && (
-                          <span className="px-1.5 py-0.5 bg-red-600 text-white text-xs rounded-full">
+                          <span className="px-1.5 py-0.5 bg-sky-600 text-white text-xs rounded-full">
                             {filters.characters.length + filters.series.length + filters.tags.length + (filters.viewStatus !== 'all' ? 1 : 0)}
                           </span>
                         )}
                       </button>
                       
                       {/* View Mode Toggle - Mobile */}
-                      <div className="flex items-center bg-zinc-900/50 border border-white/10 rounded-lg overflow-hidden">
+                      <div className="flex items-center bg-slate-900/50 border border-white/10 rounded-lg overflow-hidden">
                         <button
                           onClick={() => setFilters(prev => ({ ...prev, viewMode: 'grid' }))}
-                          className={`p-2 transition-all ${filters.viewMode === 'grid' ? 'bg-red-600 text-white' : 'text-gray-400'}`}
+                          className={`p-2 transition-all ${filters.viewMode === 'grid' ? 'bg-sky-600 text-white' : 'text-gray-400'}`}
                         >
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
@@ -638,7 +638,7 @@ function GalleryContent() {
                         </button>
                         <button
                           onClick={() => setFilters(prev => ({ ...prev, viewMode: 'list' }))}
-                          className={`p-2 transition-all ${filters.viewMode === 'list' ? 'bg-red-600 text-white' : 'text-gray-400'}`}
+                          className={`p-2 transition-all ${filters.viewMode === 'list' ? 'bg-sky-600 text-white' : 'text-gray-400'}`}
                         >
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -649,7 +649,7 @@ function GalleryContent() {
                       <select
                         value={filters.sortBy}
                         onChange={(e) => setFilters(prev => ({ ...prev, sortBy: e.target.value as SortOption }))}
-                        className="flex-1 px-3 py-2 bg-zinc-900/50 border border-white/10 rounded-lg text-white text-sm"
+                        className="flex-1 px-3 py-2 bg-slate-900/50 border border-white/10 rounded-lg text-white text-sm"
                       >
                         <option value="newest">Newest</option>
                         <option value="oldest">Oldest</option>
@@ -666,7 +666,7 @@ function GalleryContent() {
                           placeholder="Search posts..."
                           value={filters.searchQuery}
                           onChange={(e) => setFilters(prev => ({ ...prev, searchQuery: e.target.value }))}
-                          className="w-64 px-4 py-2 pl-10 bg-zinc-900/50 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-red-500/50 transition-all"
+                          className="w-64 px-4 py-2 pl-10 bg-slate-900/50 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-sky-500/50 transition-all"
                         />
                         <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -676,7 +676,7 @@ function GalleryContent() {
                       <select
                         value={filters.sortBy}
                         onChange={(e) => setFilters(prev => ({ ...prev, sortBy: e.target.value as SortOption }))}
-                        className="px-4 py-2 bg-zinc-900/50 border border-white/10 rounded-xl text-white focus:outline-none focus:border-red-500/50 transition-all"
+                        className="px-4 py-2 bg-slate-900/50 border border-white/10 rounded-xl text-white focus:outline-none focus:border-sky-500/50 transition-all"
                       >
                         <option value="newest">Newest First</option>
                         <option value="oldest">Oldest First</option>
@@ -684,10 +684,10 @@ function GalleryContent() {
                         <option value="most_liked">Most Liked</option>
                       </select>
                       
-                      <div className="flex items-center bg-zinc-900/50 border border-white/10 rounded-xl overflow-hidden">
+                      <div className="flex items-center bg-slate-900/50 border border-white/10 rounded-xl overflow-hidden">
                         <button
                           onClick={() => setFilters(prev => ({ ...prev, viewMode: 'grid' }))}
-                          className={`p-2 transition-all ${filters.viewMode === 'grid' ? 'bg-red-600 text-white' : 'text-gray-400 hover:text-white'}`}
+                          className={`p-2 transition-all ${filters.viewMode === 'grid' ? 'bg-sky-600 text-white' : 'text-gray-400 hover:text-white'}`}
                         >
                           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
@@ -695,7 +695,7 @@ function GalleryContent() {
                         </button>
                         <button
                           onClick={() => setFilters(prev => ({ ...prev, viewMode: 'list' }))}
-                          className={`p-2 transition-all ${filters.viewMode === 'list' ? 'bg-red-600 text-white' : 'text-gray-400 hover:text-white'}`}
+                          className={`p-2 transition-all ${filters.viewMode === 'list' ? 'bg-sky-600 text-white' : 'text-gray-400 hover:text-white'}`}
                         >
                           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -705,7 +705,7 @@ function GalleryContent() {
                       
                       <button
                         onClick={() => setShowFilters(!showFilters)}
-                        className="lg:hidden p-2 bg-zinc-900/50 border border-white/10 rounded-xl text-gray-400 hover:text-white transition-all"
+                        className="lg:hidden p-2 bg-slate-900/50 border border-white/10 rounded-xl text-gray-400 hover:text-white transition-all"
                       >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
@@ -716,7 +716,7 @@ function GalleryContent() {
                         <button
                           onClick={markAllAsSeen}
                           disabled={markingAllSeen}
-                          className="text-sm text-red-500 hover:text-red-400 bg-zinc-800/50 hover:bg-zinc-800/70 px-4 py-1.5 rounded-full transition-all disabled:opacity-50"
+                          className="text-sm text-sky-500 hover:text-sky-400 bg-zinc-800/50 hover:bg-zinc-800/70 px-4 py-1.5 rounded-full transition-all disabled:opacity-50"
                         >
                           {markingAllSeen ? 'Marking...' : `Mark all ${filters.viewStatus === 'unseen' ? filteredAndSortedSets.length : unseenCount} as seen`}
                         </button>
@@ -728,12 +728,12 @@ function GalleryContent() {
 
               {/* Active Filters Display */}
               {hasActiveFilters && (
-                <div className={`mb-6 p-3 sm:p-4 bg-zinc-900/30 backdrop-blur-sm rounded-xl border border-white/5`}>
+                <div className={`mb-6 p-3 sm:p-4 bg-slate-900/30 backdrop-blur-sm rounded-xl border border-white/5`}>
                   <div className="flex items-center justify-between mb-2 sm:mb-3">
                     <span className="text-xs sm:text-sm text-gray-400">Active filters:</span>
                     <button
                       onClick={clearAllFilters}
-                      className="text-xs text-red-500 hover:text-red-400 transition-colors"
+                      className="text-xs text-sky-500 hover:text-sky-400 transition-colors"
                     >
                       Clear all
                     </button>
@@ -757,7 +757,7 @@ function GalleryContent() {
                       return char ? (
                         <span
                           key={charId}
-                          className="inline-flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 bg-red-600/20 text-red-400 rounded-lg text-xs sm:text-sm"
+                          className="inline-flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 bg-sky-600/20 text-sky-400 rounded-lg text-xs sm:text-sm"
                         >
                           {char.name}
                           <button
@@ -776,7 +776,7 @@ function GalleryContent() {
                       return series ? (
                         <span
                           key={seriesId}
-                          className="inline-flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 bg-purple-600/20 text-purple-400 rounded-lg text-xs sm:text-sm"
+                          className="inline-flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 bg-purple-600/20 text-cyan-400 rounded-lg text-xs sm:text-sm"
                         >
                           {series.name}
                           <button
@@ -813,7 +813,7 @@ function GalleryContent() {
               {/* Content Grid/List */}
               {filteredAndSortedSets.length === 0 ? (
                 <div className="text-center py-16 sm:py-20">
-                  <div className="inline-block p-6 sm:p-8 bg-zinc-900/30 backdrop-blur-sm rounded-2xl border border-white/5">
+                  <div className="inline-block p-6 sm:p-8 bg-slate-900/30 backdrop-blur-sm rounded-2xl border border-white/5">
                     <svg className="w-12 sm:w-16 h-12 sm:h-16 text-gray-600 mx-auto mb-3 sm:mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -860,7 +860,7 @@ function GalleryContent() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
                         transition={{ duration: 0.2, delay: index * 0.02 }}
-                        className="bg-zinc-900/30 backdrop-blur-sm border border-white/5 rounded-lg sm:rounded-xl p-3 sm:p-4 hover:border-white/10 transition-all max-w-full overflow-hidden"
+                        className="bg-slate-900/30 backdrop-blur-sm border border-white/5 rounded-lg sm:rounded-xl p-3 sm:p-4 hover:border-white/10 transition-all max-w-full overflow-hidden"
                       >
                         <div className="flex gap-3 sm:gap-4 max-w-full">
                           <div className={`${isMobile ? 'w-16 h-20' : 'w-24 h-32'} flex-shrink-0`}>
@@ -918,7 +918,7 @@ function GalleryContent() {
                     <button
                       onClick={() => setPage(Math.max(1, page - 1))}
                       disabled={page === 1}
-                      className="p-1.5 sm:p-2 bg-zinc-900/50 border border-white/10 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:border-white/20 transition-all"
+                      className="p-1.5 sm:p-2 bg-slate-900/50 border border-white/10 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:border-white/20 transition-all"
                     >
                       <svg className="w-4 sm:w-5 h-4 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -949,8 +949,8 @@ function GalleryContent() {
                               onClick={() => setPage(pageNum)}
                               className={`w-8 sm:w-10 h-8 sm:h-10 rounded-lg font-medium transition-all text-sm sm:text-base ${
                                 pageNum === page
-                                  ? 'bg-red-600 text-white'
-                                  : 'bg-zinc-900/50 border border-white/10 text-gray-400 hover:text-white hover:border-white/20'
+                                  ? 'bg-sky-600 text-white'
+                                  : 'bg-slate-900/50 border border-white/10 text-gray-400 hover:text-white hover:border-white/20'
                               }`}
                             >
                               {pageNum}
@@ -963,7 +963,7 @@ function GalleryContent() {
                     <button
                       onClick={() => setPage(Math.min(totalPages, page + 1))}
                       disabled={page === totalPages}
-                      className="p-1.5 sm:p-2 bg-zinc-900/50 border border-white/10 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:border-white/20 transition-all"
+                      className="p-1.5 sm:p-2 bg-slate-900/50 border border-white/10 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:border-white/20 transition-all"
                     >
                       <svg className="w-4 sm:w-5 h-4 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -977,13 +977,13 @@ function GalleryContent() {
             {/* Filter Sidebar - Desktop Only */}
             {!isSmallScreen && (
               <div className={`${showFilters ? 'block' : 'hidden lg:block'} w-full lg:w-80 flex-shrink-0`}>
-                <div className="sticky top-20 bg-zinc-900/30 backdrop-blur-sm border border-white/5 rounded-2xl p-6">
+                <div className="sticky top-20 bg-slate-900/30 backdrop-blur-sm border border-white/5 rounded-2xl p-6">
                   <div className="flex items-center justify-between mb-6">
                     <h3 className="text-lg font-semibold text-white">Filters</h3>
                     {hasActiveFilters && (
                       <button
                         onClick={clearAllFilters}
-                        className="text-xs text-red-500 hover:text-red-400 transition-colors"
+                        className="text-xs text-sky-500 hover:text-sky-400 transition-colors"
                       >
                         Clear all
                       </button>
@@ -1028,7 +1028,7 @@ function GalleryContent() {
                         onClick={() => setFilters(prev => ({ ...prev, viewStatus: 'favorites' }))}
                         className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                           filters.viewStatus === 'favorites'
-                            ? 'bg-red-600 text-white'
+                            ? 'bg-sky-600 text-white'
                             : 'bg-zinc-800/50 text-gray-400 hover:bg-zinc-800 hover:text-white'
                         }`}
                       >
@@ -1049,7 +1049,7 @@ function GalleryContent() {
                       placeholder="Search filters..."
                       value={filterSearchQuery}
                       onChange={(e) => setFilterSearchQuery(e.target.value)}
-                      className="w-full px-4 py-2 pl-10 bg-zinc-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-red-500/50 transition-all text-sm"
+                      className="w-full px-4 py-2 pl-10 bg-zinc-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-sky-500/50 transition-all text-sm"
                     />
                     <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -1095,7 +1095,7 @@ function GalleryContent() {
                               type="checkbox"
                               checked={filters.characters.includes(char.id)}
                               onChange={() => toggleCharacter(char.id)}
-                              className="w-4 h-4 bg-zinc-800 border-zinc-600 rounded text-red-600 focus:ring-red-500"
+                              className="w-4 h-4 bg-zinc-800 border-zinc-600 rounded text-sky-600 focus:ring-red-500"
                             />
                             <div className="flex-1">
                               <span className="text-sm text-gray-300 block">{char.name}</span>
@@ -1159,7 +1159,7 @@ function GalleryContent() {
                 animate={{ x: 0 }}
                 exit={{ x: '100%' }}
                 transition={{ type: 'tween', duration: 0.3 }}
-                className="fixed right-0 top-0 h-full w-[85vw] max-w-sm bg-zinc-900 border-l border-white/10 z-50 overflow-y-auto"
+                className="fixed right-0 top-0 h-full w-[85vw] max-w-sm bg-slate-900 border-l border-white/10 z-50 overflow-y-auto"
               >
                 <div className="p-4">
                   {/* Header */}
@@ -1182,7 +1182,7 @@ function GalleryContent() {
                       value={filterSearchQuery}
                       onChange={(e) => setFilterSearchQuery(e.target.value)}
                       placeholder="Search filters..."
-                      className="w-full px-4 py-3 pl-10 bg-zinc-800/50 border border-zinc-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-red-600 transition-colors"
+                      className="w-full px-4 py-3 pl-10 bg-zinc-800/50 border border-zinc-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-sky-600 transition-colors"
                     />
                     <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -1201,7 +1201,7 @@ function GalleryContent() {
                             value={status}
                             checked={filters.viewStatus === status}
                             onChange={(e) => setFilters(prev => ({ ...prev, viewStatus: e.target.value as ViewStatus }))}
-                            className="w-4 h-4 bg-zinc-800 border-zinc-600 text-red-600 focus:ring-red-500"
+                            className="w-4 h-4 bg-zinc-800 border-zinc-600 text-sky-600 focus:ring-red-500"
                           />
                           <span className="text-sm text-gray-300 capitalize flex-1">
                             {status === 'favorites' ? (
@@ -1265,7 +1265,7 @@ function GalleryContent() {
                               type="checkbox"
                               checked={filters.characters.includes(char.id)}
                               onChange={() => toggleCharacter(char.id)}
-                              className="w-4 h-4 bg-zinc-800 border-zinc-600 rounded text-red-600 focus:ring-red-500"
+                              className="w-4 h-4 bg-zinc-800 border-zinc-600 rounded text-sky-600 focus:ring-red-500"
                             />
                             <div className="flex-1">
                               <span className="text-sm text-gray-300 block">{char.name}</span>
@@ -1302,10 +1302,10 @@ function GalleryContent() {
                   )}
 
                   {/* Actions */}
-                  <div className="flex gap-3 sticky bottom-0 bg-zinc-900 py-4 -mx-4 px-4 border-t border-zinc-800">
+                  <div className="flex gap-3 sticky bottom-0 bg-slate-900 py-4 -mx-4 px-4 border-t border-zinc-800">
                     <button
                       onClick={() => setMobileFiltersOpen(false)}
-                      className="flex-1 px-4 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors"
+                      className="flex-1 px-4 py-3 bg-sky-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors"
                     >
                       Apply Filters
                     </button>

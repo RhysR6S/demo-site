@@ -70,11 +70,11 @@ ${authError.stackTrace || 'N/A'}
     <div className="min-h-screen bg-gradient-to-b from-zinc-950 to-zinc-900 flex items-center justify-center p-4">
       <div className="max-w-2xl w-full">
         {/* Error Card */}
-        <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-8 space-y-6">
+        <div className="bg-slate-900 border border-zinc-800 rounded-lg p-8 space-y-6">
           {/* Header */}
           <div className="flex items-start gap-4">
-            <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg">
-              <AlertTriangle className="w-8 h-8 text-red-500" />
+            <div className="p-3 bg-sky-500/10 border border-sky-500/20 rounded-lg">
+              <AlertTriangle className="w-8 h-8 text-sky-500" />
             </div>
             <div className="flex-1">
               <h1 className="text-2xl font-bold text-white mb-2">
@@ -138,7 +138,7 @@ ${authError.stackTrace || 'N/A'}
               <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-4 space-y-2 text-sm font-mono">
                 <div>
                   <span className="text-gray-500">Error Code:</span>{' '}
-                  <span className="text-red-400">{authError.code}</span>
+                  <span className="text-sky-400">{authError.code}</span>
                 </div>
                 <div>
                   <span className="text-gray-500">Message:</span>{' '}

@@ -27,7 +27,7 @@ export function SidebarWrapper({ children }: { children: React.ReactNode }) {
   if (status === 'loading') {
     return (
       <div className="min-h-screen flex items-center justify-center bg-black">
-        <div className="w-12 h-12 border-2 border-white/20 rounded-full animate-spin border-t-red-600"></div>
+        <div className="w-12 h-12 border-2 border-white/20 rounded-full animate-spin border-t-sky-500"></div>
       </div>
     )
   }

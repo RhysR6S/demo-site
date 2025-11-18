@@ -18,7 +18,7 @@ export default async function RateLimitsPage() {
           <h2 className="text-xl font-semibold text-white mb-4">Current Limits</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
             {Object.entries(RATE_LIMITS).map(([type, config]) => (
-              <div key={type} className="bg-zinc-900 p-4 rounded-lg border border-zinc-800">
+              <div key={type} className="bg-slate-900 p-4 rounded-lg border border-zinc-800">
                 <h3 className="text-sm font-medium text-gray-400 mb-1">{type}</h3>
                 <p className="text-2xl font-bold text-white">{config.maxRequests}</p>
                 <p className="text-xs text-gray-500">
@@ -33,19 +33,19 @@ export default async function RateLimitsPage() {
         <div className="mb-8">
           <h2 className="text-xl font-semibold text-white mb-4">Statistics</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="bg-zinc-900 p-4 rounded-lg border border-zinc-800">
+            <div className="bg-slate-900 p-4 rounded-lg border border-zinc-800">
               <h3 className="text-sm font-medium text-gray-400 mb-1">Total Requests</h3>
               <p className="text-2xl font-bold text-white">{stats.totalRequests.toLocaleString()}</p>
             </div>
-            <div className="bg-zinc-900 p-4 rounded-lg border border-zinc-800">
+            <div className="bg-slate-900 p-4 rounded-lg border border-zinc-800">
               <h3 className="text-sm font-medium text-gray-400 mb-1">Blocked Requests</h3>
-              <p className="text-2xl font-bold text-red-400">{stats.blockedRequests.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-sky-400">{stats.blockedRequests.toLocaleString()}</p>
             </div>
-            <div className="bg-zinc-900 p-4 rounded-lg border border-zinc-800">
+            <div className="bg-slate-900 p-4 rounded-lg border border-zinc-800">
               <h3 className="text-sm font-medium text-gray-400 mb-1">Unique Users</h3>
               <p className="text-2xl font-bold text-white">{stats.uniqueUsers.toLocaleString()}</p>
             </div>
-            <div className="bg-zinc-900 p-4 rounded-lg border border-zinc-800">
+            <div className="bg-slate-900 p-4 rounded-lg border border-zinc-800">
               <h3 className="text-sm font-medium text-gray-400 mb-1">Block Rate</h3>
               <p className="text-2xl font-bold text-yellow-400">
                 {stats.totalRequests > 0 
@@ -58,7 +58,7 @@ export default async function RateLimitsPage() {
         </div>
         
         {/* High Usage Users */}
-        <div className="bg-zinc-900 rounded-lg p-6 border border-zinc-800">
+        <div className="bg-slate-900 rounded-lg p-6 border border-zinc-800">
           <h2 className="text-xl font-semibold text-white mb-4">High Usage Users</h2>
           
           {topUsers.length > 0 ? (

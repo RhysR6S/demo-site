@@ -80,18 +80,18 @@ export default function CommunityPage() {
           >
             <Link
               href="/community/channels"
-              className={`block ${isSmallScreen ? 'p-5' : 'p-6'} bg-zinc-900 hover:bg-zinc-800 rounded-xl border border-white/10 hover:border-white/20 transition-all group ${isSmallScreen ? 'active:scale-[0.98]' : ''}`}
+              className={`block ${isSmallScreen ? 'p-5' : 'p-6'} bg-slate-900 hover:bg-zinc-800 rounded-xl border border-white/10 hover:border-white/20 transition-all group ${isSmallScreen ? 'active:scale-[0.98]' : ''}`}
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <div className={`${isSmallScreen ? 'p-2.5' : 'p-3'} bg-red-600/10 rounded-lg group-hover:bg-red-600/20 transition-colors`}>
-                    <Hash className={`${isSmallScreen ? 'w-5 h-5' : 'w-6 h-6'} text-red-400`} />
+                  <div className={`${isSmallScreen ? 'p-2.5' : 'p-3'} bg-sky-600/10 rounded-lg group-hover:bg-sky-600/20 transition-colors`}>
+                    <Hash className={`${isSmallScreen ? 'w-5 h-5' : 'w-6 h-6'} text-sky-400`} />
                   </div>
-                  <h2 className={`${isSmallScreen ? 'text-xl' : 'text-2xl'} font-semibold text-white group-hover:text-red-400 transition-colors`}>
+                  <h2 className={`${isSmallScreen ? 'text-xl' : 'text-2xl'} font-semibold text-white group-hover:text-sky-400 transition-colors`}>
                     Channels
                   </h2>
                 </div>
-                <svg className={`${isSmallScreen ? 'w-5 h-5' : 'w-6 h-6'} text-gray-400 group-hover:text-red-400 transition-colors`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className={`${isSmallScreen ? 'w-5 h-5' : 'w-6 h-6'} text-gray-400 group-hover:text-sky-400 transition-colors`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </div>
@@ -108,18 +108,18 @@ export default function CommunityPage() {
           >
             <Link
               href="/community/dms"
-              className={`block ${isSmallScreen ? 'p-5' : 'p-6'} bg-zinc-900 hover:bg-zinc-800 rounded-xl border border-white/10 hover:border-white/20 transition-all group ${isSmallScreen ? 'active:scale-[0.98]' : ''}`}
+              className={`block ${isSmallScreen ? 'p-5' : 'p-6'} bg-slate-900 hover:bg-zinc-800 rounded-xl border border-white/10 hover:border-white/20 transition-all group ${isSmallScreen ? 'active:scale-[0.98]' : ''}`}
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
                   <div className={`${isSmallScreen ? 'p-2.5' : 'p-3'} bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 transition-colors`}>
-                    <MessageCircle className={`${isSmallScreen ? 'w-5 h-5' : 'w-6 h-6'} text-purple-400`} />
+                    <MessageCircle className={`${isSmallScreen ? 'w-5 h-5' : 'w-6 h-6'} text-cyan-400`} />
                   </div>
-                  <h2 className={`${isSmallScreen ? 'text-xl' : 'text-2xl'} font-semibold text-white group-hover:text-purple-400 transition-colors`}>
+                  <h2 className={`${isSmallScreen ? 'text-xl' : 'text-2xl'} font-semibold text-white group-hover:text-cyan-400 transition-colors`}>
                     Direct Messages
                   </h2>
                 </div>
-                <svg className={`${isSmallScreen ? 'w-5 h-5' : 'w-6 h-6'} text-gray-400 group-hover:text-purple-400 transition-colors`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className={`${isSmallScreen ? 'w-5 h-5' : 'w-6 h-6'} text-gray-400 group-hover:text-cyan-400 transition-colors`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </div>

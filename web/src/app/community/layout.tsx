@@ -40,7 +40,7 @@ export default function CommunityLayout({
     return (
       <MainLayout>
         <div className="flex items-center justify-center h-screen">
-          <div className="w-12 h-12 border-3 border-red-600/20 rounded-full animate-spin border-t-red-600"></div>
+          <div className="w-12 h-12 border-3 border-sky-600/20 rounded-full animate-spin border-t-sky-500"></div>
         </div>
       </MainLayout>
     )
@@ -96,7 +96,7 @@ export default function CommunityLayout({
                   animate={{ x: 0 }}
                   exit={{ x: '100%' }}
                   transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                  className="fixed right-0 top-0 bottom-0 w-64 bg-zinc-900 border-l border-white/10 z-40 safe-area-inset-right"
+                  className="fixed right-0 top-0 bottom-0 w-64 bg-slate-900 border-l border-white/10 z-40 safe-area-inset-right"
                 >
                   <div className="flex flex-col h-full">
                     <div className="p-4 border-b border-white/10">
@@ -115,7 +115,7 @@ export default function CommunityLayout({
                           href="/community/channels"
                           className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
                             pathname === '/community/channels'
-                              ? 'bg-gradient-to-r from-red-600/20 to-purple-600/20 text-white border border-purple-500/20'
+                              ? 'bg-gradient-to-r from-sky-600/20 to-purple-600/20 text-white border border-cyan-500/20'
                               : 'text-gray-400 hover:text-white hover:bg-zinc-800/50'
                           }`}
                         >
@@ -127,7 +127,7 @@ export default function CommunityLayout({
                           href="/community/dms"
                           className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
                             pathname === '/community/dms'
-                              ? 'bg-gradient-to-r from-red-600/20 to-purple-600/20 text-white border border-purple-500/20'
+                              ? 'bg-gradient-to-r from-sky-600/20 to-purple-600/20 text-white border border-cyan-500/20'
                               : 'text-gray-400 hover:text-white hover:bg-zinc-800/50'
                           }`}
                         >
@@ -171,7 +171,7 @@ export default function CommunityLayout({
     <MainLayout>
       <div className="flex h-full"> {/* Full height without navbar */}
         {/* Tab Navigation Sidebar */}
-        <div className="w-64 bg-zinc-900/50 backdrop-blur-sm border-r border-white/5 flex flex-col h-full">
+        <div className="w-64 bg-slate-900/50 backdrop-blur-sm border-r border-white/5 flex flex-col h-full">
           {/* Header with back button */}
           <div className="p-4 border-b border-white/5">
             <div className="flex items-center justify-between mb-4">
@@ -192,7 +192,7 @@ export default function CommunityLayout({
                 href="/community/channels"
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
                   pathname === '/community/channels'
-                    ? 'bg-gradient-to-r from-red-600/20 to-purple-600/20 text-white border border-purple-500/20'
+                    ? 'bg-gradient-to-r from-sky-600/20 to-purple-600/20 text-white border border-cyan-500/20'
                     : 'text-gray-400 hover:text-white hover:bg-zinc-800/50'
                 }`}
               >
@@ -206,7 +206,7 @@ export default function CommunityLayout({
                 href="/community/dms"
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
                   pathname === '/community/dms'
-                    ? 'bg-gradient-to-r from-red-600/20 to-purple-600/20 text-white border border-purple-500/20'
+                    ? 'bg-gradient-to-r from-sky-600/20 to-purple-600/20 text-white border border-cyan-500/20'
                     : 'text-gray-400 hover:text-white hover:bg-zinc-800/50'
                 }`}
               >

@@ -109,13 +109,13 @@ export default function DebugThumbnailsPage() {
       <h1 className="text-2xl font-bold text-white mb-6">Thumbnail Debug Page</h1>
 
       {/* R2 Configuration */}
-      <div className="bg-zinc-900 rounded-lg p-6 mb-6">
+      <div className="bg-slate-900 rounded-lg p-6 mb-6">
         <h2 className="text-xl font-semibold text-white mb-4">R2 Configuration</h2>
         {r2Config && (
           <div className="space-y-2 text-sm">
             <div>
               <span className="text-gray-400">Public URL:</span>{' '}
-              <span className={r2Config.r2Config?.publicUrl?.includes('NOT SET') ? 'text-red-400' : 'text-green-400'}>
+              <span className={r2Config.r2Config?.publicUrl?.includes('NOT SET') ? 'text-sky-400' : 'text-green-400'}>
                 {r2Config.r2Config?.publicUrl}
               </span>
             </div>
@@ -136,7 +136,7 @@ export default function DebugThumbnailsPage() {
       <div className="space-y-6">
         <h2 className="text-xl font-semibold text-white">Content Sets</h2>
         {contentSets.map(set => (
-          <div key={set.id} className="bg-zinc-900 rounded-lg p-6">
+          <div key={set.id} className="bg-slate-900 rounded-lg p-6">
             <h3 className="text-lg font-medium text-white mb-2">{set.title}</h3>
             <div className="text-sm text-gray-400 mb-4">
               <div>ID: {set.id}</div>
@@ -154,7 +154,7 @@ export default function DebugThumbnailsPage() {
                     <div className="text-xs text-gray-400 space-y-1">
                       <div>Image ID: {image.id}</div>
                       <div>Filename: {image.filename}</div>
-                      <div className={`${!image.r2_key ? 'text-red-400' : ''}`}>
+                      <div className={`${!image.r2_key ? 'text-sky-400' : ''}`}>
                         R2 Key: {image.r2_key || 'MISSING'}
                       </div>
                     </div>
@@ -201,7 +201,7 @@ export default function DebugThumbnailsPage() {
       </div>
 
       {/* Public URL Test */}
-      <div className="mt-6 p-4 bg-zinc-900 rounded-lg">
+      <div className="mt-6 p-4 bg-slate-900 rounded-lg">
         <h3 className="text-sm font-medium text-white mb-2">Test Public URL Access</h3>
         <p className="text-xs text-gray-400 mb-3">
           Your public URL: {process.env.NEXT_PUBLIC_CLOUDFLARE_PUBLIC_URL}

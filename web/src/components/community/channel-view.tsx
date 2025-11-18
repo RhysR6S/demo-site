@@ -283,15 +283,15 @@ export function ChannelView({
     <div className="flex flex-col h-full bg-black">
       {/* Enhanced Header with Glass Effect */}
       <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-red-600/20 via-purple-600/20 to-pink-600/20 blur-xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-sky-600/20 via-purple-600/20 to-pink-600/20 blur-xl"></div>
         <div className="relative backdrop-blur-xl bg-black/40 border-b border-white/10">
           <div className="px-6 py-5">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 {/* Enhanced Channel Icon */}
                 <div className="relative group">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-purple-600 rounded-2xl opacity-75 group-hover:opacity-100 blur transition duration-200"></div>
-                  <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500 to-red-700 p-0.5">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-sky-600 to-purple-600 rounded-2xl opacity-75 group-hover:opacity-100 blur transition duration-200"></div>
+                  <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-500 to-sky-700 p-0.5">
                     <div className="w-full h-full rounded-xl bg-black flex items-center justify-center">
                       <span className="text-3xl filter drop-shadow-md">{channel?.emoji || '💬'}</span>
                     </div>
@@ -344,14 +344,14 @@ export function ChannelView({
         {initialLoading && messages.length === 0 ? (
           <div className="flex items-center justify-center h-full">
             <div className="relative">
-              <div className="w-12 h-12 border-4 border-white/10 rounded-full animate-spin border-t-red-600"></div>
+              <div className="w-12 h-12 border-4 border-white/10 rounded-full animate-spin border-t-sky-500"></div>
               <div className="absolute inset-0 w-12 h-12 border-4 border-transparent rounded-full animate-spin border-t-purple-600 animation-delay-150"></div>
             </div>
           </div>
         ) : messages.length === 0 ? (
           <div className="flex items-center justify-center h-full">
             <div className="text-center p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-red-600/20 to-purple-600/20 flex items-center justify-center">
+              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-sky-600/20 to-purple-600/20 flex items-center justify-center">
                 <svg className="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2v-6a2 2 0 012-2h8z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 5V3a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2" />
@@ -399,13 +399,13 @@ export function ChannelView({
                         {/* Delete Confirmation for Pinned */}
                         {showDeleteConfirm === message.id && (
                           <div className="absolute top-0 right-0 z-10 mt-14">
-                            <div className="bg-zinc-900 border border-white/10 rounded-xl shadow-2xl p-4 space-y-3 backdrop-blur-xl">
+                            <div className="bg-slate-900 border border-white/10 rounded-xl shadow-2xl p-4 space-y-3 backdrop-blur-xl">
                               <p className="text-sm text-gray-300 font-medium">Delete this pinned message?</p>
                               <div className="flex gap-2">
                                 <button
                                   onClick={() => deleteMessage(message.id)}
                                   disabled={deletingMessageId === message.id}
-                                  className="px-4 py-2 text-sm bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors disabled:opacity-50 font-medium"
+                                  className="px-4 py-2 text-sm bg-sky-600 hover:bg-red-700 text-white rounded-lg transition-colors disabled:opacity-50 font-medium"
                                 >
                                   {deletingMessageId === message.id ? 'Deleting...' : 'Delete'}
                                 </button>
@@ -430,7 +430,7 @@ export function ChannelView({
                             <div className="flex items-center gap-2 mb-1">
                               <span className="text-sm font-semibold text-gray-200">{displayName}</span>
                               {isCreatorMessage && (
-                                <span className="text-xs px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-400 font-medium">
+                                <span className="text-xs px-2 py-0.5 rounded-full bg-purple-500/20 text-cyan-400 font-medium">
                                   Creator
                                 </span>
                               )}
@@ -484,13 +484,13 @@ export function ChannelView({
                   {/* Delete Confirmation Popup */}
                   {showDeleteConfirm === message.id && (
                     <div className="absolute top-0 right-0 z-10 mt-10">
-                      <div className="bg-zinc-900 border border-white/10 rounded-xl shadow-2xl p-4 space-y-3 backdrop-blur-xl">
+                      <div className="bg-slate-900 border border-white/10 rounded-xl shadow-2xl p-4 space-y-3 backdrop-blur-xl">
                         <p className="text-sm text-gray-300 font-medium">Delete this message?</p>
                         <div className="flex gap-2">
                           <button
                             onClick={() => deleteMessage(message.id)}
                             disabled={deletingMessageId === message.id}
-                            className="px-4 py-2 text-sm bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors disabled:opacity-50 font-medium"
+                            className="px-4 py-2 text-sm bg-sky-600 hover:bg-red-700 text-white rounded-lg transition-colors disabled:opacity-50 font-medium"
                           >
                             {deletingMessageId === message.id ? 'Deleting...' : 'Delete'}
                           </button>
@@ -512,7 +512,7 @@ export function ChannelView({
                         <div className="relative group">
                           <div className={`absolute -inset-0.5 bg-gradient-to-r ${
                             isCreatorMessage
-                              ? 'from-red-600 to-purple-600' 
+                              ? 'from-sky-600 to-purple-600' 
                               : getTierGradient(message.user_tier || 'bronze')
                           } rounded-full opacity-0 group-hover:opacity-75 blur transition duration-200`}></div>
                           <div className="relative w-10 h-10 rounded-full bg-gradient-to-br p-0.5">
@@ -529,7 +529,7 @@ export function ChannelView({
                             ) : null}
                             <div className={`w-full h-full rounded-full bg-gradient-to-br ${
                               isCreatorMessage
-                                ? 'from-red-500 to-purple-600' 
+                                ? 'from-sky-500 to-purple-600' 
                                 : getTierGradient(message.user_tier || 'bronze')
                             } flex items-center justify-center text-white font-semibold text-sm ${
                               isCreatorMessage && creatorProfile?.profile_picture_url ? 'hidden' : ''
@@ -553,7 +553,7 @@ export function ChannelView({
                             </span>
                           )}
                           {isCreatorMessage && (
-                            <span className="text-xs px-2.5 py-0.5 rounded-full bg-gradient-to-r from-red-600/20 to-purple-600/20 text-purple-400 font-medium backdrop-blur-sm border border-purple-500/20">
+                            <span className="text-xs px-2.5 py-0.5 rounded-full bg-gradient-to-r from-sky-600/20 to-purple-600/20 text-cyan-400 font-medium backdrop-blur-sm border border-cyan-500/20">
                               Creator
                             </span>
                           )}
@@ -573,9 +573,9 @@ export function ChannelView({
                           <>
                             <div className={`relative px-5 py-3 rounded-2xl transition-all ${
                               isOwnMessage 
-                                ? 'bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg shadow-red-600/20' 
+                                ? 'bg-gradient-to-r from-sky-600 to-sky-700 text-white shadow-lg shadow-sky-600/20' 
                                 : isCreatorMessage
-                                ? 'bg-gradient-to-r from-purple-600/20 to-pink-600/20 text-gray-100 backdrop-blur-sm border border-purple-500/20'
+                                ? 'bg-gradient-to-r from-purple-600/20 to-pink-600/20 text-gray-100 backdrop-blur-sm border border-cyan-500/20'
                                 : 'bg-white/10 backdrop-blur-sm text-gray-100 border border-white/10'
                             } ${message.id.startsWith('temp-') ? 'opacity-70' : ''}`}>
                               <p className="text-sm leading-relaxed break-words">{message.content}</p>
@@ -611,7 +611,7 @@ export function ChannelView({
 
       {/* Enhanced Message Input */}
       <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-red-600/10 via-purple-600/10 to-pink-600/10 blur-xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-sky-600/10 via-purple-600/10 to-pink-600/10 blur-xl"></div>
         <div className="relative backdrop-blur-xl bg-black/40 border-t border-white/10">
           <div className="p-4">
             {canPost ? (
@@ -637,7 +637,7 @@ export function ChannelView({
                 <button
                   type="submit"
                   disabled={!newMessage.trim() || sending}
-                  className="px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-2xl font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-red-600/20 hover:shadow-xl hover:shadow-red-600/30 transform hover:scale-105 active:scale-95"
+                  className="px-8 py-4 bg-gradient-to-r from-sky-600 to-sky-700 hover:from-sky-700 hover:to-sky-800 text-white rounded-2xl font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-sky-600/20 hover:shadow-xl hover:shadow-sky-600/30 transform hover:scale-105 active:scale-95"
                 >
                   {sending ? (
                     <div className="w-5 h-5 border-2 border-white/20 rounded-full animate-spin border-t-white"></div>

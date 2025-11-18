@@ -179,14 +179,14 @@ export function ContentEditor({ contentSet, onSave, onCancel }: ContentEditorPro
   if (!contentSet) return null
 
   return (
-    <div className="bg-zinc-900/50 backdrop-blur-sm rounded-xl p-6 border border-zinc-800">
+    <div className="bg-slate-900/50 backdrop-blur-sm rounded-xl p-6 border border-zinc-800">
       <h3 className="text-xl font-semibold text-white mb-6">Edit Content Set</h3>
       
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Title */}
         <div>
           <label className="block text-sm font-medium text-gray-300 mb-2">
-            Title <span className="text-red-500">*</span>
+            Title <span className="text-sky-500">*</span>
           </label>
           <input
             type="text"

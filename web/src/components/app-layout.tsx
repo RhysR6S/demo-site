@@ -156,8 +156,8 @@ export function AppLayout({ children }: AppLayoutProps) {
 
   if (status === 'loading') {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-black">
-        <div className="w-12 h-12 border-2 border-white/20 rounded-full animate-spin border-t-red-600"></div>
+      <div className="min-h-screen flex items-center justify-center bg-slate-950">
+        <div className="w-12 h-12 border-2 border-white/20 rounded-full animate-spin border-t-sky-500"></div>
       </div>
     )
   }
@@ -167,10 +167,10 @@ export function AppLayout({ children }: AppLayoutProps) {
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-slate-950">
       {/* Mobile Header - Higher z-index */}
       {(isMobile || isTablet) && (
-        <div className="fixed top-0 left-0 right-0 bg-black/95 backdrop-blur-lg border-b border-white/10 z-[60] safe-area-inset-top">
+        <div className="fixed top-0 left-0 right-0 bg-slate-950/95 backdrop-blur-lg border-b border-white/10 z-[60] safe-area-inset-top">
           <div className="flex items-center justify-between h-16 px-4">
             <button
               onClick={() => setSidebarOpen(true)}
@@ -178,8 +178,8 @@ export function AppLayout({ children }: AppLayoutProps) {
             >
               <MenuIcon />
             </button>
-            
-            <div className="text-lg font-semibold text-white">
+
+            <div className="text-lg font-semibold bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">
               PhotoVault
             </div>
 
@@ -190,10 +190,10 @@ export function AppLayout({ children }: AppLayoutProps) {
 
       {/* Desktop Sidebar - Fixed z-index */}
       {!(isMobile || isTablet) && (
-        <div className="fixed left-0 top-0 bottom-0 w-64 bg-zinc-900 border-r border-white/10 flex flex-col z-50">
+        <div className="fixed left-0 top-0 bottom-0 w-64 bg-slate-900 border-r border-white/10 flex flex-col z-50">
           {/* Logo */}
           <div className="p-6 border-b border-white/10">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">
               PhotoVault
             </h1>
           </div>
@@ -205,15 +205,15 @@ export function AppLayout({ children }: AppLayoutProps) {
                 key={item.href}
                 href={item.href}
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
-                  item.isActive 
-                    ? 'bg-red-600 text-white' 
+                  item.isActive
+                    ? 'bg-sky-600 text-white'
                     : 'text-gray-400 hover:text-white hover:bg-white/10'
                 }`}
               >
                 <item.icon />
                 <span className="font-medium">{item.label}</span>
                 {item.badge && item.badge > 0 && (
-                  <span className="ml-auto bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
+                  <span className="ml-auto bg-sky-500 text-white text-xs px-2 py-0.5 rounded-full">
                     {item.badge}
                   </span>
                 )}
@@ -224,7 +224,7 @@ export function AppLayout({ children }: AppLayoutProps) {
           {/* User section */}
           <div className="p-4 border-t border-white/10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-pink-500 rounded-full flex items-center justify-center text-white font-semibold">
+              <div className="w-10 h-10 bg-gradient-to-br from-sky-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-semibold">
                 {session.user.name?.[0]?.toUpperCase() || '?'}
               </div>
               <div className="flex-1 min-w-0">
@@ -267,11 +267,11 @@ export function AppLayout({ children }: AppLayoutProps) {
               animate={{ x: 0 }}
               exit={{ x: -300 }}
               transition={{ type: "tween" }}
-              className="fixed left-0 top-0 bottom-0 w-80 max-w-[80vw] bg-zinc-900 shadow-xl z-[80] safe-area-inset-left flex flex-col"
+              className="fixed left-0 top-0 bottom-0 w-80 max-w-[80vw] bg-slate-900 shadow-xl z-[80] safe-area-inset-left flex flex-col"
             >
               {/* Header */}
               <div className="p-6 border-b border-white/10 flex items-center justify-between">
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">
                   PhotoVault
                 </h1>
                 <button
@@ -290,15 +290,15 @@ export function AppLayout({ children }: AppLayoutProps) {
                     href={item.href}
                     onClick={() => setSidebarOpen(false)}
                     className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
-                      item.isActive 
-                        ? 'bg-red-600 text-white' 
+                      item.isActive
+                        ? 'bg-sky-600 text-white'
                         : 'text-gray-400 hover:text-white hover:bg-white/10'
                     }`}
                   >
                     <item.icon />
                     <span className="font-medium">{item.label}</span>
                     {item.badge && item.badge > 0 && (
-                      <span className="ml-auto bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
+                      <span className="ml-auto bg-sky-500 text-white text-xs px-2 py-0.5 rounded-full">
                         {item.badge}
                       </span>
                     )}
@@ -309,7 +309,7 @@ export function AppLayout({ children }: AppLayoutProps) {
               {/* User section */}
               <div className="p-4 border-t border-white/10">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-pink-500 rounded-full flex items-center justify-center text-white font-semibold">
+                  <div className="w-10 h-10 bg-gradient-to-br from-sky-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-semibold">
                     {session.user.name?.[0]?.toUpperCase() || '?'}
                   </div>
                   <div className="flex-1 min-w-0">

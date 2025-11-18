@@ -55,7 +55,7 @@ export function ContentThumbnail({
         onTouchCancel={() => setIsPressed(false)}
       >
         <div
-          className={`relative aspect-[3/4] overflow-hidden rounded-lg bg-zinc-900 border border-white/5 group-hover:border-white/10 transition-all ${
+          className={`relative aspect-[3/4] overflow-hidden rounded-lg bg-slate-900 border border-white/5 group-hover:border-white/10 transition-all ${
             (isMobile || isTablet) ? 'active:scale-[0.98]' : ''
           }`}
           style={{
@@ -66,7 +66,7 @@ export function ContentThumbnail({
           {/* New/Unseen indicator */}
           {!userHasViewed && (
             <div className={`absolute ${(isMobile || isTablet) ? 'top-1.5 left-1.5' : 'top-2 left-2'} z-10`}>
-              <span className={`${(isMobile || isTablet) ? 'px-2 py-0.5 text-[10px]' : 'px-2 py-1 text-xs'} bg-red-600 text-white font-semibold rounded shadow-lg`}>
+              <span className={`${(isMobile || isTablet) ? 'px-2 py-0.5 text-[10px]' : 'px-2 py-1 text-xs'} bg-sky-600 text-white font-semibold rounded shadow-lg`}>
                 NEW
               </span>
             </div>
@@ -126,7 +126,7 @@ export function ContentThumbnail({
       {/* Title and info */}
       <div className={`${(isMobile || isTablet) ? 'mt-2 space-y-0.5' : 'mt-3 space-y-1'}`}>
         <Link href={`/sets/${contentSet.slug}`}>
-          <h3 className={`${(isMobile || isTablet) ? 'text-xs leading-snug' : 'text-sm'} font-medium text-white group-hover:text-red-500 transition-colors line-clamp-2`}>
+          <h3 className={`${(isMobile || isTablet) ? 'text-xs leading-snug' : 'text-sm'} font-medium text-white group-hover:text-sky-500 transition-colors line-clamp-2`}>
             {contentSet.title}
           </h3>
         </Link>

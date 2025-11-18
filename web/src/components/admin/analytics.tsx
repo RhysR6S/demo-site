@@ -93,13 +93,13 @@ function MetricCard({
   unavailableMessage = "No data yet"
 }: MetricCardProps) {
   return (
-    <div className="bg-zinc-900/50 rounded-xl p-6 border border-zinc-800 hover:border-zinc-700 transition-colors">
+    <div className="bg-slate-900/50 rounded-xl p-6 border border-zinc-800 hover:border-zinc-700 transition-colors">
       <div className="flex items-start justify-between mb-4">
         <div className="p-2 bg-zinc-800 rounded-lg">
           {icon}
         </div>
         {trend && !loading && !unavailable && (
-          <div className={`flex items-center text-sm ${trend.isPositive ? 'text-green-400' : 'text-red-400'}`}>
+          <div className={`flex items-center text-sm ${trend.isPositive ? 'text-green-400' : 'text-sky-400'}`}>
             <svg className={`w-4 h-4 mr-1 ${!trend.isPositive ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
             </svg>
@@ -217,7 +217,7 @@ function RevenueDisplay({ monthly, yearly, currency, growth }: {
           </p>
         </div>
         {growth !== undefined && (
-          <div className={`flex items-center text-sm ${growth >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+          <div className={`flex items-center text-sm ${growth >= 0 ? 'text-green-400' : 'text-sky-400'}`}>
             <svg className={`w-4 h-4 mr-1 ${growth < 0 ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
             </svg>
@@ -366,7 +366,7 @@ export function Analytics() {
         <select
           value={timeRange}
           onChange={(e) => setTimeRange(e.target.value)}
-          className="px-4 py-2 bg-zinc-900 border border-zinc-800 rounded-xl text-white focus:outline-none focus:border-purple-600"
+          className="px-4 py-2 bg-slate-900 border border-zinc-800 rounded-xl text-white focus:outline-none focus:border-purple-600"
         >
           <option value="24h">Last 24 hours</option>
           <option value="7d">Last 7 days</option>
@@ -390,7 +390,7 @@ export function Analytics() {
             title="Total Sets"
             value={data?.totalSets || 0}
             icon={
-              <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
               </svg>
             }
@@ -438,7 +438,7 @@ export function Analytics() {
             title="Total Likes"
             value={data?.totalLikes || 0}
             icon={
-              <svg className="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
             }
@@ -458,7 +458,7 @@ export function Analytics() {
             title="Total Members"
             value={data?.totalMembers || 0}
             icon={
-              <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
               </svg>
             }
@@ -515,7 +515,7 @@ export function Analytics() {
             />
             
             <div className="md:col-span-2 lg:col-span-1">
-              <div className="bg-zinc-900/50 rounded-xl p-6 border border-zinc-800 hover:border-zinc-700 transition-colors h-full">
+              <div className="bg-slate-900/50 rounded-xl p-6 border border-zinc-800 hover:border-zinc-700 transition-colors h-full">
                 <div className="flex items-start justify-between mb-4">
                   <div className="p-2 bg-zinc-800 rounded-lg">
                     <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -560,7 +560,7 @@ export function Analytics() {
                 isPositive: false
               } : undefined}
               icon={
-                <svg className="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
                 </svg>
               }

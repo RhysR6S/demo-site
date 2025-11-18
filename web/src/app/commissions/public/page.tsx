@@ -413,7 +413,7 @@ export default function PublicCommissionsPage() {
         {/* Success Modal */}
         {showSuccessModal && (
           <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-            <div className="bg-zinc-900 border border-zinc-800 rounded-lg max-w-md w-full p-6">
+            <div className="bg-slate-900 border border-zinc-800 rounded-lg max-w-md w-full p-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-green-600/20 rounded-full flex items-center justify-center">
                   <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -424,7 +424,7 @@ export default function PublicCommissionsPage() {
               </div>
               <p className="text-gray-300 mb-4">
                 Your commission request has been successfully submitted. The creator will contact you on{' '}
-                <span className="font-semibold text-purple-400">
+                <span className="font-semibold text-cyan-400">
                   {submittedPlatform === 'x' ? 'X (Twitter)' : 'Ko-Fi'}
                 </span>{' '}
                 as soon as possible to discuss details and payment.
@@ -453,13 +453,13 @@ export default function PublicCommissionsPage() {
         </div>
 
         {/* Critical Contact Information Warning */}
-        <div className="mb-8 p-6 bg-red-900/20 border-2 border-red-600/40 rounded-lg">
+        <div className="mb-8 p-6 bg-red-900/20 border-2 border-sky-600/40 rounded-lg">
           <div className="flex items-start gap-3">
-            <svg className="w-6 h-6 text-red-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-sky-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
             </svg>
             <div>
-              <p className="text-lg font-bold text-red-400 mb-2">⚠️ CRITICAL: Correct Contact Information Required!</p>
+              <p className="text-lg font-bold text-sky-400 mb-2">⚠️ CRITICAL: Correct Contact Information Required!</p>
               <p className="text-sm text-gray-300 mb-2">
                 <span className="font-semibold text-white">I cannot contact you about your commission if your information is incorrect!</span>
               </p>
@@ -477,11 +477,11 @@ export default function PublicCommissionsPage() {
         </div>
 
         {/* Pricing Display */}
-        <div className="mb-6 p-4 bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-600/30 rounded-lg">
+        <div className="mb-6 p-4 bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-cyan-600/30 rounded-lg">
           <h3 className="text-lg font-semibold text-white mb-3">Commission Pricing</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <h4 className="text-sm font-medium text-purple-400 mb-2">Character Set</h4>
+              <h4 className="text-sm font-medium text-cyan-400 mb-2">Character Set</h4>
               <ul className="space-y-1 text-sm text-gray-300">
                 <li>• $15 USD base price</li>
                 <li>• +$0.50 per additional character</li>
@@ -538,7 +538,7 @@ export default function PublicCommissionsPage() {
               <p className="text-sm text-gray-300">
                 Submitting a commission request does NOT confirm your commission. The creator will review your request and contact you on your chosen platform to discuss details and arrange payment.
               </p>
-              <p className="text-sm text-red-400 font-semibold mt-2">
+              <p className="text-sm text-sky-400 font-semibold mt-2">
                 DO NOT SEND MONEY UNTIL THE CREATOR HAS CONFIRMED THEY WILL DO IT!
               </p>
             </div>
@@ -549,7 +549,7 @@ export default function PublicCommissionsPage() {
           {/* Contact Information Section */}
           <div className="p-6 bg-purple-900/20 border-2 border-purple-600/40 rounded-lg">
             <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-              <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
               Contact Information (Required)
@@ -558,7 +558,7 @@ export default function PublicCommissionsPage() {
             {/* Platform Selection */}
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                Contact Platform <span className="text-red-500">*</span>
+                Contact Platform <span className="text-sky-500">*</span>
               </label>
               <div className="grid grid-cols-2 gap-3">
                 <button
@@ -596,7 +596,7 @@ export default function PublicCommissionsPage() {
             {/* Username/Handle Input */}
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                {formState.contactPlatform === 'x' ? 'X Handle' : 'Username'} <span className="text-red-500">*</span>
+                {formState.contactPlatform === 'x' ? 'X Handle' : 'Username'} <span className="text-sky-500">*</span>
               </label>
               <div className="relative">
                 {formState.contactPlatform === 'x' && (
@@ -623,7 +623,7 @@ export default function PublicCommissionsPage() {
                   }
                   disabled={!formState.contactPlatform}
                   required
-                  className={`w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none ${
+                  className={`w-full bg-slate-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none ${
                     formState.contactPlatform === 'x' ? 'pl-9' : ''
                   }`}
                 />
@@ -683,13 +683,13 @@ export default function PublicCommissionsPage() {
               {/* Female Characters */}
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-3">
-                  Female Character(s) <span className="text-red-500">*</span>
+                  Female Character(s) <span className="text-sky-500">*</span>
                 </label>
                 
                 {/* Character Selection Options */}
                 <div className="space-y-4">
                   {/* Option 1: Select from list */}
-                  <div className="bg-zinc-900/50 border border-zinc-800 rounded-lg p-4">
+                  <div className="bg-slate-900/50 border border-zinc-800 rounded-lg p-4">
                     <h4 className="text-sm font-medium text-white mb-3 flex items-center gap-2">
                       <span className="w-6 h-6 bg-purple-600 text-white rounded-full text-xs flex items-center justify-center">1</span>
                       Select from character list
@@ -726,7 +726,7 @@ export default function PublicCommissionsPage() {
                             <button
                               type="button"
                               onClick={() => removeFemaleCharacter(index)}
-                              className="p-2.5 bg-zinc-800 border border-zinc-700 rounded-lg text-red-400 hover:bg-zinc-700"
+                              className="p-2.5 bg-zinc-800 border border-zinc-700 rounded-lg text-sky-400 hover:bg-zinc-700"
                               title="Remove character"
                             >
                               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -742,7 +742,7 @@ export default function PublicCommissionsPage() {
                         <button
                           type="button"
                           onClick={addFemaleCharacter}
-                          className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1 mt-2"
+                          className="text-sm text-cyan-400 hover:text-purple-300 flex items-center gap-1 mt-2"
                         >
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -761,7 +761,7 @@ export default function PublicCommissionsPage() {
                   </div>
                   
                   {/* Option 2: Custom character */}
-                  <div className="bg-zinc-900/50 border border-zinc-800 rounded-lg p-4">
+                  <div className="bg-slate-900/50 border border-zinc-800 rounded-lg p-4">
                     <h4 className="text-sm font-medium text-white mb-3 flex items-center gap-2">
                       <span className="w-6 h-6 bg-purple-600 text-white rounded-full text-xs flex items-center justify-center">2</span>
                       Request a custom character
@@ -776,7 +776,7 @@ export default function PublicCommissionsPage() {
                             <button
                               type="button"
                               onClick={() => removeCustomCharacter(index)}
-                              className="text-red-400 hover:text-red-300"
+                              className="text-sky-400 hover:text-red-300"
                               title="Remove character"
                             >
                               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -884,7 +884,7 @@ export default function PublicCommissionsPage() {
                   value={formState.maleCharacter}
                   onChange={(e) => dispatch({ type: 'UPDATE_FIELD', field: 'maleCharacter', value: e.target.value })}
                   placeholder="Leave blank for default male, or specify character name/appearance..."
-                  className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
+                  className="w-full bg-slate-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
                 />
               </div>
 
@@ -900,13 +900,13 @@ export default function PublicCommissionsPage() {
                       value={loc}
                       onChange={(e) => updateLocation(index, e.target.value)}
                       placeholder="e.g., Beach, Bedroom, School..."
-                      className="flex-1 bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
+                      className="flex-1 bg-slate-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
                     />
                     {formState.locations.length > 1 && (
                       <button
                         type="button"
                         onClick={() => removeLocation(index)}
-                        className="p-2.5 bg-zinc-900 border border-zinc-800 rounded-lg text-red-400 hover:bg-zinc-800"
+                        className="p-2.5 bg-slate-900 border border-zinc-800 rounded-lg text-sky-400 hover:bg-zinc-800"
                       >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -918,7 +918,7 @@ export default function PublicCommissionsPage() {
                 <button
                   type="button"
                   onClick={addLocation}
-                  className="text-sm text-purple-400 hover:text-purple-300"
+                  className="text-sm text-cyan-400 hover:text-purple-300"
                 >
                   + Add another location
                 </button>
@@ -934,7 +934,7 @@ export default function PublicCommissionsPage() {
                   value={formState.bodyType}
                   onChange={(e) => dispatch({ type: 'UPDATE_FIELD', field: 'bodyType', value: e.target.value })}
                   placeholder="e.g., Curvy, Gigantic breasts, Skinny, Athletic..."
-                  className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
+                  className="w-full bg-slate-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
                 />
               </div>
             </>
@@ -943,7 +943,7 @@ export default function PublicCommissionsPage() {
               {/* Custom Image Description */}
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-3">
-                  Describe Your Custom Image <span className="text-red-500">*</span>
+                  Describe Your Custom Image <span className="text-sky-500">*</span>
                 </label>
                 <textarea
                   value={formState.customDescription}
@@ -951,7 +951,7 @@ export default function PublicCommissionsPage() {
                   rows={6}
                   required
                   placeholder="Describe in detail what you'd like to see in your custom image..."
-                  className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none resize-none"
+                  className="w-full bg-slate-900 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none resize-none"
                 />
                 <p className="text-xs text-gray-500 mt-1">
                   Maximum of 3 characters per image. Additional characters are +$4 each.
@@ -965,7 +965,7 @@ export default function PublicCommissionsPage() {
                 </label>
                 <div
                   onPaste={handleImagePaste}
-                  className="w-full min-h-[100px] bg-zinc-900 border-2 border-dashed border-zinc-800 rounded-lg p-4 text-center cursor-pointer hover:border-zinc-700 focus:border-purple-500 focus:outline-none"
+                  className="w-full min-h-[100px] bg-slate-900 border-2 border-dashed border-zinc-800 rounded-lg p-4 text-center cursor-pointer hover:border-zinc-700 focus:border-purple-500 focus:outline-none"
                   tabIndex={0}
                 >
                   {formState.referenceImages.length === 0 ? (
@@ -978,7 +978,7 @@ export default function PublicCommissionsPage() {
                           <button
                             type="button"
                             onClick={() => removeReferenceImage(index)}
-                            className="absolute top-1 right-1 p-1 bg-red-500 text-white rounded opacity-0 group-hover:opacity-100 transition-opacity"
+                            className="absolute top-1 right-1 p-1 bg-sky-500 text-white rounded opacity-0 group-hover:opacity-100 transition-opacity"
                           >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -995,14 +995,14 @@ export default function PublicCommissionsPage() {
 
           {error && (
             <div className="p-4 bg-red-950/20 border border-red-900/50 rounded-lg">
-              <p className="text-sm text-red-400">{error}</p>
+              <p className="text-sm text-sky-400">{error}</p>
             </div>
           )}
 
           <div className="flex gap-4 pt-4">
             <Link
               href="/"
-              className="flex-1 py-3 px-6 bg-zinc-900 text-gray-300 rounded-lg hover:bg-zinc-800 transition-colors text-center"
+              className="flex-1 py-3 px-6 bg-slate-900 text-gray-300 rounded-lg hover:bg-zinc-800 transition-colors text-center"
             >
               Cancel
             </Link>

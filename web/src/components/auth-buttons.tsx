@@ -36,7 +36,7 @@ export function SignInButton({ className = "" }: SignInButtonProps) {
       className={`${className} ${
         className 
           ? '' 
-          : 'px-6 py-2.5 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-semibold rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed'
+          : 'px-6 py-2.5 bg-gradient-to-r from-sky-600 to-sky-700 hover:from-sky-700 hover:to-sky-800 text-white font-semibold rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed'
       } flex items-center justify-center gap-3`}
     >
       {isLoading ? (

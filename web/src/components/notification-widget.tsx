@@ -34,13 +34,13 @@ const NotificationIcon = () => (
 const getNotificationColor = (type: Notification['type']) => {
   switch (type) {
     case 'like':
-      return 'text-red-500 bg-red-500/10 border-red-500/20'
+      return 'text-sky-500 bg-sky-500/10 border-sky-500/20'
     case 'comment':
       return 'text-blue-500 bg-blue-500/10 border-blue-500/20'
     case 'new_member':
       return 'text-green-500 bg-green-500/10 border-green-500/20'
     case 'commission':
-      return 'text-purple-500 bg-purple-500/10 border-purple-500/20'
+      return 'text-cyan-500 bg-purple-500/10 border-cyan-500/20'
     case 'dm':
       return 'text-orange-500 bg-orange-500/10 border-orange-500/20'
     default:
@@ -214,7 +214,7 @@ export function NotificationWidget() {
       {/* Notification Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`relative p-3 bg-zinc-900/90 backdrop-blur-sm rounded-full border border-white/10 
+        className={`relative p-3 bg-slate-900/90 backdrop-blur-sm rounded-full border border-white/10 
                    hover:bg-zinc-800/90 transition-all group shadow-lg hover:shadow-xl
                    ${isOpen ? 'ring-2 ring-red-600' : ''}
                    ${unreadCount > 0 ? 'animate-pulse-red' : ''}`}
@@ -223,7 +223,7 @@ export function NotificationWidget() {
         
         {/* Unread Count Badge */}
         {unreadCount > 0 && (
-          <div className="absolute -top-1 -right-1 min-w-[20px] h-5 px-1 bg-red-600 
+          <div className="absolute -top-1 -right-1 min-w-[20px] h-5 px-1 bg-sky-600 
                           rounded-full flex items-center justify-center animate-pulse">
             <span className="text-xs font-bold text-white">
               {unreadCount > 99 ? '99+' : unreadCount}
@@ -249,7 +249,7 @@ export function NotificationWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className={`absolute bottom-16 right-0 ${panelWidth} max-h-[500px] bg-zinc-900 
+            className={`absolute bottom-16 right-0 ${panelWidth} max-h-[500px] bg-slate-900 
                        rounded-lg border border-white/10 shadow-2xl overflow-hidden`}
           >
             {/* Header */}
@@ -280,7 +280,7 @@ export function NotificationWidget() {
               {loading ? (
                 <div className="p-8 text-center">
                   <div className="w-8 h-8 border-2 border-white/20 rounded-full 
-                                  animate-spin border-t-red-600 mx-auto"></div>
+                                  animate-spin border-t-sky-500 mx-auto"></div>
                 </div>
               ) : notifications.length === 0 ? (
                 <div className="p-8 text-center text-gray-500">
@@ -320,7 +320,7 @@ export function NotificationWidget() {
 
                         {/* Unread Indicator */}
                         {!notification.read && (
-                          <div className="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
+                          <div className="w-2 h-2 bg-sky-600 rounded-full mt-2 flex-shrink-0"></div>
                         )}
                       </div>
                     </div>

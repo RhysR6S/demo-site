@@ -255,7 +255,7 @@ export default function AdminDashboard() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <div className="w-8 h-8 border-3 border-red-600/20 rounded-full animate-spin border-t-red-600"></div>
+        <div className="w-8 h-8 border-3 border-sky-600/20 rounded-full animate-spin border-t-sky-500"></div>
       </div>
     )
   }
@@ -293,7 +293,7 @@ export default function AdminDashboard() {
         <div className="bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-xl p-6 border border-white/5">
           <div className="flex items-center justify-between mb-4">
             <div className="p-3 bg-purple-600/20 rounded-lg">
-              <svg className="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
               </svg>
@@ -327,8 +327,8 @@ export default function AdminDashboard() {
         {/* Monthly Revenue */}
         <div className="bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-xl p-6 border border-white/5">
           <div className="flex items-center justify-between mb-4">
-            <div className="p-3 bg-red-600/20 rounded-lg">
-              <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="p-3 bg-sky-600/20 rounded-lg">
+              <svg className="w-6 h-6 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
@@ -430,9 +430,9 @@ export default function AdminDashboard() {
               stats.recentActivity.map((activity) => (
                 <div key={activity.id} className="flex items-center gap-4 pb-4 border-b border-white/5 last:border-0 last:pb-0">
                   <div className={`p-2 rounded-lg ${
-                    activity.type === 'view' ? 'bg-purple-600/20 text-purple-500' :
+                    activity.type === 'view' ? 'bg-purple-600/20 text-cyan-500' :
                     activity.type === 'download' ? 'bg-green-600/20 text-green-500' :
-                    activity.type === 'like' ? 'bg-red-600/20 text-red-500' :
+                    activity.type === 'like' ? 'bg-sky-600/20 text-sky-500' :
                     'bg-blue-600/20 text-blue-500'
                   }`}>
                     {activity.type === 'view' ? (

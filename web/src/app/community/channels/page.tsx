@@ -83,7 +83,7 @@ export default function ChannelsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-full">
-        <div className="w-12 h-12 border-3 border-red-600/20 rounded-full animate-spin border-t-red-600"></div>
+        <div className="w-12 h-12 border-3 border-sky-600/20 rounded-full animate-spin border-t-sky-500"></div>
       </div>
     )
   }
@@ -132,7 +132,7 @@ export default function ChannelsPage() {
             />
           ) : (
             // Show channel list on mobile
-            <div className="h-full bg-zinc-900/30">
+            <div className="h-full bg-slate-900/30">
               <ChannelList
                 channels={channels}
                 selectedChannelId={selectedChannelId}
@@ -160,7 +160,7 @@ export default function ChannelsPage() {
                 animate={{ x: 0 }}
                 exit={{ x: '-100%' }}
                 transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                className="fixed left-0 top-0 bottom-0 w-full max-w-sm bg-zinc-900/95 backdrop-blur-xl border-r border-white/10 z-50 safe-area-inset-left"
+                className="fixed left-0 top-0 bottom-0 w-full max-w-sm bg-slate-900/95 backdrop-blur-xl border-r border-white/10 z-50 safe-area-inset-left"
               >
                 <div className="flex flex-col h-full">
                   <div className="border-b border-white/10 px-4 py-3">
@@ -198,7 +198,7 @@ export default function ChannelsPage() {
   return (
     <div className="flex h-full">
       {/* Channel List Sidebar */}
-      <div className="w-80 bg-zinc-900/30 border-r border-white/5 flex flex-col h-full">
+      <div className="w-80 bg-slate-900/30 border-r border-white/5 flex flex-col h-full">
         <ChannelList
           channels={channels}
           selectedChannelId={selectedChannelId}

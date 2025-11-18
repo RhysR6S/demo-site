@@ -42,7 +42,7 @@ export class PatreonTierService {
       emoji: '🥇'
     },
     'platinum': {
-      color: 'text-purple-400',
+      color: 'text-cyan-400',
       bgColor: 'bg-purple-400/10',
       emoji: '💎'
     }

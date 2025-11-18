@@ -65,7 +65,7 @@ export function ImageDistribution({
   }
 
   const getSliderColor = (value: number) => {
-    if (value === 0) return 'bg-red-500'
+    if (value === 0) return 'bg-sky-500'
     if (value < 50) return 'bg-orange-500'
     if (value < 100) return 'bg-yellow-500'
     if (value === 100) return 'bg-gray-500'
@@ -74,7 +74,7 @@ export function ImageDistribution({
   }
 
   const getTextColor = (value: number) => {
-    if (value === 0) return 'text-red-500'
+    if (value === 0) return 'text-sky-500'
     if (value < 50) return 'text-orange-500'
     if (value < 100) return 'text-yellow-500'
     if (value === 100) return 'text-gray-500'
@@ -98,12 +98,12 @@ export function ImageDistribution({
           <label className="text-sm font-medium text-gray-300">
             {label}
             {disabledReason && (
-              <span className="text-xs text-red-400 ml-2">({disabledReason})</span>
+              <span className="text-xs text-sky-400 ml-2">({disabledReason})</span>
             )}
           </label>
           <div className="flex items-center gap-2">
             <span className={`text-sm font-medium ${
-              isDisabled ? 'text-red-400' : getTextColor(value)
+              isDisabled ? 'text-sky-400' : getTextColor(value)
             }`}>
               {isDisabled ? 'N/A' : value === 0 ? 'Excluded' : `${value}%`}
             </span>
@@ -202,7 +202,7 @@ export function ImageDistribution({
       )}
 
       {/* Quick Preset Buttons */}
-      <div className="mt-4 p-3 bg-zinc-900/50 rounded-lg">
+      <div className="mt-4 p-3 bg-slate-900/50 rounded-lg">
         <p className="text-xs font-semibold text-gray-400 mb-2">Quick Presets:</p>
         <div className="grid grid-cols-3 gap-2">
           <button
@@ -251,11 +251,11 @@ export function ImageDistribution({
       </div>
 
       {/* Weight Guide */}
-      <div className="mt-4 p-3 bg-zinc-900/50 rounded-lg">
+      <div className="mt-4 p-3 bg-slate-900/50 rounded-lg">
         <p className="text-xs font-semibold text-gray-400 mb-2">Weight Guide:</p>
         <div className="grid grid-cols-3 gap-2 text-xs">
           <div className="flex items-center gap-1">
-            <div className="w-3 h-3 bg-red-500 rounded"></div>
+            <div className="w-3 h-3 bg-sky-500 rounded"></div>
             <span className="text-gray-500">0% = Excluded</span>
           </div>
           <div className="flex items-center gap-1">

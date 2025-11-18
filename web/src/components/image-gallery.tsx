@@ -761,7 +761,7 @@ export function ImageGallery({ setId, images, title }: ImageGalleryProps) {
                     loading="lazy"
                   />
                   {index === currentIndex && (
-                    <div className="absolute inset-0 bg-red-500/20" />
+                    <div className="absolute inset-0 bg-sky-500/20" />
                   )}
                 </button>
               ))}
@@ -797,7 +797,7 @@ export function ImageGallery({ setId, images, title }: ImageGalleryProps) {
               <div className="flex items-center gap-2">
                 <button
                   onClick={toggleSlideshow}
-                  className={`p-2 ${isPlaying ? 'bg-red-500/30' : 'bg-black/50'} hover:bg-black/70 text-white rounded-lg transition-all`}
+                  className={`p-2 ${isPlaying ? 'bg-sky-500/30' : 'bg-black/50'} hover:bg-black/70 text-white rounded-lg transition-all`}
                   title={isPlaying ? "Pause slideshow (Space)" : "Play slideshow (Space)"}
                 >
                   {isPlaying ? (
@@ -861,7 +861,7 @@ export function ImageGallery({ setId, images, title }: ImageGalleryProps) {
             {isFullscreen && (
               <button
                 onClick={() => setShowThumbnails(!showThumbnails)}
-                className={`p-2 ${showThumbnails ? 'bg-red-500/30' : 'bg-black/50'} hover:bg-black/70 text-white rounded-lg transition-all`}
+                className={`p-2 ${showThumbnails ? 'bg-sky-500/30' : 'bg-black/50'} hover:bg-black/70 text-white rounded-lg transition-all`}
                 title={showThumbnails ? "Hide thumbnails (T)" : "Show thumbnails (T)"}
               >
                 <LayoutGrid className={`${isSmallScreen ? 'w-4 h-4' : 'w-5 h-5'}`} />
@@ -1128,7 +1128,7 @@ export function ImageGallery({ setId, images, title }: ImageGalleryProps) {
 
       {/* Horizontal Thumbnail strip */}
       {!showVerticalThumbnails && (!isFullscreen || showThumbnails) && (
-        <div className={`${isFullscreen ? 'absolute bottom-0 left-0 right-0 bg-black/80' : 'bg-zinc-900 border-t border-zinc-800'} p-3 ${
+        <div className={`${isFullscreen ? 'absolute bottom-0 left-0 right-0 bg-black/80' : 'bg-slate-900 border-t border-zinc-800'} p-3 ${
           isPlaying ? (showUI ? 'opacity-100' : 'opacity-0 pointer-events-none') : 'opacity-100'
         } transition-opacity duration-500`}>
           <div 
@@ -1156,7 +1156,7 @@ export function ImageGallery({ setId, images, title }: ImageGalleryProps) {
                   loading="lazy"
                 />
                 {index === currentIndex && (
-                  <div className="absolute inset-0 bg-red-500/20" />
+                  <div className="absolute inset-0 bg-sky-500/20" />
                 )}
               </button>
             ))}

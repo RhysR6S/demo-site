@@ -23,7 +23,7 @@ export default async function SecurityDashboard() {
         <h1 className="text-3xl font-bold text-white mb-8">Security Monitoring</h1>
         
         {/* High Activity Users */}
-        <div className="bg-zinc-900 rounded-lg p-6 border border-zinc-800">
+        <div className="bg-slate-900 rounded-lg p-6 border border-zinc-800">
           <h2 className="text-xl font-semibold text-white mb-4">High Activity Users (24h)</h2>
           
           <div className="overflow-x-auto">
@@ -49,7 +49,7 @@ export default async function SecurityDashboard() {
                       <td className="py-3 pr-4">
                         <span className={`px-2 py-1 rounded text-xs ${
                           riskAnalysis.score > 50
-                            ? 'bg-red-900/20 text-red-400'
+                            ? 'bg-red-900/20 text-sky-400'
                             : riskAnalysis.score > 30
                             ? 'bg-yellow-900/20 text-yellow-400'
                             : 'bg-green-900/20 text-green-400'
@@ -61,7 +61,7 @@ export default async function SecurityDashboard() {
                         <button className="text-sm text-blue-400 hover:text-blue-300 mr-3">
                           Investigate
                         </button>
-                        <button className="text-sm text-red-400 hover:text-red-300">
+                        <button className="text-sm text-sky-400 hover:text-red-300">
                           Ban
                         </button>
                       </td>
@@ -100,7 +100,7 @@ function BanUserButton({ identifier }: { identifier: string }) {
           alert('Ban functionality would be implemented here')
         }
       }}
-      className="px-3 py-1 bg-red-600 hover:bg-red-700 text-white rounded text-sm font-medium"
+      className="px-3 py-1 bg-sky-600 hover:bg-red-700 text-white rounded text-sm font-medium"
     >
       Ban User
     </button>

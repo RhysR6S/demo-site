@@ -83,7 +83,7 @@ export function LikeButton({ setId, initialLikes = 0 }: LikeButtonProps) {
       disabled={!session?.user || loading}
       className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
         liked
-          ? 'bg-red-600 text-white hover:bg-red-700'
+          ? 'bg-sky-600 text-white hover:bg-red-700'
           : 'bg-zinc-800 text-gray-400 hover:text-white hover:bg-zinc-700'
       } disabled:opacity-50 disabled:cursor-not-allowed`}
     >

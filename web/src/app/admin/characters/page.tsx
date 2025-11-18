@@ -308,7 +308,7 @@ export default function CharactersAdminPage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-1 p-1 bg-zinc-900/50 rounded-xl w-fit">
+      <div className="flex items-center gap-1 p-1 bg-slate-900/50 rounded-xl w-fit">
         <button
           onClick={() => setActiveTab('characters')}
           className={`px-6 py-2.5 rounded-lg font-medium transition-all duration-200 ${
@@ -342,7 +342,7 @@ export default function CharactersAdminPage() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder={`Search ${activeTab}...`}
-            className="w-full pl-10 pr-4 py-3 bg-zinc-900/50 border border-white/5 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-600/50 transition-all"
+            className="w-full pl-10 pr-4 py-3 bg-slate-900/50 border border-white/5 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-600/50 transition-all"
           />
         </div>
         
@@ -395,14 +395,14 @@ export default function CharactersAdminPage() {
               className="grid gap-4"
             >
               {filteredCharacters.length === 0 ? (
-                <div className="text-center py-16 bg-zinc-900/30 rounded-xl border border-white/5">
+                <div className="text-center py-16 bg-slate-900/30 rounded-xl border border-white/5">
                   <p className="text-gray-400">No characters found</p>
                 </div>
               ) : (
                 filteredCharacters.map((character) => (
                   <div
                     key={character.id}
-                    className="flex items-center justify-between p-4 bg-zinc-900/30 rounded-xl border border-white/5 hover:border-purple-600/30 transition-all"
+                    className="flex items-center justify-between p-4 bg-slate-900/30 rounded-xl border border-white/5 hover:border-cyan-600/30 transition-all"
                   >
                     <div>
                       <h3 className="text-lg font-medium text-white">{character.name}</h3>
@@ -423,7 +423,7 @@ export default function CharactersAdminPage() {
                       </button>
                       <button
                         onClick={() => deleteCharacter(character.id)}
-                        className="p-2 hover:bg-red-600/20 rounded-lg text-gray-400 hover:text-red-400 transition-colors"
+                        className="p-2 hover:bg-sky-600/20 rounded-lg text-gray-400 hover:text-sky-400 transition-colors"
                       >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -443,14 +443,14 @@ export default function CharactersAdminPage() {
               className="grid gap-4"
             >
               {filteredSeries.length === 0 ? (
-                <div className="text-center py-16 bg-zinc-900/30 rounded-xl border border-white/5">
+                <div className="text-center py-16 bg-slate-900/30 rounded-xl border border-white/5">
                   <p className="text-gray-400">No series found</p>
                 </div>
               ) : (
                 filteredSeries.map((s) => (
                   <div
                     key={s.id}
-                    className="flex items-center justify-between p-4 bg-zinc-900/30 rounded-xl border border-white/5 hover:border-purple-600/30 transition-all"
+                    className="flex items-center justify-between p-4 bg-slate-900/30 rounded-xl border border-white/5 hover:border-cyan-600/30 transition-all"
                   >
                     <div>
                       <h3 className="text-lg font-medium text-white">{s.name}</h3>
@@ -471,7 +471,7 @@ export default function CharactersAdminPage() {
                       </button>
                       <button
                         onClick={() => deleteSeries(s.id)}
-                        className="p-2 hover:bg-red-600/20 rounded-lg text-gray-400 hover:text-red-400 transition-colors"
+                        className="p-2 hover:bg-sky-600/20 rounded-lg text-gray-400 hover:text-sky-400 transition-colors"
                       >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -500,7 +500,7 @@ export default function CharactersAdminPage() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-zinc-900 rounded-2xl p-8 max-w-md w-full"
+              className="bg-slate-900 rounded-2xl p-8 max-w-md w-full"
               onClick={(e) => e.stopPropagation()}
             >
               <h2 className="text-2xl font-bold text-white mb-6">
@@ -510,7 +510,7 @@ export default function CharactersAdminPage() {
               <form onSubmit={handleCharacterSubmit} className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Character Name <span className="text-red-500">*</span>
+                    Character Name <span className="text-sky-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -587,7 +587,7 @@ export default function CharactersAdminPage() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-zinc-900 rounded-2xl p-8 max-w-md w-full"
+              className="bg-slate-900 rounded-2xl p-8 max-w-md w-full"
               onClick={(e) => e.stopPropagation()}
             >
               <h2 className="text-2xl font-bold text-white mb-6">
@@ -597,7 +597,7 @@ export default function CharactersAdminPage() {
               <form onSubmit={handleSeriesSubmit} className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Series Name <span className="text-red-500">*</span>
+                    Series Name <span className="text-sky-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -658,7 +658,7 @@ export default function CharactersAdminPage() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-zinc-900 rounded-2xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
+              className="bg-slate-900 rounded-2xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               <h2 className="text-2xl font-bold text-white mb-6">Bulk Import Characters & Series</h2>
@@ -680,9 +680,9 @@ export default function CharactersAdminPage() {
                 <div className="bg-zinc-800/50 rounded-xl p-4 text-sm text-gray-400">
                   <p className="font-medium text-white mb-2">Format Instructions:</p>
                   <ul className="space-y-1 list-disc list-inside">
-                    <li>For series only: <code className="text-purple-400">Series: Series Name</code></li>
-                    <li>For character with series: <code className="text-purple-400">Character Name - Series Name</code></li>
-                    <li>For character without series: <code className="text-purple-400">Character Name</code></li>
+                    <li>For series only: <code className="text-cyan-400">Series: Series Name</code></li>
+                    <li>For character with series: <code className="text-cyan-400">Character Name - Series Name</code></li>
+                    <li>For character without series: <code className="text-cyan-400">Character Name</code></li>
                   </ul>
                   
                   <p className="font-medium text-white mt-4 mb-2">Example:</p>

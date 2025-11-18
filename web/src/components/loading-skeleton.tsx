@@ -18,7 +18,7 @@ export function Skeleton({ className }: SkeletonProps) {
 
 export function ContentCardSkeleton() {
   return (
-    <div className="bg-zinc-900/50 rounded-xl overflow-hidden border border-zinc-800">
+    <div className="bg-slate-900/50 rounded-xl overflow-hidden border border-zinc-800">
       <Skeleton className="aspect-[3/4]" />
       <div className="p-6 space-y-3">
         <Skeleton className="h-6 w-3/4" />

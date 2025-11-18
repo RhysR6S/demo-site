@@ -54,7 +54,7 @@ const COLORS = {
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-zinc-900 border border-zinc-700 rounded-lg p-3 shadow-xl">
+      <div className="bg-slate-900 border border-zinc-700 rounded-lg p-3 shadow-xl">
         <p className="text-sm text-gray-400 mb-1">{label}</p>
         {payload.map((entry: any, index: number) => (
           <p key={index} className="text-sm font-medium" style={{ color: entry.color }}>
@@ -182,7 +182,7 @@ export default function AnalyticsPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[...Array(4)].map((_, i) => (
-              <div key={i} className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 animate-pulse">
+              <div key={i} className="bg-slate-900 border border-zinc-800 rounded-xl p-6 animate-pulse">
                 <div className="h-4 bg-zinc-800 rounded w-24 mb-3"></div>
                 <div className="h-8 bg-zinc-800 rounded w-32"></div>
               </div>
@@ -198,11 +198,11 @@ export default function AnalyticsPage() {
       <div className="min-h-screen bg-black p-8">
         <div className="max-w-7xl mx-auto">
           <div className="bg-red-900/20 border border-red-900/50 rounded-xl p-6 mb-8">
-            <h2 className="text-xl font-semibold text-red-400 mb-2">Error Loading Analytics</h2>
+            <h2 className="text-xl font-semibold text-sky-400 mb-2">Error Loading Analytics</h2>
             <p className="text-red-300">{error}</p>
             <button
               onClick={loadAnalyticsData}
-              className="mt-4 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+              className="mt-4 px-4 py-2 bg-sky-600 text-white rounded-lg hover:bg-red-700 transition-colors"
             >
               Try Again
             </button>
@@ -293,7 +293,7 @@ export default function AnalyticsPage() {
               <select
                 value={timeRange}
                 onChange={(e) => setTimeRange(e.target.value as any)}
-                className="bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2 text-white text-sm focus:border-purple-500 focus:outline-none"
+                className="bg-slate-900 border border-zinc-800 rounded-lg px-4 py-2 text-white text-sm focus:border-purple-500 focus:outline-none"
               >
                 <option value="7d">Last 7 days</option>
                 <option value="30d">Last 30 days</option>
@@ -330,7 +330,7 @@ export default function AnalyticsPage() {
         {/* Key Metrics Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {/* Monthly Revenue */}
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 hover:border-zinc-700 transition-colors">
+          <div className="bg-slate-900 border border-zinc-800 rounded-xl p-6 hover:border-zinc-700 transition-colors">
             <div className="flex items-start justify-between">
               <div className="flex-1">
                 <p className="text-sm font-medium text-gray-400 mb-1">Monthly Revenue</p>
@@ -340,7 +340,7 @@ export default function AnalyticsPage() {
                 {revenueGrowth.value !== 0 && (
                   <div className="flex items-center gap-1">
                     <svg 
-                      className={`w-4 h-4 ${revenueGrowth.isPositive ? 'text-green-500' : 'text-red-500'}`} 
+                      className={`w-4 h-4 ${revenueGrowth.isPositive ? 'text-green-500' : 'text-sky-500'}`} 
                       fill="none" 
                       viewBox="0 0 24 24" 
                       stroke="currentColor"
@@ -352,7 +352,7 @@ export default function AnalyticsPage() {
                         d={revenueGrowth.isPositive ? "M5 10l7-7m0 0l7 7m-7-7v18" : "M19 14l-7 7m0 0l-7-7m7 7V3"} 
                       />
                     </svg>
-                    <span className={`text-sm font-medium ${revenueGrowth.isPositive ? 'text-green-500' : 'text-red-500'}`}>
+                    <span className={`text-sm font-medium ${revenueGrowth.isPositive ? 'text-green-500' : 'text-sky-500'}`}>
                       {revenueGrowth.value.toFixed(1)}%
                     </span>
                     <span className="text-xs text-gray-500">vs last period</span>
@@ -368,7 +368,7 @@ export default function AnalyticsPage() {
           </div>
 
           {/* Active Patrons */}
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 hover:border-zinc-700 transition-colors">
+          <div className="bg-slate-900 border border-zinc-800 rounded-xl p-6 hover:border-zinc-700 transition-colors">
             <div className="flex items-start justify-between">
               <div className="flex-1">
                 <p className="text-sm font-medium text-gray-400 mb-1">Active Patrons</p>
@@ -378,7 +378,7 @@ export default function AnalyticsPage() {
                 {patronGrowth.value !== 0 && (
                   <div className="flex items-center gap-1">
                     <svg 
-                      className={`w-4 h-4 ${patronGrowth.isPositive ? 'text-green-500' : 'text-red-500'}`} 
+                      className={`w-4 h-4 ${patronGrowth.isPositive ? 'text-green-500' : 'text-sky-500'}`} 
                       fill="none" 
                       viewBox="0 0 24 24" 
                       stroke="currentColor"
@@ -390,7 +390,7 @@ export default function AnalyticsPage() {
                         d={patronGrowth.isPositive ? "M5 10l7-7m0 0l7 7m-7-7v18" : "M19 14l-7 7m0 0l-7-7m7 7V3"} 
                       />
                     </svg>
-                    <span className={`text-sm font-medium ${patronGrowth.isPositive ? 'text-green-500' : 'text-red-500'}`}>
+                    <span className={`text-sm font-medium ${patronGrowth.isPositive ? 'text-green-500' : 'text-sky-500'}`}>
                       {patronGrowth.value.toFixed(1)}%
                     </span>
                     <span className="text-xs text-gray-500">vs last period</span>
@@ -406,7 +406,7 @@ export default function AnalyticsPage() {
           </div>
 
           {/* Average per Patron */}
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 hover:border-zinc-700 transition-colors">
+          <div className="bg-slate-900 border border-zinc-800 rounded-xl p-6 hover:border-zinc-700 transition-colors">
             <div className="flex items-start justify-between">
               <div className="flex-1">
                 <p className="text-sm font-medium text-gray-400 mb-1">Avg. per Patron</p>
@@ -426,7 +426,7 @@ export default function AnalyticsPage() {
           </div>
 
           {/* Retention Rate */}
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 hover:border-zinc-700 transition-colors">
+          <div className="bg-slate-900 border border-zinc-800 rounded-xl p-6 hover:border-zinc-700 transition-colors">
             <div className="flex items-start justify-between">
               <div className="flex-1">
                 <p className="text-sm font-medium text-gray-400 mb-1">Retention Rate</p>
@@ -449,7 +449,7 @@ export default function AnalyticsPage() {
         {/* Secondary Metrics */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
           {/* Total Members */}
-          <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-4">
+          <div className="bg-slate-900/50 border border-zinc-800 rounded-xl p-4">
             <p className="text-sm text-gray-400 mb-1">Total Members</p>
             <p className="text-xl font-semibold text-white">
               {currentMetrics?.total_members?.toLocaleString() || 0}
@@ -460,7 +460,7 @@ export default function AnalyticsPage() {
           </div>
 
           {/* Projected Annual */}
-          <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-4">
+          <div className="bg-slate-900/50 border border-zinc-800 rounded-xl p-4">
             <p className="text-sm text-gray-400 mb-1">Projected Annual</p>
             <p className="text-xl font-semibold text-white">
               {formatCurrency(projectedAnnualRevenue * 100, currentMetrics?.currency || 'GBP')}
@@ -471,9 +471,9 @@ export default function AnalyticsPage() {
           </div>
 
           {/* Period Growth */}
-          <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-4">
+          <div className="bg-slate-900/50 border border-zinc-800 rounded-xl p-4">
             <p className="text-sm text-gray-400 mb-1">Period Growth</p>
-            <p className={`text-xl font-semibold ${periodGrowth.isPositive ? 'text-green-500' : 'text-red-500'}`}>
+            <p className={`text-xl font-semibold ${periodGrowth.isPositive ? 'text-green-500' : 'text-sky-500'}`}>
               {periodGrowth.isPositive ? '+' : '-'}{periodGrowth.value.toFixed(1)}%
             </p>
             <p className="text-xs text-gray-500 mt-1">
@@ -485,7 +485,7 @@ export default function AnalyticsPage() {
         {/* Charts Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           {/* Revenue & Patron Trends */}
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+          <div className="bg-slate-900 border border-zinc-800 rounded-xl p-6">
             <h3 className="text-lg font-semibold text-white mb-4">Revenue & Patron Trends</h3>
             <ResponsiveContainer width="100%" height={300}>
               <ComposedChart data={chartData}>
@@ -539,7 +539,7 @@ export default function AnalyticsPage() {
           </div>
 
           {/* Tier Distribution */}
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+          <div className="bg-slate-900 border border-zinc-800 rounded-xl p-6">
             <h3 className="text-lg font-semibold text-white mb-4">Tier Distribution</h3>
             {tierData.length > 0 ? (
               <div className="flex items-center gap-6">
@@ -588,7 +588,7 @@ export default function AnalyticsPage() {
         </div>
 
         {/* Average Revenue per Patron Trend */}
-        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+        <div className="bg-slate-900 border border-zinc-800 rounded-xl p-6">
           <h3 className="text-lg font-semibold text-white mb-4">Average Revenue per Patron Trend</h3>
           <ResponsiveContainer width="100%" height={200}>
             <AreaChart data={chartData}>
@@ -624,7 +624,7 @@ export default function AnalyticsPage() {
           {/* Quick Insights */}
           <div className="bg-gradient-to-br from-purple-900/20 to-purple-900/5 border border-purple-900/20 rounded-xl p-6">
             <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-              <svg className="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
               </svg>
               Quick Insights

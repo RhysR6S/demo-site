@@ -158,7 +158,7 @@ export function Comments({ setId }: CommentsProps) {
       {/* Comment Form - Enhanced Mobile UI */}
       {session?.user ? (
         <form onSubmit={handleSubmit} className={`${isSmallScreen ? 'space-y-3' : 'space-y-4'}`}>
-          <div className={`relative ${isSmallScreen ? 'bg-zinc-900' : 'bg-zinc-800'} border border-zinc-700 rounded-xl overflow-hidden transition-all focus-within:border-red-500`}>
+          <div className={`relative ${isSmallScreen ? 'bg-slate-900' : 'bg-zinc-800'} border border-zinc-700 rounded-xl overflow-hidden transition-all focus-within:border-sky-500`}>
             <textarea
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
@@ -177,7 +177,7 @@ export function Comments({ setId }: CommentsProps) {
                 <button
                   type="submit"
                   disabled={!newComment.trim() || posting}
-                  className="p-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="p-2 bg-gradient-to-r from-sky-600 to-sky-700 hover:from-sky-700 hover:to-sky-800 text-white rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {posting ? (
                     <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -196,7 +196,7 @@ export function Comments({ setId }: CommentsProps) {
               <button
                 type="submit"
                 disabled={!newComment.trim() || posting}
-                className="px-6 py-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                className="px-6 py-2 bg-gradient-to-r from-sky-600 to-sky-700 hover:from-sky-700 hover:to-sky-800 text-white font-medium rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
               >
                 {posting ? (
                   <>
@@ -230,7 +230,7 @@ export function Comments({ setId }: CommentsProps) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 className={`${
-                  isSmallScreen ? 'bg-zinc-900' : 'bg-zinc-800/50'
+                  isSmallScreen ? 'bg-slate-900' : 'bg-zinc-800/50'
                 } rounded-xl ${isSmallScreen ? 'p-3' : 'p-4'} ${
                   isSmallScreen ? 'space-y-2' : 'space-y-3'
                 }`}
@@ -251,8 +251,8 @@ export function Comments({ setId }: CommentsProps) {
                       onClick={() => handleDelete(comment.id)}
                       className={`${
                         isSmallScreen 
-                          ? 'p-1.5 text-red-400 hover:text-red-300 hover:bg-red-400/10 rounded-lg transition-all' 
-                          : 'text-red-400 hover:text-red-300 text-sm flex items-center gap-1'
+                          ? 'p-1.5 text-sky-400 hover:text-red-300 hover:bg-red-400/10 rounded-lg transition-all' 
+                          : 'text-sky-400 hover:text-red-300 text-sm flex items-center gap-1'
                       }`}
                     >
                       {isSmallScreen ? (
