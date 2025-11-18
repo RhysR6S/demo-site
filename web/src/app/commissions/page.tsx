@@ -49,11 +49,11 @@ interface CommissionFormState {
   type: 'set' | 'custom'
   
   // Character set fields
-  femaleCharacters: string[]
+  photoSubjects: string[]
   customCharactersList: string[]
-  maleCharacter: string
+  additionalSubjectDetails: string
   locations: string[]
-  bodyType: string
+  styleNotes: string
   
   // Image distribution
   imageDistribution: {
@@ -86,11 +86,11 @@ interface CommissionFormState {
 const initialFormState: CommissionFormState = {
   mode: 'simple',
   type: 'set',
-  femaleCharacters: [''],
+  photoSubjects: [''],
   customCharactersList: [],
-  maleCharacter: '',
+  additionalSubjectDetails: '',
   locations: [''],
-  bodyType: '',
+  styleNotes: '',
   imageDistribution: {
     solo: 100,
     duo_ff: 0,
@@ -176,7 +176,7 @@ export default function CommissionsPage() {
   const [commissionSummary, setCommissionSummary] = useState<CommissionSummary | null>(null)
   const [userCommissions, setUserCommissions] = useState<any[]>([])
   const [loadingCommissions, setLoadingCommissions] = useState(false)
-  const [customFemaleCharacter, setCustomFemaleCharacter] = useState('')
+  const [customFeadditionalSubjectDetails, setCustomFeadditionalSubjectDetails] = useState('')
   
   // Use reducer for complex form state
   const [formState, dispatch] = useReducer(formReducer, initialFormState)
@@ -187,7 +187,7 @@ export default function CommissionsPage() {
   const [editFormState, editDispatch] = useReducer(formReducer, initialFormState)
   const [editLoading, setEditLoading] = useState(false)
   const [editError, setEditError] = useState<string | null>(null)
-  const [editCustomFemaleCharacter, setEditCustomFemaleCharacter] = useState('')
+  const [editCustomFeadditionalSubjectDetails, setEditCustomFeadditionalSubjectDetails] = useState('')
 
   // Check authentication
   useEffect(() => {
@@ -288,7 +288,7 @@ export default function CommissionsPage() {
   const calculatePrice = () => {
     if (formState.type === 'set') {
       const basePrice = 15
-      const totalCharacters = formState.femaleCharacters.filter(c => c).length + formState.customCharactersList.length
+      const totalCharacters = formState.photoSubjects.filter(c => c).length + formState.customCharactersList.length
       const additionalCharacterCost = Math.max(0, totalCharacters - 1) * 0.50
       return {
         base: basePrice,
@@ -331,7 +331,7 @@ export default function CommissionsPage() {
 
     // Validate character set has at least one character
     if (formState.type === 'set') {
-      const selectedCharacters = formState.femaleCharacters.filter(c => c)
+      const selectedCharacters = formState.photoSubjects.filter(c => c)
       const hasCharacter = selectedCharacters.length > 0 || formState.customCharactersList.length > 0
       
       if (!hasCharacter) {
@@ -358,10 +358,10 @@ export default function CommissionsPage() {
     if (formState.type === 'set') {
       requestData = {
         ...requestData,
-        femaleCharacters: formState.femaleCharacters.filter(c => c).concat(formState.customCharactersList),
-        maleCharacter: formState.maleCharacter || null,
+        photoSubjects: formState.photoSubjects.filter(c => c).concat(formState.customCharactersList),
+        additionalSubjectDetails: formState.additionalSubjectDetails || null,
         locations: formState.locations.filter(l => l),
-        bodyType: formState.bodyType,
+        styleNotes: formState.styleNotes,
         imageDistribution: formState.imageDistribution,
       }
 
@@ -410,11 +410,11 @@ export default function CommissionsPage() {
     editDispatch({ type: 'SET_TYPE', payload: commission.type })
     
     if (commission.type === 'set') {
-      editDispatch({ type: 'UPDATE_FIELD', field: 'femaleCharacters', value: requestData.femaleCharacters || [''] })
+      editDispatch({ type: 'UPDATE_FIELD', field: 'photoSubjects', value: requestData.photoSubjects || [''] })
       editDispatch({ type: 'UPDATE_FIELD', field: 'customCharactersList', value: [] })
-      editDispatch({ type: 'UPDATE_FIELD', field: 'maleCharacter', value: requestData.maleCharacter || '' })
+      editDispatch({ type: 'UPDATE_FIELD', field: 'additionalSubjectDetails', value: requestData.additionalSubjectDetails || '' })
       editDispatch({ type: 'UPDATE_FIELD', field: 'locations', value: requestData.locations || [''] })
-      editDispatch({ type: 'UPDATE_FIELD', field: 'bodyType', value: requestData.bodyType || '' })
+      editDispatch({ type: 'UPDATE_FIELD', field: 'styleNotes', value: requestData.styleNotes || '' })
       editDispatch({ type: 'UPDATE_DISTRIBUTION', payload: requestData.imageDistribution || initialFormState.imageDistribution })
       
       if (requestData.mode === 'simple') {
@@ -436,7 +436,7 @@ export default function CommissionsPage() {
     setEditError(null)
 
     if (editFormState.type === 'set') {
-      const hasCharacter = editFormState.femaleCharacters.some(c => c) || editFormState.customCharactersList.length > 0
+      const hasCharacter = editFormState.photoSubjects.some(c => c) || editFormState.customCharactersList.length > 0
       if (!hasCharacter) {
         setEditError('Please select at least one character')
         setEditLoading(false)
@@ -456,10 +456,10 @@ export default function CommissionsPage() {
     if (editFormState.type === 'set') {
       requestData = {
         ...requestData,
-        femaleCharacters: editFormState.femaleCharacters.filter(c => c).concat(editFormState.customCharactersList),
-        maleCharacter: editFormState.maleCharacter || null,
+        photoSubjects: editFormState.photoSubjects.filter(c => c).concat(editFormState.customCharactersList),
+        additionalSubjectDetails: editFormState.additionalSubjectDetails || null,
         locations: editFormState.locations.filter(l => l),
-        bodyType: editFormState.bodyType,
+        styleNotes: editFormState.styleNotes,
         imageDistribution: editFormState.imageDistribution,
       }
 
@@ -525,44 +525,44 @@ export default function CommissionsPage() {
     }
   }
 
-  const addFemaleCharacter = () => {
+  const addFeadditionalSubjectDetails = () => {
     dispatch({ 
       type: 'UPDATE_FIELD', 
-      field: 'femaleCharacters', 
-      value: [...formState.femaleCharacters, ''] 
+      field: 'photoSubjects', 
+      value: [...formState.photoSubjects, ''] 
     })
   }
 
-  const removeFemaleCharacter = (index: number) => {
+  const removeFeadditionalSubjectDetails = (index: number) => {
     dispatch({ 
       type: 'UPDATE_FIELD', 
-      field: 'femaleCharacters', 
-      value: formState.femaleCharacters.filter((_, i) => i !== index) 
+      field: 'photoSubjects', 
+      value: formState.photoSubjects.filter((_, i) => i !== index) 
     })
   }
 
-  const updateFemaleCharacter = (index: number, value: string) => {
-    const newChars = [...formState.femaleCharacters]
+  const updateFeadditionalSubjectDetails = (index: number, value: string) => {
+    const newChars = [...formState.photoSubjects]
     newChars[index] = value
     dispatch({ 
       type: 'UPDATE_FIELD', 
-      field: 'femaleCharacters', 
+      field: 'photoSubjects', 
       value: newChars 
     })
   }
 
-  const addCustomCharacter = () => {
-    if (customFemaleCharacter.trim()) {
+  const addCustomSubject = () => {
+    if (customFeadditionalSubjectDetails.trim()) {
       dispatch({ 
         type: 'UPDATE_FIELD', 
         field: 'customCharactersList', 
-        value: [...formState.customCharactersList, customFemaleCharacter.trim()] 
+        value: [...formState.customCharactersList, customFeadditionalSubjectDetails.trim()] 
       })
-      setCustomFemaleCharacter('')
+      setCustomFeadditionalSubjectDetails('')
     }
   }
 
-  const removeCustomCharacter = (index: number) => {
+  const removeCustomSubject = (index: number) => {
     dispatch({ 
       type: 'UPDATE_FIELD', 
       field: 'customCharactersList', 
@@ -917,10 +917,10 @@ export default function CommissionsPage() {
             <form onSubmit={handleSubmit} className="space-y-6">
               {formState.type === 'set' ? (
                 <>
-                  {/* Female Characters */}
+                  {/* Photo Subjects */}
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-3">
-                      Female Character(s) <span className="text-sky-500">*</span>
+                      Photo Subject(s) <span className="text-sky-500">*</span>
                     </label>
                     
                     <div className="space-y-4">
@@ -941,11 +941,11 @@ export default function CommissionsPage() {
                         )}
 
                         <div className="space-y-2">
-                          {formState.femaleCharacters.map((char, index) => (
+                          {formState.photoSubjects.map((char, index) => (
                             <div key={index} className="flex gap-2">
                               <select
                                 value={char}
-                                onChange={(e) => updateFemaleCharacter(index, e.target.value)}
+                                onChange={(e) => updateFeadditionalSubjectDetails(index, e.target.value)}
                                 className="flex-1 bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2.5 text-white focus:border-purple-500 focus:outline-none"
                               >
                                 <option value="">Choose a subject...</option>
@@ -955,10 +955,10 @@ export default function CommissionsPage() {
                                   </option>
                                 ))}
                               </select>
-                              {formState.femaleCharacters.length > 1 && (
+                              {formState.photoSubjects.length > 1 && (
                                 <button
                                   type="button"
-                                  onClick={() => removeFemaleCharacter(index)}
+                                  onClick={() => removeFeadditionalSubjectDetails(index)}
                                   className="p-2.5 bg-zinc-800 border border-zinc-700 rounded-lg text-sky-400 hover:bg-zinc-700"
                                   title="Remove subject"
                                 >
@@ -970,10 +970,10 @@ export default function CommissionsPage() {
                             </div>
                           ))}
 
-                          {formState.femaleCharacters[0] && (
+                          {formState.photoSubjects[0] && (
                             <button
                               type="button"
-                              onClick={addFemaleCharacter}
+                              onClick={addFeadditionalSubjectDetails}
                               className="text-sm text-cyan-400 hover:text-purple-300 flex items-center gap-1 mt-2"
                             >
                               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1004,7 +1004,7 @@ export default function CommissionsPage() {
                                 <span className="flex-1 text-white text-sm">{char}</span>
                                 <button
                                   type="button"
-                                  onClick={() => removeCustomCharacter(index)}
+                                  onClick={() => removeCustomSubject(index)}
                                   className="text-sky-400 hover:text-red-300"
                                   title="Remove subject"
                                 >
@@ -1020,16 +1020,16 @@ export default function CommissionsPage() {
                         <div className="flex gap-2">
                           <input
                             type="text"
-                            value={customFemaleCharacter}
-                            onChange={(e) => setCustomFemaleCharacter(e.target.value)}
-                            onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addCustomCharacter())}
+                            value={customFeadditionalSubjectDetails}
+                            onChange={(e) => setCustomFeadditionalSubjectDetails(e.target.value)}
+                            onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addCustomSubject())}
                             placeholder="Enter subject description not in the list..."
                             className="flex-1 bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
                           />
                           <button
                             type="button"
-                            onClick={addCustomCharacter}
-                            disabled={!customFemaleCharacter.trim()}
+                            onClick={addCustomSubject}
+                            disabled={!customFeadditionalSubjectDetails.trim()}
                             className="p-2.5 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:bg-zinc-700 disabled:text-gray-500 transition-colors"
                             title="Add subject"
                           >
@@ -1043,11 +1043,11 @@ export default function CommissionsPage() {
                         </p>
                       </div>
 
-                      {(formState.femaleCharacters.some(c => c) || formState.customCharactersList.length > 0) && (
+                      {(formState.photoSubjects.some(c => c) || formState.customCharactersList.length > 0) && (
                         <div className="bg-green-900/10 border border-green-900/30 rounded-lg p-3">
                           <p className="text-xs text-green-400">
                             <strong>Selected subjects:</strong> {[
-                              ...formState.femaleCharacters.filter(c => c),
+                              ...formState.photoSubjects.filter(c => c),
                               ...formState.customCharactersList
                             ].filter(Boolean).join(', ')}
                           </p>
@@ -1080,13 +1080,13 @@ export default function CommissionsPage() {
                     <div className="border-t border-zinc-800 pt-6">
                       <h3 className="text-lg font-semibold text-white mb-2">Photo Composition Distribution</h3>
                       <p className="text-sm text-gray-400 mb-4">
-                        Control the mix of different photo compositions and subject arrangements in your collection.
+                        Control the distribution of different shot types and compositions in your collection.
                       </p>
                       <ImageDistribution
                         distribution={formState.imageDistribution}
                         onChange={(dist) => dispatch({ type: 'UPDATE_DISTRIBUTION', payload: dist })}
-                        femaleCharacterCount={
-                          formState.femaleCharacters.filter(c => c).length + 
+                        feadditionalSubjectDetailsCount={
+                          formState.photoSubjects.filter(c => c).length + 
                           formState.customCharactersList.length
                         }
                         maleEnabled={true}
@@ -1131,8 +1131,8 @@ export default function CommissionsPage() {
                     </label>
                     <input
                       type="text"
-                      value={formState.maleCharacter}
-                      onChange={(e) => dispatch({ type: 'UPDATE_FIELD', field: 'maleCharacter', value: e.target.value })}
+                      value={formState.additionalSubjectDetails}
+                      onChange={(e) => dispatch({ type: 'UPDATE_FIELD', field: 'additionalSubjectDetails', value: e.target.value })}
                       placeholder="Leave blank or specify additional details about subjects..."
                       className="w-full bg-slate-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
                     />
@@ -1184,8 +1184,8 @@ export default function CommissionsPage() {
                     </label>
                     <input
                       type="text"
-                      value={formState.bodyType}
-                      onChange={(e) => dispatch({ type: 'UPDATE_FIELD', field: 'bodyType', value: e.target.value })}
+                      value={formState.styleNotes}
+                      onChange={(e) => dispatch({ type: 'UPDATE_FIELD', field: 'styleNotes', value: e.target.value })}
                       placeholder="e.g., Bright and airy, Moody lighting, Vintage aesthetic..."
                       className="w-full bg-slate-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
                     />
@@ -1361,16 +1361,16 @@ export default function CommissionsPage() {
                     {/* Request Details */}
                     {commission.type === 'set' ? (
                       <div className="space-y-2 text-sm">
-                        {commission.request_data.femaleCharacters?.length > 0 && (
+                        {commission.request_data.photoSubjects?.length > 0 && (
                           <div>
                             <span className="text-gray-400">Subjects:</span>
-                            <span className="text-white ml-2">{commission.request_data.femaleCharacters.join(', ')}</span>
+                            <span className="text-white ml-2">{commission.request_data.photoSubjects.join(', ')}</span>
                           </div>
                         )}
-                        {commission.request_data.maleCharacter && (
+                        {commission.request_data.additionalSubjectDetails && (
                           <div>
                             <span className="text-gray-400">Additional Details:</span>
-                            <span className="text-white ml-2">{commission.request_data.maleCharacter}</span>
+                            <span className="text-white ml-2">{commission.request_data.additionalSubjectDetails}</span>
                           </div>
                         )}
                         {commission.request_data.locations?.length > 0 && commission.request_data.locations.some((l: string) => l) && (
@@ -1379,10 +1379,10 @@ export default function CommissionsPage() {
                             <span className="text-white ml-2">{commission.request_data.locations.filter((l: string) => l).join(', ')}</span>
                           </div>
                         )}
-                        {commission.request_data.bodyType && (
+                        {commission.request_data.styleNotes && (
                           <div>
                             <span className="text-gray-400">Style Notes:</span>
-                            <span className="text-white ml-2">{commission.request_data.bodyType}</span>
+                            <span className="text-white ml-2">{commission.request_data.styleNotes}</span>
                           </div>
                         )}
                         {commission.request_data.mode && (
@@ -1497,14 +1497,14 @@ export default function CommissionsPage() {
                       Photo Subject(s) <span className="text-sky-500">*</span>
                     </label>
                     <div className="space-y-2">
-                      {editFormState.femaleCharacters.map((char, index) => (
+                      {editFormState.photoSubjects.map((char, index) => (
                         <div key={index} className="flex gap-2">
                           <select
                             value={char}
                             onChange={(e) => {
-                              const newChars = [...editFormState.femaleCharacters]
+                              const newChars = [...editFormState.photoSubjects]
                               newChars[index] = e.target.value
-                              editDispatch({ type: 'UPDATE_FIELD', field: 'femaleCharacters', value: newChars })
+                              editDispatch({ type: 'UPDATE_FIELD', field: 'photoSubjects', value: newChars })
                             }}
                             className="flex-1 bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2.5 text-white focus:border-purple-500 focus:outline-none"
                           >
@@ -1515,14 +1515,14 @@ export default function CommissionsPage() {
                               </option>
                             ))}
                           </select>
-                          {editFormState.femaleCharacters.length > 1 && (
+                          {editFormState.photoSubjects.length > 1 && (
                             <button
                               type="button"
                               onClick={() => {
                                 editDispatch({ 
                                   type: 'UPDATE_FIELD', 
-                                  field: 'femaleCharacters', 
-                                  value: editFormState.femaleCharacters.filter((_, i) => i !== index) 
+                                  field: 'photoSubjects', 
+                                  value: editFormState.photoSubjects.filter((_, i) => i !== index) 
                                 })
                               }}
                               className="p-2.5 bg-zinc-800 border border-zinc-700 rounded-lg text-sky-400 hover:bg-zinc-700"
@@ -1539,8 +1539,8 @@ export default function CommissionsPage() {
                         onClick={() => {
                           editDispatch({ 
                             type: 'UPDATE_FIELD', 
-                            field: 'femaleCharacters', 
-                            value: [...editFormState.femaleCharacters, ''] 
+                            field: 'photoSubjects', 
+                            value: [...editFormState.photoSubjects, ''] 
                           })
                         }}
                         className="text-sm text-cyan-400 hover:text-purple-300 flex items-center gap-1 mt-2"
@@ -1578,7 +1578,7 @@ export default function CommissionsPage() {
                     <ImageDistribution
                       distribution={editFormState.imageDistribution}
                       onChange={(dist) => editDispatch({ type: 'UPDATE_DISTRIBUTION', payload: dist })}
-                      femaleCharacterCount={editFormState.femaleCharacters.filter(c => c).length}
+                      feadditionalSubjectDetailsCount={editFormState.photoSubjects.filter(c => c).length}
                       maleEnabled={true}
                     />
                   </div>
@@ -1590,8 +1590,8 @@ export default function CommissionsPage() {
                     </label>
                     <input
                       type="text"
-                      value={editFormState.maleCharacter}
-                      onChange={(e) => editDispatch({ type: 'UPDATE_FIELD', field: 'maleCharacter', value: e.target.value })}
+                      value={editFormState.additionalSubjectDetails}
+                      onChange={(e) => editDispatch({ type: 'UPDATE_FIELD', field: 'additionalSubjectDetails', value: e.target.value })}
                       placeholder="Leave blank or specify additional details..."
                       className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
                     />
@@ -1656,8 +1656,8 @@ export default function CommissionsPage() {
                     </label>
                     <input
                       type="text"
-                      value={editFormState.bodyType}
-                      onChange={(e) => editDispatch({ type: 'UPDATE_FIELD', field: 'bodyType', value: e.target.value })}
+                      value={editFormState.styleNotes}
+                      onChange={(e) => editDispatch({ type: 'UPDATE_FIELD', field: 'styleNotes', value: e.target.value })}
                       placeholder="e.g., Bright and airy, Moody lighting..."
                       className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none"
                     />

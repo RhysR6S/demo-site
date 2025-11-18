@@ -13,7 +13,7 @@ interface ImageDistributionProps {
     pov_ffm: number
     gangbang: number
   }
-  onChange: (distribution: { 
+  onChange: (distribution: {
     solo: number
     duo_ff: number
     duo_mf: number
@@ -25,14 +25,14 @@ interface ImageDistributionProps {
   maleEnabled?: boolean
 }
 
-export function ImageDistribution({ 
-  distribution, 
-  onChange, 
+export function ImageDistribution({
+  distribution,
+  onChange,
   femaleCharacterCount,
-  maleEnabled = true  // Default to true since we always have generic males
+  maleEnabled = true
 }: ImageDistributionProps) {
-  
-  // Only disable duo_ff and pov_ffm if only one female character
+
+  // Auto-adjust distribution when subject count changes
   useEffect(() => {
     if (femaleCharacterCount === 1) {
       if (distribution.duo_ff !== 0 || distribution.pov_ffm !== 0) {
@@ -46,21 +46,17 @@ export function ImageDistribution({
   }, [femaleCharacterCount])
 
   const handleSliderChange = (type: keyof typeof distribution, value: number) => {
-    // Prevent duo_ff and pov_ffm changes if only one character
     if ((type === 'duo_ff' || type === 'pov_ffm') && femaleCharacterCount === 1) {
       return
     }
-    
-    // Explicitly handle the value, ensuring 0 is preserved
-    const newValue = Math.max(0, Math.min(300, value)) // Clamp between 0-300
-    
-    // Create new distribution with explicit value
+
+    const newValue = Math.max(0, Math.min(300, value))
+
     const newDistribution = {
       ...distribution,
       [type]: newValue
     }
-    
-    // Call onChange with the new distribution
+
     onChange(newDistribution)
   }
 
@@ -91,7 +87,7 @@ export function ImageDistribution({
   ) => {
     const value = distribution[key]
     const isDisabled = disabled || (disabledReason !== undefined)
-    
+
     return (
       <div className={isDisabled ? 'opacity-50' : ''}>
         <div className="flex items-center justify-between mb-2">
@@ -133,8 +129,8 @@ export function ImageDistribution({
           disabled={isDisabled}
           className={`w-full h-2 bg-zinc-800 rounded-lg appearance-none cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 ${styles.slider}`}
           style={{
-            background: isDisabled 
-              ? 'rgb(39 39 42)' 
+            background: isDisabled
+              ? 'rgb(39 39 42)'
               : `linear-gradient(to right, ${getSliderColor(value)} 0%, ${getSliderColor(value)} ${value / 3}%, rgb(39 39 42) ${value / 3}%, rgb(39 39 42) 100%)`
           }}
         />
@@ -150,55 +146,55 @@ export function ImageDistribution({
       {/* Info Box */}
       <div className="bg-blue-900/20 border border-blue-600/30 rounded-lg p-3">
         <p className="text-sm text-blue-300">
-          <strong>Scene Type Control:</strong> This section controls the distribution of different image types in your set. 
+          <strong>Photo Composition Control:</strong> This section controls the distribution of different shot types and compositions in your collection.
           Set to 0% to exclude a type entirely, or increase beyond 100% to prioritize it.
         </p>
       </div>
 
-      {/* Solo Images */}
+      {/* Single Subject */}
       {renderSlider(
         'solo',
-        'Solo Images',
-        'Single character scenes'
+        'Single Subject',
+        'Photos featuring one primary subject'
       )}
 
-      {/* Duo FF (2Girls) Images */}
+      {/* Multiple Subjects */}
       {renderSlider(
         'duo_ff',
-        '2Girls (Duo FF) Images',
-        'Two female characters together',
+        'Multiple Subjects',
+        'Photos with multiple people or subjects interacting',
         femaleCharacterCount === 1,
-        femaleCharacterCount === 1 ? 'Requires 2+ female characters' : undefined
+        femaleCharacterCount === 1 ? 'Requires 2+ subjects' : undefined
       )}
 
-      {/* Duo MF (Both Visible) Images - Always available */}
+      {/* Environmental/Context Shots */}
       {renderSlider(
         'duo_mf',
-        '1Boy1Girl (Both Visible)',
-        'Male and female both visible in scene (uses generic male if not specified)'
+        'Environmental Shots',
+        'Subject within environment/setting for context and atmosphere'
       )}
 
-      {/* Duo MF POV Images - Always available */}
+      {/* Action/Activity Shots */}
       {renderSlider(
         'duo_mf_pov',
-        '1Boy1Girl (POV)',
-        'Male POV perspective with female (uses generic male if not specified)'
+        'Action & Activity',
+        'Dynamic shots capturing movement, activities, or candid moments'
       )}
 
-      {/* POV FFM Images - Requires 2+ females */}
+      {/* Wide Angle/Scene */}
       {renderSlider(
         'pov_ffm',
-        'POV FFM Threesome',
-        'POV perspective with two females',
+        'Wide Angle / Panoramic',
+        'Broad perspective shots showing full scene or landscape',
         femaleCharacterCount === 1,
-        femaleCharacterCount === 1 ? 'Requires 2+ female characters' : undefined
+        femaleCharacterCount === 1 ? 'Requires 2+ subjects or specific scenes' : undefined
       )}
 
-      {/* Gangbang Images - Always available */}
+      {/* Close-up/Detail Shots */}
       {renderSlider(
         'gangbang',
-        'Gangbang',
-        'Multiple partner scenes (uses generic males if not specified)'
+        'Close-up & Detail',
+        'Intimate detail shots, macro photography, focused on specific elements'
       )}
 
       {/* Quick Preset Buttons */}
@@ -207,45 +203,45 @@ export function ImageDistribution({
         <div className="grid grid-cols-3 gap-2">
           <button
             type="button"
-            onClick={() => onChange({ 
-              solo: 100, 
-              duo_ff: femaleCharacterCount > 1 ? 100 : 0, 
-              duo_mf: maleEnabled ? 100 : 0, 
-              duo_mf_pov: maleEnabled ? 50 : 0,
-              pov_ffm: (femaleCharacterCount > 1 && maleEnabled) ? 0 : 0,
-              gangbang: maleEnabled ? 0 : 0
+            onClick={() => onChange({
+              solo: 100,
+              duo_ff: femaleCharacterCount > 1 ? 100 : 0,
+              duo_mf: 100,
+              duo_mf_pov: 50,
+              pov_ffm: femaleCharacterCount > 1 ? 50 : 0,
+              gangbang: 50
             })}
             className="px-3 py-1.5 text-xs bg-zinc-800 text-gray-300 rounded hover:bg-zinc-700 transition-colors"
           >
-            Balanced
+            Balanced Mix
           </button>
           <button
             type="button"
-            onClick={() => onChange({ 
-              solo: 200, 
-              duo_ff: femaleCharacterCount > 1 ? 50 : 0, 
-              duo_mf: 0, 
+            onClick={() => onChange({
+              solo: 200,
+              duo_ff: femaleCharacterCount > 1 ? 50 : 0,
+              duo_mf: 50,
               duo_mf_pov: 0,
               pov_ffm: 0,
+              gangbang: 100
+            })}
+            className="px-3 py-1.5 text-xs bg-zinc-800 text-gray-300 rounded hover:bg-zinc-700 transition-colors"
+          >
+            Portrait Focus
+          </button>
+          <button
+            type="button"
+            onClick={() => onChange({
+              solo: 100,
+              duo_ff: 0,
+              duo_mf: 200,
+              duo_mf_pov: 100,
+              pov_ffm: femaleCharacterCount > 1 ? 100 : 0,
               gangbang: 0
             })}
             className="px-3 py-1.5 text-xs bg-zinc-800 text-gray-300 rounded hover:bg-zinc-700 transition-colors"
           >
-            Solo Focus
-          </button>
-          <button
-            type="button"
-            onClick={() => onChange({ 
-              solo: 100, 
-              duo_ff: 0, 
-              duo_mf: 0, 
-              duo_mf_pov: 0,
-              pov_ffm: 0,
-              gangbang: 0
-            })}
-            className="px-3 py-1.5 text-xs bg-zinc-800 text-gray-300 rounded hover:bg-zinc-700 transition-colors"
-          >
-            Solo Only
+            Lifestyle/Action
           </button>
         </div>
       </div>
@@ -268,7 +264,7 @@ export function ImageDistribution({
           </div>
         </div>
         <p className="text-xs text-gray-500 mt-2">
-          Higher values mean more images of that type will be generated. Set to 0% to completely exclude a type.
+          Higher values mean more photos of that composition type. Set to 0% to completely exclude a type.
         </p>
       </div>
     </div>
