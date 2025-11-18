@@ -64,7 +64,7 @@ If you want to remove sets that have no images in R2 (failed due to rate limits)
 npm run cleanup-empty-sets
 
 # Actually delete empty sets
-npm run cleanup-empty-sets -- --execute
+npm run cleanup-empty-sets:execute
 ```
 
 The cleanup script will:

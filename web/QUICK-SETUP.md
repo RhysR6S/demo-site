@@ -60,8 +60,8 @@ This smart resume script will:
 **Optional - Clean up empty sets:**
 If some sets completely failed and have no images at all, you can remove them:
 ```bash
-npm run cleanup-empty-sets              # Preview what would be deleted
-npm run cleanup-empty-sets -- --execute # Actually delete empty sets
+npm run cleanup-empty-sets         # Preview what would be deleted
+npm run cleanup-empty-sets:execute # Actually delete empty sets
 ```
 
 ### 4. Restart Your Dev Server

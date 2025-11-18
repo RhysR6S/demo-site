@@ -18,7 +18,8 @@
         "fix-watermarks": "tsx scripts/fix-watermarks.ts",
         "populate-r2": "tsx scripts/populate-r2-with-images.ts",
         "populate-r2:resume": "tsx scripts/populate-r2-resume.ts",
-        "cleanup-empty-sets": "tsx scripts/cleanup-empty-sets.ts"
+        "cleanup-empty-sets": "tsx scripts/cleanup-empty-sets.ts",
+        "cleanup-empty-sets:execute": "tsx scripts/cleanup-empty-sets.ts --execute"
     },
     "dependencies": {
         "@aws-sdk/client-s3": "^3.844.0",
