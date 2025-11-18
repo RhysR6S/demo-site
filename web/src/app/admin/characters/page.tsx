@@ -301,14 +301,8 @@ export default function SubjectsAdminPage() {
 
   return (
     <div className="space-y-8">
-      {/* Gradient background overlay */}
-      <div className="fixed inset-0 pointer-events-none opacity-40">
-        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-cyan-600/15 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl" />
-      </div>
-
       {/* Header */}
-      <div className="relative">
+      <div>
         <h1 className="text-3xl font-bold text-white mb-2">Subjects & Collections</h1>
         <p className="text-gray-400">Manage subjects and collections for your content</p>
       </div>
