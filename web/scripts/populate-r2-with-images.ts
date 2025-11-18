@@ -12,7 +12,11 @@
 import { createClient } from '@supabase/supabase-js'
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3'
 import sharp from 'sharp'
-import 'dotenv/config'
+import { config } from 'dotenv'
+import { resolve } from 'path'
+
+// Load environment variables from .env.local
+config({ path: resolve(__dirname, '../.env.local') })
 
 // Node.js 18+ has built-in fetch
 // If using Node < 18, install node-fetch: npm install node-fetch
@@ -21,23 +25,45 @@ import 'dotenv/config'
 // Configuration
 // ============================================
 
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY!
-const UNSPLASH_KEY = process.env.UNSPLASH_ACCESS_KEY!
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL
+const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY
+const UNSPLASH_KEY = process.env.UNSPLASH_ACCESS_KEY
 
-const R2_ACCOUNT_ID = process.env.R2_ACCOUNT_ID!
-const R2_ACCESS_KEY_ID = process.env.R2_ACCESS_KEY_ID!
-const R2_SECRET_ACCESS_KEY = process.env.R2_SECRET_ACCESS_KEY!
-const R2_BUCKET_NAME = process.env.R2_BUCKET_NAME!
+const R2_ACCOUNT_ID = process.env.R2_ACCOUNT_ID
+const R2_ACCESS_KEY_ID = process.env.R2_ACCESS_KEY_ID
+const R2_SECRET_ACCESS_KEY = process.env.R2_SECRET_ACCESS_KEY
+const R2_BUCKET_NAME = process.env.R2_BUCKET_NAME
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY)
+// Validate required environment variables
+const requiredEnvVars = {
+  NEXT_PUBLIC_SUPABASE_URL: SUPABASE_URL,
+  SUPABASE_SERVICE_ROLE_KEY: SUPABASE_KEY,
+  UNSPLASH_ACCESS_KEY: UNSPLASH_KEY,
+  R2_ACCOUNT_ID: R2_ACCOUNT_ID,
+  R2_ACCESS_KEY_ID: R2_ACCESS_KEY_ID,
+  R2_SECRET_ACCESS_KEY: R2_SECRET_ACCESS_KEY,
+  R2_BUCKET_NAME: R2_BUCKET_NAME,
+}
+
+const missingVars = Object.entries(requiredEnvVars)
+  .filter(([_, value]) => !value)
+  .map(([key]) => key)
+
+if (missingVars.length > 0) {
+  console.error('\n❌ Missing required environment variables:')
+  missingVars.forEach(varName => console.error(`  - ${varName}`))
+  console.error('\nMake sure your .env.local file is in the /web directory and contains all required variables.\n')
+  process.exit(1)
+}
+
+const supabase = createClient(SUPABASE_URL!, SUPABASE_KEY!)
 
 const r2Client = new S3Client({
   region: 'auto',
   endpoint: `https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com`,
   credentials: {
-    accessKeyId: R2_ACCESS_KEY_ID,
-    secretAccessKey: R2_SECRET_ACCESS_KEY,
+    accessKeyId: R2_ACCESS_KEY_ID!,
+    secretAccessKey: R2_SECRET_ACCESS_KEY!,
   },
 })
 
@@ -151,7 +177,7 @@ async function createThumbnail(imageBuffer: Buffer): Promise<Buffer> {
  */
 async function uploadToR2(key: string, buffer: Buffer, contentType: string = 'image/jpeg'): Promise<void> {
   const command = new PutObjectCommand({
-    Bucket: R2_BUCKET_NAME,
+    Bucket: R2_BUCKET_NAME!,
     Key: key,
     Body: buffer,
     ContentType: contentType,
@@ -260,18 +286,8 @@ async function processSet(set: any) {
 async function main() {
   console.log('🚀 Starting R2 population with Unsplash images\n')
 
-  // Verify environment variables
-  if (!UNSPLASH_KEY) {
-    console.error('❌ UNSPLASH_ACCESS_KEY not set')
-    process.exit(1)
-  }
-
-  if (!R2_BUCKET_NAME) {
-    console.error('❌ R2_BUCKET_NAME not set')
-    process.exit(1)
-  }
-
   console.log(`Using bucket: ${R2_BUCKET_NAME}`)
+  console.log(`Supabase URL: ${SUPABASE_URL}`)
   console.log(`Unsplash API configured: ✅\n`)
 
   // Get all content sets
