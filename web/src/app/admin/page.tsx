@@ -262,14 +262,8 @@ export default function AdminDashboard() {
 
   return (
     <div className="space-y-8">
-      {/* Gradient background overlay */}
-      <div className="fixed inset-0 pointer-events-none opacity-50">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
-      </div>
-
       {/* Welcome Header */}
-      <div className="relative">
+      <div>
         <h1 className="text-4xl font-bold text-white mb-2">
           Welcome back, {session?.user?.name || 'Creator'}
         </h1>

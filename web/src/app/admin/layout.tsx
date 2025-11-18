@@ -66,12 +66,12 @@ export default function AdminLayout({
   }
 
   return (
-    <div className="h-screen bg-black flex overflow-hidden">
-      {/* Background Effects - Hidden on mobile */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none hide-mobile">
+    <div className="h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex overflow-hidden">
+      {/* Background Effects */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-purple-600/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-3/4 left-3/4 w-[400px] h-[400px] bg-sky-600/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
+        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-cyan-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-3/4 left-3/4 w-[400px] h-[400px] bg-blue-600/6 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
       </div>
 
       {/* Admin Sidebar */}
