@@ -179,9 +179,9 @@ export function AppLayout({ children }: AppLayoutProps) {
               <MenuIcon />
             </button>
 
-            <div className="text-lg font-semibold bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">
+            <h1 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-cyan-300 to-teal-300">
               PhotoVault
-            </div>
+            </h1>
 
             <div className="w-10" /> {/* Spacer for balance */}
           </div>
@@ -193,7 +193,7 @@ export function AppLayout({ children }: AppLayoutProps) {
         <div className="fixed left-0 top-0 bottom-0 w-64 bg-slate-900 border-r border-white/10 flex flex-col z-50">
           {/* Logo */}
           <div className="p-6 border-b border-white/10">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-cyan-300 to-teal-300">
               PhotoVault
             </h1>
           </div>
@@ -271,7 +271,7 @@ export function AppLayout({ children }: AppLayoutProps) {
             >
               {/* Header */}
               <div className="p-6 border-b border-white/10 flex items-center justify-between">
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">
+                <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-cyan-300 to-teal-300">
                   PhotoVault
                 </h1>
                 <button
