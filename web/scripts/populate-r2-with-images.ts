@@ -12,8 +12,10 @@
 import { createClient } from '@supabase/supabase-js'
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3'
 import sharp from 'sharp'
-import fetch from 'node-fetch'
 import 'dotenv/config'
+
+// Node.js 18+ has built-in fetch
+// If using Node < 18, install node-fetch: npm install node-fetch
 
 // ============================================
 // Configuration
