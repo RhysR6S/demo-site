@@ -262,8 +262,14 @@ export default function AdminDashboard() {
 
   return (
     <div className="space-y-8">
+      {/* Gradient background overlay */}
+      <div className="fixed inset-0 pointer-events-none opacity-50">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
+      </div>
+
       {/* Welcome Header */}
-      <div>
+      <div className="relative">
         <h1 className="text-4xl font-bold text-white mb-2">
           Welcome back, {session?.user?.name || 'Creator'}
         </h1>
@@ -271,7 +277,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* Key Metrics Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {/* Content Overview */}
         <div className="bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-xl p-6 border border-white/5">
           <div className="flex items-center justify-between mb-4">
@@ -343,9 +349,9 @@ export default function AdminDashboard() {
       </div>
 
       {/* Quick Actions */}
-      <div>
+      <div className="relative">
         <h2 className="text-2xl font-bold text-white mb-6">Quick Actions</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6">
           {quickActions.map((action) => (
             <Link
               key={action.href}
@@ -363,9 +369,9 @@ export default function AdminDashboard() {
       </div>
 
       {/* Content Overview Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Recent Uploads */}
-        <div>
+        <div className="relative">
           <h2 className="text-2xl font-bold text-white mb-6">Recent Uploads</h2>
           <div className="bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-xl border border-white/5 overflow-hidden">
             <div className="p-6 space-y-4">
@@ -374,7 +380,7 @@ export default function AdminDashboard() {
               ) : (
                 stats.recentUploads.map((upload) => (
                   <div key={upload.id} className="flex items-center justify-between pb-4 border-b border-white/5 last:border-0 last:pb-0">
-                    <div>
+                    <div className="relative">
                       <p className="text-white font-medium">{upload.title}</p>
                       <p className="text-sm text-gray-500 mt-1">
                         {upload.imageCount} images • {getRelativeTime(upload.createdAt)}
@@ -395,7 +401,7 @@ export default function AdminDashboard() {
         </div>
 
         {/* Popular Content */}
-        <div>
+        <div className="relative">
           <h2 className="text-2xl font-bold text-white mb-6">Top Performing Content</h2>
           <div className="bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-xl border border-white/5 overflow-hidden">
             <div className="p-6 space-y-4">
@@ -420,7 +426,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* Recent Activity */}
-      <div>
+      <div className="relative">
         <h2 className="text-2xl font-bold text-white mb-6">Recent Activity</h2>
         <div className="bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-xl border border-white/5 overflow-hidden">
           <div className="p-6 space-y-4">

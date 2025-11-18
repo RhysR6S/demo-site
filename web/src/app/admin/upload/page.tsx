@@ -142,28 +142,29 @@ export default function UploadPage() {
   }
 
   return (
-    <div className="min-h-screen">
-      {/* Header with gradient background */}
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 via-transparent to-blue-600/10" />
-        <div className="relative bg-zinc-950/50 backdrop-blur-2xl border-b border-white/5">
-          <div className="px-4 sm:px-6 lg:px-8 py-8 max-w-7xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
-              <h1 className="text-5xl font-bold bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent mb-4">
-                Upload Content
-              </h1>
-              <p className="text-gray-400 text-lg">
-                Add new photo sets to your gallery with smart organization
-              </p>
-            </motion.div>
-          </div>
-        </div>
+    <div className="min-h-full">
+      {/* Gradient background overlay */}
+      <div className="fixed inset-0 pointer-events-none opacity-40">
+        <div className="absolute top-1/4 right-1/3 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-sky-600/15 rounded-full blur-3xl" />
       </div>
 
-      <div className="px-4 sm:px-6 lg:px-8 py-8 max-w-7xl mx-auto">
+      {/* Header */}
+      <div className="relative mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          <h1 className="text-4xl font-bold text-white mb-2">
+            Upload Content
+          </h1>
+          <p className="text-gray-400 text-lg">
+            Add new photo sets to your gallery with smart organization
+          </p>
+        </motion.div>
+      </div>
+
+      <div className="relative">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main upload area */}
           <motion.div
