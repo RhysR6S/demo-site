@@ -13,7 +13,7 @@ interface DashboardStats {
   totalImages: number
   totalViews: number
   totalDownloads: number
-  activePatrons: number
+  activeMembers: number
   monthlyRevenue: number
   recentUploads: Array<{
     id: string
@@ -46,7 +46,7 @@ export default function AdminDashboard() {
     totalImages: 0,
     totalViews: 0,
     totalDownloads: 0,
-    activePatrons: 0,
+    activeMembers: 0,
     monthlyRevenue: 0,
     recentUploads: [],
     popularContent: [],
@@ -144,8 +144,8 @@ export default function AdminDashboard() {
       const totalViews = viewStats?.reduce((sum, item) => sum + (item.view_count || 0), 0) || 0
       const totalDownloads = downloadStats?.reduce((sum, item) => sum + (item.download_count || 0), 0) || 0
 
-      // Get Patreon metrics from the fetched data
-      const activePatrons = latestMetrics?.patron_count || 0
+      // Get membership metrics from the fetched data
+      const activeMembers = latestMetrics?.patron_count || 0
       const monthlyRevenue = latestMetrics?.monthly_revenue ? latestMetrics.monthly_revenue / 100 : 0 // Convert from cents to pounds
 
       // Format recent uploads
@@ -188,7 +188,7 @@ export default function AdminDashboard() {
         totalImages: totalImages || 0,
         totalViews,
         totalDownloads,
-        activePatrons,
+        activeMembers,
         monthlyRevenue,
         recentUploads,
         popularContent,
@@ -307,7 +307,7 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        {/* Active Patrons */}
+        {/* Active Members */}
         <div className="bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-xl p-6 border border-white/5">
           <div className="flex items-center justify-between mb-4">
             <div className="p-3 bg-green-600/20 rounded-lg">
@@ -317,8 +317,8 @@ export default function AdminDashboard() {
             </div>
             <span className="text-xs text-gray-500">Active</span>
           </div>
-          <p className="text-3xl font-bold text-white">{stats.activePatrons}</p>
-          <p className="text-sm text-gray-400 mt-1">Patrons</p>
+          <p className="text-3xl font-bold text-white">{stats.activeMembers}</p>
+          <p className="text-sm text-gray-400 mt-1">Members</p>
           <Link href="/admin/analytics" className="mt-2 text-xs text-green-400 hover:text-green-300">
             View growth →
           </Link>
