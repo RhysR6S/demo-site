@@ -14,23 +14,7 @@ export function AuthWrapper({ children, requireCreator = false }: AuthWrapperPro
   const { data: session, status } = useSession()
   const router = useRouter()
 
-  // Check for dev bypass mode
-  const devBypassEnabled = process.env.NEXT_PUBLIC_DEV_BYPASS_AUTH === 'true'
-
-  // Debug: Always log what we're seeing
-  console.log('🔍 CLIENT ENV CHECK:', {
-    raw: process.env.NEXT_PUBLIC_DEV_BYPASS_AUTH,
-    enabled: devBypassEnabled,
-    allEnv: Object.keys(process.env).filter(k => k.startsWith('NEXT_PUBLIC_'))
-  })
-
   useEffect(() => {
-    // Skip all auth checks in dev bypass mode
-    if (devBypassEnabled) {
-      console.log('🔓 DEV MODE: Bypassing client-side authentication')
-      return
-    }
-
     if (status === "loading") return
 
     // Check if session has error (user not authorized)
@@ -52,12 +36,7 @@ export function AuthWrapper({ children, requireCreator = false }: AuthWrapperPro
       router.push("/")
       return
     }
-  }, [session, status, router, requireCreator, devBypassEnabled])
-
-  // In dev bypass mode, always render children
-  if (devBypassEnabled) {
-    return <>{children}</>
-  }
+  }, [session, status, router, requireCreator])
 
   // Show loading state
   if (status === "loading") {

@@ -2,10 +2,12 @@
 import { AuthOptions } from "next-auth"
 import { JWT } from "next-auth/jwt"
 import PatreonProvider from "next-auth/providers/patreon"
+import CredentialsProvider from "next-auth/providers/credentials"
 import { getSupabaseAdmin } from "@/lib/supabase"
 import type { AuthError, AuthErrorCode } from "@/types/auth-errors"
 
 const TOKEN_REFRESH_INTERVAL = 21600000 // 6 hours
+const DEV_BYPASS_ENABLED = process.env.DEV_BYPASS_AUTH === 'true'
 
 /**
  * Create a detailed error object for debugging
@@ -215,6 +217,22 @@ export const authOptions: AuthOptions = {
         },
       },
     }),
+    // Demo mode credentials provider
+    ...(DEV_BYPASS_ENABLED ? [
+      CredentialsProvider({
+        id: 'demo',
+        name: 'Demo Account',
+        credentials: {},
+        async authorize() {
+          // Return a mock user for demo purposes
+          return {
+            id: 'demo-user',
+            email: 'demo@example.com',
+            name: 'Demo User',
+          }
+        },
+      })
+    ] : []),
   ],
   secret: process.env.NEXTAUTH_SECRET,
   session: {
@@ -224,16 +242,33 @@ export const authOptions: AuthOptions = {
   callbacks: {
     async jwt({ token, account, user, trigger }) {
       const now = Date.now()
-      
+
       // Initial sign in
       if (account && user) {
         console.log('🔐 Initial sign in detected:', { userId: user.id, email: user.email })
-        
+
+        // Handle demo mode login
+        if (DEV_BYPASS_ENABLED && account.provider === 'demo') {
+          console.log('🔓 DEV MODE: Creating demo session')
+          token.patreonUserId = user.id
+          token.isActivePatron = true
+          token.isCreator = true
+          token.membershipTier = 'creator'
+          token.lastRefreshed = now
+          token.authError = undefined
+          token.creatorProfile = {
+            displayName: 'Demo Creator',
+            profilePictureUrl: null,
+            bio: 'Demo account for portfolio showcase'
+          }
+          return token
+        }
+
         token.accessToken = account.access_token
         token.patreonUserId = user.id
         token.lastRefreshed = now
         token.authError = undefined // Clear any previous errors
-        
+
         try {
           // Fetch fresh membership data
           const membershipData = await fetchPatreonMembership(account.access_token!, user.id)

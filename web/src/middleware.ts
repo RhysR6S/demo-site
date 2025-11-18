@@ -94,27 +94,18 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
-  // DEVELOPMENT MODE BYPASS
-  // When DEV_BYPASS_AUTH is enabled, create a mock admin session
-  const devBypassEnabled = process.env.DEV_BYPASS_AUTH === 'true'
-
-  // Debug: Log the bypass status on homepage access
-  if (pathname === '/' && process.env.DEV_BYPASS_AUTH) {
-    console.log('🔍 DEV_BYPASS_AUTH:', process.env.DEV_BYPASS_AUTH, '| Enabled:', devBypassEnabled)
-  }
-
   try {
     const clientIp = getClientIp(request)
-    
+
     // Clone the request headers
     const requestHeaders = new Headers(request.headers)
     requestHeaders.set('x-request-id', requestId)
     requestHeaders.set('x-client-ip', clientIp)
-    
+
     // Check if route is public
     const isPublicRoute = ROUTES.PUBLIC.some(route => pathname.startsWith(route))
 
-    if (!isPublicRoute && !devBypassEnabled) {
+    if (!isPublicRoute) {
       // Get JWT token
       const token = await getToken({
         req: request,
@@ -192,9 +183,6 @@ export async function middleware(request: NextRequest) {
         }))
         return NextResponse.redirect(errorUrl)
       }
-    } else if (devBypassEnabled && !isPublicRoute) {
-      // In dev bypass mode, log that we're allowing access
-      console.log('🔓 DEV MODE: Bypassing authentication for:', pathname)
     }
     
     // Apply rate limiting ONLY for auth routes (brute force protection)

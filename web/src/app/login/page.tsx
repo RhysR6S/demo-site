@@ -23,17 +23,16 @@ export default function DemoLogin() {
     setLoading(true)
     setError('')
 
-    const result = await signIn('demo-credentials', {
-      email: demoEmail,
-      password: 'demo123',
+    const result = await signIn('demo', {
       redirect: false,
+      callbackUrl: '/'
     })
 
     if (result?.error) {
       setError('Login failed. Please try again.')
       setLoading(false)
     } else {
-      router.push('/gallery')
+      router.push('/')
     }
   }
 
