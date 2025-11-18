@@ -267,16 +267,16 @@ export default function AdminCommissionsPage() {
   }
 
   const biasLabels: Record<string, string> = {
-    vaginal: 'Vaginal',
-    anal: 'Anal',
-    oral: 'Oral',
-    handjobTitjob: 'Handjob/Titjob',
-    masturbation: 'Masturbation',
-    rimming: 'Rimming',
-    worshippingSmothering: 'Worshipping/Smothering',
-    povSex: 'POV Sex',
-    nonPovSex: 'Non-POV Sex',
-    twoGirls: '2Girls Scenes'
+    vaginal: 'Natural Light',
+    anal: 'Studio Lighting',
+    oral: 'Golden Hour',
+    handjobTitjob: 'Indoor Lighting',
+    masturbation: 'Outdoor Natural',
+    rimming: 'Soft Diffused',
+    worshippingSmothering: 'Dramatic Contrast',
+    povSex: 'Close-up Focus',
+    nonPovSex: 'Wide-angle Shots',
+    twoGirls: 'Group Compositions'
   }
 
   // Memoized filtered commissions
@@ -723,10 +723,10 @@ export default function AdminCommissionsPage() {
                           <h4 className="text-sm font-semibold text-gray-400 mb-2">Image Distribution:</h4>
                           <div className="space-y-1">
                             <div className="flex items-center justify-between py-1">
-                              <span className="text-gray-300">Solo</span>
+                              <span className="text-gray-300">Single Subject</span>
                               <div className="flex items-center gap-2">
                                 <div className="w-24 bg-zinc-800 rounded-full h-2 overflow-hidden">
-                                  <div 
+                                  <div
                                     className="h-full bg-purple-500 transition-all"
                                     style={{ width: `${Math.min(selectedCommission.request_data.imageDistribution.solo || 0, 300)}%` }}
                                   />
@@ -734,12 +734,12 @@ export default function AdminCommissionsPage() {
                                 <span className="text-white text-xs w-10 text-right">{selectedCommission.request_data.imageDistribution.solo || 0}%</span>
                               </div>
                             </div>
-                            
+
                             <div className="flex items-center justify-between py-1">
-                              <span className="text-gray-300">2Girls (FF)</span>
+                              <span className="text-gray-300">Multiple Subjects</span>
                               <div className="flex items-center gap-2">
                                 <div className="w-24 bg-zinc-800 rounded-full h-2 overflow-hidden">
-                                  <div 
+                                  <div
                                     className="h-full bg-purple-500 transition-all"
                                     style={{ width: `${Math.min(selectedCommission.request_data.imageDistribution.duo_ff || 0, 300)}%` }}
                                   />
@@ -747,12 +747,12 @@ export default function AdminCommissionsPage() {
                                 <span className="text-white text-xs w-10 text-right">{selectedCommission.request_data.imageDistribution.duo_ff || 0}%</span>
                               </div>
                             </div>
-                            
+
                             <div className="flex items-center justify-between py-1">
-                              <span className="text-gray-300">1Boy1Girl (Both Visible)</span>
+                              <span className="text-gray-300">Environmental Shots</span>
                               <div className="flex items-center gap-2">
                                 <div className="w-24 bg-zinc-800 rounded-full h-2 overflow-hidden">
-                                  <div 
+                                  <div
                                     className="h-full bg-purple-500 transition-all"
                                     style={{ width: `${Math.min(selectedCommission.request_data.imageDistribution.duo_mf || 0, 300)}%` }}
                                   />
@@ -760,12 +760,12 @@ export default function AdminCommissionsPage() {
                                 <span className="text-white text-xs w-10 text-right">{selectedCommission.request_data.imageDistribution.duo_mf || 0}%</span>
                               </div>
                             </div>
-                            
+
                             <div className="flex items-center justify-between py-1">
-                              <span className="text-gray-300">1Boy1Girl (POV)</span>
+                              <span className="text-gray-300">Action & Activity</span>
                               <div className="flex items-center gap-2">
                                 <div className="w-24 bg-zinc-800 rounded-full h-2 overflow-hidden">
-                                  <div 
+                                  <div
                                     className="h-full bg-purple-500 transition-all"
                                     style={{ width: `${Math.min(selectedCommission.request_data.imageDistribution.duo_mf_pov || 0, 300)}%` }}
                                   />
@@ -773,12 +773,12 @@ export default function AdminCommissionsPage() {
                                 <span className="text-white text-xs w-10 text-right">{selectedCommission.request_data.imageDistribution.duo_mf_pov || 0}%</span>
                               </div>
                             </div>
-                            
+
                             <div className="flex items-center justify-between py-1">
-                              <span className="text-gray-300">POV FFM Threesome</span>
+                              <span className="text-gray-300">Wide Angle / Panoramic</span>
                               <div className="flex items-center gap-2">
                                 <div className="w-24 bg-zinc-800 rounded-full h-2 overflow-hidden">
-                                  <div 
+                                  <div
                                     className="h-full bg-purple-500 transition-all"
                                     style={{ width: `${Math.min(selectedCommission.request_data.imageDistribution.pov_ffm || 0, 300)}%` }}
                                   />
@@ -786,12 +786,12 @@ export default function AdminCommissionsPage() {
                                 <span className="text-white text-xs w-10 text-right">{selectedCommission.request_data.imageDistribution.pov_ffm || 0}%</span>
                               </div>
                             </div>
-                            
+
                             <div className="flex items-center justify-between py-1">
-                              <span className="text-gray-300">Gangbang</span>
+                              <span className="text-gray-300">Close-up & Detail</span>
                               <div className="flex items-center gap-2">
                                 <div className="w-24 bg-zinc-800 rounded-full h-2 overflow-hidden">
-                                  <div 
+                                  <div
                                     className="h-full bg-purple-500 transition-all"
                                     style={{ width: `${Math.min(selectedCommission.request_data.imageDistribution.gangbang || 0, 300)}%` }}
                                   />
