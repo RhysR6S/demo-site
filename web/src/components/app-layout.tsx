@@ -192,7 +192,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       {!(isMobile || isTablet) && (
         <div className="fixed left-0 top-0 bottom-0 w-64 bg-slate-900 border-r border-white/10 flex flex-col z-50">
           {/* Logo */}
-          <div className="p-6 border-b border-white/10">
+          <div className="p-6 border-b border-white/10 flex items-center justify-center">
             <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-cyan-300 to-teal-300">
               PhotoVault
             </h1>
