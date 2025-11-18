@@ -57,6 +57,13 @@ This smart resume script will:
 - Only download missing images
 - Pick up exactly where you left off
 
+**Optional - Clean up empty sets:**
+If some sets completely failed and have no images at all, you can remove them:
+```bash
+npm run cleanup-empty-sets              # Preview what would be deleted
+npm run cleanup-empty-sets -- --execute # Actually delete empty sets
+```
+
 ### 4. Restart Your Dev Server
 
 ```bash

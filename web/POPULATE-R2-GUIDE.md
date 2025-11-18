@@ -55,6 +55,26 @@ The resume script intelligently:
 
 You can run the resume script multiple times until all images are populated.
 
+### Cleanup Empty Sets
+
+If you want to remove sets that have no images in R2 (failed due to rate limits):
+
+```bash
+# Preview which sets would be deleted (dry run)
+npm run cleanup-empty-sets
+
+# Actually delete empty sets
+npm run cleanup-empty-sets -- --execute
+```
+
+The cleanup script will:
+- Scan all content sets and check R2 for actual images
+- Categorize sets as: Complete, Partial, or Empty
+- In execute mode, delete only completely empty sets
+- Preserve partial sets (sets with at least one image)
+
+**Note:** This deletes the database records for empty sets. It's safe to run and only affects sets with zero images in R2.
+
 ## What to Expect
 
 ```
