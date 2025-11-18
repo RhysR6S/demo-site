@@ -13,7 +13,7 @@ import { format, formatDistanceToNow, subDays, startOfMonth, endOfMonth, eachDay
 interface MetricsSnapshot {
   id: string
   created_at: string
-  patron_count: number
+  member_count: number
   total_members: number
   monthly_revenue: number
   currency: string
@@ -42,7 +42,7 @@ const COLORS = {
   
   // Chart specific colors
   revenue: '#a855f7',
-  patrons: '#3b82f6',
+  members: '#3b82f6',
   growth: '#10b981',
   decline: '#ef4444',
   
@@ -224,30 +224,30 @@ export default function AnalyticsPage() {
     ? calculateGrowth(currentMetrics.monthly_revenue, previousMetrics.monthly_revenue)
     : { value: 0, isPositive: true }
     
-  const patronGrowth = previousMetrics && currentMetrics
-    ? calculateGrowth(currentMetrics.patron_count, previousMetrics.patron_count)
+  const memberGrowth = previousMetrics && currentMetrics
+    ? calculateGrowth(currentMetrics.member_count, previousMetrics.member_count)
     : { value: 0, isPositive: true }
     
   const periodGrowth = oldestMetrics && currentMetrics
-    ? calculateGrowth(currentMetrics.patron_count, oldestMetrics.patron_count)
+    ? calculateGrowth(currentMetrics.member_count, oldestMetrics.member_count)
     : { value: 0, isPositive: true }
 
-  // Calculate average revenue per patron
-  const avgRevenuePerPatron = currentMetrics && currentMetrics.patron_count > 0
-    ? currentMetrics.monthly_revenue / currentMetrics.patron_count
+  // Calculate average revenue per member
+  const avgRevenuePerPatron = currentMetrics && currentMetrics.member_count > 0
+    ? currentMetrics.monthly_revenue / currentMetrics.member_count
     : 0
 
-  // Calculate retention rate (active patrons / total members)
+  // Calculate retention rate (active members / total members)
   const retentionRate = currentMetrics && currentMetrics.total_members > 0
-    ? (currentMetrics.patron_count / currentMetrics.total_members) * 100
+    ? (currentMetrics.member_count / currentMetrics.total_members) * 100
     : 0
 
   // Prepare chart data
   const chartData = filteredHistory.map(snapshot => ({
     date: format(new Date(snapshot.created_at), 'MMM d'),
     revenue: snapshot.monthly_revenue / 100,
-    patrons: snapshot.patron_count,
-    avgPerPatron: snapshot.patron_count > 0 ? (snapshot.monthly_revenue / 100) / snapshot.patron_count : 0
+    members: snapshot.member_count,
+    avgPerMember: snapshot.member_count > 0 ? (snapshot.monthly_revenue / 100) / snapshot.member_count : 0
   }))
 
   // Process tier data for better visualization
@@ -256,7 +256,7 @@ export default function AnalyticsPage() {
         .map(([tier, count]) => ({
           name: tier,
           value: count as number,
-          percentage: ((count as number) / currentMetrics.patron_count) * 100
+          percentage: ((count as number) / currentMetrics.member_count) * 100
         }))
         .sort((a, b) => b.value - a.value)
     : []
@@ -367,18 +367,18 @@ export default function AnalyticsPage() {
             </div>
           </div>
 
-          {/* Active Patrons */}
+          {/* Active Members */}
           <div className="bg-slate-900 border border-zinc-800 rounded-xl p-6 hover:border-zinc-700 transition-colors">
             <div className="flex items-start justify-between">
               <div className="flex-1">
-                <p className="text-sm font-medium text-gray-400 mb-1">Active Patrons</p>
+                <p className="text-sm font-medium text-gray-400 mb-1">Active Members</p>
                 <p className="text-2xl font-bold text-white mb-2">
-                  {currentMetrics?.patron_count || 0}
+                  {currentMetrics?.member_count || 0}
                 </p>
-                {patronGrowth.value !== 0 && (
+                {memberGrowth.value !== 0 && (
                   <div className="flex items-center gap-1">
                     <svg 
-                      className={`w-4 h-4 ${patronGrowth.isPositive ? 'text-green-500' : 'text-sky-500'}`} 
+                      className={`w-4 h-4 ${memberGrowth.isPositive ? 'text-green-500' : 'text-sky-500'}`} 
                       fill="none" 
                       viewBox="0 0 24 24" 
                       stroke="currentColor"
@@ -387,11 +387,11 @@ export default function AnalyticsPage() {
                         strokeLinecap="round" 
                         strokeLinejoin="round" 
                         strokeWidth={2} 
-                        d={patronGrowth.isPositive ? "M5 10l7-7m0 0l7 7m-7-7v18" : "M19 14l-7 7m0 0l-7-7m7 7V3"} 
+                        d={memberGrowth.isPositive ? "M5 10l7-7m0 0l7 7m-7-7v18" : "M19 14l-7 7m0 0l-7-7m7 7V3"} 
                       />
                     </svg>
-                    <span className={`text-sm font-medium ${patronGrowth.isPositive ? 'text-green-500' : 'text-sky-500'}`}>
-                      {patronGrowth.value.toFixed(1)}%
+                    <span className={`text-sm font-medium ${memberGrowth.isPositive ? 'text-green-500' : 'text-sky-500'}`}>
+                      {memberGrowth.value.toFixed(1)}%
                     </span>
                     <span className="text-xs text-gray-500">vs last period</span>
                   </div>
@@ -531,7 +531,7 @@ export default function AnalyticsPage() {
                   dataKey="patrons"
                   stroke={COLORS.patrons}
                   strokeWidth={2}
-                  name="Active Patrons"
+                  name="Active Members"
                   dot={false}
                 />
               </ComposedChart>
@@ -608,7 +608,7 @@ export default function AnalyticsPage() {
               <Tooltip content={<CustomTooltip />} />
               <Area
                 type="monotone"
-                dataKey="avgPerPatron"
+                dataKey="avgPerMember"
                 stroke={COLORS.success}
                 fill={COLORS.success}
                 fillOpacity={0.1}
@@ -634,7 +634,7 @@ export default function AnalyticsPage() {
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-green-500 mt-1.5 flex-shrink-0"></div>
                   <p className="text-sm text-gray-300">
-                    Your average revenue per patron of {formatCurrency(avgRevenuePerPatron, 'GBP')} is excellent. 
+                    Your average revenue per member of {formatCurrency(avgRevenuePerPatron, 'GBP')} is excellent. 
                     Consider creating more premium tiers to capitalize on this.
                   </p>
                 </div>
@@ -650,11 +650,11 @@ export default function AnalyticsPage() {
                 </div>
               )}
               
-              {patronGrowth.isPositive && patronGrowth.value > 5 && (
+              {memberGrowth.isPositive && memberGrowth.value > 5 && (
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-green-500 mt-1.5 flex-shrink-0"></div>
                   <p className="text-sm text-gray-300">
-                    Strong patron growth of {patronGrowth.value.toFixed(1)}%! 
+                    Strong patron growth of {memberGrowth.value.toFixed(1)}%! 
                     Keep up the momentum with consistent content and engagement.
                   </p>
                 </div>
