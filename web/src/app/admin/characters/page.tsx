@@ -303,8 +303,8 @@ export default function SubjectsAdminPage() {
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-white mb-2">Subjects & Collection</h1>
-        <p className="text-gray-400">Manage subjects and collection for your content</p>
+        <h1 className="text-3xl font-bold text-white mb-2">Subjects & Collections</h1>
+        <p className="text-gray-400">Manage subjects and collections for your content</p>
       </div>
 
       {/* Tabs */}
@@ -327,7 +327,7 @@ export default function SubjectsAdminPage() {
               : 'text-gray-400 hover:text-white hover:bg-zinc-800'
           }`}
         >
-          Collection
+          Collections
         </button>
       </div>
 
