@@ -45,6 +45,18 @@ This will:
 
 **Time estimate:** 5-10 minutes for all sets (with rate limiting)
 
+**⚠️ If you hit the rate limit (403 error):**
+Unsplash free tier allows 50 requests/hour. If the script stops partway through, simply wait 1 hour and run:
+
+```bash
+npm run populate-r2:resume
+```
+
+This smart resume script will:
+- Check which images already exist in R2
+- Only download missing images
+- Pick up exactly where you left off
+
 ### 4. Restart Your Dev Server
 
 ```bash

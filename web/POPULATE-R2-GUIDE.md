@@ -31,10 +31,29 @@ The script will:
 
 ## Running the Script
 
+### Initial Run
+
 ```bash
 cd web
 npm run populate-r2
 ```
+
+### Resume After Rate Limit
+
+If you hit Unsplash's rate limit (50 requests/hour on free tier), wait 1 hour and run:
+
+```bash
+npm run populate-r2:resume
+```
+
+The resume script intelligently:
+- Checks which images already exist in R2
+- Only downloads and uploads missing images
+- Skips already-completed work
+- Tracks progress with detailed statistics
+- Stops gracefully if rate limit is hit again
+
+You can run the resume script multiple times until all images are populated.
 
 ## What to Expect
 
@@ -101,9 +120,17 @@ const { data: sets, error } = await supabase
 - Your `UNSPLASH_ACCESS_KEY` is invalid or not set
 - Check your `.env.local` file
 
-### "Unsplash API error: 403"
+### "Unsplash API error: 403" (Rate Limit)
 - You've exceeded your rate limit (50 requests/hour on free tier)
-- Wait an hour and try again, or upgrade your Unsplash plan
+- **Solution:** Wait 1 hour, then run `npm run populate-r2:resume`
+- The resume script will pick up where you left off
+- You may need to run it 2-3 times if you have many sets (200+ images)
+
+### Some Sets Worked, Some Didn't
+- This is normal when hitting the rate limit
+- Successfully uploaded images are safe in R2
+- Run `npm run populate-r2:resume` after the rate limit resets
+- The script will automatically skip images that already exist
 
 ### "No value provided for input HTTP label: Bucket"
 - Your R2 credentials are not set correctly
