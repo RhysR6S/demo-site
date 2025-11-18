@@ -110,17 +110,29 @@ export async function GET(request: NextRequest) {
   const startTime = Date.now()
 
   try {
+    // Check for dev bypass mode
+    const devBypassEnabled = process.env.DEV_BYPASS_AUTH === 'true'
+
     // Get authenticated user
     const token = await getToken({ req: request })
-    if (!token || !token.sub) {
+
+    // In dev bypass mode, create a mock token
+    let userId: string
+    let isCreator: boolean
+
+    if (devBypassEnabled && (!token || !token.sub)) {
+      console.log('🔓 DEV MODE: Using mock user for /api/gallery')
+      userId = 'dev-user'
+      isCreator = true
+    } else if (!token || !token.sub) {
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
       )
+    } else {
+      userId = token.sub
+      isCreator = token.isCreator || false
     }
-
-    const userId = token.sub
-    const isCreator = token.isCreator || false
     const supabase = getSupabaseAdmin()
 
     // Parse query parameters
