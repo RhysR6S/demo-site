@@ -517,7 +517,7 @@ export default function SubjectsAdminPage() {
                     value={subjectForm.name}
                     onChange={(e) => setSubjectForm(prev => ({ ...prev, name: e.target.value }))}
                     className="w-full px-4 py-3 bg-zinc-800 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-600/50 transition-all"
-                    placeholder="e.g., Boa Hancock"
+                    placeholder="e.g., Professional Model, Lifestyle Subject"
                     required
                   />
                 </div>
@@ -604,7 +604,7 @@ export default function SubjectsAdminPage() {
                     value={collectionForm.name}
                     onChange={(e) => setCollectionForm(prev => ({ ...prev, name: e.target.value }))}
                     className="w-full px-4 py-3 bg-zinc-800 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-600/50 transition-all"
-                    placeholder="e.g., One Piece"
+                    placeholder="e.g., Fashion, Outdoor Lifestyle, Corporate"
                     required
                   />
                 </div>
