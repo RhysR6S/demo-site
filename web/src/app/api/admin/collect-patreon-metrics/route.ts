@@ -30,7 +30,6 @@ export async function GET(request: NextRequest) {
         patron_count: 150,
         total_members: 200,
         monthly_revenue: 75000, // £750 in cents
-        currency: 'GBP',
         tier_breakdown: {
           'tier-1': 100,
           'tier-2': 40,
@@ -131,7 +130,6 @@ export async function GET(request: NextRequest) {
         patron_count: metrics.patronCount,
         total_members: metrics.totalMembers,
         monthly_revenue: metrics.monthlyRevenue,
-        currency: metrics.currency,
         tier_breakdown: metrics.tierBreakdown
       })
       .select()
@@ -166,8 +164,7 @@ export async function GET(request: NextRequest) {
         id: snapshot.id,
         created_at: snapshot.created_at,
         patron_count: snapshot.patron_count,
-        monthly_revenue: snapshot.monthly_revenue,
-        currency: snapshot.currency
+        monthly_revenue: snapshot.monthly_revenue
       },
       message: 'Metrics collected successfully'
     })

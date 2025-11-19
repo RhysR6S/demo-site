@@ -417,7 +417,6 @@ async function seedAnalytics() {
       patron_count: Math.floor(200 + Math.random() * 50),
       total_members: Math.floor(250 + Math.random() * 75),
       monthly_revenue: Math.floor(1500 + Math.random() * 500),
-      currency: 'GBP',
       tier_breakdown: {
         bronze: Math.floor(50 + Math.random() * 20),
         silver: Math.floor(40 + Math.random() * 15),
