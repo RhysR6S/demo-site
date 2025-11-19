@@ -5,10 +5,12 @@ import { authOptions } from '@/lib/auth'
 import { getSupabaseAdmin } from '@/lib/supabase'
 import { PatreonMetricsService } from '@/lib/patreon-metrics'
 
+const DEV_BYPASS_ENABLED = process.env.DEV_BYPASS_AUTH === 'true'
+
 /**
  * API endpoint to collect current Patreon metrics and store them in the database
  * This should be called periodically (via cron job or scheduled function)
- * 
+ *
  * GET /api/admin/collect-patreon-metrics - Collect metrics (requires creator auth)
  * GET /api/admin/collect-patreon-metrics?cron_secret=YOUR_SECRET - For automated collection
  */
@@ -16,13 +18,67 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
     const cronSecret = searchParams.get('cron_secret')
-    
+
+    // Demo mode: Return mock success response
+    if (DEV_BYPASS_ENABLED && !cronSecret) {
+      console.log('🔓 DEV MODE: Returning mock metrics collection success')
+
+      // Insert mock metrics into database for demo purposes
+      const supabase = getSupabaseAdmin()
+
+      const mockMetrics = {
+        patron_count: 150,
+        total_members: 200,
+        monthly_revenue: 75000, // £750 in cents
+        currency: 'GBP',
+        tier_breakdown: {
+          'tier-1': 100,
+          'tier-2': 40,
+          'tier-3': 10
+        },
+        metadata: {
+          campaign_start_date: '2023-01-01',
+          collection_method: 'demo',
+          lifetime_revenue: 500000 // £5000 in cents
+        }
+      }
+
+      const { data: snapshot, error: insertError } = await supabase
+        .from('patreon_metrics_history')
+        .insert(mockMetrics)
+        .select()
+        .single()
+
+      if (insertError) {
+        console.error('[Demo Metrics] Database error:', insertError)
+        // Don't fail in demo mode, just return success
+        return NextResponse.json({
+          success: true,
+          demo: true,
+          message: 'Demo mode - mock metrics generated'
+        })
+      }
+
+      return NextResponse.json({
+        success: true,
+        demo: true,
+        snapshot: {
+          id: snapshot.id,
+          created_at: snapshot.created_at,
+          patron_count: snapshot.patron_count,
+          monthly_revenue: snapshot.monthly_revenue,
+          currency: snapshot.currency
+        },
+        message: 'Demo mode - metrics collected successfully'
+      })
+    }
+
     // Two authentication methods:
     // 1. Manual trigger by creator (via admin panel)
     // 2. Automated trigger with cron secret
-    
+
     let accessToken: string | null = null
-    
+
     if (cronSecret) {
       // Verify cron secret for automated collection
       if (cronSecret !== process.env.CRON_SECRET) {
@@ -31,10 +87,10 @@ export async function GET(request: NextRequest) {
           { status: 401 }
         )
       }
-      
+
       // For automated collection, use stored creator access token
       accessToken = process.env.PATREON_CREATOR_ACCESS_TOKEN || null
-      
+
       if (!accessToken) {
         console.error('[Metrics Collector] No creator access token available for automated collection')
         return NextResponse.json(
@@ -45,23 +101,23 @@ export async function GET(request: NextRequest) {
     } else {
       // Manual trigger - check creator authentication
       const session = await getServerSession(authOptions)
-      
+
       if (!session?.user?.isCreator) {
         return NextResponse.json(
           { error: 'Creator access required' },
           { status: 403 }
         )
       }
-      
+
       // For manual collection, use stored creator access token
       // In your setup, you'd store this when the creator connects their Patreon account
       accessToken = process.env.PATREON_CREATOR_ACCESS_TOKEN || null
-      
+
       if (!accessToken) {
         return NextResponse.json(
-          { 
-            error: 'No Patreon access token configured', 
-            message: 'Please set PATREON_CREATOR_ACCESS_TOKEN in environment variables' 
+          {
+            error: 'No Patreon access token configured',
+            message: 'Please set PATREON_CREATOR_ACCESS_TOKEN in environment variables'
           },
           { status: 401 }
         )
