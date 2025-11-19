@@ -30,16 +30,18 @@ export async function GET(request: NextRequest) {
         patron_count: 150,
         total_members: 200,
         monthly_revenue: 75000, // £750 in cents
-        currency: 'GBP',
         tier_breakdown: {
           'tier-1': 100,
           'tier-2': 40,
           'tier-3': 10
         },
+        campaign_id: null,
+        campaign_vanity: null,
         metadata: {
           campaign_start_date: '2023-01-01',
           collection_method: 'demo',
-          lifetime_revenue: 500000 // £5000 in cents
+          lifetime_revenue: 500000, // £5000 in cents
+          currency: 'GBP'
         }
       }
 
@@ -66,8 +68,7 @@ export async function GET(request: NextRequest) {
           id: snapshot.id,
           created_at: snapshot.created_at,
           patron_count: snapshot.patron_count,
-          monthly_revenue: snapshot.monthly_revenue,
-          currency: snapshot.currency
+          monthly_revenue: snapshot.monthly_revenue
         },
         message: 'Demo mode - metrics collected successfully'
       })
