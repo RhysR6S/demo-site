@@ -30,18 +30,11 @@ export async function GET(request: NextRequest) {
         patron_count: 150,
         total_members: 200,
         monthly_revenue: 75000, // £750 in cents
+        currency: 'GBP',
         tier_breakdown: {
           'tier-1': 100,
           'tier-2': 40,
           'tier-3': 10
-        },
-        campaign_id: null,
-        campaign_vanity: null,
-        metadata: {
-          campaign_start_date: '2023-01-01',
-          collection_method: 'demo',
-          lifetime_revenue: 500000, // £5000 in cents
-          currency: 'GBP'
         }
       }
 
@@ -139,14 +132,7 @@ export async function GET(request: NextRequest) {
         total_members: metrics.totalMembers,
         monthly_revenue: metrics.monthlyRevenue,
         currency: metrics.currency,
-        tier_breakdown: metrics.tierBreakdown,
-        campaign_id: null, // Could be added from metrics if available
-        campaign_vanity: null, // Could be added from metrics if available
-        metadata: {
-          campaign_start_date: metrics.campaignStartDate,
-          collection_method: cronSecret ? 'automated' : 'manual',
-          lifetime_revenue: metrics.lifetimeRevenue
-        }
+        tier_breakdown: metrics.tierBreakdown
       })
       .select()
       .single()
