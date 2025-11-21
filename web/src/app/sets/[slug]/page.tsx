@@ -155,7 +155,7 @@ function SetContent() {
     <MainLayout>
       <div className="min-h-screen max-w-screen overflow-x-hidden">
         {/* Enhanced Mobile Header */}
-        <div className="border-b border-white/10 sticky top-0 bg-black/95 backdrop-blur-xl z-40 w-full">
+        <div className="border-b border-white/10 sticky top-0 bg-slate-950/95 backdrop-blur-xl z-40 w-full">
           <div className={`${isSmallScreen ? 'px-3 safe-area-inset-x' : 'max-w-7xl mx-auto px-6'} ${isSmallScreen ? 'py-3' : 'py-4'}`}>
             <div className="flex items-center justify-between gap-3">
               {/* Back Button - Enhanced for mobile */}
