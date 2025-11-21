@@ -44,9 +44,10 @@ export async function POST(
   request: NextRequest,
   { params }: { params: { channelId: string } }
 ) {
+  const { channelId } = await params
   try {
     const session = await getServerSession(authOptions)
-    
+
     if (!session?.user?.id) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
@@ -59,12 +60,32 @@ export async function POST(
     }
 
     const supabase = getSupabaseAdmin()
-    
+
+    // Ensure user exists in database (for demo mode compatibility)
+    const { data: existingUser } = await supabase
+      .from('users')
+      .select('id')
+      .eq('id', session.user.id)
+      .single()
+
+    if (!existingUser) {
+      // Create user if they don't exist
+      await supabase
+        .from('users')
+        .insert({
+          id: session.user.id,
+          email: session.user.email || 'demo@example.com',
+          name: session.user.name || 'Demo User',
+          membership_tier: session.user.membershipTier || 'bronze',
+          is_creator: session.user.isCreator || false
+        })
+    }
+
     // Get channel to check permissions
     const { data: channel, error: channelError } = await supabase
       .from('channels')
       .select('*')
-      .eq('id', params.channelId)
+      .eq('id', channelId)
       .single()
 
     if (channelError || !channel) {
@@ -96,7 +117,7 @@ export async function POST(
     const { data: message, error: messageError } = await supabase
       .from('channel_messages')
       .insert({
-        channel_id: params.channelId,
+        channel_id: channelId,
         user_id: session.user.id,
         user_name: displayName, // Use the correct display name
         user_tier: session.user.membershipTier || 'bronze',
@@ -115,7 +136,7 @@ export async function POST(
       .from('channel_read_status')
       .upsert({
         user_id: session.user.id,
-        channel_id: params.channelId,
+        channel_id: channelId,
         last_read_at: new Date().toISOString()
       })
 
