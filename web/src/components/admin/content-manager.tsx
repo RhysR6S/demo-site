@@ -602,7 +602,7 @@ export const ContentManager = forwardRef<ContentManagerRef, ContentManagerProps>
                   {set.thumbnail_image_id ? (
                     <div className="aspect-video bg-zinc-800 relative">
                       <img
-                        src={`/api/image/${set.thumbnail_image_id}`}
+                        src={`/api/thumbnail/${set.thumbnail_image_id}`}
                         alt={set.title}
                         className="w-full h-full object-cover"
                         loading={index < 8 ? "eager" : "lazy"}
@@ -700,7 +700,7 @@ export const ContentManager = forwardRef<ContentManagerRef, ContentManagerProps>
                     {/* Thumbnail */}
                     {set.thumbnail_image_id ? (
                       <img
-                        src={`/api/image/${set.thumbnail_image_id}`}
+                        src={`/api/thumbnail/${set.thumbnail_image_id}`}
                         alt=""
                         className="w-20 h-20 object-cover rounded-lg"
                         loading={index < 10 ? "eager" : "lazy"}
