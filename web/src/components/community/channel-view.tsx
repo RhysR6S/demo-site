@@ -179,11 +179,14 @@ export function ChannelView({
       if (response.ok) {
         const data = await response.json()
         // Replace temp message with real one
-        setMessages(prev => prev.map(msg => 
-          msg.id === tempId ? data.message : msg
-        ))
-        // Update cache
-        messageCache.set(channelId, messages)
+        setMessages(prev => {
+          const updated = prev.map(msg =>
+            msg.id === tempId ? data.message : msg
+          )
+          // Update cache with new messages
+          messageCache.set(channelId, updated)
+          return updated
+        })
       } else {
         // Remove optimistic message on error
         setMessages(prev => prev.filter(msg => msg.id !== tempId))

@@ -222,9 +222,9 @@ function DMsContent() {
   // Desktop layout (unchanged)
   return (
     <div className="h-full flex">
-      {/* Sidebar - Only show for creators */}
+      {/* Sidebar - Only show for creators - darker than main sidebar */}
       {isCreator && (
-        <div className="w-80 border-r border-white/10 bg-black/40">
+        <div className="w-80 border-r border-white/10 bg-slate-900/50">
           <DMList
             conversations={conversations}
             selectedConversationId={selectedConversationId}
@@ -235,8 +235,8 @@ function DMsContent() {
         </div>
       )}
 
-      {/* Main content */}
-      <div className="flex-1">
+      {/* Main content - darkest */}
+      <div className="flex-1 bg-slate-950/80">
         {selectedConversationId && selectedConversation ? (
           <DMView
             key={selectedConversationId}
