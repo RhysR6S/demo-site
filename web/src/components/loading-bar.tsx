@@ -1,7 +1,7 @@
 // src/components/loading-bar.tsx
 "use client"
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 
 export function LoadingBar() {
@@ -9,17 +9,63 @@ export function LoadingBar() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
+  // Track previous values to detect when navigation starts
+  const prevPathname = useRef(pathname)
+  const prevSearchParams = useRef(searchParams?.toString())
+
   useEffect(() => {
-    // Start loading when route changes
-    setIsLoading(true)
+    // Detect if navigation is happening
+    const currentPath = pathname
+    const currentSearch = searchParams?.toString()
 
-    // Hide loading bar after a short delay to allow page to render
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 500)
+    const isNavigating =
+      prevPathname.current !== currentPath ||
+      prevSearchParams.current !== currentSearch
 
-    return () => clearTimeout(timer)
+    if (isNavigating) {
+      // Show loading bar immediately when navigation detected
+      setIsLoading(true)
+
+      // Update refs for next comparison
+      prevPathname.current = currentPath
+      prevSearchParams.current = currentSearch
+
+      // Hide loading bar after page has had time to render
+      const timer = setTimeout(() => {
+        setIsLoading(false)
+      }, 500)
+
+      return () => clearTimeout(timer)
+    }
   }, [pathname, searchParams])
+
+  // Also listen for link clicks to show loading bar immediately
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement
+      const link = target.closest('a')
+
+      // Check if it's an internal navigation link
+      if (link && link.href && !link.target && !link.download) {
+        const url = new URL(link.href)
+        const isInternal = url.origin === window.location.origin
+        const isDifferentPage =
+          url.pathname !== window.location.pathname ||
+          url.search !== window.location.search
+
+        if (isInternal && isDifferentPage) {
+          setIsLoading(true)
+        }
+      }
+    }
+
+    // Listen for all clicks
+    document.addEventListener('click', handleClick, { capture: true })
+
+    return () => {
+      document.removeEventListener('click', handleClick, { capture: true })
+    }
+  }, [])
 
   if (!isLoading) return null
 
