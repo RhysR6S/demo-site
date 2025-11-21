@@ -8,8 +8,15 @@ import { getSupabaseAdmin } from '@/lib/supabase'
 interface ContentLike {
   id: string
   created_at: string
-  user_name: string
+  user_id: string
   set_id: string
+  users: {
+    name: string
+    email: string
+  } | {
+    name: string
+    email: string
+  }[]
   content_sets: {
     id: string
     title: string
@@ -61,8 +68,9 @@ export async function GET(request: NextRequest) {
       .select(`
         id,
         created_at,
-        user_name,
+        user_id,
         set_id,
+        users!inner(name, email),
         content_sets!inner(id, title, slug)
       `)
       .gte('created_at', oneDayAgo.toISOString())
@@ -91,11 +99,16 @@ export async function GET(request: NextRequest) {
         const additionalCount = likes.length - 1
         
         // Handle both single object and array response from Supabase
-        const contentSet = Array.isArray(firstLike.content_sets) 
-          ? firstLike.content_sets[0] 
+        const contentSet = Array.isArray(firstLike.content_sets)
+          ? firstLike.content_sets[0]
           : firstLike.content_sets
-          
-        if (contentSet) {
+
+        const user = Array.isArray(firstLike.users)
+          ? firstLike.users[0]
+          : firstLike.users
+
+        if (contentSet && user) {
+          const userName = user.name || user.email?.split('@')[0] || 'Anonymous'
           notifications.push({
             id: `like-${setId}-${firstLike.created_at}`,
             type: 'like',
@@ -105,7 +118,7 @@ export async function GET(request: NextRequest) {
             created_at: firstLike.created_at,
             read: false,
             metadata: {
-              userNames: [firstLike.user_name],
+              userNames: [userName],
               postTitle: contentSet.title,
               additionalCount
             }

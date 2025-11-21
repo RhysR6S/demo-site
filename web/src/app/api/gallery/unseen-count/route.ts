@@ -17,10 +17,15 @@ export async function GET(request: NextRequest) {
       .from('users')
       .select('unseen_sets_count')
       .eq('id', session.user.id)
-      .single()
+      .maybeSingle()
 
     if (error) {
       console.error('User lookup error:', error)
+      return NextResponse.json({ count: 0 })
+    }
+
+    // Handle case where user doesn't exist
+    if (!user) {
       return NextResponse.json({ count: 0 })
     }
 

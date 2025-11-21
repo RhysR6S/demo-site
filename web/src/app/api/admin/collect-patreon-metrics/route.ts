@@ -27,13 +27,17 @@ export async function GET(request: NextRequest) {
       const supabase = getSupabaseAdmin()
 
       const mockMetrics = {
-        patron_count: 150,
-        total_members: 200,
-        monthly_revenue: 75000, // £750 in cents
-        tier_breakdown: {
+        total_patrons: 150,
+        total_earnings_cents: 75000, // £750 in cents
+        patron_count_by_tier: {
           'tier-1': 100,
           'tier-2': 40,
           'tier-3': 10
+        },
+        earnings_by_tier: {
+          'tier-1': 30000,
+          'tier-2': 30000,
+          'tier-3': 15000
         }
       }
 
@@ -59,8 +63,8 @@ export async function GET(request: NextRequest) {
         snapshot: {
           id: snapshot.id,
           created_at: snapshot.created_at,
-          patron_count: snapshot.patron_count,
-          monthly_revenue: snapshot.monthly_revenue
+          total_patrons: snapshot.total_patrons,
+          total_earnings_cents: snapshot.total_earnings_cents
         },
         message: 'Demo mode - metrics collected successfully'
       })
@@ -127,14 +131,14 @@ export async function GET(request: NextRequest) {
     const { data: snapshot, error: insertError } = await supabase
       .from('patreon_metrics_history')
       .insert({
-        patron_count: metrics.patronCount,
-        total_members: metrics.totalMembers,
-        monthly_revenue: metrics.monthlyRevenue,
-        tier_breakdown: metrics.tierBreakdown
+        total_patrons: metrics.patronCount,
+        total_earnings_cents: metrics.monthlyRevenue,
+        patron_count_by_tier: metrics.tierBreakdown,
+        earnings_by_tier: metrics.earningsByTier || {}
       })
       .select()
       .single()
-    
+
     if (insertError) {
       console.error('[Metrics Collector] Database error:', insertError)
       return NextResponse.json(
@@ -142,29 +146,29 @@ export async function GET(request: NextRequest) {
         { status: 500 }
       )
     }
-    
+
     console.log('[Metrics Collector] Successfully stored metrics snapshot:', snapshot.id)
-    
+
     // Clean up old snapshots (keep last 90 days of data)
     const ninetyDaysAgo = new Date()
     ninetyDaysAgo.setDate(ninetyDaysAgo.getDate() - 90)
-    
+
     const { error: cleanupError } = await supabase
       .from('patreon_metrics_history')
       .delete()
       .lt('created_at', ninetyDaysAgo.toISOString())
-    
+
     if (cleanupError) {
       console.warn('[Metrics Collector] Cleanup error:', cleanupError)
     }
-    
+
     return NextResponse.json({
       success: true,
       snapshot: {
         id: snapshot.id,
         created_at: snapshot.created_at,
-        patron_count: snapshot.patron_count,
-        monthly_revenue: snapshot.monthly_revenue
+        total_patrons: snapshot.total_patrons,
+        total_earnings_cents: snapshot.total_earnings_cents
       },
       message: 'Metrics collected successfully'
     })
