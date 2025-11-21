@@ -8,6 +8,7 @@ import { PageTransitionProvider } from '@/components/page-transition-provider'
 import { SidebarWrapper } from '@/components/sidebar-wrapper'
 import { DownloadProvider } from '@/components/download-manager'
 import { MobileProvider } from '@/providers/mobile-provider'
+import { LoadingBar } from '@/components/loading-bar'
 import { Analytics } from '@vercel/analytics/react'
 
 const inter = Inter({ 
@@ -81,6 +82,9 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
       <body className="font-sans antialiased min-h-screen bg-slate-950 overflow-x-hidden max-w-full">
+        {/* Global loading bar - appears at very top during navigation */}
+        <LoadingBar />
+
         <AuthProvider>
           <MobileProvider>
             <PageTransitionProvider>
