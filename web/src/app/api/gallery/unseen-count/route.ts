@@ -7,30 +7,24 @@ import { supabase } from '@/lib/supabase'
 export async function GET(request: NextRequest) {
   try {
     const session = await getServerSession(authOptions)
-    
+
     if (!session?.user?.id) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    // Direct lookup by ID
-    const { data: user, error } = await supabase
-      .from('users')
-      .select('unseen_sets_count')
-      .eq('id', session.user.id)
-      .maybeSingle()
+    // Use database function to dynamically calculate unseen count
+    const { data, error } = await supabase
+      .rpc('count_user_unseen_sets', {
+        p_user_id: session.user.id
+      })
 
     if (error) {
-      console.error('User lookup error:', error)
+      console.error('Error counting unseen sets:', error)
       return NextResponse.json({ count: 0 })
     }
 
-    // Handle case where user doesn't exist
-    if (!user) {
-      return NextResponse.json({ count: 0 })
-    }
-
-    return NextResponse.json({ 
-      count: user?.unseen_sets_count || 0
+    return NextResponse.json({
+      count: data || 0
     })
   } catch (error) {
     console.error('Unseen count error:', error)
