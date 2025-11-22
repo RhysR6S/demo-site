@@ -198,7 +198,7 @@ export default function ChannelsPage() {
   return (
     <div className="flex h-full">
       {/* Channel List Sidebar - darker than main sidebar */}
-      <div className="w-80 bg-slate-900/50 border-r border-white/5 flex flex-col h-full">
+      <div className="w-80 bg-slate-900 border-r border-white/5 flex flex-col h-full">
         <ChannelList
           channels={channels}
           selectedChannelId={selectedChannelId}
@@ -209,7 +209,7 @@ export default function ChannelsPage() {
       </div>
 
       {/* Channel View - darkest */}
-      <div className="flex-1 flex flex-col h-full bg-slate-950/80">
+      <div className="flex-1 flex flex-col h-full bg-black">
         {selectedChannelId ? (
           <ChannelView
             channelId={selectedChannelId}
