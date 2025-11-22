@@ -1131,9 +1131,9 @@ export function ImageGallery({ setId, images, title }: ImageGalleryProps) {
         <div className={`${isFullscreen ? 'absolute bottom-0 left-0 right-0 bg-black/80' : 'bg-slate-900 border-t border-zinc-800'} p-3 ${
           isPlaying ? (showUI ? 'opacity-100' : 'opacity-0 pointer-events-none') : 'opacity-100'
         } transition-opacity duration-500`}>
-          <div 
+          <div
             ref={thumbnailContainerRef}
-            className="flex gap-2 overflow-x-auto scrollbar-thin scrollbar-thumb-zinc-600 scrollbar-track-zinc-800"
+            className="flex gap-2 overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-zinc-600 scrollbar-track-zinc-800"
             style={{ scrollbarWidth: 'thin' }}
           >
             {sortedImages.map((image, index) => (
