@@ -224,7 +224,7 @@ function DMsContent() {
     <div className="h-full flex">
       {/* Sidebar - Only show for creators - darker than main sidebar */}
       {isCreator && (
-        <div className="w-80 border-r border-white/10 bg-[#0a0a0a]">
+        <div className="w-80 border-r border-white/10 bg-[#0a0e1b]">
           <DMList
             conversations={conversations}
             selectedConversationId={selectedConversationId}

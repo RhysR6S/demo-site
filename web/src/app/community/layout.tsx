@@ -171,7 +171,7 @@ export default function CommunityLayout({
     <MainLayout>
       <div className="flex h-full"> {/* Full height without navbar */}
         {/* Tab Navigation Sidebar */}
-        <div className="w-64 bg-red-500 backdrop-blur-sm border-r border-white/5 flex flex-col h-full">
+        <div className="w-64 bg-[#0c1222] backdrop-blur-sm border-r border-white/5 flex flex-col h-full">
           {/* Header with back button */}
           <div className="p-4 border-b border-white/5">
             <div className="flex items-center justify-between mb-4">
